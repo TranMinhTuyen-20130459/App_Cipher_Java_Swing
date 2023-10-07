@@ -44,23 +44,23 @@ public class Frame_Home extends JFrame {
         panel_menu.add(label_avatar);
 
         JLabel label_text_1 = new JLabel("AN TOÀN BẢO MẬT HỆ THỐNG THÔNG TIN");
-        label_text_1.setHorizontalAlignment(SwingConstants.CENTER); // Canh giữa theo chiều rộng
-        label_text_1.setForeground(new Color(255, 255, 255)); // Đặt màu chữ (ở đây là trắng)
-        label_text_1.setBounds(0, 150, 330, 100); // Đặt vị trí và kích thước của label_text
+        label_text_1.setHorizontalAlignment(SwingConstants.CENTER);
+        label_text_1.setForeground(new Color(255, 255, 255));
+        label_text_1.setBounds(0, 150, 330, 100);
         // Tạo một đối tượng Font mới
-        Font custom_font_1 = new Font("Arial", Font.BOLD, 14); // Tên font, kiểu font, kích thước font
+        Font custom_font_1 = new Font("Arial", Font.BOLD, 14);
         label_text_1.setFont(custom_font_1);
-        panel_menu.add(label_text_1); // Thêm label_text vào panel_menu
+        panel_menu.add(label_text_1);
 
         JLabel label_text_2 = new JLabel("GV: Ths.Phan Đình Long");
-        label_text_2.setHorizontalAlignment(SwingConstants.CENTER); // Canh giữa theo chiều rộng
-        label_text_2.setForeground(new Color(9, 27, 229)); // Đặt màu chữ (ở đây là trắng)
-        label_text_2.setBounds(0, 180, 330, 100); // Đặt vị trí và kích thước của label_text
+        label_text_2.setHorizontalAlignment(SwingConstants.CENTER);
+        label_text_2.setForeground(new Color(9, 27, 229));
+        label_text_2.setBounds(0, 180, 330, 100);
         // Tạo một đối tượng Font mới
-        Font custom_font_2 = new Font("Arial", Font.PLAIN, 16); // Tên font, kiểu font, kích thước font
+        Font custom_font_2 = new Font("Arial", Font.PLAIN, 16);
         // Đặt font chữ cho label_text_2
         label_text_2.setFont(custom_font_2);
-        panel_menu.add(label_text_2); // Thêm label_text vào panel_menu
+        panel_menu.add(label_text_2);
 
 
     }
