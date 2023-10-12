@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="thêm các Panel_Menu để chọn các thuật toán mã hóa, thêm Panel hiển thị thông tin bản quyền tác giả">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="Đổi màu menu khi click vào, tạo các giao diện Panel cơ bản cho các thuật toán Mã Hóa">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Frame_Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Frame_Home.java" afterDir="false" />
     </list>
@@ -90,7 +90,12 @@
       <workItem from="1696673266220" duration="90000" />
       <workItem from="1696684684641" duration="88000" />
       <workItem from="1696732001960" duration="2508000" />
-      <workItem from="1696754905441" duration="6666000" />
+      <workItem from="1696754905441" duration="6937000" />
+      <workItem from="1696769472178" duration="91000" />
+      <workItem from="1696823023166" duration="82000" />
+      <workItem from="1696953229364" duration="210000" />
+      <workItem from="1697109708425" duration="369000" />
+      <workItem from="1697121114460" duration="638000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1696644054692</created>
@@ -134,7 +139,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696672829982</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Đổi màu menu khi click vào, tạo các giao diện Panel cơ bản cho các thuật toán Mã Hóa">
+      <created>1696761800010</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1696761800010</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,6 +167,7 @@
     <MESSAGE value="Init commit" />
     <MESSAGE value="thêm giao diện trang Home" />
     <MESSAGE value="thêm các Panel_Menu để chọn các thuật toán mã hóa, thêm Panel hiển thị thông tin bản quyền tác giả" />
-    <option name="LAST_COMMIT_MESSAGE" value="thêm các Panel_Menu để chọn các thuật toán mã hóa, thêm Panel hiển thị thông tin bản quyền tác giả" />
+    <MESSAGE value="Đổi màu menu khi click vào, tạo các giao diện Panel cơ bản cho các thuật toán Mã Hóa" />
+    <option name="LAST_COMMIT_MESSAGE" value="Đổi màu menu khi click vào, tạo các giao diện Panel cơ bản cho các thuật toán Mã Hóa" />
   </component>
 </project>

@@ -205,7 +205,7 @@ public class Frame_Home extends JFrame {
 
         panel_menu_doi_xung = new JPanel();
         panel_menu_doi_xung.setForeground(new Color(255, 255, 255));
-        panel_menu_doi_xung.setBackground(new Color(0, 139, 139));
+        panel_menu_doi_xung.setBackground(new Color(215, 187, 18));
         panel_menu_doi_xung.setBounds(5, 250, WIDTH / 3 - 10, HEIGHT / 7);
 
         panel_menu_doi_xung.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
