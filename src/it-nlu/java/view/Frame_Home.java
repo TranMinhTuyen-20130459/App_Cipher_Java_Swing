@@ -3,11 +3,8 @@ package view;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
 
 public class Frame_Home extends JFrame {
     private int WIDTH = 1000;
@@ -21,8 +18,6 @@ public class Frame_Home extends JFrame {
             panel_menu_chu_ky_dien_tu;
     private Image img_avatar = new ImageIcon("src/it-nlu/resources/image/it-nlu.png").getImage().getScaledInstance(150, 150,
             Image.SCALE_SMOOTH);
-    private java.util.List<Color> list_color_of_panel_content_top = new ArrayList<>();
-    private int current_color_index = 0;
     private static int WIDTH_PANEL_CONTENT_MAIN = 1000 - (1000 / 3 + 38);
     private static int HEIGHT_PANEL_CONTENT_MAIN = 650 - (650 / 6 + 60);
     public static JPanel panel_ma_hoa_doi_xung = new Panel_MA_HOA_DOI_XUNG(WIDTH_PANEL_CONTENT_MAIN, HEIGHT_PANEL_CONTENT_MAIN);
@@ -105,24 +100,6 @@ public class Frame_Home extends JFrame {
         panel_content.setLayout(null);
 
         createPanelContentTop();
-
-        // Thêm các màu vào danh sách
-        list_color_of_panel_content_top.add(new Color(215, 187, 18));
-        list_color_of_panel_content_top.add(new Color(0, 255, 0));
-        list_color_of_panel_content_top.add(new Color(136, 196, 230));
-
-        // Tạo một Timer để thực hiện hiệu ứng thay đổi màu
-        Timer colorChangeTimer = new Timer(10000, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Thay đổi màu của panel_content_top
-                panel_content_top.setBackground(list_color_of_panel_content_top.get(current_color_index));
-                current_color_index = (current_color_index + 1) % list_color_of_panel_content_top.size(); // Di chuyển đến màu tiếp theo
-            }
-        });
-        colorChangeTimer.setRepeats(true);
-        colorChangeTimer.start();
-
         createPanelContentMain();
 
     }
