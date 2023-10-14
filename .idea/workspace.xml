@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="Thêm giao diện cho component MA_HOA_DOI_XUNG">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="Thêm các Class dành cho giải thuật mã hóa đối xứng và bất đối xứng">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Frame_Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Frame_Home.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG.java" afterDir="false" />
@@ -102,7 +102,9 @@
       <workItem from="1697247120317" duration="321000" />
       <workItem from="1697249347008" duration="124000" />
       <workItem from="1697250478691" duration="1742000" />
-      <workItem from="1697253449862" duration="4995000" />
+      <workItem from="1697253449862" duration="5687000" />
+      <workItem from="1697259358226" duration="110000" />
+      <workItem from="1697274978883" duration="1849000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1696644054692</created>
@@ -167,7 +169,28 @@
       <option name="project" value="LOCAL" />
       <updated>1697170586083</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="bỏ đoạn code thay đổi màu nền sau 10s cho component Bản Quyền">
+      <created>1697258815045</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1697258815045</updated>
+    </task>
+    <task id="LOCAL-00011" summary="tiếp tục thêm giao diện cho component MA_HOA_DOI_XUNG">
+      <created>1697258859584</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1697258859584</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Thêm các Class dành cho giải thuật mã hóa đối xứng và bất đối xứng">
+      <created>1697258916919</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1697258916919</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,6 +214,9 @@
     <MESSAGE value="Đổi màu menu khi click vào, tạo các giao diện Panel cơ bản cho các thuật toán Mã Hóa" />
     <MESSAGE value="đổi background màu vàng cho menu MÃ HÓA ĐỐI XỨNG" />
     <MESSAGE value="Thêm giao diện cho component MA_HOA_DOI_XUNG" />
-    <option name="LAST_COMMIT_MESSAGE" value="Thêm giao diện cho component MA_HOA_DOI_XUNG" />
+    <MESSAGE value="bỏ đoạn code thay đổi màu nền sau 10s cho component Bản Quyền" />
+    <MESSAGE value="tiếp tục thêm giao diện cho component MA_HOA_DOI_XUNG" />
+    <MESSAGE value="Thêm các Class dành cho giải thuật mã hóa đối xứng và bất đối xứng" />
+    <option name="LAST_COMMIT_MESSAGE" value="Thêm các Class dành cho giải thuật mã hóa đối xứng và bất đối xứng" />
   </component>
 </project>

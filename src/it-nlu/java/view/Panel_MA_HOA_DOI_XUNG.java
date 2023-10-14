@@ -6,24 +6,33 @@ import java.awt.geom.RoundRectangle2D;
 import java.util.Arrays;
 
 public class Panel_MA_HOA_DOI_XUNG extends JPanel {
-    private JButton bt_encrypt, bt_decrypt, bt_check_key;
+    private JLabel label_chon_giai_thuat,
+            label_chon_ngon_ngu,
+            label_key,
+            label_van_ban_ma_hoa,
+            label_van_ban_giai_ma;
+    private JButton bt_encrypt,
+            bt_decrypt,
+            bt_input_key;
     private JTextArea plain_text_area,
             encrypted_text_area,
             decrypted_text_area;
 
-    private String plain_text = "",
-            encrypted_text = "",
-            decrypted_text = "";
     private JScrollPane scroll_pane_plain_text_area,
             scroll_pane_encrypted_text_area,
             scroll_pane_decrypted_text_area;
 
-    private JTextField key_text_field;
-    private JComboBox combo_box_algorithm, combo_box_language;
+    private JTextField text_field_key;
+    private JComboBox combo_box_algorithm,
+            combo_box_language;
 
     private String[] arr_algorithms = {"Vigenere", "Hill", "Affine", "DES", "Triple DES", "AES"};
 
     private String[] arr_languages = {"VietNam", "English"};
+
+    private String plain_text = "",
+            encrypted_text = "",
+            decrypted_text = "";
 
     public Panel_MA_HOA_DOI_XUNG(int WIDTH, int HEIGHT) {
 
@@ -33,67 +42,88 @@ public class Panel_MA_HOA_DOI_XUNG extends JPanel {
         setLayout(null);
         setVisible(true);
 
-        JLabel text_chon_giai_thuat = new JLabel("Chọn giải thuật:");
-        text_chon_giai_thuat.setForeground(Color.BLACK);
-        text_chon_giai_thuat.setHorizontalAlignment(SwingConstants.CENTER);
-        text_chon_giai_thuat.setFont(new Font("Arial", Font.PLAIN, 14));
-        text_chon_giai_thuat.setBounds(0, 19, 145, 37);
-
-        JLabel text_chon_ngon_ngu = new JLabel("Chọn ngôn ngữ:");
-        text_chon_ngon_ngu.setForeground(Color.BLACK);
-        text_chon_ngon_ngu.setHorizontalAlignment(SwingConstants.CENTER);
-        text_chon_ngon_ngu.setFont(new Font("Arial", Font.PLAIN, 14));
-        text_chon_ngon_ngu.setBounds(364, 19, 119, 37);
-
-        JLabel text_nhap_key = new JLabel("Key:");
-        text_nhap_key.setForeground(Color.BLACK);
-        text_nhap_key.setHorizontalAlignment(SwingConstants.CENTER);
-        text_nhap_key.setFont(new Font("Arial", Font.PLAIN, 14));
-        text_nhap_key.setBounds(0, 83, 80, 37);
-
-        JLabel text_van_ban_ma_hoa = new JLabel("Đoạn văn bản mã hóa:");
-        text_van_ban_ma_hoa.setForeground(Color.BLACK);
-        text_van_ban_ma_hoa.setHorizontalAlignment(SwingConstants.CENTER);
-        text_van_ban_ma_hoa.setFont(new Font("Arial", Font.PLAIN, 14));
-        text_van_ban_ma_hoa.setBounds(19, 240, 143, 70);
-
-        JLabel text_van_ban_giai_ma = new JLabel("Đoạn văn bản giải mã:");
-        text_van_ban_giai_ma.setForeground(Color.BLACK);
-        text_van_ban_giai_ma.setHorizontalAlignment(SwingConstants.CENTER);
-        text_van_ban_giai_ma.setFont(new Font("Arial", Font.PLAIN, 14));
-        text_van_ban_giai_ma.setBounds(17, 330, 145, 70);
-
-        add(text_chon_giai_thuat);
-        add(text_chon_ngon_ngu);
-        add(text_nhap_key);
-        add(text_van_ban_ma_hoa);
-        add(text_van_ban_giai_ma);
-
+        createLabelGroup();
         createTextAreaGroup();
         createButtonGroup();
         createComboBoxGroup();
         createTextFieldGroup();
 
+        add(label_chon_giai_thuat);
+        add(label_chon_ngon_ngu);
+        add(label_key);
+        add(label_van_ban_ma_hoa);
+        add(label_van_ban_giai_ma);
+
         add(scroll_pane_plain_text_area);
         add(scroll_pane_encrypted_text_area);
         add(scroll_pane_decrypted_text_area);
+
         add(bt_encrypt);
         add(bt_decrypt);
-        add(bt_check_key);
+        add(bt_input_key);
+
         add(combo_box_algorithm);
         add(combo_box_language);
-        add(key_text_field);
+
+        add(text_field_key);
+    }
+
+
+    public void createLabelGroup() {
+
+        label_chon_giai_thuat = new JLabel("Chọn giải thuật:");
+        label_chon_giai_thuat.setForeground(Color.BLACK);
+        label_chon_giai_thuat.setHorizontalAlignment(SwingConstants.CENTER);
+        label_chon_giai_thuat.setFont(new Font("Arial", Font.PLAIN, 14));
+        label_chon_giai_thuat.setBounds(0, 19, 145, 37);
+
+        label_chon_ngon_ngu = new JLabel("Chọn ngôn ngữ:");
+        label_chon_ngon_ngu.setForeground(Color.BLACK);
+        label_chon_ngon_ngu.setHorizontalAlignment(SwingConstants.CENTER);
+        label_chon_ngon_ngu.setFont(new Font("Arial", Font.PLAIN, 14));
+        label_chon_ngon_ngu.setBounds(364, 19, 119, 37);
+
+        label_key = new JLabel("Key:");
+        label_key.setForeground(Color.BLACK);
+        label_key.setHorizontalAlignment(SwingConstants.CENTER);
+        label_key.setFont(new Font("Arial", Font.PLAIN, 14));
+        label_key.setBounds(0, 83, 80, 37);
+
+        label_van_ban_ma_hoa = new JLabel("Đoạn văn bản mã hóa:");
+        label_van_ban_ma_hoa.setForeground(Color.BLACK);
+        label_van_ban_ma_hoa.setHorizontalAlignment(SwingConstants.CENTER);
+        label_van_ban_ma_hoa.setFont(new Font("Arial", Font.PLAIN, 14));
+        label_van_ban_ma_hoa.setBounds(19, 240, 143, 70);
+
+        label_van_ban_giai_ma = new JLabel("Đoạn văn bản giải mã:");
+        label_van_ban_giai_ma.setForeground(Color.BLACK);
+        label_van_ban_giai_ma.setHorizontalAlignment(SwingConstants.CENTER);
+        label_van_ban_giai_ma.setFont(new Font("Arial", Font.PLAIN, 14));
+        label_van_ban_giai_ma.setBounds(17, 330, 145, 70);
+
     }
 
     public void createButtonGroup() {
+        createButtonEncrypt();
+        createButtonDecrypt();
+        createButtonInputKey();
+    }
+
+    public void createButtonEncrypt() {
         bt_encrypt = new RoundedButton("MÃ HÓA", 25, new Color(217, 217, 217));
         bt_encrypt.setBounds(19, 439, 106, 26);
+        bt_encrypt.setEnabled(false);
+    }
 
+    public void createButtonDecrypt() {
         bt_decrypt = new RoundedButton("GIẢI MÃ", 25, new Color(217, 217, 217));
         bt_decrypt.setBounds(499, 439, 106, 26);
+        bt_decrypt.setEnabled(false);
+    }
 
-        bt_check_key = new RoundedButton("NHẬP KEY", 35, new Color(58, 205, 34));
-        bt_check_key.setBounds(510, 82, 101, 37);
+    public void createButtonInputKey() {
+        bt_input_key = new RoundedButton("NHẬP KEY", 35, new Color(58, 205, 34));
+        bt_input_key.setBounds(510, 82, 101, 37);
     }
 
     public void createTextAreaGroup() {
@@ -162,11 +192,15 @@ public class Panel_MA_HOA_DOI_XUNG extends JPanel {
     }
 
     public void createTextFieldGroup() {
-        key_text_field = new JTextField();
-        key_text_field.setBounds(145, 82, 338, 37);
-        key_text_field.setFont(new Font("Arial", Font.PLAIN, 14));
-        key_text_field.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-        key_text_field.setEditable(false);
+        createTextFieldKey();
+    }
+
+    public void createTextFieldKey() {
+        text_field_key = new JTextField();
+        text_field_key.setBounds(145, 82, 338, 37);
+        text_field_key.setFont(new Font("Arial", Font.PLAIN, 14));
+        text_field_key.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        text_field_key.setEditable(false);
     }
 
     public class RoundedButton extends JButton {
