@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="Tối ưu src code của Frame_Home và Panel_MA_HOA_DOI_XUNG">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="chỉnh sửa class Panel_MA_HOA_DOI_XUNG">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +105,11 @@
       <workItem from="1697250478691" duration="1742000" />
       <workItem from="1697253449862" duration="5687000" />
       <workItem from="1697259358226" duration="110000" />
-      <workItem from="1697274978883" duration="6245000" />
+      <workItem from="1697274978883" duration="6442000" />
+      <workItem from="1697343281366" duration="78000" />
+      <workItem from="1697354100693" duration="6777000" />
+      <workItem from="1697360969133" duration="2261000" />
+      <workItem from="1697363317086" duration="3312000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1696644054692</created>
@@ -196,7 +202,21 @@
       <option name="project" value="LOCAL" />
       <updated>1697277153224</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="thêm class Panel_MA_HOA_DOI_XUNG_TEXT &amp;&amp; Panel_MA_HOA_DOI_XUNG_FILE">
+      <created>1697281455591</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1697281455591</updated>
+    </task>
+    <task id="LOCAL-00015" summary="chỉnh sửa class Panel_MA_HOA_DOI_XUNG">
+      <created>1697281502402</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1697281502402</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,6 +244,8 @@
     <MESSAGE value="tiếp tục thêm giao diện cho component MA_HOA_DOI_XUNG" />
     <MESSAGE value="Thêm các Class dành cho giải thuật mã hóa đối xứng và bất đối xứng" />
     <MESSAGE value="Tối ưu src code của Frame_Home và Panel_MA_HOA_DOI_XUNG" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tối ưu src code của Frame_Home và Panel_MA_HOA_DOI_XUNG" />
+    <MESSAGE value="thêm class Panel_MA_HOA_DOI_XUNG_TEXT &amp;&amp; Panel_MA_HOA_DOI_XUNG_FILE" />
+    <MESSAGE value="chỉnh sửa class Panel_MA_HOA_DOI_XUNG" />
+    <option name="LAST_COMMIT_MESSAGE" value="chỉnh sửa class Panel_MA_HOA_DOI_XUNG" />
   </component>
 </project>

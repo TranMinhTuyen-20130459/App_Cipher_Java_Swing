@@ -2,6 +2,8 @@ package view;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
 import java.util.Arrays;
 
@@ -13,7 +15,8 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
             label_van_ban_giai_ma;
     private JButton bt_encrypt,
             bt_decrypt,
-            bt_input_key;
+            bt_input_key,
+            bt_home;
     private JTextArea plain_text_area,
             encrypted_text_area,
             decrypted_text_area;
@@ -25,7 +28,6 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     private JTextField text_field_key;
     private JComboBox combo_box_algorithm,
             combo_box_language;
-
     private String[] arr_algorithms = {"Vigenere", "Hill", "Affine", "DES", "Triple DES", "AES"};
 
     private String[] arr_languages = {"VietNam", "English"};
@@ -33,6 +35,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     private String plain_text = "",
             encrypted_text = "",
             decrypted_text = "";
+
 
     public Panel_MA_HOA_DOI_XUNG_TEXT(int WIDTH, int HEIGHT) {
 
@@ -61,6 +64,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         add(bt_encrypt);
         add(bt_decrypt);
         add(bt_input_key);
+        add(bt_home);
 
         add(combo_box_algorithm);
         add(combo_box_language);
@@ -107,6 +111,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         createButtonEncrypt();
         createButtonDecrypt();
         createButtonInputKey();
+        createButtonHome();
     }
 
     public void createButtonEncrypt() {
@@ -117,13 +122,24 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
 
     public void createButtonDecrypt() {
         bt_decrypt = new RoundedButton("GIẢI MÃ", 25, new Color(217, 217, 217));
-        bt_decrypt.setBounds(499, 439, 106, 26);
+        bt_decrypt.setBounds(190, 439, 106, 26);
         bt_decrypt.setEnabled(false);
     }
 
     public void createButtonInputKey() {
         bt_input_key = new RoundedButton("NHẬP KEY", 35, new Color(58, 205, 34));
         bt_input_key.setBounds(510, 82, 101, 37);
+    }
+
+    public void createButtonHome() {
+        bt_home = new RoundedButton("TRANG CHỦ", 15, new Color(136, 196, 230));
+        bt_home.setBounds(495, 432, 115, 37);
+
+        bt_home.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+            }
+        });
     }
 
     public void createTextAreaGroup() {
