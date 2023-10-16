@@ -36,7 +36,6 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
             encrypted_text = "",
             decrypted_text = "";
 
-
     public Panel_MA_HOA_DOI_XUNG_TEXT(int WIDTH, int HEIGHT) {
 
         setBackground(new Color(255, 255, 255, 255));
@@ -138,6 +137,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         bt_home.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                Frame_Home.menuClicked(Frame_Home.panel_ma_hoa_doi_xung);
             }
         });
     }

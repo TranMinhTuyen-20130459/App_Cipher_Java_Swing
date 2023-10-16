@@ -24,6 +24,8 @@ public class Frame_Home extends JFrame {
     private static int WIDTH_PANEL_CONTENT_MAIN = 1000 - (1000 / 3 + 38);
     private static int HEIGHT_PANEL_CONTENT_MAIN = 650 - (650 / 6 + 60);
     public static JPanel panel_ma_hoa_doi_xung = new Panel_MA_HOA_DOI_XUNG(WIDTH_PANEL_CONTENT_MAIN, HEIGHT_PANEL_CONTENT_MAIN);
+    public static JPanel panel_mhdx_text = new Panel_MA_HOA_DOI_XUNG_TEXT(WIDTH_PANEL_CONTENT_MAIN, HEIGHT_PANEL_CONTENT_MAIN);
+    public static JPanel panel_mhdx_file = new Panel_MA_HOA_DOI_XUNG_FILE(WIDTH_PANEL_CONTENT_MAIN, HEIGHT_PANEL_CONTENT_MAIN);
     public static JPanel panel_ma_hoa_bat_doi_xung = new Panel_MA_HOA_BAT_DOI_XUNG(WIDTH_PANEL_CONTENT_MAIN, HEIGHT_PANEL_CONTENT_MAIN);
     public static JPanel panel_ma_hoa_hash = new Panel_MA_HOA_HASH(WIDTH_PANEL_CONTENT_MAIN, HEIGHT_PANEL_CONTENT_MAIN);
     public static JPanel panel_chu_ky_dien_tu = new Panel_CHU_KY_DIEN_TU(WIDTH_PANEL_CONTENT_MAIN, HEIGHT_PANEL_CONTENT_MAIN);
@@ -178,7 +180,8 @@ public class Frame_Home extends JFrame {
         panel_content_main.add(panel_ma_hoa_bat_doi_xung).setVisible(false);
         panel_content_main.add(panel_ma_hoa_hash).setVisible(false);
         panel_content_main.add(panel_chu_ky_dien_tu).setVisible(false);
-
+        panel_content_main.add(panel_mhdx_text).setVisible(false);
+        panel_content_main.add(panel_mhdx_file).setVisible(false);
     }
 
     public void createPanelMenu_MA_HOA_DOI_XUNG() {
@@ -290,17 +293,6 @@ public class Frame_Home extends JFrame {
         panel_menu_chu_ky_dien_tu.add(label_chu_ky_dien_tu);
     }
 
-    // khi click vào Menu nào thì sẽ hiện ra cái Panel mà Menu đó tham chiếu tới
-    public static void menuClicked(JPanel panel) {
-
-        panel_ma_hoa_doi_xung.setVisible(false);
-        panel_ma_hoa_bat_doi_xung.setVisible(false);
-        panel_ma_hoa_hash.setVisible(false);
-        panel_chu_ky_dien_tu.setVisible(false);
-
-        panel.setVisible(true);
-    }
-
     // khi click vào Menu nào thì sẽ đổi màu Panel của Menu đó
     public void changeColorMenuPanel(JPanel panel) {
 
@@ -310,6 +302,19 @@ public class Frame_Home extends JFrame {
         panel_menu_chu_ky_dien_tu.setBackground(new Color(0, 139, 139));
 
         panel.setBackground(new Color(215, 187, 18));
+    }
+
+    // khi click vào Menu nào thì sẽ hiện ra cái Panel mà Menu đó tham chiếu tới
+    public static void menuClicked(JPanel panel) {
+
+        if (panel_ma_hoa_doi_xung != null) panel_ma_hoa_doi_xung.setVisible(false);
+        if (panel_mhdx_text != null) panel_mhdx_text.setVisible(false);
+        if (panel_mhdx_file != null) panel_mhdx_file.setVisible(false);
+        if (panel_ma_hoa_bat_doi_xung != null) panel_ma_hoa_bat_doi_xung.setVisible(false);
+        if (panel_ma_hoa_hash != null) panel_ma_hoa_hash.setVisible(false);
+        if (panel_chu_ky_dien_tu != null) panel_chu_ky_dien_tu.setVisible(false);
+
+        panel.setVisible(true);
     }
 
     private class PanelButtonMouseAdapter extends MouseAdapter {
