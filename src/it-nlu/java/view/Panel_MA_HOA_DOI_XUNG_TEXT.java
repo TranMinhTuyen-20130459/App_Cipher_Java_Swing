@@ -137,7 +137,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         bt_home.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                Frame_Home.menuClicked(Frame_Home.panel_ma_hoa_doi_xung);
+                Frame_Home.showPanel(Frame_Home.panel_ma_hoa_doi_xung);
             }
         });
     }

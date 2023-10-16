@@ -195,7 +195,7 @@ public class Frame_Home extends JFrame {
         panel_menu_doi_xung.addMouseListener(new PanelButtonMouseAdapter(panel_menu_doi_xung) {
             @Override
             public void mouseClicked(MouseEvent e) {
-                menuClicked(panel_ma_hoa_doi_xung);
+                showPanel(panel_ma_hoa_doi_xung);
                 changeColorMenuPanel(panel_menu_doi_xung);
             }
         });
@@ -223,7 +223,7 @@ public class Frame_Home extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                menuClicked(panel_ma_hoa_bat_doi_xung);
+                showPanel(panel_ma_hoa_bat_doi_xung);
                 changeColorMenuPanel(panel_menu_bat_doi_xung);
 
             }
@@ -251,7 +251,7 @@ public class Frame_Home extends JFrame {
         panel_menu_hash.addMouseListener(new PanelButtonMouseAdapter(panel_menu_hash) {
             @Override
             public void mouseClicked(MouseEvent e) {
-                menuClicked(panel_ma_hoa_hash);
+                showPanel(panel_ma_hoa_hash);
                 changeColorMenuPanel(panel_menu_hash);
             }
         });
@@ -278,7 +278,7 @@ public class Frame_Home extends JFrame {
         panel_menu_chu_ky_dien_tu.addMouseListener(new PanelButtonMouseAdapter(panel_menu_chu_ky_dien_tu) {
             @Override
             public void mouseClicked(MouseEvent e) {
-                menuClicked(panel_chu_ky_dien_tu);
+                showPanel(panel_chu_ky_dien_tu);
                 changeColorMenuPanel(panel_menu_chu_ky_dien_tu);
             }
         });
@@ -305,7 +305,7 @@ public class Frame_Home extends JFrame {
     }
 
     // khi click vào Menu nào thì sẽ hiện ra cái Panel mà Menu đó tham chiếu tới
-    public static void menuClicked(JPanel panel) {
+    public static void showPanel(JPanel panel) {
 
         if (panel_ma_hoa_doi_xung != null) panel_ma_hoa_doi_xung.setVisible(false);
         if (panel_mhdx_text != null) panel_mhdx_text.setVisible(false);

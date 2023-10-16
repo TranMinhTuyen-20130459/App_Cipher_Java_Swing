@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="xử lí sự kiện khi click vào &quot;MÃ HÓA VĂN BẢN&quot; or &quot;MÃ HÓA FILE&quot; của components &quot;MÃ HÓA ĐỐI XỨNG&quot;">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="hoàn thành xử lí sự kiện khi click vào &quot;MÃ HÓA VĂN BẢN&quot; or &quot;MÃ HÓA FILE&quot; của components &quot;MÃ HÓA ĐỐI XỨNG&quot;">
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Frame_Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Frame_Home.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" afterDir="false" />
@@ -117,7 +116,7 @@
       <workItem from="1697360969133" duration="2261000" />
       <workItem from="1697363317086" duration="4066000" />
       <workItem from="1697377491126" duration="9885000" />
-      <workItem from="1697427900623" duration="4144000" />
+      <workItem from="1697427900623" duration="4741000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1696644054692</created>
@@ -231,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697366851732</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="hoàn thành xử lí sự kiện khi click vào &quot;MÃ HÓA VĂN BẢN&quot; or &quot;MÃ HÓA FILE&quot; của components &quot;MÃ HÓA ĐỐI XỨNG&quot;">
+      <created>1697432188366</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1697432188366</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,6 +268,7 @@
     <MESSAGE value="thêm class Panel_MA_HOA_DOI_XUNG_TEXT &amp;&amp; Panel_MA_HOA_DOI_XUNG_FILE" />
     <MESSAGE value="chỉnh sửa class Panel_MA_HOA_DOI_XUNG" />
     <MESSAGE value="xử lí sự kiện khi click vào &quot;MÃ HÓA VĂN BẢN&quot; or &quot;MÃ HÓA FILE&quot; của components &quot;MÃ HÓA ĐỐI XỨNG&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="xử lí sự kiện khi click vào &quot;MÃ HÓA VĂN BẢN&quot; or &quot;MÃ HÓA FILE&quot; của components &quot;MÃ HÓA ĐỐI XỨNG&quot;" />
+    <MESSAGE value="hoàn thành xử lí sự kiện khi click vào &quot;MÃ HÓA VĂN BẢN&quot; or &quot;MÃ HÓA FILE&quot; của components &quot;MÃ HÓA ĐỐI XỨNG&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="hoàn thành xử lí sự kiện khi click vào &quot;MÃ HÓA VĂN BẢN&quot; or &quot;MÃ HÓA FILE&quot; của components &quot;MÃ HÓA ĐỐI XỨNG&quot;" />
   </component>
 </project>

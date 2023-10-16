@@ -45,7 +45,7 @@ public class Panel_MA_HOA_DOI_XUNG extends JPanel {
         panel_cipher_text.addMouseListener(new PanelButtonMouseAdapter(panel_cipher_text) {
             @Override
             public void mouseClicked(MouseEvent e) {
-                Frame_Home.menuClicked(Frame_Home.panel_mhdx_text);
+                Frame_Home.showPanel(Frame_Home.panel_mhdx_text);
             }
         });
 
@@ -70,7 +70,7 @@ public class Panel_MA_HOA_DOI_XUNG extends JPanel {
         panel_cipher_file.addMouseListener(new PanelButtonMouseAdapter(panel_cipher_file) {
             @Override
             public void mouseClicked(MouseEvent e) {
-                Frame_Home.menuClicked(Frame_Home.panel_mhdx_file);
+                Frame_Home.showPanel(Frame_Home.panel_mhdx_file);
             }
         });
     }
