@@ -1,7 +1,13 @@
 package view;
 
+import controller.Controller_MA_HOA_DOI_XUNG_TEXT;
+
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
@@ -30,11 +36,13 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
             combo_box_language;
     private String[] arr_algorithms = {"Vigenere", "Hill", "Affine", "DES", "Triple DES", "AES"};
 
-    private String[] arr_languages = {"VietNam", "English"};
+    private String[] arr_languages = {"English", "Vietnamese"};
 
     private String plain_text = "",
             encrypted_text = "",
-            decrypted_text = "";
+            decrypted_text = "",
+            name_algorithm = "AES",
+            name_language = "English";
 
     public Panel_MA_HOA_DOI_XUNG_TEXT(int WIDTH, int HEIGHT) {
 
@@ -117,6 +125,22 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         bt_encrypt = new RoundedButton("MÃ HÓA", 25, new Color(217, 217, 217));
         bt_encrypt.setBounds(19, 439, 106, 26);
         bt_encrypt.setEnabled(false);
+
+        bt_encrypt.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                encrypted_text = Controller_MA_HOA_DOI_XUNG_TEXT.encryptText(name_algorithm,
+                        name_language,
+                        plain_text,
+                        null);
+
+                encrypted_text_area.setEnabled(true);
+                encrypted_text_area.setText(encrypted_text);
+
+                bt_decrypt.setEnabled(true);
+            }
+        });
     }
 
     public void createButtonDecrypt() {
@@ -151,6 +175,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     public void createPlainTextArea() {
         plain_text_area = new JTextAreaWithPlaceholder("Nhập đoạn văn bản cần mã hóa tại đây...");
         plain_text_area.setBackground(new Color(217, 217, 217));
+        plain_text_area.setFont(new Font("Arial", Font.PLAIN, 16));
 
         scroll_pane_plain_text_area = new JScrollPane(plain_text_area);
         scroll_pane_plain_text_area.setBounds(19, 150, 592, 70);
@@ -161,11 +186,43 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         // Đảm bảo thanh cuộn sẽ hiển thị khi nội dung vượt quá kích thước của JTextArea
         plain_text_area.setLineWrap(true);
         plain_text_area.setWrapStyleWord(true);
+
+        // Thêm một DocumentListener để xử lý sự kiện khi nội dung thay đổi
+        plain_text_area.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                plain_text = plain_text_area.getText();
+                // System.out.println(plain_text);
+
+                if (plain_text.isEmpty()) bt_encrypt.setEnabled(false);
+                else bt_encrypt.setEnabled(true);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                plain_text = plain_text_area.getText();
+                // System.out.println(plain_text);
+
+                if (plain_text.isEmpty()) bt_encrypt.setEnabled(false);
+                else bt_encrypt.setEnabled(true);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                plain_text = plain_text_area.getText();
+                // System.out.println(plain_text);
+
+                if (plain_text.isEmpty()) bt_encrypt.setEnabled(false);
+                else bt_encrypt.setEnabled(true);
+            }
+        });
+
     }
 
     public void createEncryptedTextArea() {
         encrypted_text_area = new JTextArea();
         encrypted_text_area.setBackground(new Color(217, 217, 217));
+        encrypted_text_area.setFont(new Font("Arial", Font.PLAIN, 16));
 
         scroll_pane_encrypted_text_area = new JScrollPane(encrypted_text_area);
         scroll_pane_encrypted_text_area.setBounds(190, 240, 420, 70);
@@ -183,6 +240,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     public void createDecryptedTextArea() {
         decrypted_text_area = new JTextArea();
         decrypted_text_area.setBackground(new Color(217, 217, 217));
+        decrypted_text_area.setFont(new Font("Arial", Font.PLAIN, 16));
 
         scroll_pane_decrypted_text_area = new JScrollPane(decrypted_text_area);
         scroll_pane_decrypted_text_area.setBounds(190, 330, 420, 70);
@@ -198,13 +256,36 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     }
 
     public void createComboBoxGroup() {
+        createComboBoxAlgorithm();
+        createComboBoxLanguague();
+    }
 
+    public void createComboBoxAlgorithm() {
         Arrays.sort(arr_algorithms);
         combo_box_algorithm = new JComboBox<>(arr_algorithms);
-        combo_box_language = new JComboBox<>(arr_languages);
-
         combo_box_algorithm.setBounds(145, 19, 210, 38);
+
+        combo_box_algorithm.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                name_algorithm = combo_box_algorithm.getSelectedItem().toString();
+                // System.out.println(name_algorithm);
+            }
+        });
+    }
+
+    public void createComboBoxLanguague() {
+        combo_box_language = new JComboBox<>(arr_languages);
         combo_box_language.setBounds(483, 20, 128, 34);
+
+        combo_box_language.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                name_language = combo_box_language.getSelectedItem().toString();
+                // System.out.println(name_language);
+            }
+        });
     }
 
     public void createTextFieldGroup() {

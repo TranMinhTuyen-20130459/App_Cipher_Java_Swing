@@ -19,6 +19,7 @@ public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export {
         key = key_generator.generateKey();
         return key;
     }
+
     @Override
     public byte[] encrypt(String text) throws Exception {
         if (key == null) return new byte[]{};
@@ -27,6 +28,7 @@ public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export {
         var plain_text = text.getBytes("UTF-8");
         return cipher.doFinal(plain_text);
     }
+
     @Override
     public String encryptToBase64(String text) throws Exception {
         if (key == null) return "";
@@ -36,10 +38,12 @@ public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export {
         var cipher_text = cipher.doFinal(plain_text);
         return Base64.getEncoder().encodeToString(cipher_text);
     }
+
     @Override
     public void encryptFile(String srcFile, String destFile) throws Exception {
 
     }
+
     @Override
     public String decrypt(byte[] encrypt) throws Exception {
         if (key == null) return "";
@@ -48,6 +52,7 @@ public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export {
         var plain_text = cipher.doFinal(encrypt);
         return new String(plain_text);
     }
+
     @Override
     public String decryptFromBase64(String text) throws Exception {
         if (key == null) return "";
@@ -56,10 +61,12 @@ public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export {
         var plain_text = cipher.doFinal(Base64.getDecoder().decode(text));
         return new String(plain_text, "UTF-8");
     }
+
     @Override
     public void decryptFile(String srcFile, String destFile) throws Exception {
 
     }
+
     @Override
     public String exportKey() throws Exception {
         if (key == null) return "";
@@ -72,7 +79,7 @@ public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export {
 
     public static void main(String[] args) throws Exception {
 
-        var plain_text = "Khoa Công Nghệ Thông Tin 123";
+        var plain_text = "I am a student. I study at Đại Học Nông Lâm";
         Cipher_DES des = new Cipher_DES();
         des.createKey();
 
