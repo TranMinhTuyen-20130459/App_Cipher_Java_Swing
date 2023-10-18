@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="hiện thực giải thuật mã hóa DES">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="thêm Controller để điều phối giữa Model và View">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG_TEXT.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_DES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_DES.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" afterDir="false" />
     </list>
@@ -17,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -42,23 +43,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;F:/Git/Git-Local-Personal&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "F:/Git/Git-Local-Personal",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\Git\App_Ma_Hoa_Java_Swing\src\it-nlu\resources\image" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Cipher_DES">
+  <component name="RunManager" selected="Application.Application">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Application" />
       <module name="App_Ma_Hoa_Java_Swing" />
@@ -92,8 +94,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Cipher_DES" />
         <item itemvalue="Application.Application" />
+        <item itemvalue="Application.Cipher_DES" />
       </list>
     </recent_temporary>
   </component>
@@ -133,7 +135,10 @@
       <workItem from="1697427900623" duration="5322000" />
       <workItem from="1697433920332" duration="283000" />
       <workItem from="1697441412099" duration="11641000" />
-      <workItem from="1697461482032" duration="8790000" />
+      <workItem from="1697461482032" duration="9790000" />
+      <workItem from="1697473159224" duration="619000" />
+      <workItem from="1697600656635" duration="3949000" />
+      <workItem from="1697611396134" duration="8493000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1696644054692</created>
@@ -268,7 +273,21 @@
       <option name="project" value="LOCAL" />
       <updated>1697452517698</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="xử lí sự kiện tại Panel_MA_HOA_DOI_XUNG_TEXT">
+      <created>1697471111244</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1697471111244</updated>
+    </task>
+    <task id="LOCAL-00021" summary="thêm Controller để điều phối giữa Model và View">
+      <created>1697471148605</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1697471148605</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,6 +321,12 @@
     <MESSAGE value="hoàn thành xử lí sự kiện khi click vào &quot;MÃ HÓA VĂN BẢN&quot; or &quot;MÃ HÓA FILE&quot; của components &quot;MÃ HÓA ĐỐI XỨNG&quot;" />
     <MESSAGE value="đổi tên function menuClicked() trong Frame_Home thành showPanel()" />
     <MESSAGE value="hiện thực giải thuật mã hóa DES" />
-    <option name="LAST_COMMIT_MESSAGE" value="hiện thực giải thuật mã hóa DES" />
+    <MESSAGE value="xử lí sự kiện tại Panel_MA_HOA_DOI_XUNG_TEXT" />
+    <MESSAGE value="thêm Controller để điều phối giữa Model và View" />
+    <option name="LAST_COMMIT_MESSAGE" value="thêm Controller để điều phối giữa Model và View" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

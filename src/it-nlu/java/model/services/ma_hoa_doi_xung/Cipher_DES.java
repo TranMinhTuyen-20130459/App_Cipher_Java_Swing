@@ -3,13 +3,16 @@ package model.services.ma_hoa_doi_xung;
 import model.services.ma_hoa_doi_xung.interfaces.I_Decrypt;
 import model.services.ma_hoa_doi_xung.interfaces.I_Encrypt;
 import model.services.ma_hoa_doi_xung.interfaces.I_Export;
+import model.services.ma_hoa_doi_xung.interfaces.I_Import;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.SecretKeySpec;
 import java.util.Base64;
 
-public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export {
+public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export, I_Import {
     private SecretKey key;
 
     @Override
@@ -73,6 +76,23 @@ public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export {
         return Base64.getEncoder().encodeToString(key.getEncoded());
     }
 
+    @Override
+    public SecretKey importKey(String keyText) throws Exception {
+
+        if (keyText == null || keyText.isEmpty()) {
+            throw new IllegalArgumentException("Invalid key text");
+        }
+
+        try {
+            byte[] keyBytes = Base64.getDecoder().decode(keyText);
+            SecretKey importedKey = new SecretKeySpec(keyBytes, "DES");
+            this.key = importedKey;
+            return importedKey;
+        } catch (Exception e) {
+            throw new Exception("Failed to import key: " + e.getMessage());
+        }
+    }
+
     public SecretKey getKey() {
         return key;
     }
@@ -94,4 +114,5 @@ public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export {
         System.out.println("Encrypt To Bytes: " + encrypt_bytes);
         System.out.println(des.decrypt(encrypt_bytes));
     }
+
 }
