@@ -19,6 +19,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     private JButton bt_encrypt,
             bt_decrypt,
             bt_input_key,
+            bt_create_new_key,
             bt_home;
     private JTextArea plain_text_area,
             encrypted_text_area,
@@ -68,8 +69,9 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
 
         add(bt_encrypt);
         add(bt_decrypt);
-        add(bt_input_key);
+        add(bt_create_new_key);
         add(bt_home);
+        add(bt_input_key);
 
         add(combo_box_algorithm);
         add(combo_box_language);
@@ -115,13 +117,14 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     public void createButtonGroup() {
         createButtonEncrypt();
         createButtonDecrypt();
-        createButtonInputKey();
+        createButtonCreateNewKey();
         createButtonHome();
+        createButtonInputKey();
     }
 
     public void createButtonEncrypt() {
         bt_encrypt = new RoundedButton("MÃ HÓA", 25, new Color(217, 217, 217));
-        bt_encrypt.setBounds(19, 439, 106, 26);
+        bt_encrypt.setBounds(19, 432, 115, 37);
         bt_encrypt.setEnabled(false);
 
         bt_encrypt.addMouseListener(new MouseAdapter() {
@@ -130,17 +133,28 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
 
                 if (bt_encrypt.isEnabled() == true) {
 
-                    key = Controller_MA_HOA_DOI_XUNG_TEXT.createKeyRandom(name_algorithm);
-                    key_text_field.setText(key);
+                    if (key.isEmpty()) {
+                        key = Controller_MA_HOA_DOI_XUNG_TEXT.createKeyRandom(name_algorithm);
+                        key_text_field.setText(key);
 
-                    encrypted_text = Controller_MA_HOA_DOI_XUNG_TEXT.encryptText(name_algorithm,
-                            name_language,
-                            plain_text, key);
+                        encrypted_text = Controller_MA_HOA_DOI_XUNG_TEXT.encryptText(name_algorithm,
+                                name_language,
+                                plain_text, key);
 
-                    encrypted_text_area.setEnabled(true);
-                    encrypted_text_area.setText(encrypted_text);
+                        encrypted_text_area.setEnabled(true);
+                        encrypted_text_area.setText(encrypted_text);
 
-                    bt_decrypt.setEnabled(true);
+                        bt_decrypt.setEnabled(true);
+                    } else {
+                        encrypted_text = Controller_MA_HOA_DOI_XUNG_TEXT.encryptText(name_algorithm,
+                                name_language,
+                                plain_text, key);
+
+                        encrypted_text_area.setEnabled(true);
+                        encrypted_text_area.setText(encrypted_text);
+
+                        bt_decrypt.setEnabled(true);
+                    }
                 }
             }
         });
@@ -148,7 +162,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
 
     public void createButtonDecrypt() {
         bt_decrypt = new RoundedButton("GIẢI MÃ", 25, new Color(217, 217, 217));
-        bt_decrypt.setBounds(190, 439, 106, 26);
+        bt_decrypt.setBounds(190, 432, 115, 37);
         bt_decrypt.setEnabled(false);
 
         bt_decrypt.addMouseListener(new MouseAdapter() {
@@ -170,22 +184,31 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         });
     }
 
-    public void createButtonInputKey() {
-        bt_input_key = new RoundedButton("NHẬP KEY", 35, new Color(58, 205, 34));
-        bt_input_key.setBounds(510, 82, 101, 37);
-        bt_input_key.addMouseListener(new MouseAdapter() {
+    public void createButtonCreateNewKey() {
+        bt_create_new_key = new RoundedButton("KEY MỚI", 25, new Color(58, 205, 34));
+        bt_create_new_key.setBounds(510, 82, 101, 37);
+        bt_create_new_key.addMouseListener(new MouseAdapter() {
 
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                resetTextFieldKey();
-                resetEncryptedTextArea();
-                resetDecryptedTextArea();
+                key = Controller_MA_HOA_DOI_XUNG_TEXT.createKeyRandom(name_algorithm);
+                key_text_field.setText(key);
 
-                key_text_field.setEditable(true);
+                if (key.length() > 0) {
+                    resetEncryptedTextArea();
+                    resetDecryptedTextArea();
+                }
 
             }
         });
+    }
+
+    public void createButtonInputKey() {
+
+        bt_input_key = new RoundedButton("NHẬP KEY", 25, new Color(217, 217, 217));
+        bt_input_key.setBounds(350, 432, 101, 37);
+
     }
 
     public void createButtonHome() {
@@ -231,7 +254,6 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                 if (plain_text.isEmpty()) bt_encrypt.setEnabled(false);
                 else bt_encrypt.setEnabled(true);
 
-                resetTextFieldKey();
                 resetEncryptedTextArea();
                 resetDecryptedTextArea();
             }
@@ -244,7 +266,6 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                 if (plain_text.isEmpty()) bt_encrypt.setEnabled(false);
                 else bt_encrypt.setEnabled(true);
 
-                resetTextFieldKey();
                 resetEncryptedTextArea();
                 resetDecryptedTextArea();
             }
@@ -257,7 +278,6 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                 if (plain_text.isEmpty()) bt_encrypt.setEnabled(false);
                 else bt_encrypt.setEnabled(true);
 
-                resetTextFieldKey();
                 resetEncryptedTextArea();
                 resetDecryptedTextArea();
             }
