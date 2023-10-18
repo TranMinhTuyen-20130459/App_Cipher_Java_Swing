@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="cho user sử dụng giải thuật mã hóa đối xứng DES (key được sinh ra ngẫu nhiên)">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="xử lí sự kiện khi click vào button &quot;Key Mới&quot;, thêm button &quot;Nhập Key&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG_TEXT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_DES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_DES.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/interfaces/I_Encrypt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/interfaces/I_Encrypt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -16,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -137,7 +140,8 @@
       <workItem from="1697473159224" duration="619000" />
       <workItem from="1697600656635" duration="3949000" />
       <workItem from="1697611396134" duration="10179000" />
-      <workItem from="1697623186583" duration="7480000" />
+      <workItem from="1697623186583" duration="8411000" />
+      <workItem from="1697637639038" duration="10508000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1696644054692</created>
@@ -293,7 +297,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697620155282</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="xử lí sự kiện khi click vào button &quot;Key Mới&quot;, thêm button &quot;Nhập Key&quot;">
+      <created>1697630964178</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1697630964179</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,7 +341,8 @@
     <MESSAGE value="xử lí sự kiện tại Panel_MA_HOA_DOI_XUNG_TEXT" />
     <MESSAGE value="thêm Controller để điều phối giữa Model và View" />
     <MESSAGE value="cho user sử dụng giải thuật mã hóa đối xứng DES (key được sinh ra ngẫu nhiên)" />
-    <option name="LAST_COMMIT_MESSAGE" value="cho user sử dụng giải thuật mã hóa đối xứng DES (key được sinh ra ngẫu nhiên)" />
+    <MESSAGE value="xử lí sự kiện khi click vào button &quot;Key Mới&quot;, thêm button &quot;Nhập Key&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="xử lí sự kiện khi click vào button &quot;Key Mới&quot;, thêm button &quot;Nhập Key&quot;" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

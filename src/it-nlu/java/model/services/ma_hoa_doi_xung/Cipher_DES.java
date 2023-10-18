@@ -1,22 +1,31 @@
 package model.services.ma_hoa_doi_xung;
 
-import model.services.ma_hoa_doi_xung.interfaces.I_Decrypt;
-import model.services.ma_hoa_doi_xung.interfaces.I_Encrypt;
-import model.services.ma_hoa_doi_xung.interfaces.I_Export;
-import model.services.ma_hoa_doi_xung.interfaces.I_Import;
+import model.services.ma_hoa_doi_xung.interfaces.*;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
-import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.SecretKeySpec;
 import java.util.Base64;
 
-public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export, I_Import {
+public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export, I_Import, I_Create {
     private SecretKey key;
 
     @Override
-    public SecretKey createKey() throws Exception {
+    public SecretKey createKeyFromInput(String text) throws Exception {
+        var textBytes = text.getBytes("UTF-8");
+
+        // Kiểm tra xem độ dài của mảng byte có đủ 8 byte không (56 bit)
+        if (textBytes.length != 8) {
+            throw new IllegalArgumentException("Text length must be 8 bytes for a DES key.");
+        }
+
+        key = new SecretKeySpec(textBytes,"DES");
+        return key;
+    }
+
+    @Override
+    public SecretKey createKeyRandom() throws Exception {
         KeyGenerator key_generator = KeyGenerator.getInstance("DES");
         key_generator.init(56);
         key = key_generator.generateKey();
@@ -101,7 +110,7 @@ public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export, I_Import {
 
         var plain_text = "I am a student. I study at Đại Học Nông Lâm";
         Cipher_DES des = new Cipher_DES();
-        des.createKey();
+        des.createKeyRandom();
 
         var encrypt_bytes = des.encrypt(plain_text);
         var encrypt_text = des.encryptToBase64(plain_text);

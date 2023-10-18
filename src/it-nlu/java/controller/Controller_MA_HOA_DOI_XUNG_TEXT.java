@@ -4,6 +4,34 @@ import helper.Algorithm;
 import model.services.ma_hoa_doi_xung.Cipher_DES;
 
 public class Controller_MA_HOA_DOI_XUNG_TEXT {
+
+    public static String createKeyFromInputOfUser(String algorithm, String keyText) {
+        try {
+
+            if (keyText == null || algorithm == null
+                    || keyText.isEmpty() || algorithm.isEmpty()) {
+                return "";
+            }
+
+            switch (algorithm.toUpperCase()) {
+                case Algorithm.DES: {
+
+                    Cipher_DES des = new Cipher_DES();
+                    des.createKeyFromInput(keyText);
+
+                    System.out.println(des.exportKey());
+                    return des.exportKey();
+                }
+                default:
+                    return "";
+            }
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return "Error";
+        }
+    }
+
     public static String createKeyRandom(String algorithm) {
 
         try {
@@ -15,7 +43,7 @@ public class Controller_MA_HOA_DOI_XUNG_TEXT {
                 case Algorithm.DES: {
 
                     Cipher_DES des = new Cipher_DES();
-                    des.createKey();
+                    des.createKeyRandom();
 
                     return des.exportKey();
 

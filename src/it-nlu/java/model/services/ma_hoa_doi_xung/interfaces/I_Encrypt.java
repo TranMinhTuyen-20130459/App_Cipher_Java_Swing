@@ -4,8 +4,6 @@ import javax.crypto.SecretKey;
 
 public interface I_Encrypt {
 
-    public SecretKey createKey() throws Exception;
-
     public byte[] encrypt(String text) throws Exception;
 
     // encrypt string and return base64 string

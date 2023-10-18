@@ -1,6 +1,7 @@
 package view;
 
 import controller.Controller_MA_HOA_DOI_XUNG_TEXT;
+import helper.Algorithm;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
@@ -206,8 +207,51 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
 
     public void createButtonInputKey() {
 
-        bt_input_key = new RoundedButton("NHẬP KEY", 25, new Color(217, 217, 217));
+        bt_input_key = new RoundedButton("TẠO KEY", 25, new Color(217, 217, 217));
         bt_input_key.setBounds(350, 432, 101, 37);
+
+        bt_input_key.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                String key_text_input = JOptionPane.showInputDialog(null, "Nhập KEY:");
+
+                if (key_text_input == null || key_text_input.isEmpty()) {
+                } else {
+
+                    switch (name_algorithm.toUpperCase()) {
+
+                        case Algorithm.DES: {
+
+                            if (key_text_input.length() == 8) {
+                                key = Controller_MA_HOA_DOI_XUNG_TEXT.createKeyFromInputOfUser(name_algorithm, key_text_input);
+
+                                if (key.length() > 0) {
+                                    key_text_field.setText(key_text_input);
+                                    resetEncryptedTextArea();
+                                    resetDecryptedTextArea();
+                                }
+
+                            } else {
+                                // Hiển thị thông báo cảnh báo nếu không đủ 8 ký tự
+                                JOptionPane.showMessageDialog(null, "KEY PHẢI ĐỦ 8 KÍ TỰ", "Thông báo", JOptionPane.WARNING_MESSAGE);
+                            }
+                            break;
+
+                        }
+                        default: {
+                            JOptionPane.showMessageDialog(null, "BẠN CHƯA CHỌN GIẢI THUẬT", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+                        }
+
+                    }
+
+
+                }
+
+
+            }
+        });
 
     }
 
