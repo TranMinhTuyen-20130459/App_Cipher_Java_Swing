@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="mã hóa và giải mã File với thuật toán DES">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="thêm component Chọn File trong view Panel_MA_HOA_DOI_XUNG_FILE, xử lý sự kiện khi click vào button &quot;CHỌN FILE&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_DES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_DES.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG_FILE.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +147,8 @@
       <workItem from="1697679030478" duration="164000" />
       <workItem from="1697765726932" duration="30000" />
       <workItem from="1697765774602" duration="6830000" />
-      <workItem from="1697786321131" duration="8699000" />
+      <workItem from="1697786321131" duration="9236000" />
+      <workItem from="1697807473503" duration="6592000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1696644054692</created>
@@ -322,7 +325,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697772939966</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="thêm component Chọn File trong view Panel_MA_HOA_DOI_XUNG_FILE, xử lý sự kiện khi click vào button &quot;CHỌN FILE&quot;">
+      <created>1697795508981</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1697795508981</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -362,7 +372,8 @@
     <MESSAGE value="xử lí sự kiện khi click vào button &quot;Key Mới&quot;, thêm button &quot;Nhập Key&quot;" />
     <MESSAGE value="cho phép user tạo KEY (giải thuật DES)" />
     <MESSAGE value="mã hóa và giải mã File với thuật toán DES" />
-    <option name="LAST_COMMIT_MESSAGE" value="mã hóa và giải mã File với thuật toán DES" />
+    <MESSAGE value="thêm component Chọn File trong view Panel_MA_HOA_DOI_XUNG_FILE, xử lý sự kiện khi click vào button &quot;CHỌN FILE&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="thêm component Chọn File trong view Panel_MA_HOA_DOI_XUNG_FILE, xử lý sự kiện khi click vào button &quot;CHỌN FILE&quot;" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

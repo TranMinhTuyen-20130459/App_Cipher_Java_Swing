@@ -1,5 +1,8 @@
 package view;
 
+import controller.Controller_MA_HOA_DOI_XUNG;
+import helper.EncryptFile;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -34,7 +37,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
 
     private String path_selected_file = "",
             name_selected_file = "",
-
+            key = "",
             path_folder_contain_selected_file = "",
             name_algorithm = "AES",
             name_language = "English";
@@ -110,6 +113,51 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
 
                 if (bt_encrypt.isEnabled() == true) {
 
+                    // Nếu user đã chọn File
+                    if (name_selected_file.length() > 0 && path_selected_file.length() > 0 && path_folder_contain_selected_file.length() > 0) {
+
+                        String destFile = path_folder_contain_selected_file + "/" + name_algorithm.toUpperCase() + "_FILE_ENCRYPT_" + name_selected_file;
+
+                        // Nếu chưa có key MÃ HÓA
+                        if (key.isEmpty()) {
+
+                            key = Controller_MA_HOA_DOI_XUNG.createKeyRandom(name_algorithm);
+                            key_text_field.setText(key);
+
+                            int check_encrypted_file = Controller_MA_HOA_DOI_XUNG.encryptFile(name_algorithm, name_language, path_selected_file, destFile, key);
+
+                            if (check_encrypted_file == EncryptFile.SUCCESS) {
+                                JOptionPane.showMessageDialog(null, "MÃ HÓA FILE THÀNH CÔNG", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+                                resetSelectedFile();
+                            } else if (check_encrypted_file == EncryptFile.ERROR) {
+                                JOptionPane.showMessageDialog(null, "MÃ HÓA FILE THẤT BẠI", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                            } else if (check_encrypted_file == EncryptFile.NOT_FOUND_ALGORITHM) {
+                                JOptionPane.showMessageDialog(null, "KHÔNG TÌM THẤY GIẢI THUẬT PHÙ HỢP", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                            }
+
+                        }
+
+                        // Nếu đã có key MÃ HÓA
+                        else {
+
+                            int check_encrypted_file = Controller_MA_HOA_DOI_XUNG.encryptFile(name_algorithm, name_language, path_selected_file, destFile, key);
+
+                            if (check_encrypted_file == EncryptFile.SUCCESS) {
+                                JOptionPane.showMessageDialog(null, "MÃ HÓA FILE THÀNH CÔNG", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+                            } else if (check_encrypted_file == EncryptFile.ERROR) {
+                                JOptionPane.showMessageDialog(null, "MÃ HÓA FILE THẤT BẠI", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                            } else if (check_encrypted_file == EncryptFile.NOT_FOUND_ALGORITHM) {
+                                JOptionPane.showMessageDialog(null, "KHÔNG TÌM THẤY GIẢI THUẬT PHÙ HỢP", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                            }
+                        }
+
+                    }
+
+                    // Nếu user chưa chọn File
+                    else {
+                        JOptionPane.showMessageDialog(null, "BẠN CHƯA CHỌN FILE ĐỂ MÃ HÓA", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                    }
+
                 }
             }
         });
@@ -182,7 +230,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
 
     public void createComboBoxGroup() {
         createComboBoxAlgorithm();
-        createComboBoxLanguague();
+        createComboBoxLanguage();
     }
 
     public void createComboBoxAlgorithm() {
@@ -200,7 +248,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
         });
     }
 
-    public void createComboBoxLanguague() {
+    public void createComboBoxLanguage() {
         combo_box_language = new JComboBox<>(arr_languages);
         combo_box_language.setBounds(483, 20, 128, 34);
 
@@ -273,12 +321,24 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
                         bt_decrypt.setEnabled(true);
                     }
 
-                   // System.out.println("Đường dẫn tuyệt đối đến tệp: " + path_selected_file);
-                   // System.out.println("Đường dẫn đến thư mục chứa tệp: " + path_folder_contain_selected_file);
+                    // System.out.println("Đường dẫn tuyệt đối đến tệp: " + path_selected_file);
+                    // System.out.println("Đường dẫn đến thư mục chứa tệp: " + path_folder_contain_selected_file);
                 }
             }
         });
 
+    }
+
+    public void resetTextFieldKey() {
+        key = "";
+        key_text_field.setText(key);
+    }
+
+    public void resetSelectedFile() {
+        name_selected_file = "";
+        path_selected_file = "";
+        path_folder_contain_selected_file = "";
+        label_name_file.setText(name_selected_file);
     }
 
     public class RoundedButton extends JButton {

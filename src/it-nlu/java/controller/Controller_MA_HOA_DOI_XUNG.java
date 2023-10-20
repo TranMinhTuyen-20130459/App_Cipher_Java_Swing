@@ -1,15 +1,15 @@
 package controller;
 
 import helper.Algorithm;
+import helper.EncryptFile;
 import model.services.ma_hoa_doi_xung.Cipher_DES;
 
-public class Controller_MA_HOA_DOI_XUNG_TEXT {
+public class Controller_MA_HOA_DOI_XUNG {
 
     public static String createKeyFromInputOfUser(String algorithm, String keyText) {
         try {
 
-            if (keyText == null || algorithm == null
-                    || keyText.isEmpty() || algorithm.isEmpty()) {
+            if (keyText == null || algorithm == null || keyText.isEmpty() || algorithm.isEmpty()) {
                 return "";
             }
 
@@ -55,7 +55,7 @@ public class Controller_MA_HOA_DOI_XUNG_TEXT {
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            return "";
+            return "Error";
         }
     }
 
@@ -117,5 +117,39 @@ public class Controller_MA_HOA_DOI_XUNG_TEXT {
             return "Error";
         }
 
+    }
+
+    public static int encryptFile(String algorithm,
+                                  String language,
+                                  String srcFile,
+                                  String destFile,
+                                  String key) {
+
+        /**
+         * return -1 => đã xảy ra lỗi trong quá trình Mã Hóa File
+         * return 0 => không thể Mã Hóa File do không có Thuật Toán phù hợp
+         * return 1 => Mã Hóa File "Thành Công"
+         */
+
+        try {
+
+            if (algorithm == null || language == null || srcFile == null || destFile == null || key == null) {
+                return EncryptFile.ERROR;
+            }
+
+            switch (algorithm.toUpperCase()) {
+                case Algorithm.DES: {
+                    Cipher_DES des = new Cipher_DES();
+                    des.importKey(key);
+                    des.encryptFile(srcFile, destFile);
+                    return EncryptFile.SUCCESS;
+                }
+                default:
+                    return EncryptFile.NOT_FOUND_ALGORITHM;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return EncryptFile.ERROR;
+        }
     }
 }

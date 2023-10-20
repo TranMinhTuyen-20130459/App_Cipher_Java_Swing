@@ -1,6 +1,6 @@
 package view;
 
-import controller.Controller_MA_HOA_DOI_XUNG_TEXT;
+import controller.Controller_MA_HOA_DOI_XUNG;
 import helper.Algorithm;
 
 import javax.swing.*;
@@ -135,10 +135,10 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                 if (bt_encrypt.isEnabled() == true) {
 
                     if (key.isEmpty()) {
-                        key = Controller_MA_HOA_DOI_XUNG_TEXT.createKeyRandom(name_algorithm);
+                        key = Controller_MA_HOA_DOI_XUNG.createKeyRandom(name_algorithm);
                         key_text_field.setText(key);
 
-                        encrypted_text = Controller_MA_HOA_DOI_XUNG_TEXT.encryptText(name_algorithm,
+                        encrypted_text = Controller_MA_HOA_DOI_XUNG.encryptText(name_algorithm,
                                 name_language,
                                 plain_text, key);
 
@@ -147,7 +147,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
 
                         bt_decrypt.setEnabled(true);
                     } else {
-                        encrypted_text = Controller_MA_HOA_DOI_XUNG_TEXT.encryptText(name_algorithm,
+                        encrypted_text = Controller_MA_HOA_DOI_XUNG.encryptText(name_algorithm,
                                 name_language,
                                 plain_text, key);
 
@@ -173,7 +173,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
 
                 if (bt_decrypt.isEnabled() == true) {
 
-                    decrypted_text = Controller_MA_HOA_DOI_XUNG_TEXT.decryptText(name_algorithm,
+                    decrypted_text = Controller_MA_HOA_DOI_XUNG.decryptText(name_algorithm,
                             name_language,
                             encrypted_text, key);
 
@@ -193,7 +193,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                key = Controller_MA_HOA_DOI_XUNG_TEXT.createKeyRandom(name_algorithm);
+                key = Controller_MA_HOA_DOI_XUNG.createKeyRandom(name_algorithm);
                 key_text_field.setText(key);
 
                 if (key.length() > 0) {
@@ -225,7 +225,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                         case Algorithm.DES: {
 
                             if (key_text_input.length() == 8) {
-                                key = Controller_MA_HOA_DOI_XUNG_TEXT.createKeyFromInputOfUser(name_algorithm, key_text_input);
+                                key = Controller_MA_HOA_DOI_XUNG.createKeyFromInputOfUser(name_algorithm, key_text_input);
 
                                 if (key.length() > 0) {
                                     key_text_field.setText(key_text_input);
@@ -367,7 +367,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
 
     public void createComboBoxGroup() {
         createComboBoxAlgorithm();
-        createComboBoxLanguague();
+        createComboBoxLanguage();
     }
 
     public void createComboBoxAlgorithm() {
@@ -385,7 +385,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         });
     }
 
-    public void createComboBoxLanguague() {
+    public void createComboBoxLanguage() {
         combo_box_language = new JComboBox<>(arr_languages);
         combo_box_language.setBounds(483, 20, 128, 34);
 
