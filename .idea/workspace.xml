@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="cho phép user tạo KEY (giải thuật DES)">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="mã hóa và giải mã File với thuật toán DES">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_DES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_DES.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +59,7 @@
       <recent name="F:\Git\App_Ma_Hoa_Java_Swing\src\it-nlu\resources\image" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Cipher_DES">
+  <component name="RunManager" selected="Application.Application">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Application" />
       <module name="App_Ma_Hoa_Java_Swing" />
@@ -92,8 +93,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Cipher_DES" />
         <item itemvalue="Application.Application" />
+        <item itemvalue="Application.Cipher_DES" />
       </list>
     </recent_temporary>
   </component>
@@ -143,7 +144,8 @@
       <workItem from="1697676399431" duration="2313000" />
       <workItem from="1697679030478" duration="164000" />
       <workItem from="1697765726932" duration="30000" />
-      <workItem from="1697765774602" duration="6088000" />
+      <workItem from="1697765774602" duration="6830000" />
+      <workItem from="1697786321131" duration="8699000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1696644054692</created>
@@ -313,7 +315,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697650382319</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="mã hóa và giải mã File với thuật toán DES">
+      <created>1697772939966</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1697772939966</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -352,7 +361,8 @@
     <MESSAGE value="cho user sử dụng giải thuật mã hóa đối xứng DES (key được sinh ra ngẫu nhiên)" />
     <MESSAGE value="xử lí sự kiện khi click vào button &quot;Key Mới&quot;, thêm button &quot;Nhập Key&quot;" />
     <MESSAGE value="cho phép user tạo KEY (giải thuật DES)" />
-    <option name="LAST_COMMIT_MESSAGE" value="cho phép user tạo KEY (giải thuật DES)" />
+    <MESSAGE value="mã hóa và giải mã File với thuật toán DES" />
+    <option name="LAST_COMMIT_MESSAGE" value="mã hóa và giải mã File với thuật toán DES" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

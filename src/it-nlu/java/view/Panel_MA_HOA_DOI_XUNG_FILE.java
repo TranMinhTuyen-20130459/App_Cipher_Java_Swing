@@ -2,12 +2,43 @@ package view;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
+import java.io.File;
+import java.util.Arrays;
 
 public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
-    private JButton bt_home;
+
+    private JPanel panel_choose_file;
+
+    private JLabel label_chon_giai_thuat,
+            label_chon_ngon_ngu,
+            label_key,
+            label_name_file;
+    private JButton bt_encrypt,
+            bt_decrypt,
+            bt_input_key,
+            bt_create_new_key,
+            bt_home,
+            bt_choose_file;
+
+    private JTextField key_text_field;
+    private JComboBox combo_box_algorithm,
+            combo_box_language;
+    private String[] arr_algorithms = {"Vigenere", "Hill", "Affine", "DES", "Triple DES", "AES"};
+
+    private String[] arr_languages = {"English", "Vietnamese"};
+
+    private String path_selected_file = "",
+            name_selected_file = "",
+
+            path_folder_contain_selected_file = "",
+            name_algorithm = "AES",
+            name_language = "English";
+
     public Panel_MA_HOA_DOI_XUNG_FILE(int WIDTH, int HEIGHT) {
         setBackground(new Color(255, 255, 255, 255));
         setBounds(0, 0, WIDTH, HEIGHT);
@@ -15,15 +46,127 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
         setLayout(null);
         setVisible(true);
 
-        JLabel text = new JLabel("MÃ HÓA ĐỐI XỨNG FILE");
-        text.setForeground(Color.BLACK);
-        text.setHorizontalAlignment(SwingConstants.CENTER);
-        text.setFont(new Font("Arial", Font.PLAIN, 16));
-        text.setBounds(0, 25, WIDTH / 3, 40);
-        add(text);
+        createLabelGroup();
+        createButtonGroup();
+        createComboBoxGroup();
+        createTextFieldGroup();
+        createPanelChooseFile();
 
-        createButtonHome();
+        add(label_chon_giai_thuat);
+        add(label_chon_ngon_ngu);
+        add(label_key);
+
+        add(combo_box_algorithm);
+        add(combo_box_language);
+        add(key_text_field);
+
+        add(bt_create_new_key);
+        add(bt_encrypt);
+        add(bt_decrypt);
+        add(bt_input_key);
         add(bt_home);
+
+        add(panel_choose_file);
+    }
+
+    public void createLabelGroup() {
+
+        label_chon_giai_thuat = new JLabel("Chọn giải thuật:");
+        label_chon_giai_thuat.setForeground(Color.BLACK);
+        label_chon_giai_thuat.setHorizontalAlignment(SwingConstants.CENTER);
+        label_chon_giai_thuat.setFont(new Font("Arial", Font.PLAIN, 14));
+        label_chon_giai_thuat.setBounds(0, 19, 145, 37);
+
+        label_chon_ngon_ngu = new JLabel("Chọn ngôn ngữ:");
+        label_chon_ngon_ngu.setForeground(Color.BLACK);
+        label_chon_ngon_ngu.setHorizontalAlignment(SwingConstants.CENTER);
+        label_chon_ngon_ngu.setFont(new Font("Arial", Font.PLAIN, 14));
+        label_chon_ngon_ngu.setBounds(364, 19, 119, 37);
+
+        label_key = new JLabel("Key:");
+        label_key.setForeground(Color.BLACK);
+        label_key.setHorizontalAlignment(SwingConstants.CENTER);
+        label_key.setFont(new Font("Arial", Font.PLAIN, 14));
+        label_key.setBounds(0, 83, 80, 37);
+
+    }
+
+    public void createButtonGroup() {
+        createButtonEncrypt();
+        createButtonDecrypt();
+        createButtonCreateNewKey();
+        createButtonHome();
+        createButtonInputKey();
+    }
+
+    public void createButtonEncrypt() {
+        bt_encrypt = new Panel_MA_HOA_DOI_XUNG_FILE.RoundedButton("MÃ HÓA", 25, new Color(217, 217, 217));
+        bt_encrypt.setBounds(19, 432, 115, 37);
+        bt_encrypt.setEnabled(false);
+
+        bt_encrypt.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                if (bt_encrypt.isEnabled() == true) {
+
+                }
+            }
+        });
+    }
+
+    public void createButtonDecrypt() {
+        bt_decrypt = new Panel_MA_HOA_DOI_XUNG_FILE.RoundedButton("GIẢI MÃ", 25, new Color(217, 217, 217));
+        bt_decrypt.setBounds(190, 432, 115, 37);
+        bt_decrypt.setEnabled(false);
+
+        bt_decrypt.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                if (bt_decrypt.isEnabled() == true) {
+
+                }
+
+            }
+        });
+    }
+
+    public void createButtonCreateNewKey() {
+        bt_create_new_key = new Panel_MA_HOA_DOI_XUNG_FILE.RoundedButton("KEY MỚI", 25, new Color(58, 205, 34));
+        bt_create_new_key.setBounds(510, 82, 101, 37);
+        bt_create_new_key.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+        });
+    }
+
+    public void createButtonInputKey() {
+
+        bt_input_key = new Panel_MA_HOA_DOI_XUNG_FILE.RoundedButton("TẠO KEY", 25, new Color(217, 217, 217));
+        bt_input_key.setBounds(350, 432, 101, 37);
+
+        bt_input_key.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                String key_text_input = JOptionPane.showInputDialog(null, "Nhập KEY:");
+
+                if (key_text_input == null || key_text_input.isEmpty()) {
+                } else {
+
+
+                }
+
+
+            }
+        });
+
     }
 
     public void createButtonHome() {
@@ -35,6 +178,107 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
                 Frame_Home.showPanel(Frame_Home.panel_ma_hoa_doi_xung);
             }
         });
+    }
+
+    public void createComboBoxGroup() {
+        createComboBoxAlgorithm();
+        createComboBoxLanguague();
+    }
+
+    public void createComboBoxAlgorithm() {
+        Arrays.sort(arr_algorithms);
+        combo_box_algorithm = new JComboBox<>(arr_algorithms);
+        combo_box_algorithm.setBounds(145, 19, 210, 38);
+
+        combo_box_algorithm.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                name_algorithm = combo_box_algorithm.getSelectedItem().toString();
+                // System.out.println(name_algorithm);
+            }
+        });
+    }
+
+    public void createComboBoxLanguague() {
+        combo_box_language = new JComboBox<>(arr_languages);
+        combo_box_language.setBounds(483, 20, 128, 34);
+
+        combo_box_language.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                name_language = combo_box_language.getSelectedItem().toString();
+                // System.out.println(name_language);
+            }
+        });
+    }
+
+    public void createTextFieldGroup() {
+        createTextFieldKey();
+    }
+
+    public void createTextFieldKey() {
+        key_text_field = new JTextField();
+        key_text_field.setBounds(145, 82, 338, 37);
+        key_text_field.setFont(new Font("Arial", Font.PLAIN, 16));
+        key_text_field.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        key_text_field.setEditable(false);
+    }
+
+    public void createPanelChooseFile() {
+        panel_choose_file = new JPanel();
+        panel_choose_file.setBounds(17, 200, 594, 54);
+        panel_choose_file.setBackground(new Color(217, 217, 217));
+        panel_choose_file.setLayout(null);
+        panel_choose_file.setVisible(true);
+
+        label_name_file = new JLabel("");
+        label_name_file.setBounds(125, 20, 500, 15);
+        panel_choose_file.add(label_name_file);
+
+        createButtonChooseFile();
+        panel_choose_file.add(bt_choose_file);
+    }
+
+    public void createButtonChooseFile() {
+
+        bt_choose_file = new RoundedButton("CHỌN FILE", 10, new Color(215, 187, 18));
+        bt_choose_file.setBounds(10, 12, 100, 30);
+
+        // Thêm sự kiện cho nút "CHỌN FILE"
+        bt_choose_file.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser fileChooser = new JFileChooser();
+
+                int returnValue = fileChooser.showOpenDialog(null); // Hiển thị cửa sổ chọn tệp
+
+                /***
+                 - JFileChooser.APPROVE_OPTION: Được trả về khi người dùng đã chọn một tệp hoặc thư mục và xác nhận việc chọn (thường bằng cách nhấn nút "Open").
+                 - JFileChooser.CANCEL_OPTION: Được trả về khi người dùng đã hủy việc chọn hoặc đóng cửa sổ chọn tệp.
+                 - JFileChooser.ERROR_OPTION: Được trả về nếu có lỗi xảy ra trong quá trình chọn tệp.
+                 */
+
+                if (returnValue == JFileChooser.APPROVE_OPTION) {
+                    // Lấy tệp đã chọn
+                    File selectedFile = fileChooser.getSelectedFile();
+
+                    name_selected_file = selectedFile.getName();
+                    path_selected_file = selectedFile.getAbsolutePath();
+                    path_folder_contain_selected_file = selectedFile.getParent();
+
+                    label_name_file.setText(name_selected_file);
+                    if (label_name_file.getText().length() > 0) {
+                        bt_encrypt.setEnabled(true);
+                        bt_decrypt.setEnabled(true);
+                    }
+
+                   // System.out.println("Đường dẫn tuyệt đối đến tệp: " + path_selected_file);
+                   // System.out.println("Đường dẫn đến thư mục chứa tệp: " + path_folder_contain_selected_file);
+                }
+            }
+        });
+
     }
 
     public class RoundedButton extends JButton {

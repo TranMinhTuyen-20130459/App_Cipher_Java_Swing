@@ -199,6 +199,9 @@ public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export, I_Import, I_C
 
         des.encryptFile(src_file, dest_file_encrypted);
         des.decryptFile(dest_file_encrypted, dest_file_decrypted);
+        des.encryptFile(dest_file_encrypted, "C:\\Users\\tmt01\\Downloads\\DES_Encrypted_File-2.pptx");
+        des.decryptFile("C:\\Users\\tmt01\\Downloads\\DES_Encrypted_File-2.pptx", "C:\\Users\\tmt01\\Downloads\\DES_Decrypted_File-2.pptx");
+        des.decryptFile("C:\\Users\\tmt01\\Downloads\\DES_Decrypted_File-2.pptx", "C:\\Users\\tmt01\\Downloads\\DES_Decrypted_File-3.pptx");
     }
 
 }
