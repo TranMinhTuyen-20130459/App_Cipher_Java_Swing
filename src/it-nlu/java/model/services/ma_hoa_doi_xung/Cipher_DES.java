@@ -6,6 +6,9 @@ import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.util.Base64;
 
 public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export, I_Import, I_Create {
@@ -20,7 +23,7 @@ public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export, I_Import, I_C
             throw new IllegalArgumentException("Text length must be 8 bytes for a DES key.");
         }
 
-        key = new SecretKeySpec(textBytes,"DES");
+        key = new SecretKeySpec(textBytes, "DES");
         return key;
     }
 
@@ -54,6 +57,39 @@ public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export, I_Import, I_C
     @Override
     public void encryptFile(String srcFile, String destFile) throws Exception {
 
+        if (key == null) throw new Exception("Key Not Found");
+        File fileSrc = new File(srcFile);
+        if (fileSrc.isFile()) {
+            Cipher cipher = Cipher.getInstance("DES");
+            cipher.init(Cipher.ENCRYPT_MODE, key);
+
+            FileInputStream fis = new FileInputStream(fileSrc);
+            FileOutputStream fos = new FileOutputStream(destFile);
+
+            byte[] input_byte = new byte[1024];
+            int bytes_read;
+            while ((bytes_read = fis.read(input_byte)) != -1) {
+
+                byte[] output_byte = cipher.update(input_byte, 0, bytes_read);
+                if (output_byte != null) fos.write(output_byte);
+
+            }
+
+            /**
+             - cipher.update() chỉ thực hiện mã hóa một phần của dữ liệu và trả về kết quả tương ứng với phần đó.
+             - cipher.doFinal() được sử dụng để xử lý phần còn lại của dữ liệu và đảm bảo rằng không có dữ liệu nào bị bỏ sót.
+             => Điều này đặc biệt quan trọng trong trường hợp mã hóa dữ liệu lớn chia thành nhiều khối.
+             */
+
+            byte[] output = cipher.doFinal();
+            if (output != null) fos.write(output);
+
+            fis.close();
+            fos.flush();
+            fos.close();
+            System.out.println("Done Encrypted File");
+        }
+
     }
 
     @Override
@@ -76,6 +112,40 @@ public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export, I_Import, I_C
 
     @Override
     public void decryptFile(String srcFile, String destFile) throws Exception {
+
+        if (key == null) throw new Exception("Key Not Found");
+        File fileSrc = new File(srcFile);
+        if (fileSrc.isFile()) {
+
+            Cipher cipher = Cipher.getInstance("DES");
+            cipher.init(Cipher.DECRYPT_MODE, key);
+
+            FileInputStream fis = new FileInputStream(fileSrc);
+            FileOutputStream fos = new FileOutputStream(destFile);
+
+            byte[] input_byte = new byte[1024];
+            int bytes_read;
+            while ((bytes_read = fis.read(input_byte)) != -1) {
+
+                byte[] output_byte = cipher.update(input_byte, 0, bytes_read);
+                if (output_byte != null) fos.write(output_byte);
+
+            }
+            /**
+             - cipher.update() chỉ thực hiện mã hóa một phần của dữ liệu và trả về kết quả tương ứng với phần đó.
+             - cipher.doFinal() được sử dụng để xử lý phần còn lại của dữ liệu và đảm bảo rằng không có dữ liệu nào bị bỏ sót.
+             => Điều này đặc biệt quan trọng trong trường hợp mã hóa dữ liệu lớn chia thành nhiều khối.
+             */
+            byte[] output = cipher.doFinal();
+            if (output != null) fos.write(output);
+
+            fis.close();
+            fos.flush();
+            fos.close();
+
+            System.out.println("Done Decrypted File");
+        }
+
 
     }
 
@@ -112,16 +182,23 @@ public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export, I_Import, I_C
         Cipher_DES des = new Cipher_DES();
         des.createKeyRandom();
 
-        var encrypt_bytes = des.encrypt(plain_text);
-        var encrypt_text = des.encryptToBase64(plain_text);
+//        var encrypt_bytes = des.encrypt(plain_text);
+//        var encrypt_text = des.encryptToBase64(plain_text);
+//
+//        System.out.println("Key: " + des.exportKey());
+//        System.out.println("------------------------------------");
+//        System.out.println("Encrypt To Base64: " + encrypt_text);
+//        System.out.println(des.decryptFromBase64(encrypt_text));
+//        System.out.println("------------------------------------");
+//        System.out.println("Encrypt To Bytes: " + encrypt_bytes);
+//        System.out.println(des.decrypt(encrypt_bytes));
 
-        System.out.println("Key: " + des.exportKey());
-        System.out.println("------------------------------------");
-        System.out.println("Encrypt To Base64: " + encrypt_text);
-        System.out.println(des.decryptFromBase64(encrypt_text));
-        System.out.println("------------------------------------");
-        System.out.println("Encrypt To Bytes: " + encrypt_bytes);
-        System.out.println(des.decrypt(encrypt_bytes));
+        String src_file = "C:\\Users\\tmt01\\Downloads\\Nhóm3-LTTTBDĐ.pptx";
+        String dest_file_encrypted = "C:\\Users\\tmt01\\Downloads\\DES_Encrypted_File.pptx";
+        String dest_file_decrypted = "C:\\Users\\tmt01\\Downloads\\DES_Decrypted_File.pptx";
+
+        des.encryptFile(src_file, dest_file_encrypted);
+        des.decryptFile(dest_file_encrypted, dest_file_decrypted);
     }
 
 }
