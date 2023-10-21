@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="thêm component Chọn File trong view Panel_MA_HOA_DOI_XUNG_FILE, xử lý sự kiện khi click vào button &quot;CHỌN FILE&quot;">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="mã hóa file với thuật toán DES khi user chọn button &quot;MÃ HÓA&quot; tại component Panel_MA_HOA_DOI_XUNG_FILE">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG_FILE.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/helper/EncryptFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/helper/EncryptFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +147,10 @@
       <workItem from="1697765726932" duration="30000" />
       <workItem from="1697765774602" duration="6830000" />
       <workItem from="1697786321131" duration="9236000" />
-      <workItem from="1697807473503" duration="6592000" />
+      <workItem from="1697807473503" duration="7849000" />
+      <workItem from="1697865593089" duration="1359000" />
+      <workItem from="1697868853017" duration="12000" />
+      <workItem from="1697882369352" duration="5029000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1696644054692</created>
@@ -332,7 +334,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697795508981</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="mã hóa file với thuật toán DES khi user chọn button &quot;MÃ HÓA&quot; tại component Panel_MA_HOA_DOI_XUNG_FILE">
+      <created>1697814420040</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1697814420040</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -373,7 +382,8 @@
     <MESSAGE value="cho phép user tạo KEY (giải thuật DES)" />
     <MESSAGE value="mã hóa và giải mã File với thuật toán DES" />
     <MESSAGE value="thêm component Chọn File trong view Panel_MA_HOA_DOI_XUNG_FILE, xử lý sự kiện khi click vào button &quot;CHỌN FILE&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="thêm component Chọn File trong view Panel_MA_HOA_DOI_XUNG_FILE, xử lý sự kiện khi click vào button &quot;CHỌN FILE&quot;" />
+    <MESSAGE value="mã hóa file với thuật toán DES khi user chọn button &quot;MÃ HÓA&quot; tại component Panel_MA_HOA_DOI_XUNG_FILE" />
+    <option name="LAST_COMMIT_MESSAGE" value="mã hóa file với thuật toán DES khi user chọn button &quot;MÃ HÓA&quot; tại component Panel_MA_HOA_DOI_XUNG_FILE" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -1,6 +1,7 @@
 package controller;
 
 import helper.Algorithm;
+import helper.DecryptFile;
 import helper.EncryptFile;
 import model.services.ma_hoa_doi_xung.Cipher_DES;
 
@@ -151,5 +152,35 @@ public class Controller_MA_HOA_DOI_XUNG {
             System.out.println(e.getMessage());
             return EncryptFile.ERROR;
         }
+    }
+
+    public static int decryptFile(String algorithm,
+                                  String language,
+                                  String srcFile,
+                                  String destFile,
+                                  String key) {
+
+        try {
+
+            if (algorithm == null || language == null || srcFile == null || destFile == null || key == null) {
+                return DecryptFile.ERROR;
+            }
+
+            switch (algorithm.toUpperCase()) {
+                case Algorithm.DES: {
+                    Cipher_DES des = new Cipher_DES();
+                    des.importKey(key);
+                    des.decryptFile(srcFile, destFile);
+                    return DecryptFile.SUCCESS;
+                }
+                default:
+                    return DecryptFile.NOT_FOUND_ALGORITHM;
+            }
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return DecryptFile.ERROR;
+        }
+
     }
 }
