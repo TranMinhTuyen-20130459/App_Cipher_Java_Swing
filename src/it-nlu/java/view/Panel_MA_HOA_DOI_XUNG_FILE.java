@@ -287,6 +287,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
         bt_home.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                resetLayout();
                 Frame_Home.showPanel(Frame_Home.panel_ma_hoa_doi_xung);
             }
         });
@@ -404,6 +405,23 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
         path_selected_file = "";
         path_folder_contain_selected_file = "";
         label_name_file.setText(name_selected_file);
+    }
+
+    public void resetComboBoxAlgorithm() {
+        name_algorithm = "AES";
+        combo_box_algorithm.setSelectedItem(name_algorithm);
+    }
+
+    public void resetComboBoxLanguage() {
+        name_language = "English";
+        combo_box_language.setSelectedItem(name_language);
+    }
+
+    public void resetLayout() {
+        resetComboBoxAlgorithm();
+        resetComboBoxLanguage();
+        resetTextFieldKey();
+        resetSelectedFile();
     }
 
     public class RoundedButton extends JButton {
