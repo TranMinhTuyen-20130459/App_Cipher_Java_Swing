@@ -186,7 +186,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     }
 
     public void createButtonCreateNewKey() {
-        bt_create_new_key = new RoundedButton("KEY MỚI", 25, new Color(58, 205, 34));
+        bt_create_new_key = new RoundedButton("KEY MỚI", 25, new Color(136, 196, 230));
         bt_create_new_key.setBounds(510, 82, 101, 37);
         bt_create_new_key.addMouseListener(new MouseAdapter() {
 
@@ -262,6 +262,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         bt_home.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                resetLayout();
                 Frame_Home.showPanel(Frame_Home.panel_ma_hoa_doi_xung);
             }
         });
@@ -428,6 +429,25 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     public void resetDecryptedTextArea() {
         decrypted_text = "";
         decrypted_text_area.setText(decrypted_text);
+    }
+
+    public void resetComboBoxAlgorithm() {
+        name_algorithm = "AES";
+        combo_box_algorithm.setSelectedItem(name_algorithm);
+    }
+
+    public void resetComboBoxLanguage() {
+        name_language = "English";
+        combo_box_language.setSelectedItem(name_language);
+    }
+
+    public void resetLayout(){
+        resetComboBoxAlgorithm();
+        resetComboBoxLanguage();
+        resetTextFieldKey();
+        resetPlainTextArea();
+        resetEncryptedTextArea();
+        resetDecryptedTextArea();
     }
 
     public class RoundedButton extends JButton {

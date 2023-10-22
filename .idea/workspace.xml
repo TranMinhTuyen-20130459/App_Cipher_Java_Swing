@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="Thêm chức năng Copy Key ở component MA_HOA_DOI_XUNG_FILE">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" afterDir="false" />
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="Reset lại Layout của component Panel_MA_HOA_DOI_XUNG_FILE khi click vào button &quot;TRANG CHỦ&quot;">
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -166,7 +164,7 @@
       <workItem from="1697882369352" duration="6089000" />
       <workItem from="1697904022709" duration="569000" />
       <workItem from="1697979171675" duration="7440000" />
-      <workItem from="1697987323615" duration="2326000" />
+      <workItem from="1697987323615" duration="2859000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1696644054692</created>
@@ -378,7 +376,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697984911686</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Reset lại Layout của component Panel_MA_HOA_DOI_XUNG_FILE khi click vào button &quot;TRANG CHỦ&quot;">
+      <created>1697990224206</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1697990224206</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -396,7 +401,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="thêm các Panel_Menu để chọn các thuật toán mã hóa, thêm Panel hiển thị thông tin bản quyền tác giả" />
     <MESSAGE value="Đổi màu menu khi click vào, tạo các giao diện Panel cơ bản cho các thuật toán Mã Hóa" />
     <MESSAGE value="đổi background màu vàng cho menu MÃ HÓA ĐỐI XỨNG" />
     <MESSAGE value="Thêm giao diện cho component MA_HOA_DOI_XUNG" />
@@ -421,7 +425,8 @@
     <MESSAGE value="giải mã file với thuật toán DES khi user chọn button GIẢI MÃ" />
     <MESSAGE value="Fix lỗi tự tạo File mới mặc dù đã MÃ HÓA or GIẢI MÃ file &quot;THẤT BẠI&quot;" />
     <MESSAGE value="Thêm chức năng Copy Key ở component MA_HOA_DOI_XUNG_FILE" />
-    <option name="LAST_COMMIT_MESSAGE" value="Thêm chức năng Copy Key ở component MA_HOA_DOI_XUNG_FILE" />
+    <MESSAGE value="Reset lại Layout của component Panel_MA_HOA_DOI_XUNG_FILE khi click vào button &quot;TRANG CHỦ&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reset lại Layout của component Panel_MA_HOA_DOI_XUNG_FILE khi click vào button &quot;TRANG CHỦ&quot;" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
