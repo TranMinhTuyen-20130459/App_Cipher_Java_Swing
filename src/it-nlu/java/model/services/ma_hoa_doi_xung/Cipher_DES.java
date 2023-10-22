@@ -57,37 +57,43 @@ public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export, I_Import, I_C
     @Override
     public void encryptFile(String srcFile, String destFile) throws Exception {
 
-        if (key == null) throw new Exception("Key Not Found");
-        File fileSrc = new File(srcFile);
-        if (fileSrc.isFile()) {
-            Cipher cipher = Cipher.getInstance("DES");
-            cipher.init(Cipher.ENCRYPT_MODE, key);
+        FileInputStream fis = null;
+        FileOutputStream fos = null;
 
-            FileInputStream fis = new FileInputStream(fileSrc);
-            FileOutputStream fos = new FileOutputStream(destFile);
+        try {
+            if (key == null) throw new Exception("Key Not Found");
+            File fileSrc = new File(srcFile);
+            if (fileSrc.isFile()) {
+                Cipher cipher = Cipher.getInstance("DES");
+                cipher.init(Cipher.ENCRYPT_MODE, key);
 
-            byte[] input_byte = new byte[1024];
-            int bytes_read;
-            while ((bytes_read = fis.read(input_byte)) != -1) {
+                fis = new FileInputStream(fileSrc);
+                fos = new FileOutputStream(destFile);
 
-                byte[] output_byte = cipher.update(input_byte, 0, bytes_read);
-                if (output_byte != null) fos.write(output_byte);
+                byte[] input_byte = new byte[1024];
+                int bytes_read;
+                while ((bytes_read = fis.read(input_byte)) != -1) {
 
+                    byte[] output_byte = cipher.update(input_byte, 0, bytes_read);
+                    if (output_byte != null) fos.write(output_byte);
+
+                }
+
+                /**
+                 - cipher.update() chỉ thực hiện mã hóa một phần của dữ liệu và trả về kết quả tương ứng với phần đó.
+                 - cipher.doFinal() được sử dụng để xử lý phần còn lại của dữ liệu và đảm bảo rằng không có dữ liệu nào bị bỏ sót.
+                 => Điều này đặc biệt quan trọng trong trường hợp mã hóa dữ liệu lớn chia thành nhiều khối.
+                 */
+
+                byte[] output = cipher.doFinal();
+                if (output != null) fos.write(output);
+
+                fos.flush();
+                System.out.println("Done Encrypted File");
             }
-
-            /**
-             - cipher.update() chỉ thực hiện mã hóa một phần của dữ liệu và trả về kết quả tương ứng với phần đó.
-             - cipher.doFinal() được sử dụng để xử lý phần còn lại của dữ liệu và đảm bảo rằng không có dữ liệu nào bị bỏ sót.
-             => Điều này đặc biệt quan trọng trong trường hợp mã hóa dữ liệu lớn chia thành nhiều khối.
-             */
-
-            byte[] output = cipher.doFinal();
-            if (output != null) fos.write(output);
-
-            fis.close();
-            fos.flush();
-            fos.close();
-            System.out.println("Done Encrypted File");
+        } finally {
+            if (fis != null) fis.close();
+            if (fos != null) fos.close();
         }
 
     }
@@ -113,39 +119,45 @@ public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export, I_Import, I_C
     @Override
     public void decryptFile(String srcFile, String destFile) throws Exception {
 
-        if (key == null) throw new Exception("Key Not Found");
-        File fileSrc = new File(srcFile);
-        if (fileSrc.isFile()) {
+        FileInputStream fis = null;
+        FileOutputStream fos = null;
 
-            Cipher cipher = Cipher.getInstance("DES");
-            cipher.init(Cipher.DECRYPT_MODE, key);
+        try {
+            if (key == null) throw new Exception("Key Not Found");
+            File fileSrc = new File(srcFile);
+            if (fileSrc.isFile()) {
 
-            FileInputStream fis = new FileInputStream(fileSrc);
-            FileOutputStream fos = new FileOutputStream(destFile);
+                Cipher cipher = Cipher.getInstance("DES");
+                cipher.init(Cipher.DECRYPT_MODE, key);
 
-            byte[] input_byte = new byte[1024];
-            int bytes_read;
-            while ((bytes_read = fis.read(input_byte)) != -1) {
+                fis = new FileInputStream(fileSrc);
+                fos = new FileOutputStream(destFile);
 
-                byte[] output_byte = cipher.update(input_byte, 0, bytes_read);
-                if (output_byte != null) fos.write(output_byte);
+                byte[] input_byte = new byte[1024];
+                int bytes_read;
+                while ((bytes_read = fis.read(input_byte)) != -1) {
 
+                    byte[] output_byte = cipher.update(input_byte, 0, bytes_read);
+                    if (output_byte != null) fos.write(output_byte);
+
+                }
+                /**
+                 - cipher.update() chỉ thực hiện mã hóa một phần của dữ liệu và trả về kết quả tương ứng với phần đó.
+                 - cipher.doFinal() được sử dụng để xử lý phần còn lại của dữ liệu và đảm bảo rằng không có dữ liệu nào bị bỏ sót.
+                 => Điều này đặc biệt quan trọng trong trường hợp mã hóa dữ liệu lớn chia thành nhiều khối.
+                 */
+                byte[] output = cipher.doFinal();
+                if (output != null) fos.write(output);
+
+                fos.flush();
+
+                System.out.println("Done Decrypted File");
             }
-            /**
-             - cipher.update() chỉ thực hiện mã hóa một phần của dữ liệu và trả về kết quả tương ứng với phần đó.
-             - cipher.doFinal() được sử dụng để xử lý phần còn lại của dữ liệu và đảm bảo rằng không có dữ liệu nào bị bỏ sót.
-             => Điều này đặc biệt quan trọng trong trường hợp mã hóa dữ liệu lớn chia thành nhiều khối.
-             */
-            byte[] output = cipher.doFinal();
-            if (output != null) fos.write(output);
+        } finally {
 
-            fis.close();
-            fos.flush();
-            fos.close();
-
-            System.out.println("Done Decrypted File");
+            if (fis != null) fis.close();
+            if (fos != null) fos.close();
         }
-
 
     }
 
