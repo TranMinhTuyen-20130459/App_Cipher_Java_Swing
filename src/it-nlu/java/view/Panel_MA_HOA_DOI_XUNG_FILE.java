@@ -7,6 +7,8 @@ import utils.FileUtil;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -26,7 +28,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
     private JButton bt_encrypt,
             bt_decrypt,
             bt_input_key,
-            bt_create_new_key,
+            bt_copy_key,
             bt_home,
             bt_choose_file;
 
@@ -65,7 +67,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
         add(combo_box_language);
         add(key_text_field);
 
-        add(bt_create_new_key);
+        add(bt_copy_key);
         add(bt_encrypt);
         add(bt_decrypt);
         add(bt_input_key);
@@ -99,7 +101,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
     public void createButtonGroup() {
         createButtonEncrypt();
         createButtonDecrypt();
-        createButtonCreateNewKey();
+        createButtonCopyKey();
         createButtonHome();
         createButtonInputKey();
     }
@@ -107,7 +109,6 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
     public void createButtonEncrypt() {
         bt_encrypt = new Panel_MA_HOA_DOI_XUNG_FILE.RoundedButton("MÃ HÓA", 25, new Color(217, 217, 217));
         bt_encrypt.setBounds(19, 432, 115, 37);
-        bt_encrypt.setEnabled(false);
 
         bt_encrypt.addMouseListener(new MouseAdapter() {
             @Override
@@ -189,7 +190,6 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
     public void createButtonDecrypt() {
         bt_decrypt = new Panel_MA_HOA_DOI_XUNG_FILE.RoundedButton("GIẢI MÃ", 25, new Color(217, 217, 217));
         bt_decrypt.setBounds(190, 432, 115, 37);
-        bt_decrypt.setEnabled(false);
 
         bt_decrypt.addMouseListener(new MouseAdapter() {
 
@@ -239,14 +239,20 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
         });
     }
 
-    public void createButtonCreateNewKey() {
-        bt_create_new_key = new Panel_MA_HOA_DOI_XUNG_FILE.RoundedButton("KEY MỚI", 25, new Color(58, 205, 34));
-        bt_create_new_key.setBounds(510, 82, 101, 37);
-        bt_create_new_key.addMouseListener(new MouseAdapter() {
+    public void createButtonCopyKey() {
+        bt_copy_key = new Panel_MA_HOA_DOI_XUNG_FILE.RoundedButton("COPY", 25, new Color(136, 196, 230));
+        bt_copy_key.setBounds(510, 82, 101, 37);
+        bt_copy_key.addMouseListener(new MouseAdapter() {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-
+                key = key_text_field.getText();
+                if (key.length() > 0) {
+                    // Sao chép đoạn văn bản vào clipboard
+                    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+                    StringSelection selection = new StringSelection(key);
+                    clipboard.setContents(selection, null);
+                }
             }
         });
     }
@@ -373,10 +379,12 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
                     path_folder_contain_selected_file = selectedFile.getParent();
 
                     label_name_file.setText(name_selected_file);
+
+                   /*
                     if (label_name_file.getText().length() > 0) {
                         bt_encrypt.setEnabled(true);
                         bt_decrypt.setEnabled(true);
-                    }
+                    }*/
 
                     // System.out.println("Đường dẫn tuyệt đối đến tệp: " + path_selected_file);
                     // System.out.println("Đường dẫn đến thư mục chứa tệp: " + path_folder_contain_selected_file);
