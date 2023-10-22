@@ -7,7 +7,7 @@ public class FileUtil {
     public static boolean deleteFile(String path) {
         File file = new File(path);
         try {
-            if (file.exists()) return file.delete();
+            if (file.isFile() && file.exists()) return file.delete();
             return false;
         } catch (Exception e) {
             return false;
