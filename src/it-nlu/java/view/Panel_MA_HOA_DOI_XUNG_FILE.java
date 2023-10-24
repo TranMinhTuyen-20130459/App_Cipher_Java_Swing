@@ -35,7 +35,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
     private JTextField key_text_field;
     private JComboBox combo_box_algorithm,
             combo_box_language;
-    private String[] arr_algorithms = {"Vigenere", "Hill", "Affine", "DES", "Triple DES", "AES"};
+    private String[] arr_algorithms = {"Vigenere", "Hill", "DES", "AES", "TwoFish"};
 
     private String[] arr_languages = {"English", "Vietnamese"};
 

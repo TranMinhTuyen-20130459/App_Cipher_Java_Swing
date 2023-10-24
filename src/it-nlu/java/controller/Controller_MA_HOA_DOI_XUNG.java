@@ -11,7 +11,7 @@ public class Controller_MA_HOA_DOI_XUNG {
         try {
 
             if (keyText == null || algorithm == null || keyText.isEmpty() || algorithm.isEmpty()) {
-                return "";
+                return null;
             }
 
             switch (algorithm.toUpperCase()) {
@@ -24,12 +24,12 @@ public class Controller_MA_HOA_DOI_XUNG {
                     return des.exportKey();
                 }
                 default:
-                    return "";
+                    return "NOT_FOUND_ALGORITHM";
             }
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            return "Error";
+            return null;
         }
     }
 
@@ -37,7 +37,7 @@ public class Controller_MA_HOA_DOI_XUNG {
 
         try {
 
-            if (algorithm == null || algorithm.isEmpty()) return "";
+            if (algorithm == null || algorithm.isEmpty()) return null;
 
             switch (algorithm.toUpperCase()) {
 
@@ -50,13 +50,13 @@ public class Controller_MA_HOA_DOI_XUNG {
 
                 }
                 default:
-                    return "";
+                    return "NOT_FOUND_ALGORITHM";
 
             }
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            return "Error";
+            return null;
         }
     }
 
@@ -67,7 +67,7 @@ public class Controller_MA_HOA_DOI_XUNG {
 
         try {
 
-            if (key == null || key.isEmpty()) return "";
+            if (key == null || key.isEmpty()) return "Error";
 
             switch (algorithm.toUpperCase()) {
 
@@ -96,7 +96,7 @@ public class Controller_MA_HOA_DOI_XUNG {
 
         try {
 
-            if (key == null || key.isEmpty()) return "";
+            if (key == null || key.isEmpty()) return "Error";
 
             switch (algorithm.toUpperCase()) {
 

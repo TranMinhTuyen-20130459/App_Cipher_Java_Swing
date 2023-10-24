@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="Reset lại Layout của component Panel_MA_HOA_DOI_XUNG_TEXT khi click vào button &quot;TRANG CHỦ&quot;">
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/utils/FileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/utils/FileUtil.java" afterDir="false" />
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="nâng cấp func deleteFile trong Class FileUtil">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +60,7 @@
       <recent name="F:\Git\App_Ma_Hoa_Java_Swing\src\it-nlu\resources\image" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.FileUtil">
+  <component name="RunManager" selected="Application.Application">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Application" />
       <module name="App_Ma_Hoa_Java_Swing" />
@@ -104,8 +107,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.FileUtil" />
         <item itemvalue="Application.Application" />
+        <item itemvalue="Application.FileUtil" />
         <item itemvalue="Application.Cipher_DES" />
       </list>
     </recent_temporary>
@@ -164,7 +167,10 @@
       <workItem from="1697882369352" duration="6089000" />
       <workItem from="1697904022709" duration="569000" />
       <workItem from="1697979171675" duration="7440000" />
-      <workItem from="1697987323615" duration="3778000" />
+      <workItem from="1697987323615" duration="3909000" />
+      <workItem from="1698117567919" duration="23000" />
+      <workItem from="1698117611697" duration="1563000" />
+      <workItem from="1698158554991" duration="5293000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1696644054692</created>
@@ -390,7 +396,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697990738557</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="nâng cấp func deleteFile trong Class FileUtil">
+      <created>1697991706524</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1697991706524</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -408,7 +421,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="đổi background màu vàng cho menu MÃ HÓA ĐỐI XỨNG" />
     <MESSAGE value="Thêm giao diện cho component MA_HOA_DOI_XUNG" />
     <MESSAGE value="bỏ đoạn code thay đổi màu nền sau 10s cho component Bản Quyền" />
     <MESSAGE value="tiếp tục thêm giao diện cho component MA_HOA_DOI_XUNG" />
@@ -433,7 +445,8 @@
     <MESSAGE value="Thêm chức năng Copy Key ở component MA_HOA_DOI_XUNG_FILE" />
     <MESSAGE value="Reset lại Layout của component Panel_MA_HOA_DOI_XUNG_FILE khi click vào button &quot;TRANG CHỦ&quot;" />
     <MESSAGE value="Reset lại Layout của component Panel_MA_HOA_DOI_XUNG_TEXT khi click vào button &quot;TRANG CHỦ&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reset lại Layout của component Panel_MA_HOA_DOI_XUNG_TEXT khi click vào button &quot;TRANG CHỦ&quot;" />
+    <MESSAGE value="nâng cấp func deleteFile trong Class FileUtil" />
+    <option name="LAST_COMMIT_MESSAGE" value="nâng cấp func deleteFile trong Class FileUtil" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
