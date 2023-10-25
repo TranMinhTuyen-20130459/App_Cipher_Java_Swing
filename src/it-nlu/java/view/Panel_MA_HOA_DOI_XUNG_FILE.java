@@ -309,6 +309,8 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 name_algorithm = combo_box_algorithm.getSelectedItem().toString();
                 // System.out.println(name_algorithm);
+
+                resetTextFieldKey();
             }
         });
     }
@@ -322,6 +324,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 name_language = combo_box_language.getSelectedItem().toString();
                 // System.out.println(name_language);
+
             }
         });
     }

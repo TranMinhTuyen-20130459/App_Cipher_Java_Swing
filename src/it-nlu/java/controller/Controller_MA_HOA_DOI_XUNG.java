@@ -127,7 +127,7 @@ public class Controller_MA_HOA_DOI_XUNG {
 
                 }
 
-                case Algorithm.AES:{
+                case Algorithm.AES: {
 
                     Cipher_AES aes = new Cipher_AES();
                     aes.importKey(key);
@@ -172,6 +172,14 @@ public class Controller_MA_HOA_DOI_XUNG {
                     des.encryptFile(srcFile, destFile);
                     return EncryptFile.SUCCESS;
                 }
+
+                case Algorithm.AES: {
+                    Cipher_AES aes = new Cipher_AES();
+                    aes.importKey(key);
+                    aes.encryptFile(srcFile, destFile);
+                    return EncryptFile.SUCCESS;
+                }
+
                 default:
                     return EncryptFile.NOT_FOUND_ALGORITHM;
             }
@@ -198,6 +206,13 @@ public class Controller_MA_HOA_DOI_XUNG {
                     Cipher_DES des = new Cipher_DES();
                     des.importKey(key);
                     des.decryptFile(srcFile, destFile);
+                    return DecryptFile.SUCCESS;
+                }
+
+                case Algorithm.AES: {
+                    Cipher_AES aes = new Cipher_AES();
+                    aes.importKey(key);
+                    aes.decryptFile(srcFile, destFile);
                     return DecryptFile.SUCCESS;
                 }
                 default:

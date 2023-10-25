@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="thêm cửa sổ thông báo khi &quot;KHÔNG TÌM THẤY GIẢI THUẬT PHÙ HỢP&quot; và &quot;CHƯA CÓ KEY ĐỂ GIẢI MÃ&quot; tại component Panel_MA_HOA_DOI_XUNG_TEXT">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="hiện thực giải thuật mã hóa AES lên View">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_AES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_AES.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_Affine.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_DES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_DES.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_TripleDES.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/interfaces/I_Create.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/interfaces/I_Create.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +186,7 @@
       <workItem from="1698158554991" duration="5892000" />
       <workItem from="1698199917996" duration="956000" />
       <workItem from="1698218148224" duration="11949000" />
-      <workItem from="1698239267446" duration="3872000" />
+      <workItem from="1698239267446" duration="6927000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1696644054692</created>
@@ -430,7 +426,42 @@
       <option name="project" value="LOCAL" />
       <updated>1698164034719</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="hiện thực giải thuật mã hóa AES trong model">
+      <created>1698243456357</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1698243456357</updated>
+    </task>
+    <task id="LOCAL-00036" summary="đổi tên biến trong một số function của class Cipher_DES">
+      <created>1698243496110</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1698243496110</updated>
+    </task>
+    <task id="LOCAL-00037" summary="tạo class Cipher_TwoFish">
+      <created>1698243532944</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1698243532944</updated>
+    </task>
+    <task id="LOCAL-00038" summary="thêm tham số cho function createKeyRandom()">
+      <created>1698243578470</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1698243578470</updated>
+    </task>
+    <task id="LOCAL-00039" summary="hiện thực giải thuật mã hóa AES lên View">
+      <created>1698243612562</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1698243612562</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -448,11 +479,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="bỏ đoạn code thay đổi màu nền sau 10s cho component Bản Quyền" />
-    <MESSAGE value="tiếp tục thêm giao diện cho component MA_HOA_DOI_XUNG" />
-    <MESSAGE value="Thêm các Class dành cho giải thuật mã hóa đối xứng và bất đối xứng" />
-    <MESSAGE value="Tối ưu src code của Frame_Home và Panel_MA_HOA_DOI_XUNG" />
-    <MESSAGE value="thêm class Panel_MA_HOA_DOI_XUNG_TEXT &amp;&amp; Panel_MA_HOA_DOI_XUNG_FILE" />
     <MESSAGE value="chỉnh sửa class Panel_MA_HOA_DOI_XUNG" />
     <MESSAGE value="xử lí sự kiện khi click vào &quot;MÃ HÓA VĂN BẢN&quot; or &quot;MÃ HÓA FILE&quot; của components &quot;MÃ HÓA ĐỐI XỨNG&quot;" />
     <MESSAGE value="hoàn thành xử lí sự kiện khi click vào &quot;MÃ HÓA VĂN BẢN&quot; or &quot;MÃ HÓA FILE&quot; của components &quot;MÃ HÓA ĐỐI XỨNG&quot;" />
@@ -473,7 +499,12 @@
     <MESSAGE value="Reset lại Layout của component Panel_MA_HOA_DOI_XUNG_TEXT khi click vào button &quot;TRANG CHỦ&quot;" />
     <MESSAGE value="nâng cấp func deleteFile trong Class FileUtil" />
     <MESSAGE value="thêm cửa sổ thông báo khi &quot;KHÔNG TÌM THẤY GIẢI THUẬT PHÙ HỢP&quot; và &quot;CHƯA CÓ KEY ĐỂ GIẢI MÃ&quot; tại component Panel_MA_HOA_DOI_XUNG_TEXT" />
-    <option name="LAST_COMMIT_MESSAGE" value="thêm cửa sổ thông báo khi &quot;KHÔNG TÌM THẤY GIẢI THUẬT PHÙ HỢP&quot; và &quot;CHƯA CÓ KEY ĐỂ GIẢI MÃ&quot; tại component Panel_MA_HOA_DOI_XUNG_TEXT" />
+    <MESSAGE value="hiện thực giải thuật mã hóa AES trong model" />
+    <MESSAGE value="đổi tên biến trong một số function của class Cipher_DES" />
+    <MESSAGE value="tạo class Cipher_TwoFish" />
+    <MESSAGE value="thêm tham số cho function createKeyRandom()" />
+    <MESSAGE value="hiện thực giải thuật mã hóa AES lên View" />
+    <option name="LAST_COMMIT_MESSAGE" value="hiện thực giải thuật mã hóa AES lên View" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
