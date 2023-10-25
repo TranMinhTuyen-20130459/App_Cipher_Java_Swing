@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="hiện thực giải thuật mã hóa AES lên View">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="hiện thực giải thuật mã hóa file AES lên View">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +185,7 @@
       <workItem from="1698158554991" duration="5892000" />
       <workItem from="1698199917996" duration="956000" />
       <workItem from="1698218148224" duration="11949000" />
-      <workItem from="1698239267446" duration="6927000" />
+      <workItem from="1698239267446" duration="7593000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1696644054692</created>
@@ -461,7 +460,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698243612562</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="hiện thực giải thuật mã hóa file AES lên View">
+      <created>1698246243686</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1698246243686</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -479,7 +485,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chỉnh sửa class Panel_MA_HOA_DOI_XUNG" />
     <MESSAGE value="xử lí sự kiện khi click vào &quot;MÃ HÓA VĂN BẢN&quot; or &quot;MÃ HÓA FILE&quot; của components &quot;MÃ HÓA ĐỐI XỨNG&quot;" />
     <MESSAGE value="hoàn thành xử lí sự kiện khi click vào &quot;MÃ HÓA VĂN BẢN&quot; or &quot;MÃ HÓA FILE&quot; của components &quot;MÃ HÓA ĐỐI XỨNG&quot;" />
     <MESSAGE value="đổi tên function menuClicked() trong Frame_Home thành showPanel()" />
@@ -504,7 +509,8 @@
     <MESSAGE value="tạo class Cipher_TwoFish" />
     <MESSAGE value="thêm tham số cho function createKeyRandom()" />
     <MESSAGE value="hiện thực giải thuật mã hóa AES lên View" />
-    <option name="LAST_COMMIT_MESSAGE" value="hiện thực giải thuật mã hóa AES lên View" />
+    <MESSAGE value="hiện thực giải thuật mã hóa file AES lên View" />
+    <option name="LAST_COMMIT_MESSAGE" value="hiện thực giải thuật mã hóa file AES lên View" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
