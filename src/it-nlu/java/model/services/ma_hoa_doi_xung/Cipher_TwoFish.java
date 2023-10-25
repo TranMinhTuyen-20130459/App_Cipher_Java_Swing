@@ -1,4 +1,4 @@
 package model.services.ma_hoa_doi_xung;
 
-public class Cipher_Affine {
+public class Cipher_TwoFish {
 }
