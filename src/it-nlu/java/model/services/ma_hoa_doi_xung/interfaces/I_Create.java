@@ -6,6 +6,6 @@ public interface I_Create {
 
     public SecretKey createKeyFromInput(String text) throws Exception;
 
-    public SecretKey createKeyRandom() throws Exception;
+    public SecretKey createKeyRandom(int key_size) throws Exception;
 
 }
