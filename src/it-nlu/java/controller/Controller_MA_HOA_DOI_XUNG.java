@@ -3,6 +3,7 @@ package controller;
 import helper.Algorithm;
 import helper.DecryptFile;
 import helper.EncryptFile;
+import model.services.ma_hoa_doi_xung.Cipher_AES;
 import model.services.ma_hoa_doi_xung.Cipher_DES;
 
 public class Controller_MA_HOA_DOI_XUNG {
@@ -44,9 +45,18 @@ public class Controller_MA_HOA_DOI_XUNG {
                 case Algorithm.DES: {
 
                     Cipher_DES des = new Cipher_DES();
-                    des.createKeyRandom();
+                    des.createKeyRandom(56);
 
                     return des.exportKey();
+
+                }
+
+                case Algorithm.AES: {
+
+                    Cipher_AES aes = new Cipher_AES();
+                    aes.createKeyRandom(128);
+
+                    return aes.exportKey();
 
                 }
                 default:
@@ -78,6 +88,14 @@ public class Controller_MA_HOA_DOI_XUNG {
 
                     return des.encryptToBase64(plain_text);
                 }
+
+                case Algorithm.AES: {
+
+                    Cipher_AES aes = new Cipher_AES();
+                    aes.importKey(key);
+
+                    return aes.encryptToBase64(plain_text);
+                }
                 default:
                     return "";
             }
@@ -106,6 +124,15 @@ public class Controller_MA_HOA_DOI_XUNG {
                     des.importKey(key);
 
                     return des.decryptFromBase64(encrypt_text);
+
+                }
+
+                case Algorithm.AES:{
+
+                    Cipher_AES aes = new Cipher_AES();
+                    aes.importKey(key);
+
+                    return aes.decryptFromBase64(encrypt_text);
 
                 }
                 default:

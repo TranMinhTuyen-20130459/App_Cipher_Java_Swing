@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="nâng cấp func deleteFile trong Class FileUtil">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="thêm cửa sổ thông báo khi &quot;KHÔNG TÌM THẤY GIẢI THUẬT PHÙ HỢP&quot; và &quot;CHƯA CÓ KEY ĐỂ GIẢI MÃ&quot; tại component Panel_MA_HOA_DOI_XUNG_TEXT">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_AES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_AES.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_Affine.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_DES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_DES.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_TripleDES.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/interfaces/I_Create.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/interfaces/I_Create.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +71,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Cipher_AES" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="model.services.ma_hoa_doi_xung.Cipher_AES" />
+      <module name="App_Ma_Hoa_Java_Swing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.services.ma_hoa_doi_xung.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Cipher_DES" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="model.services.ma_hoa_doi_xung.Cipher_DES" />
       <module name="App_Ma_Hoa_Java_Swing" />
@@ -108,8 +124,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Application" />
-        <item itemvalue="Application.FileUtil" />
+        <item itemvalue="Application.Cipher_AES" />
         <item itemvalue="Application.Cipher_DES" />
+        <item itemvalue="Application.FileUtil" />
       </list>
     </recent_temporary>
   </component>
@@ -170,7 +187,10 @@
       <workItem from="1697987323615" duration="3909000" />
       <workItem from="1698117567919" duration="23000" />
       <workItem from="1698117611697" duration="1563000" />
-      <workItem from="1698158554991" duration="5293000" />
+      <workItem from="1698158554991" duration="5892000" />
+      <workItem from="1698199917996" duration="956000" />
+      <workItem from="1698218148224" duration="11949000" />
+      <workItem from="1698239267446" duration="3872000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1696644054692</created>
@@ -403,7 +423,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697991706524</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="thêm cửa sổ thông báo khi &quot;KHÔNG TÌM THẤY GIẢI THUẬT PHÙ HỢP&quot; và &quot;CHƯA CÓ KEY ĐỂ GIẢI MÃ&quot; tại component Panel_MA_HOA_DOI_XUNG_TEXT">
+      <created>1698164034719</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1698164034719</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -421,7 +448,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Thêm giao diện cho component MA_HOA_DOI_XUNG" />
     <MESSAGE value="bỏ đoạn code thay đổi màu nền sau 10s cho component Bản Quyền" />
     <MESSAGE value="tiếp tục thêm giao diện cho component MA_HOA_DOI_XUNG" />
     <MESSAGE value="Thêm các Class dành cho giải thuật mã hóa đối xứng và bất đối xứng" />
@@ -446,7 +472,8 @@
     <MESSAGE value="Reset lại Layout của component Panel_MA_HOA_DOI_XUNG_FILE khi click vào button &quot;TRANG CHỦ&quot;" />
     <MESSAGE value="Reset lại Layout của component Panel_MA_HOA_DOI_XUNG_TEXT khi click vào button &quot;TRANG CHỦ&quot;" />
     <MESSAGE value="nâng cấp func deleteFile trong Class FileUtil" />
-    <option name="LAST_COMMIT_MESSAGE" value="nâng cấp func deleteFile trong Class FileUtil" />
+    <MESSAGE value="thêm cửa sổ thông báo khi &quot;KHÔNG TÌM THẤY GIẢI THUẬT PHÙ HỢP&quot; và &quot;CHƯA CÓ KEY ĐỂ GIẢI MÃ&quot; tại component Panel_MA_HOA_DOI_XUNG_TEXT" />
+    <option name="LAST_COMMIT_MESSAGE" value="thêm cửa sổ thông báo khi &quot;KHÔNG TÌM THẤY GIẢI THUẬT PHÙ HỢP&quot; và &quot;CHƯA CÓ KEY ĐỂ GIẢI MÃ&quot; tại component Panel_MA_HOA_DOI_XUNG_TEXT" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
