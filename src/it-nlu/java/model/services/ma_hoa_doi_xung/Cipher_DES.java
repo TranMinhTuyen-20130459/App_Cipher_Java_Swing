@@ -18,7 +18,7 @@ public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export, I_Import, I_C
     public SecretKey createKeyFromInput(String text) throws Exception {
         var textBytes = text.getBytes("UTF-8");
 
-        // Kiểm tra xem độ dài của mảng byte có đủ 8 byte không (56 bit)
+        // Kiểm tra xem độ dài của mảng byte có đủ 8 byte không (64 bit)
         if (textBytes.length != 8) {
             throw new IllegalArgumentException("Text length must be 8 bytes for a DES key.");
         }
@@ -28,9 +28,14 @@ public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export, I_Import, I_C
     }
 
     @Override
-    public SecretKey createKeyRandom() throws Exception {
+    public SecretKey createKeyRandom(int key_size) throws Exception {
         KeyGenerator key_generator = KeyGenerator.getInstance("DES");
-        key_generator.init(56);
+        key_generator.init(key_size);
+        /*
+         *  DES yêu cầu một khóa đầy đủ có 64 bit,
+         *  nhưng chỉ sử dụng 56 bit trong số đó để thực hiện mã hóa,
+         *  và 8 bit còn lại được sử dụng để kiểm tra tính chính xác của khóa.
+         */
         key = key_generator.generateKey();
         return key;
     }
@@ -40,8 +45,8 @@ public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export, I_Import, I_C
         if (key == null) return new byte[]{};
         Cipher cipher = Cipher.getInstance("DES");
         cipher.init(Cipher.ENCRYPT_MODE, key);
-        var plain_text = text.getBytes("UTF-8");
-        return cipher.doFinal(plain_text);
+        var text_bytes = text.getBytes("UTF-8");
+        return cipher.doFinal(text_bytes);
     }
 
     @Override
@@ -49,9 +54,9 @@ public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export, I_Import, I_C
         if (key == null) return "";
         Cipher cipher = Cipher.getInstance("DES");
         cipher.init(Cipher.ENCRYPT_MODE, key);
-        var plain_text = text.getBytes("UTF-8");
-        var cipher_text = cipher.doFinal(plain_text);
-        return Base64.getEncoder().encodeToString(cipher_text);
+        var text_bytes = text.getBytes("UTF-8");
+        var encrypted_text_bytes = cipher.doFinal(text_bytes);
+        return Base64.getEncoder().encodeToString(encrypted_text_bytes);
     }
 
     @Override
@@ -103,8 +108,8 @@ public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export, I_Import, I_C
         if (key == null) return "";
         Cipher cipher = Cipher.getInstance("DES");
         cipher.init(Cipher.DECRYPT_MODE, key);
-        var plain_text = cipher.doFinal(encrypt);
-        return new String(plain_text);
+        var decrypted_text_bytes = cipher.doFinal(encrypt);
+        return new String(decrypted_text_bytes);
     }
 
     @Override
@@ -192,7 +197,7 @@ public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export, I_Import, I_C
 
         var plain_text = "I am a student. I study at Đại Học Nông Lâm";
         Cipher_DES des = new Cipher_DES();
-        des.createKeyRandom();
+        des.createKeyRandom(56);
 
 //        var encrypt_bytes = des.encrypt(plain_text);
 //        var encrypt_text = des.encryptToBase64(plain_text);
