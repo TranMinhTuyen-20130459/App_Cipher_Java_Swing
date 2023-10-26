@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="thêm thư viện Bouncy Castle để sử dụng các giải thuật MÃ HÓA bên ngoài">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="mã hóa và giải mã văn bản với giải thuật TwoFish">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_TwoFish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_TwoFish.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -202,7 +201,8 @@
       <workItem from="1698218148224" duration="11949000" />
       <workItem from="1698239267446" duration="8757000" />
       <workItem from="1698249500541" duration="4391000" />
-      <workItem from="1698306899995" duration="11199000" />
+      <workItem from="1698306899995" duration="11849000" />
+      <workItem from="1698327101306" duration="6904000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1696644054692</created>
@@ -491,7 +491,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698247066269</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="mã hóa và giải mã văn bản với giải thuật TwoFish">
+      <created>1698318320682</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1698318320682</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -509,7 +516,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="hoàn thành xử lí sự kiện khi click vào &quot;MÃ HÓA VĂN BẢN&quot; or &quot;MÃ HÓA FILE&quot; của components &quot;MÃ HÓA ĐỐI XỨNG&quot;" />
     <MESSAGE value="đổi tên function menuClicked() trong Frame_Home thành showPanel()" />
     <MESSAGE value="hiện thực giải thuật mã hóa DES" />
     <MESSAGE value="xử lí sự kiện tại Panel_MA_HOA_DOI_XUNG_TEXT" />
@@ -534,7 +540,8 @@
     <MESSAGE value="hiện thực giải thuật mã hóa AES lên View" />
     <MESSAGE value="hiện thực giải thuật mã hóa file AES lên View" />
     <MESSAGE value="thêm thư viện Bouncy Castle để sử dụng các giải thuật MÃ HÓA bên ngoài" />
-    <option name="LAST_COMMIT_MESSAGE" value="thêm thư viện Bouncy Castle để sử dụng các giải thuật MÃ HÓA bên ngoài" />
+    <MESSAGE value="mã hóa và giải mã văn bản với giải thuật TwoFish" />
+    <option name="LAST_COMMIT_MESSAGE" value="mã hóa và giải mã văn bản với giải thuật TwoFish" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

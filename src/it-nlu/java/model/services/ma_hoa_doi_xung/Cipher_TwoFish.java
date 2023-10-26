@@ -8,6 +8,9 @@ import org.bouncycastle.crypto.engines.TwofishEngine;
 import org.bouncycastle.crypto.paddings.PaddedBufferedBlockCipher;
 import org.bouncycastle.crypto.params.KeyParameter;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
 import java.util.Arrays;
@@ -47,7 +50,6 @@ public class Cipher_TwoFish implements I_Encrypt, I_Decrypt, I_Export {
 
         return key;
     }
-
     @Override
     public byte[] encrypt(String text) throws Exception {
         if (key == null || engine == null) {
@@ -75,8 +77,6 @@ public class Cipher_TwoFish implements I_Encrypt, I_Decrypt, I_Export {
         byte[] finalData = Arrays.copyOf(encryptedData, length);
         return finalData;
     }
-
-
     @Override
     public String encryptToBase64(String text) throws Exception {
 
@@ -105,12 +105,43 @@ public class Cipher_TwoFish implements I_Encrypt, I_Decrypt, I_Export {
         // Chuyển mảng byte thành chuỗi Base64 và trả về
         return Base64.getEncoder().encodeToString(finalData);
     }
-
     @Override
     public void encryptFile(String srcFile, String destFile) throws Exception {
+        FileInputStream fis = null;
+        FileOutputStream fos = null;
+        try {
+            File file = new File(srcFile);
+            if (file.isFile()) {
+                fis = new FileInputStream(file);
+                fos = new FileOutputStream(destFile);
 
+                if (key == null || engine == null) {
+                    throw new Exception("Key or engine not initialized.");
+                }
+
+                BufferedBlockCipher cipher = new PaddedBufferedBlockCipher(engine);
+                cipher.init(true, key);
+
+                byte[] input_byte = new byte[1024];
+                int byte_read;
+                byte[] output_byte = new byte[cipher.getOutputSize(input_byte.length)];
+
+                while ((byte_read = fis.read(input_byte)) != -1) {
+                    int length = cipher.processBytes(input_byte, 0, byte_read, output_byte, 0);
+                    fos.write(output_byte, 0, length);
+                }
+
+                int final_length = cipher.doFinal(output_byte, 0);
+                fos.write(output_byte, 0, final_length);
+
+                fos.flush();
+                System.out.println("Done Encrypted File");
+            }
+        } finally {
+            if (fis != null) fis.close();
+            if (fos != null) fos.close();
+        }
     }
-
     @Override
     public String decrypt(byte[] encrypt) throws Exception {
         if (key == null || engine == null) return "";
@@ -132,7 +163,6 @@ public class Cipher_TwoFish implements I_Encrypt, I_Decrypt, I_Export {
         // Chuyển mảng byte đã giải mã thành chuỗi UTF-8 và trả về
         return new String(decryptedData, 0, length, StandardCharsets.UTF_8);
     }
-
     @Override
     public String decryptFromBase64(String text) throws Exception {
 
@@ -158,23 +188,51 @@ public class Cipher_TwoFish implements I_Encrypt, I_Decrypt, I_Export {
         // Chuyển mảng byte đã giải mã thành chuỗi UTF-8 và trả về
         return new String(decryptedData, 0, length, StandardCharsets.UTF_8);
     }
-
-
     @Override
     public void decryptFile(String srcFile, String destFile) throws Exception {
+        FileInputStream fis = null;
+        FileOutputStream fos = null;
+        try {
+            File file = new File(srcFile);
+            if (file.isFile()) {
+                fis = new FileInputStream(file);
+                fos = new FileOutputStream(destFile);
 
+                if (key == null || engine == null) {
+                    throw new Exception("Key or engine not initialized.");
+                }
+
+                BufferedBlockCipher cipher = new PaddedBufferedBlockCipher(engine);
+                cipher.init(false, key);
+
+                byte[] input_byte = new byte[1024];
+                int byte_read;
+                byte[] output_byte = new byte[cipher.getOutputSize(input_byte.length)];
+
+                while ((byte_read = fis.read(input_byte)) != -1) {
+                    int length = cipher.processBytes(input_byte, 0, byte_read, output_byte, 0);
+                    fos.write(output_byte, 0, length);
+                }
+
+                int final_length = cipher.doFinal(output_byte, 0);
+                fos.write(output_byte, 0, final_length);
+
+                fos.flush();
+                System.out.println("Done Decrypted File");
+            }
+        } finally {
+            if (fis != null) fis.close();
+            if (fos != null) fos.close();
+        }
     }
-
     @Override
     public String exportKey() throws Exception {
         if (key == null) return "";
         return Base64.getEncoder().encodeToString(key.getKey());
     }
-
     public KeyParameter importKey(String keyText) throws Exception {
         return null;
     }
-
     public static void main(String[] args) throws Exception {
 
         // CodeOfChatGPT();
@@ -183,6 +241,8 @@ public class Cipher_TwoFish implements I_Encrypt, I_Decrypt, I_Export {
         Test_Encrypt_Decrypt_Text_With_Bytes();
         System.out.println("-----------------------------");
         Test_Encrypt_Decrypt_Text_With_Base64();
+        System.out.println("-----------------------------");
+        Test_Encrypt_Decrypt_With_File();
 
     }
 
@@ -254,7 +314,7 @@ public class Cipher_TwoFish implements I_Encrypt, I_Decrypt, I_Export {
 
         byte[] encrypted_bytes = twoFish.encrypt(plain_text);
         var decrypted_text = twoFish.decrypt(encrypted_bytes);
-        System.out.println("Encrypted Bytes: "+encrypted_bytes);
+        System.out.println("Encrypted Bytes: " + encrypted_bytes);
         System.out.println("Decrypted Text: " + decrypted_text);
 
     }
@@ -270,6 +330,19 @@ public class Cipher_TwoFish implements I_Encrypt, I_Decrypt, I_Export {
 
         System.out.println("Encrypted Text: " + encrypted_text);
         System.out.println("Decrypted Text: " + decrypted_text);
+
+    }
+
+    public static void Test_Encrypt_Decrypt_With_File() throws Exception {
+        Cipher_TwoFish twoFish = new Cipher_TwoFish();
+        twoFish.createKeyRandom(128);
+
+        String srcFile = "C:/Users/tmt01/Downloads/Nhom5_Ionic_App_Ban_Giay.pptx";
+        String destFile = "C:/Users/tmt01/Downloads/TWOFISH_ENCRYPT_Nhom5_Ionic_App_Ban_Giay.pptx";
+
+        twoFish.encryptFile(srcFile, destFile);
+        System.out.println("---------------------------------------------------");
+        twoFish.decryptFile(destFile, "C:/Users/tmt01/Downloads/TWOFISH_DECRYPT_Nhom5_Ionic_App_Ban_Giay.pptx");
 
     }
 
