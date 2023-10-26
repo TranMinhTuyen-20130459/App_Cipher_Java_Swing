@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="hiện thực giải thuật mã hóa file AES lên View">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="thêm thư viện Bouncy Castle để sử dụng các giải thuật MÃ HÓA bên ngoài">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_TwoFish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_TwoFish.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +59,7 @@
       <recent name="F:\Git\App_Ma_Hoa_Java_Swing\src\it-nlu\resources\image" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Application">
+  <component name="RunManager" selected="Application.Cipher_TwoFish">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Application" />
       <module name="App_Ma_Hoa_Java_Swing" />
@@ -81,6 +82,19 @@
     </configuration>
     <configuration name="Cipher_DES" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="model.services.ma_hoa_doi_xung.Cipher_DES" />
+      <module name="App_Ma_Hoa_Java_Swing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.services.ma_hoa_doi_xung.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Cipher_TwoFish" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="model.services.ma_hoa_doi_xung.Cipher_TwoFish" />
       <module name="App_Ma_Hoa_Java_Swing" />
       <extension name="coverage">
         <pattern>
@@ -118,6 +132,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Cipher_TwoFish" />
         <item itemvalue="Application.Application" />
         <item itemvalue="Application.Cipher_AES" />
         <item itemvalue="Application.Cipher_DES" />
@@ -185,7 +200,9 @@
       <workItem from="1698158554991" duration="5892000" />
       <workItem from="1698199917996" duration="956000" />
       <workItem from="1698218148224" duration="11949000" />
-      <workItem from="1698239267446" duration="7593000" />
+      <workItem from="1698239267446" duration="8757000" />
+      <workItem from="1698249500541" duration="4391000" />
+      <workItem from="1698306899995" duration="11199000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1696644054692</created>
@@ -467,7 +484,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698246243686</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="thêm thư viện Bouncy Castle để sử dụng các giải thuật MÃ HÓA bên ngoài">
+      <created>1698247066269</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1698247066269</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -485,7 +509,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="xử lí sự kiện khi click vào &quot;MÃ HÓA VĂN BẢN&quot; or &quot;MÃ HÓA FILE&quot; của components &quot;MÃ HÓA ĐỐI XỨNG&quot;" />
     <MESSAGE value="hoàn thành xử lí sự kiện khi click vào &quot;MÃ HÓA VĂN BẢN&quot; or &quot;MÃ HÓA FILE&quot; của components &quot;MÃ HÓA ĐỐI XỨNG&quot;" />
     <MESSAGE value="đổi tên function menuClicked() trong Frame_Home thành showPanel()" />
     <MESSAGE value="hiện thực giải thuật mã hóa DES" />
@@ -510,7 +533,8 @@
     <MESSAGE value="thêm tham số cho function createKeyRandom()" />
     <MESSAGE value="hiện thực giải thuật mã hóa AES lên View" />
     <MESSAGE value="hiện thực giải thuật mã hóa file AES lên View" />
-    <option name="LAST_COMMIT_MESSAGE" value="hiện thực giải thuật mã hóa file AES lên View" />
+    <MESSAGE value="thêm thư viện Bouncy Castle để sử dụng các giải thuật MÃ HÓA bên ngoài" />
+    <option name="LAST_COMMIT_MESSAGE" value="thêm thư viện Bouncy Castle để sử dụng các giải thuật MÃ HÓA bên ngoài" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
