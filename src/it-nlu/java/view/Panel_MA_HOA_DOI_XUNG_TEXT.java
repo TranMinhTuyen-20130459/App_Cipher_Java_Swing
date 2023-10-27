@@ -7,6 +7,8 @@ import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.awt.event.*;
 import java.awt.geom.RoundRectangle2D;
 import java.util.Arrays;
@@ -20,7 +22,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     private JButton bt_encrypt,
             bt_decrypt,
             bt_input_key,
-            bt_create_new_key,
+            bt_copy_key,
             bt_home;
     private JTextArea plain_text_area,
             encrypted_text_area,
@@ -68,7 +70,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
 
         add(bt_encrypt);
         add(bt_decrypt);
-        add(bt_create_new_key);
+        add(bt_copy_key);
         add(bt_home);
         add(bt_input_key);
 
@@ -91,6 +93,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         label_chon_ngon_ngu.setHorizontalAlignment(SwingConstants.CENTER);
         label_chon_ngon_ngu.setFont(new Font("Arial", Font.PLAIN, 14));
         label_chon_ngon_ngu.setBounds(364, 19, 119, 37);
+        label_chon_ngon_ngu.setVisible(false);
 
         label_key = new JLabel("Key:");
         label_key.setForeground(Color.BLACK);
@@ -115,7 +118,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     public void createButtonGroup() {
         createButtonEncrypt();
         createButtonDecrypt();
-        createButtonCreateNewKey();
+        createButtonCopyKey();
         createButtonHome();
         createButtonInputKey();
     }
@@ -130,6 +133,8 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
             public void mouseClicked(MouseEvent e) {
 
                 if (bt_encrypt.isEnabled() == true) {
+
+                    key = key_text_field.getText();
 
                     // Nếu chưa có key MÃ HÓA
                     if (key == null || key.isEmpty()) {
@@ -192,6 +197,8 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
 
                 if (bt_decrypt.isEnabled() == true) {
 
+                    key = key_text_field.getText();
+
                     if (key == null || key.isEmpty()) {
                         JOptionPane.showMessageDialog(null, "CHƯA CÓ KEY ĐỂ GIẢI MÃ", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
                     } else {
@@ -200,7 +207,6 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                                 name_language,
                                 encrypted_text, key);
 
-                        decrypted_text_area.setEnabled(true);
                         decrypted_text_area.setText(decrypted_text);
                     }
                 }
@@ -209,22 +215,21 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         });
     }
 
-    public void createButtonCreateNewKey() {
-        bt_create_new_key = new RoundedButton("KEY MỚI", 25, new Color(136, 196, 230));
-        bt_create_new_key.setBounds(510, 82, 101, 37);
-        bt_create_new_key.addMouseListener(new MouseAdapter() {
+    public void createButtonCopyKey() {
+        bt_copy_key = new RoundedButton("COPY", 25, new Color(136, 196, 230));
+        bt_copy_key.setBounds(510, 82, 101, 37);
+        bt_copy_key.addMouseListener(new MouseAdapter() {
 
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                key = Controller_MA_HOA_DOI_XUNG.createKeyRandom(name_algorithm);
-                key_text_field.setText(key);
-
+                key = key_text_field.getText();
                 if (key.length() > 0) {
-                    resetEncryptedTextArea();
-                    resetDecryptedTextArea();
+                    // Sao chép đoạn văn bản vào clipboard
+                    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+                    StringSelection selection = new StringSelection(key);
+                    clipboard.setContents(selection, null);
                 }
-
             }
         });
     }
@@ -369,13 +374,53 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         encrypted_text_area.setLineWrap(true);
         encrypted_text_area.setWrapStyleWord(true);
 
-        encrypted_text_area.setEnabled(false);
+        encrypted_text_area.getDocument().addDocumentListener(new DocumentListener() {
+
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+
+                encrypted_text = encrypted_text_area.getText();
+                if (encrypted_text.isEmpty()) {
+                    bt_decrypt.setEnabled(false);
+                    resetDecryptedTextArea();
+                }
+                else bt_decrypt.setEnabled(true);
+
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+
+                encrypted_text = encrypted_text_area.getText();
+                if (encrypted_text.isEmpty()) {
+                    bt_decrypt.setEnabled(false);
+                    resetDecryptedTextArea();
+                }
+                else bt_decrypt.setEnabled(true);
+
+
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+
+                encrypted_text = encrypted_text_area.getText();
+                if (encrypted_text.isEmpty()) {
+                    bt_decrypt.setEnabled(false);
+                    resetDecryptedTextArea();
+                }
+                else bt_decrypt.setEnabled(true);
+
+            }
+        });
+
     }
 
     public void createDecryptedTextArea() {
         decrypted_text_area = new JTextArea();
         decrypted_text_area.setBackground(new Color(217, 217, 217));
         decrypted_text_area.setFont(new Font("Arial", Font.PLAIN, 16));
+        decrypted_text_area.setEditable(false);
 
         scroll_pane_decrypted_text_area = new JScrollPane(decrypted_text_area);
         scroll_pane_decrypted_text_area.setBounds(190, 330, 420, 70);
@@ -387,7 +432,6 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         decrypted_text_area.setLineWrap(true);
         decrypted_text_area.setWrapStyleWord(true);
 
-        decrypted_text_area.setEnabled(false);
     }
 
     public void createComboBoxGroup() {
@@ -409,6 +453,16 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                 resetTextFieldKey();
                 resetEncryptedTextArea();
                 resetDecryptedTextArea();
+
+                // Nếu là giải thuật Hill or Vigenere thì xuất hiện ComboBox để cho phép user chọn ngôn ngữ cần MÃ HÓA
+                if (name_algorithm.equalsIgnoreCase("Hill")
+                        || name_algorithm.equalsIgnoreCase("Vigenere")) {
+                    label_chon_ngon_ngu.setVisible(true);
+                    combo_box_language.setVisible(true);
+                } else {
+                    label_chon_ngon_ngu.setVisible(false);
+                    combo_box_language.setVisible(false);
+                }
             }
         });
     }
@@ -416,6 +470,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     public void createComboBoxLanguage() {
         combo_box_language = new JComboBox<>(arr_languages);
         combo_box_language.setBounds(483, 20, 128, 34);
+        combo_box_language.setVisible(false);
 
         combo_box_language.addActionListener(new ActionListener() {
             @Override
@@ -435,7 +490,6 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         key_text_field.setBounds(145, 82, 338, 37);
         key_text_field.setFont(new Font("Arial", Font.PLAIN, 16));
         key_text_field.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-        key_text_field.setEditable(false);
     }
 
     public void resetTextFieldKey() {
