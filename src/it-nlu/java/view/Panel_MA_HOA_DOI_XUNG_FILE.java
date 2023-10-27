@@ -60,11 +60,11 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
         createPanelChooseFile();
 
         add(label_chon_giai_thuat);
-        add(label_chon_ngon_ngu);
+        // add(label_chon_ngon_ngu);
         add(label_key);
 
         add(combo_box_algorithm);
-        add(combo_box_language);
+        // add(combo_box_language);
         add(key_text_field);
 
         add(bt_copy_key);
