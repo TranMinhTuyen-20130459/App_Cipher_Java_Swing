@@ -8,6 +8,7 @@ import org.bouncycastle.crypto.engines.TwofishEngine;
 import org.bouncycastle.crypto.paddings.PaddedBufferedBlockCipher;
 import org.bouncycastle.crypto.params.KeyParameter;
 
+import javax.crypto.spec.SecretKeySpec;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -231,7 +232,22 @@ public class Cipher_TwoFish implements I_Encrypt, I_Decrypt, I_Export {
         return Base64.getEncoder().encodeToString(key.getKey());
     }
     public KeyParameter importKey(String keyText) throws Exception {
-        return null;
+
+        /**
+         * keyText là một chuỗi string dạng Base64
+         * */
+
+        if (keyText == null || keyText.isEmpty()) {
+            throw new IllegalArgumentException("Invalid key text");
+        }
+
+        try {
+            byte[] key_bytes = Base64.getDecoder().decode(keyText.getBytes());
+            key = new KeyParameter(key_bytes);
+            return key;
+        } catch (Exception e) {
+            throw new Exception("Failed to import key: " + e.getMessage());
+        }
     }
     public static void main(String[] args) throws Exception {
 

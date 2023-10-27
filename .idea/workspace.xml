@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="mã hóa và giải mã văn bản với giải thuật TwoFish">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="mã hóa và giải mã File với giải thuật TwoFish">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/helper/Algorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/helper/Algorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_TwoFish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_TwoFish.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +60,7 @@
       <recent name="F:\Git\App_Ma_Hoa_Java_Swing\src\it-nlu\resources\image" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Cipher_TwoFish">
+  <component name="RunManager" selected="Application.Application">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Application" />
       <module name="App_Ma_Hoa_Java_Swing" />
@@ -131,8 +133,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Cipher_TwoFish" />
         <item itemvalue="Application.Application" />
+        <item itemvalue="Application.Cipher_TwoFish" />
         <item itemvalue="Application.Cipher_AES" />
         <item itemvalue="Application.Cipher_DES" />
         <item itemvalue="Application.FileUtil" />
@@ -202,7 +204,8 @@
       <workItem from="1698239267446" duration="8757000" />
       <workItem from="1698249500541" duration="4391000" />
       <workItem from="1698306899995" duration="11849000" />
-      <workItem from="1698327101306" duration="6904000" />
+      <workItem from="1698327101306" duration="7348000" />
+      <workItem from="1698371039071" duration="2839000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1696644054692</created>
@@ -498,7 +501,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698318320682</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="mã hóa và giải mã File với giải thuật TwoFish">
+      <created>1698334096015</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1698334096015</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -516,7 +526,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="đổi tên function menuClicked() trong Frame_Home thành showPanel()" />
     <MESSAGE value="hiện thực giải thuật mã hóa DES" />
     <MESSAGE value="xử lí sự kiện tại Panel_MA_HOA_DOI_XUNG_TEXT" />
     <MESSAGE value="thêm Controller để điều phối giữa Model và View" />
@@ -541,7 +550,8 @@
     <MESSAGE value="hiện thực giải thuật mã hóa file AES lên View" />
     <MESSAGE value="thêm thư viện Bouncy Castle để sử dụng các giải thuật MÃ HÓA bên ngoài" />
     <MESSAGE value="mã hóa và giải mã văn bản với giải thuật TwoFish" />
-    <option name="LAST_COMMIT_MESSAGE" value="mã hóa và giải mã văn bản với giải thuật TwoFish" />
+    <MESSAGE value="mã hóa và giải mã File với giải thuật TwoFish" />
+    <option name="LAST_COMMIT_MESSAGE" value="mã hóa và giải mã File với giải thuật TwoFish" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

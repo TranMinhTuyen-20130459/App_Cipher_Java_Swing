@@ -5,6 +5,7 @@ import helper.DecryptFile;
 import helper.EncryptFile;
 import model.services.ma_hoa_doi_xung.Cipher_AES;
 import model.services.ma_hoa_doi_xung.Cipher_DES;
+import model.services.ma_hoa_doi_xung.Cipher_TwoFish;
 
 public class Controller_MA_HOA_DOI_XUNG {
 
@@ -59,6 +60,14 @@ public class Controller_MA_HOA_DOI_XUNG {
                     return aes.exportKey();
 
                 }
+
+                case Algorithm.TWO_FISH: {
+
+                    Cipher_TwoFish twoFish = new Cipher_TwoFish();
+                    twoFish.createKeyRandom(128);
+
+                    return twoFish.exportKey();
+                }
                 default:
                     return "NOT_FOUND_ALGORITHM";
 
@@ -95,6 +104,15 @@ public class Controller_MA_HOA_DOI_XUNG {
                     aes.importKey(key);
 
                     return aes.encryptToBase64(plain_text);
+                }
+
+                case Algorithm.TWO_FISH: {
+
+                    Cipher_TwoFish twoFish = new Cipher_TwoFish();
+                    twoFish.importKey(key);
+
+                    return twoFish.encryptToBase64(plain_text);
+
                 }
                 default:
                     return "";
@@ -134,6 +152,14 @@ public class Controller_MA_HOA_DOI_XUNG {
 
                     return aes.decryptFromBase64(encrypt_text);
 
+                }
+
+                case Algorithm.TWO_FISH: {
+
+                    Cipher_TwoFish twoFish = new Cipher_TwoFish();
+                    twoFish.importKey(key);
+
+                    return twoFish.decryptFromBase64(encrypt_text);
                 }
                 default:
                     return "";
@@ -180,6 +206,13 @@ public class Controller_MA_HOA_DOI_XUNG {
                     return EncryptFile.SUCCESS;
                 }
 
+                case Algorithm.TWO_FISH:{
+                    Cipher_TwoFish twoFish = new Cipher_TwoFish();
+                    twoFish.importKey(key);
+                    twoFish.encryptFile(srcFile, destFile);
+                    return EncryptFile.SUCCESS;
+                }
+
                 default:
                     return EncryptFile.NOT_FOUND_ALGORITHM;
             }
@@ -213,6 +246,13 @@ public class Controller_MA_HOA_DOI_XUNG {
                     Cipher_AES aes = new Cipher_AES();
                     aes.importKey(key);
                     aes.decryptFile(srcFile, destFile);
+                    return DecryptFile.SUCCESS;
+                }
+
+                case Algorithm.TWO_FISH:{
+                    Cipher_TwoFish twoFish = new Cipher_TwoFish();
+                    twoFish.importKey(key);
+                    twoFish.decryptFile(srcFile,destFile);
                     return DecryptFile.SUCCESS;
                 }
                 default:
