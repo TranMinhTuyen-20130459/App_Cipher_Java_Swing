@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="bỏ đi ComboBox chọn ngôn ngữ tại component Panel_MA_HOA_DOI_XUNG_FILE">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="bỏ đi bt_input_key trên View của Component Panel_MA_HOA_DOI_XUNG_TEXT">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -207,7 +209,7 @@
       <workItem from="1698386160028" duration="7083000" />
       <workItem from="1698467002559" duration="75000" />
       <workItem from="1698548211619" duration="575000" />
-      <workItem from="1698574775503" duration="3815000" />
+      <workItem from="1698574775503" duration="7466000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1696644054692</created>
@@ -531,7 +533,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698391947686</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="bỏ đi bt_input_key trên View của Component Panel_MA_HOA_DOI_XUNG_TEXT">
+      <created>1698578922649</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1698578922649</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -549,7 +558,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="cho user sử dụng giải thuật mã hóa đối xứng DES (key được sinh ra ngẫu nhiên)" />
     <MESSAGE value="xử lí sự kiện khi click vào button &quot;Key Mới&quot;, thêm button &quot;Nhập Key&quot;" />
     <MESSAGE value="cho phép user tạo KEY (giải thuật DES)" />
     <MESSAGE value="mã hóa và giải mã File với thuật toán DES" />
@@ -574,7 +582,8 @@
     <MESSAGE value="hiện thực MÃ HÓA và GIẢI MÃ File với giải thuật TwoFish trên View" />
     <MESSAGE value="nâng cấp trải nghiệm người dùng tại component Panel_MA_HOA_DOI_XUNG_TEXT" />
     <MESSAGE value="bỏ đi ComboBox chọn ngôn ngữ tại component Panel_MA_HOA_DOI_XUNG_FILE" />
-    <option name="LAST_COMMIT_MESSAGE" value="bỏ đi ComboBox chọn ngôn ngữ tại component Panel_MA_HOA_DOI_XUNG_FILE" />
+    <MESSAGE value="bỏ đi bt_input_key trên View của Component Panel_MA_HOA_DOI_XUNG_TEXT" />
+    <option name="LAST_COMMIT_MESSAGE" value="bỏ đi bt_input_key trên View của Component Panel_MA_HOA_DOI_XUNG_TEXT" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

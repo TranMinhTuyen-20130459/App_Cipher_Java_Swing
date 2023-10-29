@@ -79,10 +79,10 @@ public class Controller_MA_HOA_DOI_XUNG {
         }
     }
 
-    public static String encryptText(String algorithm,
-                                     String language,
-                                     String plain_text,
-                                     String key) {
+    public static String encryptTextWithKeyBase64(String algorithm,
+                                                  String language,
+                                                  String plain_text,
+                                                  String key) {
 
         try {
 
@@ -125,10 +125,10 @@ public class Controller_MA_HOA_DOI_XUNG {
         }
     }
 
-    public static String decryptText(String algorithm,
-                                     String language,
-                                     String encrypt_text,
-                                     String key) {
+    public static String decryptTextWithKeyBase64(String algorithm,
+                                                  String language,
+                                                  String encrypt_text,
+                                                  String key) {
 
         try {
 
@@ -173,11 +173,11 @@ public class Controller_MA_HOA_DOI_XUNG {
 
     }
 
-    public static int encryptFile(String algorithm,
-                                  String language,
-                                  String srcFile,
-                                  String destFile,
-                                  String key) {
+    public static int encryptFileWithKeyBase64(String algorithm,
+                                               String language,
+                                               String srcFile,
+                                               String destFile,
+                                               String key) {
 
         /**
          * return -1 => đã xảy ra lỗi trong quá trình Mã Hóa File
@@ -222,11 +222,11 @@ public class Controller_MA_HOA_DOI_XUNG {
         }
     }
 
-    public static int decryptFile(String algorithm,
-                                  String language,
-                                  String srcFile,
-                                  String destFile,
-                                  String key) {
+    public static int decryptFileWithKeyBase64(String algorithm,
+                                               String language,
+                                               String srcFile,
+                                               String destFile,
+                                               String key) {
 
         try {
 
