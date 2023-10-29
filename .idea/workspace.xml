@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="thêm bt_copy đoạn văn bản đã mã hóa và xử lý sự kiện cho button đó">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="thêm function để reset lại ComboBox TypeKey">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,21 +207,9 @@
       <workItem from="1698386160028" duration="7083000" />
       <workItem from="1698467002559" duration="75000" />
       <workItem from="1698548211619" duration="575000" />
-      <workItem from="1698574775503" duration="8759000" />
-    </task>
-    <task id="LOCAL-00001" summary="Init commit">
-      <created>1696644054692</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1696644054692</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Init commit">
-      <created>1696644154665</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1696644154665</updated>
+      <workItem from="1698574775503" duration="8964000" />
+      <workItem from="1698587900332" duration="16000" />
+      <workItem from="1698587946107" duration="2897000" />
     </task>
     <task id="LOCAL-00003" summary="Init commit">
       <created>1696644387583</created>
@@ -553,7 +540,21 @@
       <option name="project" value="LOCAL" />
       <updated>1698582523656</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="thêm function để reset lại ComboBox TypeKey">
+      <created>1698583676260</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1698583676260</updated>
+    </task>
+    <task id="LOCAL-00051" summary="thêm function để reset lại ComboBox TypeKey">
+      <created>1698583685531</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1698583685531</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -571,7 +572,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="mã hóa và giải mã File với thuật toán DES" />
     <MESSAGE value="thêm component Chọn File trong view Panel_MA_HOA_DOI_XUNG_FILE, xử lý sự kiện khi click vào button &quot;CHỌN FILE&quot;" />
     <MESSAGE value="mã hóa file với thuật toán DES khi user chọn button &quot;MÃ HÓA&quot; tại component Panel_MA_HOA_DOI_XUNG_FILE" />
     <MESSAGE value="giải mã file với thuật toán DES khi user chọn button GIẢI MÃ" />
@@ -596,7 +596,8 @@
     <MESSAGE value="bỏ đi bt_input_key trên View của Component Panel_MA_HOA_DOI_XUNG_TEXT" />
     <MESSAGE value="đổi tên function trong Controller_MA_HOA_DOI_XUNG" />
     <MESSAGE value="thêm bt_copy đoạn văn bản đã mã hóa và xử lý sự kiện cho button đó" />
-    <option name="LAST_COMMIT_MESSAGE" value="thêm bt_copy đoạn văn bản đã mã hóa và xử lý sự kiện cho button đó" />
+    <MESSAGE value="thêm function để reset lại ComboBox TypeKey" />
+    <option name="LAST_COMMIT_MESSAGE" value="thêm function để reset lại ComboBox TypeKey" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
