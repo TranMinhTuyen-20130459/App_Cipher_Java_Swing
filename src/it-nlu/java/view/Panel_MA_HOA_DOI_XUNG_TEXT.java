@@ -1,7 +1,6 @@
 package view;
 
 import controller.Controller_MA_HOA_DOI_XUNG;
-import helper.Algorithm;
 import helper.TypeKey;
 
 import javax.swing.*;
@@ -23,7 +22,8 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     private JButton bt_encrypt,
             bt_decrypt,
             bt_copy_key,
-            bt_home;
+            bt_home,
+            bt_copy_encrypted_text;
     private JTextArea plain_text_area,
             encrypted_text_area,
             decrypted_text_area;
@@ -37,10 +37,9 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
             combo_box_language,
 
     combo_box_type_key;
-    private String[] arr_algorithms = {"Vigenere", "Hill", "DES", "AES", "TwoFish"};
-    private String[] arr_languages = {"English", "Vietnamese"};
-
-    private String[] arr_type_key = {"Base64", "Text"};
+    private final String[] arr_algorithms = {"Vigenere", "Hill", "DES", "AES", "TwoFish"};
+    private final String[] arr_languages = {"English", "Vietnamese"};
+    private final String[] arr_type_key = {"Base64", "Text"};
     private String plain_text = "",
             encrypted_text = "",
             decrypted_text = "",
@@ -76,6 +75,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         add(bt_encrypt);
         add(bt_decrypt);
         add(bt_copy_key);
+        add(bt_copy_encrypted_text);
         add(bt_home);
 
         add(combo_box_algorithm);
@@ -124,6 +124,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         createButtonEncrypt();
         createButtonDecrypt();
         createButtonCopyKey();
+        createButtonCopyEncryptedText();
         createButtonHome();
     }
 
@@ -160,7 +161,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                                 else {
                                     key_text_field.setText(key);
 
-                                    encrypted_text = Controller_MA_HOA_DOI_XUNG.encryptText(name_algorithm,
+                                    encrypted_text = Controller_MA_HOA_DOI_XUNG.encryptTextWithKeyBase64(name_algorithm,
                                             name_language,
                                             plain_text, key);
 
@@ -179,7 +180,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                         }
                         // Nếu đã có key MÃ HÓA
                         else {
-                            encrypted_text = Controller_MA_HOA_DOI_XUNG.encryptText(name_algorithm,
+                            encrypted_text = Controller_MA_HOA_DOI_XUNG.encryptTextWithKeyBase64(name_algorithm,
                                     name_language,
                                     plain_text, key);
 
@@ -224,7 +225,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                             JOptionPane.showMessageDialog(null, "CHƯA CÓ KEY ĐỂ GIẢI MÃ", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
                         } else {
                             encrypted_text = encrypted_text_area.getText();
-                            decrypted_text = Controller_MA_HOA_DOI_XUNG.decryptText(name_algorithm,
+                            decrypted_text = Controller_MA_HOA_DOI_XUNG.decryptTextWithKeyBase64(name_algorithm,
                                     name_language,
                                     encrypted_text, key);
 
@@ -248,13 +249,15 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     public void createButtonCopyKey() {
         bt_copy_key = new RoundedButton("COPY", 25, new Color(136, 196, 230));
         bt_copy_key.setBounds(510, 82, 101, 37);
+        bt_copy_key.setFont(new Font("Arial", Font.PLAIN,12));
+
         bt_copy_key.addMouseListener(new MouseAdapter() {
 
             @Override
             public void mouseClicked(MouseEvent e) {
 
                 key = key_text_field.getText();
-                if (key.length() > 0) {
+                if (key != null && key.length() > 0) {
                     // Sao chép đoạn văn bản vào clipboard
                     Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
                     StringSelection selection = new StringSelection(key);
@@ -262,6 +265,28 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                 }
             }
         });
+    }
+
+    public void createButtonCopyEncryptedText() {
+        bt_copy_encrypted_text = new RoundedButton("COPY VB MÃ HÓA", 25, new Color(217, 217, 217));
+        bt_copy_encrypted_text.setBounds(325, 432, 150, 37);
+        bt_copy_encrypted_text.setFont(new Font("Arial", Font.PLAIN,12));
+        bt_copy_encrypted_text.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                encrypted_text = encrypted_text_area.getText();
+                if (encrypted_text != null && encrypted_text.length() > 0) {
+                    // Sao chép đoạn văn bản vào clipboard
+                    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+                    StringSelection selection = new StringSelection(encrypted_text);
+                    clipboard.setContents(selection, null);
+                }
+
+            }
+        });
+
     }
 
     public void createButtonHome() {
