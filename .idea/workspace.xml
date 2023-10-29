@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="bỏ đi bt_input_key trên View của Component Panel_MA_HOA_DOI_XUNG_TEXT">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="thêm bt_copy đoạn văn bản đã mã hóa và xử lý sự kiện cho button đó">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" afterDir="false" />
     </list>
@@ -209,7 +208,7 @@
       <workItem from="1698386160028" duration="7083000" />
       <workItem from="1698467002559" duration="75000" />
       <workItem from="1698548211619" duration="575000" />
-      <workItem from="1698574775503" duration="7466000" />
+      <workItem from="1698574775503" duration="8759000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1696644054692</created>
@@ -540,7 +539,21 @@
       <option name="project" value="LOCAL" />
       <updated>1698578922649</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="đổi tên function trong Controller_MA_HOA_DOI_XUNG">
+      <created>1698582475430</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1698582475430</updated>
+    </task>
+    <task id="LOCAL-00049" summary="thêm bt_copy đoạn văn bản đã mã hóa và xử lý sự kiện cho button đó">
+      <created>1698582523656</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1698582523656</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -558,8 +571,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="xử lí sự kiện khi click vào button &quot;Key Mới&quot;, thêm button &quot;Nhập Key&quot;" />
-    <MESSAGE value="cho phép user tạo KEY (giải thuật DES)" />
     <MESSAGE value="mã hóa và giải mã File với thuật toán DES" />
     <MESSAGE value="thêm component Chọn File trong view Panel_MA_HOA_DOI_XUNG_FILE, xử lý sự kiện khi click vào button &quot;CHỌN FILE&quot;" />
     <MESSAGE value="mã hóa file với thuật toán DES khi user chọn button &quot;MÃ HÓA&quot; tại component Panel_MA_HOA_DOI_XUNG_FILE" />
@@ -583,7 +594,9 @@
     <MESSAGE value="nâng cấp trải nghiệm người dùng tại component Panel_MA_HOA_DOI_XUNG_TEXT" />
     <MESSAGE value="bỏ đi ComboBox chọn ngôn ngữ tại component Panel_MA_HOA_DOI_XUNG_FILE" />
     <MESSAGE value="bỏ đi bt_input_key trên View của Component Panel_MA_HOA_DOI_XUNG_TEXT" />
-    <option name="LAST_COMMIT_MESSAGE" value="bỏ đi bt_input_key trên View của Component Panel_MA_HOA_DOI_XUNG_TEXT" />
+    <MESSAGE value="đổi tên function trong Controller_MA_HOA_DOI_XUNG" />
+    <MESSAGE value="thêm bt_copy đoạn văn bản đã mã hóa và xử lý sự kiện cho button đó" />
+    <option name="LAST_COMMIT_MESSAGE" value="thêm bt_copy đoạn văn bản đã mã hóa và xử lý sự kiện cho button đó" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

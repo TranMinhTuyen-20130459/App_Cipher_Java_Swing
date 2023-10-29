@@ -504,7 +504,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
 
     public void createTextFieldKey() {
         key_text_field = new JTextField();
-        key_text_field.setBounds(75, 82, 280, 37);
+        key_text_field.setBounds(145, 82, 210, 37);
         key_text_field.setFont(new Font("Arial", Font.PLAIN, 16));
         key_text_field.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
     }
@@ -539,9 +539,15 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         combo_box_language.setSelectedItem(name_language);
     }
 
+    public void resetComboBoxTypeKey(){
+        name_type_key="Base64";
+        combo_box_type_key.setSelectedItem(name_type_key);
+    }
+
     public void resetLayout() {
         resetComboBoxAlgorithm();
         resetComboBoxLanguage();
+        resetComboBoxTypeKey();
         resetTextFieldKey();
         resetPlainTextArea();
         resetEncryptedTextArea();
