@@ -27,24 +27,26 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
             label_name_file;
     private JButton bt_encrypt,
             bt_decrypt,
-            bt_input_key,
             bt_copy_key,
             bt_home,
             bt_choose_file;
 
     private JTextField key_text_field;
     private JComboBox combo_box_algorithm,
-            combo_box_language;
-    private String[] arr_algorithms = {"Vigenere", "Hill", "DES", "AES", "TwoFish"};
+            combo_box_language,
+            combo_box_type_key;
+    private final String[] arr_algorithms = {"Vigenere", "Hill", "DES", "AES", "TwoFish"};
+    private final String[] arr_languages = {"English", "Vietnamese"};
 
-    private String[] arr_languages = {"English", "Vietnamese"};
+    private final String[] arr_type_key = {"Base64", "Text"};
 
     private String path_selected_file = "",
             name_selected_file = "",
             path_folder_contain_selected_file = "",
             key = "",
             name_algorithm = "AES",
-            name_language = "English";
+            name_language = "English",
+            name_type_key = "Base64";
 
     public Panel_MA_HOA_DOI_XUNG_FILE(int WIDTH, int HEIGHT) {
         setBackground(new Color(255, 255, 255, 255));
@@ -65,12 +67,13 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
 
         add(combo_box_algorithm);
         // add(combo_box_language);
+        add(combo_box_type_key);
+
         add(key_text_field);
 
         add(bt_copy_key);
         add(bt_encrypt);
         add(bt_decrypt);
-        add(bt_input_key);
         add(bt_home);
 
         add(panel_choose_file);
@@ -103,7 +106,6 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
         createButtonDecrypt();
         createButtonCopyKey();
         createButtonHome();
-        createButtonInputKey();
     }
 
     public void createButtonEncrypt() {
@@ -128,7 +130,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
 
                             key = Controller_MA_HOA_DOI_XUNG.createKeyRandom(name_algorithm);
 
-                            int check_encrypted_file = Controller_MA_HOA_DOI_XUNG.encryptFile(name_algorithm, name_language, path_selected_file, dest_file, key);
+                            int check_encrypted_file = Controller_MA_HOA_DOI_XUNG.encryptFileWithKeyBase64(name_algorithm, name_language, path_selected_file, dest_file, key);
 
                             // TH: MÃ HÓA FILE THÀNH CÔNG
                             if (check_encrypted_file == EncryptFile.SUCCESS) {
@@ -159,7 +161,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
                         // Nếu đã có key MÃ HÓA
                         else {
 
-                            int check_encrypted_file = Controller_MA_HOA_DOI_XUNG.encryptFile(name_algorithm, name_language, path_selected_file, dest_file, key);
+                            int check_encrypted_file = Controller_MA_HOA_DOI_XUNG.encryptFileWithKeyBase64(name_algorithm, name_language, path_selected_file, dest_file, key);
 
                             if (check_encrypted_file == EncryptFile.SUCCESS) {
                                 JOptionPane.showMessageDialog(null, "MÃ HÓA FILE THÀNH CÔNG", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
@@ -210,7 +212,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
                         // Nếu đã có key đã GIẢI MÃ
                         else {
                             String dest_file = path_folder_contain_selected_file + "/" + name_algorithm.toUpperCase() + "_FILE_DECRYPT_" + name_selected_file;
-                            int check_decrypted_file = Controller_MA_HOA_DOI_XUNG.decryptFile(name_algorithm, name_language, path_selected_file, dest_file, key);
+                            int check_decrypted_file = Controller_MA_HOA_DOI_XUNG.decryptFileWithKeyBase64(name_algorithm, name_language, path_selected_file, dest_file, key);
 
                             // TH: GIẢI MÃ FILE THÀNH CÔNG
                             if (check_decrypted_file == DecryptFile.SUCCESS) {
@@ -257,30 +259,6 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
         });
     }
 
-    public void createButtonInputKey() {
-
-        bt_input_key = new Panel_MA_HOA_DOI_XUNG_FILE.RoundedButton("TẠO KEY", 25, new Color(217, 217, 217));
-        bt_input_key.setBounds(350, 432, 101, 37);
-
-        bt_input_key.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                String key_text_input = JOptionPane.showInputDialog(null, "Nhập KEY:");
-
-                if (key_text_input == null || key_text_input.isEmpty()) {
-                } else {
-
-
-                }
-
-
-            }
-        });
-
-    }
-
     public void createButtonHome() {
         bt_home = new RoundedButton("TRANG CHỦ", 15, new Color(136, 196, 230));
         bt_home.setBounds(495, 432, 115, 37);
@@ -296,6 +274,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
     public void createComboBoxGroup() {
         createComboBoxAlgorithm();
         createComboBoxLanguage();
+        createComboBoxTypeKey();
     }
 
     public void createComboBoxAlgorithm() {
@@ -329,13 +308,27 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
         });
     }
 
+    public void createComboBoxTypeKey() {
+
+        combo_box_type_key = new JComboBox<>(arr_type_key);
+        combo_box_type_key.setBounds(370, 82, 120, 37);
+        combo_box_type_key.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                name_type_key = combo_box_type_key.getSelectedItem().toString();
+                // System.out.println(name_type_key);
+            }
+        });
+
+    }
+
     public void createTextFieldGroup() {
         createTextFieldKey();
     }
 
     public void createTextFieldKey() {
         key_text_field = new JTextField();
-        key_text_field.setBounds(145, 82, 338, 37);
+        key_text_field.setBounds(145, 82, 210, 37);
         key_text_field.setFont(new Font("Arial", Font.PLAIN, 16));
         key_text_field.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
     }
@@ -420,9 +413,15 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
         combo_box_language.setSelectedItem(name_language);
     }
 
+    public void resetComboBoxTypeKey(){
+        name_type_key="Base64";
+        combo_box_type_key.setSelectedItem(name_type_key);
+    }
+
     public void resetLayout() {
         resetComboBoxAlgorithm();
         resetComboBoxLanguage();
+        resetComboBoxTypeKey();
         resetTextFieldKey();
         resetSelectedFile();
     }
