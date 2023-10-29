@@ -2,6 +2,7 @@ package view;
 
 import controller.Controller_MA_HOA_DOI_XUNG;
 import helper.Algorithm;
+import helper.TypeKey;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
@@ -21,7 +22,6 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
             label_van_ban_giai_ma;
     private JButton bt_encrypt,
             bt_decrypt,
-            bt_input_key,
             bt_copy_key,
             bt_home;
     private JTextArea plain_text_area,
@@ -34,15 +34,20 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
 
     private JTextField key_text_field;
     private JComboBox combo_box_algorithm,
-            combo_box_language;
+            combo_box_language,
+
+    combo_box_type_key;
     private String[] arr_algorithms = {"Vigenere", "Hill", "DES", "AES", "TwoFish"};
     private String[] arr_languages = {"English", "Vietnamese"};
+
+    private String[] arr_type_key = {"Base64", "Text"};
     private String plain_text = "",
             encrypted_text = "",
             decrypted_text = "",
             key = "",
             name_algorithm = "AES",
-            name_language = "English";
+            name_language = "English",
+            name_type_key = "Base64";
 
     public Panel_MA_HOA_DOI_XUNG_TEXT(int WIDTH, int HEIGHT) {
 
@@ -72,10 +77,10 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         add(bt_decrypt);
         add(bt_copy_key);
         add(bt_home);
-        add(bt_input_key);
 
         add(combo_box_algorithm);
         add(combo_box_language);
+        add(combo_box_type_key);
 
         add(key_text_field);
     }
@@ -99,7 +104,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         label_key.setForeground(Color.BLACK);
         label_key.setHorizontalAlignment(SwingConstants.CENTER);
         label_key.setFont(new Font("Arial", Font.PLAIN, 14));
-        label_key.setBounds(0, 83, 80, 37);
+        label_key.setBounds(15, 83, 50, 37);
 
         label_van_ban_ma_hoa = new JLabel("Đoạn văn bản mã hóa:");
         label_van_ban_ma_hoa.setForeground(Color.BLACK);
@@ -120,7 +125,6 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         createButtonDecrypt();
         createButtonCopyKey();
         createButtonHome();
-        createButtonInputKey();
     }
 
     public void createButtonEncrypt() {
@@ -136,50 +140,64 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
 
                     key = key_text_field.getText();
 
-                    // Nếu chưa có key MÃ HÓA
-                    if (key == null || key.isEmpty()) {
-                        key = Controller_MA_HOA_DOI_XUNG.createKeyRandom(name_algorithm);
+                    // TH: Nếu key là loại "Base64"
+                    if (name_type_key != null && name_type_key.equalsIgnoreCase(TypeKey.BASE64)) {
 
-                        // TH: Không có lỗi khi tạo key
-                        if (key != null) {
+                        // Nếu chưa có key MÃ HÓA
+                        if (key == null || key.isEmpty()) {
 
-                            // TH: Nếu không tìm thấy được GIẢI THUẬT phù hợp
-                            if (key.equalsIgnoreCase("NOT_FOUND_ALGORITHM")) {
-                                JOptionPane.showMessageDialog(null, "KHÔNG TÌM THẤY GIẢI THUẬT PHÙ HỢP", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                            key = Controller_MA_HOA_DOI_XUNG.createKeyRandom(name_algorithm);
+
+                            // TH: Không có lỗi khi tạo key
+                            if (key != null) {
+
+                                // TH: Nếu không tìm thấy được GIẢI THUẬT phù hợp
+                                if (key.equalsIgnoreCase("NOT_FOUND_ALGORITHM")) {
+                                    JOptionPane.showMessageDialog(null, "KHÔNG TÌM THẤY GIẢI THUẬT PHÙ HỢP", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                                    resetTextFieldKey();
+                                }
+                                // TH: Tạo được key THÀNH CÔNG
+                                else {
+                                    key_text_field.setText(key);
+
+                                    encrypted_text = Controller_MA_HOA_DOI_XUNG.encryptText(name_algorithm,
+                                            name_language,
+                                            plain_text, key);
+
+                                    encrypted_text_area.setEnabled(true);
+                                    encrypted_text_area.setText(encrypted_text);
+
+                                    bt_decrypt.setEnabled(true);
+                                }
+                            }
+
+                            // TH: Xảy ra lỗi trong quá trình tạo key
+                            else {
+                                JOptionPane.showMessageDialog(null, "ĐÃ XẢY RA LỖI", "Lỗi", JOptionPane.ERROR_MESSAGE);
                                 resetTextFieldKey();
                             }
-                            // TH: Tạo được key THÀNH CÔNG
-                            else {
-                                key_text_field.setText(key);
-
-                                encrypted_text = Controller_MA_HOA_DOI_XUNG.encryptText(name_algorithm,
-                                        name_language,
-                                        plain_text, key);
-
-                                encrypted_text_area.setEnabled(true);
-                                encrypted_text_area.setText(encrypted_text);
-
-                                bt_decrypt.setEnabled(true);
-                            }
                         }
-
-                        // TH: Xảy ra lỗi trong quá trình tạo key
+                        // Nếu đã có key MÃ HÓA
                         else {
-                            JOptionPane.showMessageDialog(null, "ĐÃ XẢY RA LỖI", "Lỗi", JOptionPane.ERROR_MESSAGE);
-                            resetTextFieldKey();
+                            encrypted_text = Controller_MA_HOA_DOI_XUNG.encryptText(name_algorithm,
+                                    name_language,
+                                    plain_text, key);
+
+                            encrypted_text_area.setEnabled(true);
+                            encrypted_text_area.setText(encrypted_text);
+
+                            bt_decrypt.setEnabled(true);
                         }
-                    }
-                    // Nếu đã có key MÃ HÓA
-                    else {
-                        encrypted_text = Controller_MA_HOA_DOI_XUNG.encryptText(name_algorithm,
-                                name_language,
-                                plain_text, key);
 
-                        encrypted_text_area.setEnabled(true);
-                        encrypted_text_area.setText(encrypted_text);
-
-                        bt_decrypt.setEnabled(true);
+                        return;
                     }
+
+                    // TH: Nếu key là loại "Text"
+                    if (name_type_key != null && name_type_key.equalsIgnoreCase(TypeKey.TEXT)) {
+                        JOptionPane.showMessageDialog(null, "Chức năng này đang được phát triển", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+                        return;
+                    }
+
                 }
             }
         });
@@ -199,16 +217,28 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
 
                     key = key_text_field.getText();
 
-                    if (key == null || key.isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "CHƯA CÓ KEY ĐỂ GIẢI MÃ", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
-                    } else {
-                        encrypted_text = encrypted_text_area.getText();
-                        decrypted_text = Controller_MA_HOA_DOI_XUNG.decryptText(name_algorithm,
-                                name_language,
-                                encrypted_text, key);
+                    // TH: Nếu key là loại "Base64"
+                    if (name_type_key != null && name_type_key.equalsIgnoreCase(TypeKey.BASE64)) {
 
-                        decrypted_text_area.setText(decrypted_text);
+                        if (key == null || key.isEmpty()) {
+                            JOptionPane.showMessageDialog(null, "CHƯA CÓ KEY ĐỂ GIẢI MÃ", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                        } else {
+                            encrypted_text = encrypted_text_area.getText();
+                            decrypted_text = Controller_MA_HOA_DOI_XUNG.decryptText(name_algorithm,
+                                    name_language,
+                                    encrypted_text, key);
+
+                            decrypted_text_area.setText(decrypted_text);
+                        }
+                        return;
                     }
+
+                    // TH: Nếu key là loại "Text"
+                    if (name_type_key != null && name_type_key.equalsIgnoreCase(TypeKey.TEXT)) {
+                        JOptionPane.showMessageDialog(null, "Chức năng này đang được phát triển", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+                        return;
+                    }
+
                 }
 
             }
@@ -232,56 +262,6 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                 }
             }
         });
-    }
-
-    public void createButtonInputKey() {
-
-        bt_input_key = new RoundedButton("TẠO KEY", 25, new Color(217, 217, 217));
-        bt_input_key.setBounds(350, 432, 101, 37);
-
-        bt_input_key.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                String key_text_input = JOptionPane.showInputDialog(null, "Nhập KEY:");
-
-                if (key_text_input == null || key_text_input.isEmpty()) {
-                } else {
-
-                    switch (name_algorithm.toUpperCase()) {
-
-                        case Algorithm.DES: {
-
-                            if (key_text_input.length() == 8) {
-                                key = Controller_MA_HOA_DOI_XUNG.createKeyFromInputOfUser(name_algorithm, key_text_input);
-
-                                if (key.length() > 0) {
-                                    key_text_field.setText(key_text_input);
-                                    resetEncryptedTextArea();
-                                    resetDecryptedTextArea();
-                                }
-
-                            } else {
-                                // Hiển thị thông báo cảnh báo nếu không đủ 8 ký tự
-                                JOptionPane.showMessageDialog(null, "KEY PHẢI ĐỦ 8 KÍ TỰ", "Thông báo", JOptionPane.WARNING_MESSAGE);
-                            }
-                            break;
-
-                        }
-                        default: {
-                            JOptionPane.showMessageDialog(null, "BẠN CHƯA CHỌN GIẢI THUẬT", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
-                        }
-
-                    }
-
-
-                }
-
-
-            }
-        });
-
     }
 
     public void createButtonHome() {
@@ -383,8 +363,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                 if (encrypted_text.isEmpty()) {
                     bt_decrypt.setEnabled(false);
                     resetDecryptedTextArea();
-                }
-                else bt_decrypt.setEnabled(true);
+                } else bt_decrypt.setEnabled(true);
 
             }
 
@@ -395,8 +374,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                 if (encrypted_text.isEmpty()) {
                     bt_decrypt.setEnabled(false);
                     resetDecryptedTextArea();
-                }
-                else bt_decrypt.setEnabled(true);
+                } else bt_decrypt.setEnabled(true);
 
 
             }
@@ -408,8 +386,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                 if (encrypted_text.isEmpty()) {
                     bt_decrypt.setEnabled(false);
                     resetDecryptedTextArea();
-                }
-                else bt_decrypt.setEnabled(true);
+                } else bt_decrypt.setEnabled(true);
 
             }
         });
@@ -437,6 +414,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     public void createComboBoxGroup() {
         createComboBoxAlgorithm();
         createComboBoxLanguage();
+        createComboBoxTypeKey();
     }
 
     public void createComboBoxAlgorithm() {
@@ -481,13 +459,27 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         });
     }
 
+    public void createComboBoxTypeKey() {
+
+        combo_box_type_key = new JComboBox<>(arr_type_key);
+        combo_box_type_key.setBounds(370, 82, 120, 37);
+        combo_box_type_key.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                name_type_key = combo_box_type_key.getSelectedItem().toString();
+                // System.out.println(name_type_key);
+            }
+        });
+
+    }
+
     public void createTextFieldGroup() {
         createTextFieldKey();
     }
 
     public void createTextFieldKey() {
         key_text_field = new JTextField();
-        key_text_field.setBounds(145, 82, 338, 37);
+        key_text_field.setBounds(75, 82, 280, 37);
         key_text_field.setFont(new Font("Arial", Font.PLAIN, 16));
         key_text_field.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
     }
