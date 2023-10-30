@@ -29,6 +29,7 @@ public class Frame_Home extends JFrame {
     public static JPanel panel_ma_hoa_bat_doi_xung = new Panel_MA_HOA_BAT_DOI_XUNG(WIDTH_PANEL_CONTENT_MAIN, HEIGHT_PANEL_CONTENT_MAIN);
     public static JPanel panel_ma_hoa_hash = new Panel_MA_HOA_HASH(WIDTH_PANEL_CONTENT_MAIN, HEIGHT_PANEL_CONTENT_MAIN);
     public static JPanel panel_ma_hoa_hash_text = new Panel_MA_HOA_HASH_TEXT(WIDTH_PANEL_CONTENT_MAIN, HEIGHT_PANEL_CONTENT_MAIN);
+    public static JPanel panel_ma_hoa_hash_file = new Panel_MA_HOA_HASH_FILE(WIDTH_PANEL_CONTENT_MAIN, HEIGHT_PANEL_CONTENT_MAIN);
     public static JPanel panel_chu_ky_dien_tu = new Panel_CHU_KY_DIEN_TU(WIDTH_PANEL_CONTENT_MAIN, HEIGHT_PANEL_CONTENT_MAIN);
 
     /*** Create the frame.*/
@@ -184,6 +185,7 @@ public class Frame_Home extends JFrame {
         panel_content_main.add(panel_mhdx_text).setVisible(false);
         panel_content_main.add(panel_mhdx_file).setVisible(false);
         panel_content_main.add(panel_ma_hoa_hash_text).setVisible(false);
+        panel_content_main.add(panel_ma_hoa_hash_file).setVisible(false);
     }
 
     public void createPanelMenu_MA_HOA_DOI_XUNG() {
@@ -315,7 +317,8 @@ public class Frame_Home extends JFrame {
         if (panel_ma_hoa_bat_doi_xung != null) panel_ma_hoa_bat_doi_xung.setVisible(false);
         if (panel_ma_hoa_hash != null) panel_ma_hoa_hash.setVisible(false);
         if (panel_chu_ky_dien_tu != null) panel_chu_ky_dien_tu.setVisible(false);
-        if(panel_ma_hoa_hash_text!=null) panel_ma_hoa_hash_text.setVisible(false);
+        if (panel_ma_hoa_hash_text != null) panel_ma_hoa_hash_text.setVisible(false);
+        if (panel_ma_hoa_hash_file != null) panel_ma_hoa_hash_file.setVisible(false);
 
         panel.setVisible(true);
     }

@@ -70,7 +70,7 @@ public class Panel_MA_HOA_HASH extends JPanel {
         panel_cipher_file.addMouseListener(new PanelButtonMouseAdapter(panel_cipher_file) {
             @Override
             public void mouseClicked(MouseEvent e) {
-
+                Frame_Home.showPanel(Frame_Home.panel_ma_hoa_hash_file);
             }
         });
     }

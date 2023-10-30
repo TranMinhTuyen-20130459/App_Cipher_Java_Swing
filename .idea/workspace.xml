@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="thêm ComboBox &quot;Loại Key&quot; trên View của component Panel_MA_HOA_DOI_XUNG_FILE">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="thêm giao diện của component MA_HOA_HASH_TEXT">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Frame_Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Frame_Home.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_FILE.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,14 +213,7 @@
       <workItem from="1698587900332" duration="16000" />
       <workItem from="1698587946107" duration="3203000" />
       <workItem from="1698591400330" duration="228000" />
-      <workItem from="1698651407457" duration="9415000" />
-    </task>
-    <task id="LOCAL-00004" summary="thêm giao diện trang Home">
-      <created>1696652528349</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1696652528349</updated>
+      <workItem from="1698651407457" duration="10884000" />
     </task>
     <task id="LOCAL-00005" summary="thêm giao diện trang Home">
       <created>1696652711421</created>
@@ -557,7 +551,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698591006446</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="thêm giao diện của component MA_HOA_HASH_TEXT">
+      <created>1698663186867</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1698663186867</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -575,7 +576,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="mã hóa file với thuật toán DES khi user chọn button &quot;MÃ HÓA&quot; tại component Panel_MA_HOA_DOI_XUNG_FILE" />
     <MESSAGE value="giải mã file với thuật toán DES khi user chọn button GIẢI MÃ" />
     <MESSAGE value="Fix lỗi tự tạo File mới mặc dù đã MÃ HÓA or GIẢI MÃ file &quot;THẤT BẠI&quot;" />
     <MESSAGE value="Thêm chức năng Copy Key ở component MA_HOA_DOI_XUNG_FILE" />
@@ -600,7 +600,8 @@
     <MESSAGE value="thêm bt_copy đoạn văn bản đã mã hóa và xử lý sự kiện cho button đó" />
     <MESSAGE value="thêm function để reset lại ComboBox TypeKey" />
     <MESSAGE value="thêm ComboBox &quot;Loại Key&quot; trên View của component Panel_MA_HOA_DOI_XUNG_FILE" />
-    <option name="LAST_COMMIT_MESSAGE" value="thêm ComboBox &quot;Loại Key&quot; trên View của component Panel_MA_HOA_DOI_XUNG_FILE" />
+    <MESSAGE value="thêm giao diện của component MA_HOA_HASH_TEXT" />
+    <option name="LAST_COMMIT_MESSAGE" value="thêm giao diện của component MA_HOA_HASH_TEXT" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
