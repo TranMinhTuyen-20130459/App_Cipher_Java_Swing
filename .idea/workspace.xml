@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="thêm giao diện của component Panel_MA_HOA_HASH_FILE">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="nâng cấp giao diện của component Panel_MA_HOA_HASH_FILE">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_FILE.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,12 +104,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FileUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="utils.FileUtil" />
+    <configuration name="MD5" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="model.services.ma_hoa_hash.MD5" />
       <module name="App_Ma_Hoa_Java_Swing" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="utils.*" />
+          <option name="PATTERN" value="model.services.ma_hoa_hash.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -132,10 +131,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Application" />
+        <item itemvalue="Application.MD5" />
         <item itemvalue="Application.Cipher_TwoFish" />
         <item itemvalue="Application.Cipher_AES" />
         <item itemvalue="Application.Cipher_DES" />
-        <item itemvalue="Application.FileUtil" />
       </list>
     </recent_temporary>
   </component>
@@ -212,14 +211,7 @@
       <workItem from="1698587946107" duration="3203000" />
       <workItem from="1698591400330" duration="228000" />
       <workItem from="1698651407457" duration="11188000" />
-      <workItem from="1698673489716" duration="2721000" />
-    </task>
-    <task id="LOCAL-00006" summary="thêm các Panel_Menu để chọn các thuật toán mã hóa, thêm Panel hiển thị thông tin bản quyền tác giả">
-      <created>1696672829982</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1696672829982</updated>
+      <workItem from="1698673489716" duration="9468000" />
     </task>
     <task id="LOCAL-00007" summary="Đổi màu menu khi click vào, tạo các giao diện Panel cơ bản cho các thuật toán Mã Hóa">
       <created>1696761800010</created>
@@ -557,7 +549,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698664831361</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="nâng cấp giao diện của component Panel_MA_HOA_HASH_FILE">
+      <created>1698676583167</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1698676583168</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -575,7 +574,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix lỗi tự tạo File mới mặc dù đã MÃ HÓA or GIẢI MÃ file &quot;THẤT BẠI&quot;" />
     <MESSAGE value="Thêm chức năng Copy Key ở component MA_HOA_DOI_XUNG_FILE" />
     <MESSAGE value="Reset lại Layout của component Panel_MA_HOA_DOI_XUNG_FILE khi click vào button &quot;TRANG CHỦ&quot;" />
     <MESSAGE value="Reset lại Layout của component Panel_MA_HOA_DOI_XUNG_TEXT khi click vào button &quot;TRANG CHỦ&quot;" />
@@ -600,7 +598,8 @@
     <MESSAGE value="thêm ComboBox &quot;Loại Key&quot; trên View của component Panel_MA_HOA_DOI_XUNG_FILE" />
     <MESSAGE value="thêm giao diện của component MA_HOA_HASH_TEXT" />
     <MESSAGE value="thêm giao diện của component Panel_MA_HOA_HASH_FILE" />
-    <option name="LAST_COMMIT_MESSAGE" value="thêm giao diện của component Panel_MA_HOA_HASH_FILE" />
+    <MESSAGE value="nâng cấp giao diện của component Panel_MA_HOA_HASH_FILE" />
+    <option name="LAST_COMMIT_MESSAGE" value="nâng cấp giao diện của component Panel_MA_HOA_HASH_FILE" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
