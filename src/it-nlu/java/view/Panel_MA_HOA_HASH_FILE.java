@@ -5,21 +5,26 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.RoundRectangle2D;
+import java.io.File;
 
 public class Panel_MA_HOA_HASH_FILE extends JPanel {
+
+    private JPanel panel_choose_file;
     private JLabel label_chon_giai_thuat,
-            label_output;
+            label_output,
+            label_name_file;
     private JComboBox combo_box_algorithm;
 
-    private JButton bt_hash, bt_copy, bt_home;
+    private JButton bt_hash, bt_copy, bt_home, bt_choose_file;
 
     private JTextArea output_text_area;
 
     private JScrollPane scroll_pane_output_text_area;
 
     private String output_text = "",
-            name_algorithm = "SHA-256";
-
+            name_algorithm = "SHA-256",
+            name_selected_file = "",
+            path_selected_file = "";
     private final String[] arr_algorithms = {"SHA-256", "MD5"};
 
     public Panel_MA_HOA_HASH_FILE(int WIDTH, int HEIGHT) {
@@ -34,6 +39,7 @@ public class Panel_MA_HOA_HASH_FILE extends JPanel {
         createButtonGroup();
         createTextAreaGroup();
         createComboBoxGroup();
+        createPanelChooseFile();
 
         add(label_chon_giai_thuat);
         add(label_output);
@@ -45,6 +51,8 @@ public class Panel_MA_HOA_HASH_FILE extends JPanel {
         add(bt_home);
 
         add(combo_box_algorithm);
+
+        add(panel_choose_file);
     }
 
     public void createLabelGroup() {
@@ -102,7 +110,7 @@ public class Panel_MA_HOA_HASH_FILE extends JPanel {
 
     public void createButtonHash() {
         bt_hash = new RoundedButton("HASH", 15, new Color(229, 117, 216));
-        bt_hash.setBounds(250, 248, 144, 34);
+        bt_hash.setBounds(245, 218, 144, 34);
         bt_hash.setFont(new Font("Arial", Font.PLAIN, 14));
     }
 
@@ -125,6 +133,57 @@ public class Panel_MA_HOA_HASH_FILE extends JPanel {
         });
     }
 
+    public void createPanelChooseFile() {
+        panel_choose_file = new JPanel();
+        panel_choose_file.setBounds(23, 119, 594, 54);
+        panel_choose_file.setBackground(new Color(217, 217, 217));
+        panel_choose_file.setLayout(null);
+        panel_choose_file.setVisible(true);
+
+        label_name_file = new JLabel("");
+        label_name_file.setBounds(125, 20, 500, 15);
+        panel_choose_file.add(label_name_file);
+
+        createButtonChooseFile();
+        panel_choose_file.add(bt_choose_file);
+    }
+
+    public void createButtonChooseFile() {
+
+        bt_choose_file = new RoundedButton("CHỌN FILE", 10, new Color(215, 187, 18));
+        bt_choose_file.setBounds(10, 12, 100, 30);
+
+        // Thêm sự kiện cho nút "CHỌN FILE"
+        bt_choose_file.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser fileChooser = new JFileChooser();
+
+                int returnValue = fileChooser.showOpenDialog(null); // Hiển thị cửa sổ chọn tệp
+
+                /***
+                 - JFileChooser.APPROVE_OPTION: Được trả về khi người dùng đã chọn một tệp hoặc thư mục và xác nhận việc chọn (thường bằng cách nhấn nút "Open").
+                 - JFileChooser.CANCEL_OPTION: Được trả về khi người dùng đã hủy việc chọn hoặc đóng cửa sổ chọn tệp.
+                 - JFileChooser.ERROR_OPTION: Được trả về nếu có lỗi xảy ra trong quá trình chọn tệp.
+                 */
+
+                if (returnValue == JFileChooser.APPROVE_OPTION) {
+                    // Lấy tệp đã chọn
+                    File selectedFile = fileChooser.getSelectedFile();
+
+                    name_selected_file = selectedFile.getName();
+                    path_selected_file = selectedFile.getAbsolutePath();
+
+                    label_name_file.setText(name_selected_file);
+
+                    // System.out.println("Đường dẫn tuyệt đối đến tệp: " + path_selected_file);
+                    // System.out.println("Đường dẫn đến thư mục chứa tệp: " + path_folder_contain_selected_file);
+                }
+            }
+        });
+
+    }
+
     public void resetComboBoxAlgorithm() {
         combo_box_algorithm.setSelectedIndex(0);
         name_algorithm = combo_box_algorithm.getSelectedItem().toString();
@@ -136,9 +195,16 @@ public class Panel_MA_HOA_HASH_FILE extends JPanel {
         output_text_area.setText(output_text);
     }
 
+    public void resetSelectedFile() {
+        name_selected_file = "";
+        path_selected_file = "";
+        label_name_file.setText(name_selected_file);
+    }
+
     public void resetLayout() {
         resetComboBoxAlgorithm();
         resetOutputTextArea();
+        resetSelectedFile();
     }
 
     public class RoundedButton extends JButton {
