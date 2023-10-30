@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="nâng cấp giao diện của component Panel_MA_HOA_HASH_FILE">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="hiện thực giải thuật MD5 trong model">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +57,7 @@
       <recent name="F:\Git\App_Ma_Hoa_Java_Swing\src\it-nlu\resources\image" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Application">
+  <component name="RunManager" selected="Application.SHA">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Application" />
       <module name="App_Ma_Hoa_Java_Swing" />
@@ -67,19 +67,6 @@
     </configuration>
     <configuration name="Cipher_AES" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="model.services.ma_hoa_doi_xung.Cipher_AES" />
-      <module name="App_Ma_Hoa_Java_Swing" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.services.ma_hoa_doi_xung.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Cipher_DES" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="model.services.ma_hoa_doi_xung.Cipher_DES" />
       <module name="App_Ma_Hoa_Java_Swing" />
       <extension name="coverage">
         <pattern>
@@ -117,6 +104,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SHA" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="model.services.ma_hoa_hash.SHA" />
+      <module name="App_Ma_Hoa_Java_Swing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.services.ma_hoa_hash.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -130,11 +130,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SHA" />
         <item itemvalue="Application.Application" />
         <item itemvalue="Application.MD5" />
         <item itemvalue="Application.Cipher_TwoFish" />
         <item itemvalue="Application.Cipher_AES" />
-        <item itemvalue="Application.Cipher_DES" />
       </list>
     </recent_temporary>
   </component>
@@ -211,14 +211,7 @@
       <workItem from="1698587946107" duration="3203000" />
       <workItem from="1698591400330" duration="228000" />
       <workItem from="1698651407457" duration="11188000" />
-      <workItem from="1698673489716" duration="9468000" />
-    </task>
-    <task id="LOCAL-00007" summary="Đổi màu menu khi click vào, tạo các giao diện Panel cơ bản cho các thuật toán Mã Hóa">
-      <created>1696761800010</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1696761800010</updated>
+      <workItem from="1698673489716" duration="9995000" />
     </task>
     <task id="LOCAL-00008" summary="đổi background màu vàng cho menu MÃ HÓA ĐỐI XỨNG">
       <created>1697121879702</created>
@@ -556,7 +549,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698676583168</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="hiện thực giải thuật MD5 trong model">
+      <created>1698683282579</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1698683282579</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -574,7 +574,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Thêm chức năng Copy Key ở component MA_HOA_DOI_XUNG_FILE" />
     <MESSAGE value="Reset lại Layout của component Panel_MA_HOA_DOI_XUNG_FILE khi click vào button &quot;TRANG CHỦ&quot;" />
     <MESSAGE value="Reset lại Layout của component Panel_MA_HOA_DOI_XUNG_TEXT khi click vào button &quot;TRANG CHỦ&quot;" />
     <MESSAGE value="nâng cấp func deleteFile trong Class FileUtil" />
@@ -599,7 +598,8 @@
     <MESSAGE value="thêm giao diện của component MA_HOA_HASH_TEXT" />
     <MESSAGE value="thêm giao diện của component Panel_MA_HOA_HASH_FILE" />
     <MESSAGE value="nâng cấp giao diện của component Panel_MA_HOA_HASH_FILE" />
-    <option name="LAST_COMMIT_MESSAGE" value="nâng cấp giao diện của component Panel_MA_HOA_HASH_FILE" />
+    <MESSAGE value="hiện thực giải thuật MD5 trong model" />
+    <option name="LAST_COMMIT_MESSAGE" value="hiện thực giải thuật MD5 trong model" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
