@@ -44,8 +44,8 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
             encrypted_text = "",
             decrypted_text = "",
             key = "",
-            name_algorithm = "AES",
-            name_language = "English",
+            name_algorithm = "",
+            name_language = "",
             name_type_key = "Base64";
 
     public Panel_MA_HOA_DOI_XUNG_TEXT(int WIDTH, int HEIGHT) {
@@ -249,7 +249,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     public void createButtonCopyKey() {
         bt_copy_key = new RoundedButton("COPY", 25, new Color(136, 196, 230));
         bt_copy_key.setBounds(510, 82, 101, 37);
-        bt_copy_key.setFont(new Font("Arial", Font.PLAIN,12));
+        bt_copy_key.setFont(new Font("Arial", Font.PLAIN, 12));
 
         bt_copy_key.addMouseListener(new MouseAdapter() {
 
@@ -270,7 +270,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     public void createButtonCopyEncryptedText() {
         bt_copy_encrypted_text = new RoundedButton("COPY VB MÃ HÓA", 25, new Color(217, 217, 217));
         bt_copy_encrypted_text.setBounds(325, 432, 150, 37);
-        bt_copy_encrypted_text.setFont(new Font("Arial", Font.PLAIN,12));
+        bt_copy_encrypted_text.setFont(new Font("Arial", Font.PLAIN, 12));
         bt_copy_encrypted_text.addActionListener(new ActionListener() {
 
             @Override
@@ -447,6 +447,9 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         combo_box_algorithm = new JComboBox<>(arr_algorithms);
         combo_box_algorithm.setBounds(145, 19, 210, 38);
 
+        name_algorithm = combo_box_algorithm.getSelectedItem().toString();
+        // System.out.println(name_algorithm);
+
         combo_box_algorithm.addActionListener(new ActionListener() {
 
             @Override
@@ -474,6 +477,9 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         combo_box_language = new JComboBox<>(arr_languages);
         combo_box_language.setBounds(483, 20, 128, 34);
         combo_box_language.setVisible(false);
+
+        name_language = combo_box_language.getSelectedItem().toString();
+        // System.out.println(name_language);
 
         combo_box_language.addActionListener(new ActionListener() {
             @Override
@@ -530,17 +536,17 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     }
 
     public void resetComboBoxAlgorithm() {
-        name_algorithm = "AES";
-        combo_box_algorithm.setSelectedItem(name_algorithm);
+        combo_box_algorithm.setSelectedIndex(0);
+        name_algorithm = combo_box_algorithm.getSelectedItem().toString();
     }
 
     public void resetComboBoxLanguage() {
-        name_language = "English";
-        combo_box_language.setSelectedItem(name_language);
+        combo_box_language.setSelectedIndex(0);
+        name_language = combo_box_language.getSelectedItem().toString();
     }
 
-    public void resetComboBoxTypeKey(){
-        name_type_key="Base64";
+    public void resetComboBoxTypeKey() {
+        name_type_key = "Base64";
         combo_box_type_key.setSelectedItem(name_type_key);
     }
 

@@ -9,6 +9,9 @@ import java.security.DigestInputStream;
 import java.security.MessageDigest;
 
 public class MD5 {
+
+    public static final String MD5 = "MD5";
+
     public String hashText(String input_text) throws Exception {
         // Tạo một đối tượng MessageDigest với thuật toán MD5
         MessageDigest md = MessageDigest.getInstance("MD5");

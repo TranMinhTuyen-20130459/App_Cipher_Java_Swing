@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="hiện thực giải thuật MD5 trong model">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="hiện thực giải thuật SHA trong model">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_hash/MD5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_hash/MD5.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_hash/SHA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_hash/SHA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_FILE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_TEXT.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +63,7 @@
       <recent name="F:\Git\App_Ma_Hoa_Java_Swing\src\it-nlu\resources\image" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SHA">
+  <component name="RunManager" selected="Application.Application">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Application" />
       <module name="App_Ma_Hoa_Java_Swing" />
@@ -130,8 +136,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SHA" />
         <item itemvalue="Application.Application" />
+        <item itemvalue="Application.SHA" />
         <item itemvalue="Application.MD5" />
         <item itemvalue="Application.Cipher_TwoFish" />
         <item itemvalue="Application.Cipher_AES" />
@@ -211,14 +217,8 @@
       <workItem from="1698587946107" duration="3203000" />
       <workItem from="1698591400330" duration="228000" />
       <workItem from="1698651407457" duration="11188000" />
-      <workItem from="1698673489716" duration="9995000" />
-    </task>
-    <task id="LOCAL-00008" summary="đổi background màu vàng cho menu MÃ HÓA ĐỐI XỨNG">
-      <created>1697121879702</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1697121879702</updated>
+      <workItem from="1698673489716" duration="10585000" />
+      <workItem from="1698716011030" duration="3857000" />
     </task>
     <task id="LOCAL-00009" summary="Thêm giao diện cho component MA_HOA_DOI_XUNG">
       <created>1697170586083</created>
@@ -556,7 +556,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698683282579</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="hiện thực giải thuật SHA trong model">
+      <created>1698684059830</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1698684059831</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -574,7 +581,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Reset lại Layout của component Panel_MA_HOA_DOI_XUNG_FILE khi click vào button &quot;TRANG CHỦ&quot;" />
     <MESSAGE value="Reset lại Layout của component Panel_MA_HOA_DOI_XUNG_TEXT khi click vào button &quot;TRANG CHỦ&quot;" />
     <MESSAGE value="nâng cấp func deleteFile trong Class FileUtil" />
     <MESSAGE value="thêm cửa sổ thông báo khi &quot;KHÔNG TÌM THẤY GIẢI THUẬT PHÙ HỢP&quot; và &quot;CHƯA CÓ KEY ĐỂ GIẢI MÃ&quot; tại component Panel_MA_HOA_DOI_XUNG_TEXT" />
@@ -599,7 +605,8 @@
     <MESSAGE value="thêm giao diện của component Panel_MA_HOA_HASH_FILE" />
     <MESSAGE value="nâng cấp giao diện của component Panel_MA_HOA_HASH_FILE" />
     <MESSAGE value="hiện thực giải thuật MD5 trong model" />
-    <option name="LAST_COMMIT_MESSAGE" value="hiện thực giải thuật MD5 trong model" />
+    <MESSAGE value="hiện thực giải thuật SHA trong model" />
+    <option name="LAST_COMMIT_MESSAGE" value="hiện thực giải thuật SHA trong model" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

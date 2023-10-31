@@ -45,7 +45,7 @@ public class SHA {
             fis = new FileInputStream(file);
             is = new BufferedInputStream(fis);
 
-            // Tạo đối tượng MessageDigest với thuật toán MD5
+            // Tạo đối tượng MessageDigest với thuật toán truyền vào
             MessageDigest md = MessageDigest.getInstance(algorithm);
 
             // Tạo DigestInputStream để đọc và băm dữ liệu đồng thời
