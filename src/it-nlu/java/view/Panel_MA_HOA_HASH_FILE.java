@@ -22,10 +22,10 @@ public class Panel_MA_HOA_HASH_FILE extends JPanel {
     private JScrollPane scroll_pane_output_text_area;
 
     private String output_text = "",
-            name_algorithm = "SHA-256",
+            name_algorithm = "",
             name_selected_file = "",
             path_selected_file = "";
-    private final String[] arr_algorithms = {"SHA-256", "MD5"};
+    private final String[] arr_algorithms = {"MD5", "SHA-1", "SHA-224", "SHA-256", "SHA-384", "SHA-512"};
 
     public Panel_MA_HOA_HASH_FILE(int WIDTH, int HEIGHT) {
 
@@ -88,6 +88,9 @@ public class Panel_MA_HOA_HASH_FILE extends JPanel {
     public void createComboBoxAlgorithm() {
         combo_box_algorithm = new JComboBox<>(arr_algorithms);
         combo_box_algorithm.setBounds(145, 19, 210, 38);
+
+        name_algorithm = combo_box_algorithm.getSelectedItem().toString();
+        // System.out.println(name_algorithm);
     }
 
     public void createOutputTextArea() {

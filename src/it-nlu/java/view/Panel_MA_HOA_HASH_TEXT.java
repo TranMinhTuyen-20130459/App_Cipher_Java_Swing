@@ -1,7 +1,13 @@
 package view;
 
+import controller.Controller_MA_HOA_HASH;
+
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.RoundRectangle2D;
@@ -23,8 +29,8 @@ public class Panel_MA_HOA_HASH_TEXT extends JPanel {
 
     private String input_text = "",
             output_text = "",
-            name_algorithm = "SHA-256";
-    private final String[] arr_algorithms = {"SHA-256", "MD5"};
+            name_algorithm = "";
+    private final String[] arr_algorithms = {"MD5", "SHA-1", "SHA-224", "SHA-256", "SHA-384", "SHA-512"};
 
     public Panel_MA_HOA_HASH_TEXT(int WIDTH, int HEIGHT) {
 
@@ -95,6 +101,17 @@ public class Panel_MA_HOA_HASH_TEXT extends JPanel {
     public void createComboBoxAlgorithm() {
         combo_box_algorithm = new JComboBox<>(arr_algorithms);
         combo_box_algorithm.setBounds(145, 19, 210, 38);
+
+        name_algorithm = combo_box_algorithm.getSelectedItem().toString();
+        // System.out.println(name_algorithm);
+        combo_box_algorithm.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                name_algorithm = combo_box_algorithm.getSelectedItem().toString();
+
+                resetOutputTextArea();
+            }
+        });
     }
 
     public void createInputTextArea() {
@@ -111,6 +128,26 @@ public class Panel_MA_HOA_HASH_TEXT extends JPanel {
         // Đảm bảo thanh cuộn sẽ hiển thị khi nội dung vượt quá kích thước của JTextArea
         input_text_area.setLineWrap(true);
         input_text_area.setWrapStyleWord(true);
+
+        input_text_area.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                input_text = input_text_area.getText();
+                resetOutputTextArea();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                input_text = input_text_area.getText();
+                resetOutputTextArea();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                input_text = input_text_area.getText();
+                resetOutputTextArea();
+            }
+        });
 
     }
 
@@ -136,12 +173,60 @@ public class Panel_MA_HOA_HASH_TEXT extends JPanel {
         bt_hash = new RoundedButton("HASH", 15, new Color(229, 117, 216));
         bt_hash.setBounds(250, 248, 144, 34);
         bt_hash.setFont(new Font("Arial", Font.PLAIN, 14));
+
+        bt_hash.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                if (bt_hash.isEnabled() == true) {
+
+                    input_text = input_text_area.getText();
+
+                    if (name_algorithm == null || name_algorithm.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Bạn chưa chọn Giải Thuật !!!", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                        return;
+                    }
+
+                    if (input_text == null || input_text.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Bạn hãy nhập vào đoạn văn bản cần Hash !!!", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                        return;
+                    }
+
+                    output_text = Controller_MA_HOA_HASH.hashText(name_algorithm, input_text);
+                    if (output_text.equalsIgnoreCase("NOT_FOUND_ALGORITHM")) {
+                        JOptionPane.showMessageDialog(null, "KHÔNG TÌM THẤY GIẢI THUẬT PHÙ HỢP", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                    } else {
+                        output_text_area.setText(output_text);
+                    }
+
+                }
+            }
+        });
     }
 
     public void createButtonCopy() {
         bt_copy = new RoundedButton("COPY", 0, new Color(217, 217, 217));
         bt_copy.setBounds(517, 276, 90, 22);
         bt_copy.setFont(new Font("Arial", Font.PLAIN, 14));
+
+        bt_copy.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                if (bt_copy.isEnabled()) {
+
+                    output_text = output_text_area.getText();
+                    if (output_text != null && output_text.length() > 0) {
+                        // Sao chép đoạn văn bản vào clipboard
+                        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+                        StringSelection selection = new StringSelection(output_text);
+                        clipboard.setContents(selection, null);
+                    }
+                }
+
+            }
+        });
     }
 
     public void createButtonHome() {
