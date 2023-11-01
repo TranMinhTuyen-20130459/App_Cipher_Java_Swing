@@ -31,5 +31,38 @@ public class Controller_MA_HOA_HASH {
         }
     }
 
+    public static String hashFile(String algorithm, String srcFile) {
+
+        try {
+
+            if (algorithm == null || srcFile == null) return "";
+            if (algorithm.isEmpty() || srcFile.isEmpty()) return "";
+
+            switch (algorithm.toUpperCase()) {
+                case MD5.MD5: {
+                    MD5 md5 = new MD5();
+                    return md5.hashFile(srcFile);
+                }
+                case SHA.SHA_1:
+                case SHA.SHA_224:
+                case SHA.SHA_256:
+                case SHA.SHA_384:
+                case SHA.SHA_512: {
+                    SHA sha = new SHA();
+                    return sha.hashFile(srcFile, algorithm);
+                }
+
+                default:
+                    return "NOT_FOUND_ALGORITHM";
+
+            }
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return "Error";
+        }
+
+    }
+
 
 }

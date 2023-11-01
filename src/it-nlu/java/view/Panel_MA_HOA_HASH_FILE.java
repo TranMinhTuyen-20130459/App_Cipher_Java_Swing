@@ -1,7 +1,11 @@
 package view;
 
+import controller.Controller_MA_HOA_HASH;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.RoundRectangle2D;
@@ -91,6 +95,15 @@ public class Panel_MA_HOA_HASH_FILE extends JPanel {
 
         name_algorithm = combo_box_algorithm.getSelectedItem().toString();
         // System.out.println(name_algorithm);
+
+        combo_box_algorithm.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                name_algorithm = combo_box_algorithm.getSelectedItem().toString();
+
+                resetOutputTextArea();
+            }
+        });
     }
 
     public void createOutputTextArea() {
@@ -115,12 +128,55 @@ public class Panel_MA_HOA_HASH_FILE extends JPanel {
         bt_hash = new RoundedButton("HASH", 15, new Color(229, 117, 216));
         bt_hash.setBounds(245, 218, 144, 34);
         bt_hash.setFont(new Font("Arial", Font.PLAIN, 14));
+
+        bt_hash.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                if (bt_hash.isEnabled()) {
+
+                    if (name_algorithm == null || name_algorithm.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Bạn chưa chọn Giải Thuật !!!", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                        return;
+                    }
+
+                    if (name_selected_file == null || path_selected_file == null || name_selected_file.isEmpty() || path_selected_file.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Bạn chưa chọn File để Hash !!!", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                        return;
+                    }
+
+                    output_text = Controller_MA_HOA_HASH.hashFile(name_algorithm, path_selected_file);
+                    if (output_text.equalsIgnoreCase("NOT_FOUND_ALGORITHM")) {
+                        JOptionPane.showMessageDialog(null, "KHÔNG TÌM THẤY GIẢI THUẬT PHÙ HỢP", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                    } else {
+                        output_text_area.setText(output_text);
+                    }
+
+                }
+
+            }
+        });
     }
 
     public void createButtonCopy() {
         bt_copy = new RoundedButton("COPY", 0, new Color(217, 217, 217));
         bt_copy.setBounds(517, 276, 90, 22);
         bt_copy.setFont(new Font("Arial", Font.PLAIN, 14));
+
+        bt_copy.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                output_text = output_text_area.getText();
+                if (output_text != null && output_text.length() > 0) {
+                    // Sao chép đoạn văn bản vào clipboard
+                    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+                    StringSelection selection = new StringSelection(output_text);
+                    clipboard.setContents(selection, null);
+                }
+            }
+        });
     }
 
     public void createButtonHome() {
@@ -178,6 +234,8 @@ public class Panel_MA_HOA_HASH_FILE extends JPanel {
                     path_selected_file = selectedFile.getAbsolutePath();
 
                     label_name_file.setText(name_selected_file);
+
+                    resetOutputTextArea();
 
                     // System.out.println("Đường dẫn tuyệt đối đến tệp: " + path_selected_file);
                     // System.out.println("Đường dẫn đến thư mục chứa tệp: " + path_folder_contain_selected_file);
