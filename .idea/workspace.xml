@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="hiện thực mã hóa Hash lên view trong component Panel_MA_HOA_HASH_TEXT">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="hiện thực mã hóa Hash lên view trong component Panel_MA_HOA_HASH_FILE">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_HASH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_HASH.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_FILE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_Hill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_Hill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_TwoFish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_TwoFish.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_Vigenere.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,23 +60,10 @@
       <recent name="F:\Git\App_Ma_Hoa_Java_Swing\src\it-nlu\resources\image" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Application">
+  <component name="RunManager" selected="Application.Cipher_Vigenere_English">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Application" />
       <module name="App_Ma_Hoa_Java_Swing" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Cipher_AES" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="model.services.ma_hoa_doi_xung.Cipher_AES" />
-      <module name="App_Ma_Hoa_Java_Swing" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.services.ma_hoa_doi_xung.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -93,12 +81,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MD5" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="model.services.ma_hoa_hash.MD5" />
+    <configuration name="Cipher_Vigenere_English" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="model.services.ma_hoa_doi_xung.Cipher_Vigenere_English" />
       <module name="App_Ma_Hoa_Java_Swing" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="model.services.ma_hoa_hash.*" />
+          <option name="PATTERN" value="model.services.ma_hoa_doi_xung.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -106,12 +94,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SHA" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="model.services.ma_hoa_hash.SHA" />
+    <configuration name="TestHillCipher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="model.services.ma_hoa_doi_xung.TestHillCipher" />
       <module name="App_Ma_Hoa_Java_Swing" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="model.services.ma_hoa_hash.*" />
+          <option name="PATTERN" value="model.services.ma_hoa_doi_xung.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VigenereCipher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="model.services.ma_hoa_doi_xung.VigenereCipher" />
+      <module name="App_Ma_Hoa_Java_Swing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.services.ma_hoa_doi_xung.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -132,11 +133,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Cipher_Vigenere_English" />
         <item itemvalue="Application.Application" />
-        <item itemvalue="Application.SHA" />
-        <item itemvalue="Application.MD5" />
         <item itemvalue="Application.Cipher_TwoFish" />
-        <item itemvalue="Application.Cipher_AES" />
+        <item itemvalue="Application.VigenereCipher" />
+        <item itemvalue="Application.TestHillCipher" />
       </list>
     </recent_temporary>
   </component>
@@ -217,14 +218,12 @@
       <workItem from="1698716011030" duration="8763000" />
       <workItem from="1698762359535" duration="1883000" />
       <workItem from="1698805403454" duration="186000" />
-      <workItem from="1698823120733" duration="2784000" />
-    </task>
-    <task id="LOCAL-00011" summary="tiếp tục thêm giao diện cho component MA_HOA_DOI_XUNG">
-      <created>1697258859584</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1697258859584</updated>
+      <workItem from="1698823120733" duration="11192000" />
+      <workItem from="1698890178777" duration="202000" />
+      <workItem from="1698919721099" duration="7738000" />
+      <workItem from="1698928341941" duration="497000" />
+      <workItem from="1698935506294" duration="42000" />
+      <workItem from="1698935577147" duration="8560000" />
     </task>
     <task id="LOCAL-00012" summary="Thêm các Class dành cho giải thuật mã hóa đối xứng và bất đối xứng">
       <created>1697258916919</created>
@@ -562,7 +561,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698725470766</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="hiện thực mã hóa Hash lên view trong component Panel_MA_HOA_HASH_FILE">
+      <created>1698826160403</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1698826160404</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -580,7 +586,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="thêm cửa sổ thông báo khi &quot;KHÔNG TÌM THẤY GIẢI THUẬT PHÙ HỢP&quot; và &quot;CHƯA CÓ KEY ĐỂ GIẢI MÃ&quot; tại component Panel_MA_HOA_DOI_XUNG_TEXT" />
     <MESSAGE value="hiện thực giải thuật mã hóa AES trong model" />
     <MESSAGE value="đổi tên biến trong một số function của class Cipher_DES" />
     <MESSAGE value="tạo class Cipher_TwoFish" />
@@ -605,7 +610,8 @@
     <MESSAGE value="hiện thực giải thuật SHA trong model" />
     <MESSAGE value="nâng cấp function resetComboBoxAlgorithm() và resetComboBoxLanguage()" />
     <MESSAGE value="hiện thực mã hóa Hash lên view trong component Panel_MA_HOA_HASH_TEXT" />
-    <option name="LAST_COMMIT_MESSAGE" value="hiện thực mã hóa Hash lên view trong component Panel_MA_HOA_HASH_TEXT" />
+    <MESSAGE value="hiện thực mã hóa Hash lên view trong component Panel_MA_HOA_HASH_FILE" />
+    <option name="LAST_COMMIT_MESSAGE" value="hiện thực mã hóa Hash lên view trong component Panel_MA_HOA_HASH_FILE" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

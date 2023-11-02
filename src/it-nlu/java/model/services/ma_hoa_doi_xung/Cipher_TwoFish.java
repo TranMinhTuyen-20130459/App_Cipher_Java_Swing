@@ -8,7 +8,6 @@ import org.bouncycastle.crypto.engines.TwofishEngine;
 import org.bouncycastle.crypto.paddings.PaddedBufferedBlockCipher;
 import org.bouncycastle.crypto.params.KeyParameter;
 
-import javax.crypto.spec.SecretKeySpec;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -17,6 +16,10 @@ import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.Base64;
 
+/**
+ * Các Function trong Class này có sự hỗ trợ của ChatGPT,
+ * Em đã dựa vào các function do ChatGPT hỗ trợ, chỉnh sửa lại code đáp ứng theo yêu cầu của bài toán
+ * */
 public class Cipher_TwoFish implements I_Encrypt, I_Decrypt, I_Export {
     private KeyParameter key;
     private TwofishEngine engine;
