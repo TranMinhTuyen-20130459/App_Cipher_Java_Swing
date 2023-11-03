@@ -6,29 +6,32 @@ import helper.EncryptFile;
 import model.services.ma_hoa_doi_xung.Cipher_AES;
 import model.services.ma_hoa_doi_xung.Cipher_DES;
 import model.services.ma_hoa_doi_xung.Cipher_TwoFish;
+import model.services.ma_hoa_doi_xung.Cipher_Vigenere_English;
 
 public class Controller_MA_HOA_DOI_XUNG {
 
-    public static String createKeyFromInputOfUser(String algorithm, String keyText) {
+    public static String createKeyRandomFor_Hill_Vigenere(String algorithm, String plain_text) {
         try {
-
-            if (keyText == null || algorithm == null || keyText.isEmpty() || algorithm.isEmpty()) {
-                return null;
-            }
-
+            if (algorithm == null || plain_text == null) return null;
+            if (algorithm.isEmpty() || plain_text.isEmpty()) return "";
             switch (algorithm.toUpperCase()) {
-                case Algorithm.DES: {
 
-                    Cipher_DES des = new Cipher_DES();
-                    des.createKeyFromInput(keyText);
+                case Algorithm.VIGENERE: {
 
-                    System.out.println(des.exportKey());
-                    return des.exportKey();
+                    Cipher_Vigenere_English vigenereEnglish = new Cipher_Vigenere_English();
+                    vigenereEnglish.createKeyRandom(plain_text.length());
+
+                    return vigenereEnglish.exportKey();
+
                 }
+
+                case Algorithm.HILL: {
+                    return "HILL";
+                }
+
                 default:
                     return "NOT_FOUND_ALGORITHM";
             }
-
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;
@@ -68,6 +71,7 @@ public class Controller_MA_HOA_DOI_XUNG {
 
                     return twoFish.exportKey();
                 }
+
                 default:
                     return "NOT_FOUND_ALGORITHM";
 
@@ -206,7 +210,7 @@ public class Controller_MA_HOA_DOI_XUNG {
                     return EncryptFile.SUCCESS;
                 }
 
-                case Algorithm.TWO_FISH:{
+                case Algorithm.TWO_FISH: {
                     Cipher_TwoFish twoFish = new Cipher_TwoFish();
                     twoFish.importKey(key);
                     twoFish.encryptFile(srcFile, destFile);
@@ -249,10 +253,10 @@ public class Controller_MA_HOA_DOI_XUNG {
                     return DecryptFile.SUCCESS;
                 }
 
-                case Algorithm.TWO_FISH:{
+                case Algorithm.TWO_FISH: {
                     Cipher_TwoFish twoFish = new Cipher_TwoFish();
                     twoFish.importKey(key);
-                    twoFish.decryptFile(srcFile,destFile);
+                    twoFish.decryptFile(srcFile, destFile);
                     return DecryptFile.SUCCESS;
                 }
                 default:

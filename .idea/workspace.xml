@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="hiện thực giải thuật Vigenere để mã hóa và giải mã bảng chữ cái Tiếng Anh">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="hiện thực giải thuật Vigenere để mã hóa và giải mã bảng chữ cái Tiếng Việt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_Vigenere_English.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_Vigenere_English.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,14 +224,9 @@
       <workItem from="1698935506294" duration="42000" />
       <workItem from="1698935577147" duration="8791000" />
       <workItem from="1698945520382" duration="1448000" />
-      <workItem from="1698976568843" duration="7298000" />
-    </task>
-    <task id="LOCAL-00013" summary="Tối ưu src code của Frame_Home và Panel_MA_HOA_DOI_XUNG">
-      <created>1697277153224</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1697277153224</updated>
+      <workItem from="1698976568843" duration="8177000" />
+      <workItem from="1699001841090" duration="2124000" />
+      <workItem from="1699004415345" duration="5175000" />
     </task>
     <task id="LOCAL-00014" summary="thêm class Panel_MA_HOA_DOI_XUNG_TEXT &amp;&amp; Panel_MA_HOA_DOI_XUNG_FILE">
       <created>1697281455591</created>
@@ -568,7 +564,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698944823391</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="hiện thực giải thuật Vigenere để mã hóa và giải mã bảng chữ cái Tiếng Việt">
+      <created>1698983979824</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1698983979825</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -586,7 +589,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="đổi tên biến trong một số function của class Cipher_DES" />
     <MESSAGE value="tạo class Cipher_TwoFish" />
     <MESSAGE value="thêm tham số cho function createKeyRandom()" />
     <MESSAGE value="hiện thực giải thuật mã hóa AES lên View" />
@@ -611,7 +613,8 @@
     <MESSAGE value="hiện thực mã hóa Hash lên view trong component Panel_MA_HOA_HASH_TEXT" />
     <MESSAGE value="hiện thực mã hóa Hash lên view trong component Panel_MA_HOA_HASH_FILE" />
     <MESSAGE value="hiện thực giải thuật Vigenere để mã hóa và giải mã bảng chữ cái Tiếng Anh" />
-    <option name="LAST_COMMIT_MESSAGE" value="hiện thực giải thuật Vigenere để mã hóa và giải mã bảng chữ cái Tiếng Anh" />
+    <MESSAGE value="hiện thực giải thuật Vigenere để mã hóa và giải mã bảng chữ cái Tiếng Việt" />
+    <option name="LAST_COMMIT_MESSAGE" value="hiện thực giải thuật Vigenere để mã hóa và giải mã bảng chữ cái Tiếng Việt" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
