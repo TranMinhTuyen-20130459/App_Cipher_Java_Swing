@@ -3,25 +3,35 @@ package controller;
 import helper.Algorithm;
 import helper.DecryptFile;
 import helper.EncryptFile;
-import model.services.ma_hoa_doi_xung.Cipher_AES;
-import model.services.ma_hoa_doi_xung.Cipher_DES;
-import model.services.ma_hoa_doi_xung.Cipher_TwoFish;
-import model.services.ma_hoa_doi_xung.Cipher_Vigenere_English;
+import helper.Languague;
+import model.services.ma_hoa_doi_xung.*;
 
 public class Controller_MA_HOA_DOI_XUNG {
 
-    public static String createKeyRandomFor_Hill_Vigenere(String algorithm, String plain_text) {
+    // đây là function tạo Key cho thuật toán Hill,Vigenere
+    public static String createKeyRandomFor_Hill_Vigenere(String algorithm, String language, String plain_text) {
         try {
-            if (algorithm == null || plain_text == null) return null;
-            if (algorithm.isEmpty() || plain_text.isEmpty()) return "";
+            if (algorithm == null || plain_text == null || language == null) return null;
+            if (algorithm.isEmpty() || plain_text.isEmpty() || language.isEmpty()) return "";
             switch (algorithm.toUpperCase()) {
 
                 case Algorithm.VIGENERE: {
 
-                    Cipher_Vigenere_English vigenereEnglish = new Cipher_Vigenere_English();
-                    vigenereEnglish.createKeyRandom(plain_text.length());
+                    if (language.equalsIgnoreCase(Languague.ENGLISH)) {
+                        Cipher_Vigenere_English vigenereEnglish = new Cipher_Vigenere_English();
+                        vigenereEnglish.createKeyRandom(plain_text.length());
 
-                    return vigenereEnglish.exportKey();
+                        return vigenereEnglish.exportKey();
+                    }
+
+                    if (language.equalsIgnoreCase(Languague.VIETNAM)) {
+                        Cipher_Vigenere_Vietnamese vigenereVietnamese = new Cipher_Vigenere_Vietnamese();
+                        vigenereVietnamese.createKeyRandom(plain_text.length());
+
+                        return vigenereVietnamese.exportKey();
+                    }
+
+                    return "";
 
                 }
 
@@ -38,6 +48,7 @@ public class Controller_MA_HOA_DOI_XUNG {
         }
     }
 
+    // đây là function tạo Key cho thuật toán AES,DES,TwoFish
     public static String createKeyRandom(String algorithm) {
 
         try {
@@ -83,6 +94,7 @@ public class Controller_MA_HOA_DOI_XUNG {
         }
     }
 
+    // đây là function mã hóa văn bản của các thuật toán AES,DES,TwoFish
     public static String encryptTextWithKeyBase64(String algorithm,
                                                   String language,
                                                   String plain_text,
@@ -129,6 +141,7 @@ public class Controller_MA_HOA_DOI_XUNG {
         }
     }
 
+    // đây là function giải mã văn bản của các thuật toán AES,DES,TwoFish
     public static String decryptTextWithKeyBase64(String algorithm,
                                                   String language,
                                                   String encrypt_text,
@@ -177,6 +190,7 @@ public class Controller_MA_HOA_DOI_XUNG {
 
     }
 
+    // đây là function mã hóa File của các thuật toán AES,DES,TwoFish
     public static int encryptFileWithKeyBase64(String algorithm,
                                                String language,
                                                String srcFile,
@@ -226,6 +240,7 @@ public class Controller_MA_HOA_DOI_XUNG {
         }
     }
 
+    // đây là function giải mã File của các thuật toán AES,DES,TwoFish
     public static int decryptFileWithKeyBase64(String algorithm,
                                                String language,
                                                String srcFile,
@@ -268,5 +283,86 @@ public class Controller_MA_HOA_DOI_XUNG {
             return DecryptFile.ERROR;
         }
 
+    }
+
+    // đây là function mã hóa văn bản của các thuật toán Hill,Viginere
+    public static String encryptTextWithKeyText(String algorithm, String language, String plain_text, String key) {
+        try {
+
+            if (algorithm == null || language == null || plain_text == null || key == null) return null;
+            if (algorithm.isEmpty() || language.isEmpty() || plain_text.isEmpty() || key.isEmpty()) return null;
+
+            switch (algorithm.toUpperCase()) {
+
+                case Algorithm.HILL: {
+                    return "HILL";
+                }
+                case Algorithm.VIGENERE: {
+
+                    if (language.equalsIgnoreCase(Languague.ENGLISH)) {
+                        Cipher_Vigenere_English vigenereEnglish = new Cipher_Vigenere_English();
+                        vigenereEnglish.importKey(key);
+                        return vigenereEnglish.encrypt(plain_text);
+                    }
+
+                    if (language.equalsIgnoreCase(Languague.VIETNAM)) {
+                        Cipher_Vigenere_Vietnamese vigenereVietnamese = new Cipher_Vigenere_Vietnamese();
+                        vigenereVietnamese.importKey(key);
+                        return vigenereVietnamese.encrypt(plain_text);
+                    }
+
+                    return "";
+                }
+
+                default:
+                    return "NOT_FOUND_ALGORITHM";
+
+            }
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    // đây là function giải mã văn bản của các thuật toán Hill,Viginere
+    public static String decryptTextWithKeyText(String algorithm, String language, String encrypted_text, String key) {
+
+        try {
+
+            if (algorithm == null || language == null || encrypted_text == null || key == null) return null;
+            if (algorithm.isEmpty() || language.isEmpty() || encrypted_text.isEmpty() || key.isEmpty()) return null;
+
+            switch (algorithm.toUpperCase()) {
+
+                case Algorithm.HILL: {
+                    return "HILL";
+                }
+                case Algorithm.VIGENERE: {
+
+                    if (language.equalsIgnoreCase(Languague.ENGLISH)) {
+                        Cipher_Vigenere_English vigenereEnglish = new Cipher_Vigenere_English();
+                        vigenereEnglish.importKey(key);
+                        return vigenereEnglish.decrypt(encrypted_text);
+                    }
+
+                    if (language.equalsIgnoreCase(Languague.VIETNAM)) {
+                        Cipher_Vigenere_Vietnamese vigenereVietnamese = new Cipher_Vigenere_Vietnamese();
+                        vigenereVietnamese.importKey(key);
+                        return vigenereVietnamese.decrypt(encrypted_text);
+                    }
+
+                    return "";
+                }
+
+                default:
+                    return "NOT_FOUND_ALGORITHM";
+
+            }
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 }

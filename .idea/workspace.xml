@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="hiện thực giải thuật Vigenere để mã hóa và giải mã bảng chữ cái Tiếng Việt">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="bỏ combo_box_type_key, thay vào bt_create_key và xử lý sự kiện cho button">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" afterDir="false" />
@@ -226,14 +226,9 @@
       <workItem from="1698945520382" duration="1448000" />
       <workItem from="1698976568843" duration="8177000" />
       <workItem from="1699001841090" duration="2124000" />
-      <workItem from="1699004415345" duration="5175000" />
-    </task>
-    <task id="LOCAL-00014" summary="thêm class Panel_MA_HOA_DOI_XUNG_TEXT &amp;&amp; Panel_MA_HOA_DOI_XUNG_FILE">
-      <created>1697281455591</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1697281455591</updated>
+      <workItem from="1699004415345" duration="6004000" />
+      <workItem from="1699015823010" duration="9506000" />
+      <workItem from="1699026495274" duration="980000" />
     </task>
     <task id="LOCAL-00015" summary="chỉnh sửa class Panel_MA_HOA_DOI_XUNG">
       <created>1697281502402</created>
@@ -571,7 +566,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698983979825</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="bỏ combo_box_type_key, thay vào bt_create_key và xử lý sự kiện cho button">
+      <created>1699009882200</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1699009882201</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -589,7 +591,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="tạo class Cipher_TwoFish" />
     <MESSAGE value="thêm tham số cho function createKeyRandom()" />
     <MESSAGE value="hiện thực giải thuật mã hóa AES lên View" />
     <MESSAGE value="hiện thực giải thuật mã hóa file AES lên View" />
@@ -614,7 +615,8 @@
     <MESSAGE value="hiện thực mã hóa Hash lên view trong component Panel_MA_HOA_HASH_FILE" />
     <MESSAGE value="hiện thực giải thuật Vigenere để mã hóa và giải mã bảng chữ cái Tiếng Anh" />
     <MESSAGE value="hiện thực giải thuật Vigenere để mã hóa và giải mã bảng chữ cái Tiếng Việt" />
-    <option name="LAST_COMMIT_MESSAGE" value="hiện thực giải thuật Vigenere để mã hóa và giải mã bảng chữ cái Tiếng Việt" />
+    <MESSAGE value="bỏ combo_box_type_key, thay vào bt_create_key và xử lý sự kiện cho button" />
+    <option name="LAST_COMMIT_MESSAGE" value="bỏ combo_box_type_key, thay vào bt_create_key và xử lý sự kiện cho button" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

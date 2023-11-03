@@ -144,6 +144,39 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
 
                         if (name_algorithm == null) return;
 
+                        // TH: Nếu là giải thuật Hill, Vigenere
+                        if (name_algorithm.equalsIgnoreCase(Algorithm.HILL)
+                                || name_algorithm.equalsIgnoreCase(Algorithm.VIGENERE)) {
+
+                            plain_text = plain_text_area.getText();
+
+                            if (plain_text == null || plain_text.isEmpty()) {
+                                JOptionPane.showMessageDialog(null, "Bạn cần nhập vào đoạn văn bản cần mã hóa", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                                return;
+                            }
+
+                            key = Controller_MA_HOA_DOI_XUNG.createKeyRandomFor_Hill_Vigenere(name_algorithm, name_language, plain_text);
+
+                            if (key == null || key.isEmpty() || key.equalsIgnoreCase("NOT_FOUND_ALGORITHM")) {
+                                JOptionPane.showMessageDialog(null, "Không tạo được Key", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                                return;
+                            }
+
+                            key_text_field.setText(key);
+
+                            encrypted_text = Controller_MA_HOA_DOI_XUNG.encryptTextWithKeyText(name_algorithm, name_language, plain_text, key);
+
+                            if (encrypted_text == null || encrypted_text.isEmpty() || encrypted_text.equalsIgnoreCase("NOT_FOUND_ALGORITHM")) {
+                                JOptionPane.showMessageDialog(null, "Mã hóa văn bản không thành công", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                                return;
+                            }
+
+                            encrypted_text_area.setText(encrypted_text);
+
+                            return;
+                        }
+
+                        // TH: Nếu là giải thuật AES, DES, TwoFish
                         key = Controller_MA_HOA_DOI_XUNG.createKeyRandom(name_algorithm);
 
                         // TH: Không có lỗi khi tạo key
@@ -175,8 +208,30 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                             resetTextFieldKey();
                         }
                     }
+
                     // Nếu đã có key MÃ HÓA
                     else {
+
+                        if (name_algorithm == null) return;
+
+                        // TH: Nếu là giải thuật Hill, Vigenere
+                        if (name_algorithm.equalsIgnoreCase(Algorithm.HILL)
+                                || name_algorithm.equalsIgnoreCase(Algorithm.VIGENERE)) {
+
+                            encrypted_text = Controller_MA_HOA_DOI_XUNG.encryptTextWithKeyText(name_algorithm, name_language, plain_text, key);
+
+                            if (encrypted_text == null || encrypted_text.isEmpty() || encrypted_text.equalsIgnoreCase("NOT_FOUND_ALGORITHM")) {
+                                JOptionPane.showMessageDialog(null, "Mã hóa văn bản không thành công", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                                // System.out.println(encrypted_text);
+                                return;
+                            }
+
+                            encrypted_text_area.setText(encrypted_text);
+
+                            return;
+                        }
+
+                        // TH: Nếu là giải thuật AES, DES, TwoFish
                         encrypted_text = Controller_MA_HOA_DOI_XUNG.encryptTextWithKeyBase64(name_algorithm,
                                 name_language,
                                 plain_text, key);
@@ -210,6 +265,20 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                         JOptionPane.showMessageDialog(null, "CHƯA CÓ KEY ĐỂ GIẢI MÃ", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
                     } else {
                         encrypted_text = encrypted_text_area.getText();
+
+                        if (name_algorithm == null) return;
+
+                        // TH: Nếu là giải thuật Hill,Viginere
+                        if (name_algorithm.equalsIgnoreCase(Algorithm.HILL)
+                                || name_algorithm.equalsIgnoreCase(Algorithm.VIGENERE)) {
+
+                            decrypted_text = Controller_MA_HOA_DOI_XUNG.decryptTextWithKeyText(name_algorithm, name_language, encrypted_text, key);
+                            decrypted_text_area.setText(decrypted_text);
+                            return;
+
+                        }
+
+                        // TH: Nếu là giải thuật AES,DES,TwoFish
                         decrypted_text = Controller_MA_HOA_DOI_XUNG.decryptTextWithKeyBase64(name_algorithm,
                                 name_language,
                                 encrypted_text, key);
@@ -317,7 +386,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                                 return;
                             }
 
-                            key = Controller_MA_HOA_DOI_XUNG.createKeyRandomFor_Hill_Vigenere(name_algorithm, plain_text);
+                            key = Controller_MA_HOA_DOI_XUNG.createKeyRandomFor_Hill_Vigenere(name_algorithm, name_language, plain_text);
 
                             if (key == null || key.isEmpty() || key.equalsIgnoreCase("NOT_FOUND_ALGORITHM")) {
                                 JOptionPane.showMessageDialog(null, "Không tạo được Key", "Lỗi", JOptionPane.ERROR_MESSAGE);
@@ -521,6 +590,11 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 name_language = combo_box_language.getSelectedItem().toString();
                 // System.out.println(name_language);
+
+                resetTextFieldKey();
+                resetPlainTextArea();
+                resetEncryptedTextArea();
+                resetDecryptedTextArea();
             }
         });
     }
