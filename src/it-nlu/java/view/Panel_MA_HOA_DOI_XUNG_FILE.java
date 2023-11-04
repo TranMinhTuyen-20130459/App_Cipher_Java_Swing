@@ -1,9 +1,9 @@
 package view;
 
 import controller.Controller_MA_HOA_DOI_XUNG;
+import helper.Algorithm;
 import helper.DecryptFile;
 import helper.EncryptFile;
-import helper.TypeKey;
 import utils.FileUtil;
 
 import javax.swing.*;
@@ -16,33 +16,43 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 
 public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
     private JPanel panel_choose_file;
     private JLabel label_chon_giai_thuat,
             label_chon_ngon_ngu,
             label_key,
-            label_name_file;
+            label_name_file,
+            label_chon_mode_padding;
     private JButton bt_encrypt,
             bt_decrypt,
             bt_copy_key,
             bt_home,
-            bt_choose_file;
+            bt_choose_file,
+            bt_create_key;
     private JTextField key_text_field;
-    private JComboBox combo_box_algorithm,
-            combo_box_language,
-            combo_box_type_key;
-    private final String[] arr_algorithms = {"Vigenere", "Hill", "DES", "AES", "TwoFish"};
-    private final String[] arr_languages = {"English", "Vietnamese"};
-    private final String[] arr_type_key = {"Base64", "Text"};
+    private JComboBox combo_box_algorithm, combo_box_mode_padding;
+    private final String[] arr_algorithms = {"Vigenere", "DES", "AES", "TwoFish", "Serpent"};
+    private final String[] arr_mode_paddings = {
+            "ECB/PKCS5",
+            "CBC/PKCS5",
+            "CFB/PKCS5",
+            "OFB/PKCS5",
+            "ECB/ISO10126",
+            "CBC/ISO10126",
+            "CFB/ISO10126",
+            "OFB/ISO10126"
+    };
     private String path_selected_file = "",
             name_selected_file = "",
             path_folder_contain_selected_file = "",
             key = "",
             name_algorithm = "",
             name_language = "",
-            name_type_key = "Base64";
+            name_mode_padding = "";
 
     public Panel_MA_HOA_DOI_XUNG_FILE(int WIDTH, int HEIGHT) {
         setBackground(new Color(255, 255, 255, 255));
@@ -58,12 +68,11 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
         createPanelChooseFile();
 
         add(label_chon_giai_thuat);
-        // add(label_chon_ngon_ngu);
         add(label_key);
+        add(label_chon_mode_padding);
 
         add(combo_box_algorithm);
-        // add(combo_box_language);
-        add(combo_box_type_key);
+        add(combo_box_mode_padding);
 
         add(key_text_field);
 
@@ -71,6 +80,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
         add(bt_encrypt);
         add(bt_decrypt);
         add(bt_home);
+        add(bt_create_key);
 
         add(panel_choose_file);
     }
@@ -95,6 +105,12 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
         label_key.setFont(new Font("Arial", Font.PLAIN, 14));
         label_key.setBounds(0, 83, 80, 37);
 
+        label_chon_mode_padding = new JLabel("Mode/Padding:");
+        label_chon_mode_padding.setForeground(Color.BLACK);
+        label_chon_mode_padding.setHorizontalAlignment(SwingConstants.LEFT);
+        label_chon_mode_padding.setFont(new Font("Arial", Font.PLAIN, 14));
+        label_chon_mode_padding.setBounds(375, 19, 120, 37);
+
     }
 
     public void createButtonGroup() {
@@ -102,10 +118,49 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
         createButtonDecrypt();
         createButtonCopyKey();
         createButtonHome();
+        createButtonCreateKey();
+    }
+
+    public void createButtonCreateKey() {
+        bt_create_key = new RoundedButton("TẠO KEY", 0, new Color(217, 217, 217));
+        bt_create_key.setBounds(400, 82, 120, 37);
+        bt_create_key.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                if (bt_create_key.isEnabled()) {
+
+                    if (name_algorithm == null) return;
+
+                    switch (name_algorithm.toUpperCase()) {
+
+                        case Algorithm.AES:
+                        case Algorithm.DES:
+                        case Algorithm.TWO_FISH:
+                        case Algorithm.SERPENT: {
+                            key = Controller_MA_HOA_DOI_XUNG.createKeyRandom(name_algorithm);
+
+                            if (key == null || key.isEmpty() || key.equalsIgnoreCase("NOT_FOUND_ALGORITHM")) {
+                                JOptionPane.showMessageDialog(null, "Không tạo được Key", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                                return;
+                            }
+
+                            key_text_field.setText(key);
+                            return;
+                        }
+
+                        default:
+                            JOptionPane.showMessageDialog(null, "KHÔNG TÌM THẤY GIẢI THUẬT PHÙ HỢP", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                    }
+                }
+
+            }
+        });
+
     }
 
     public void createButtonEncrypt() {
-        bt_encrypt = new Panel_MA_HOA_DOI_XUNG_FILE.RoundedButton("MÃ HÓA", 25, new Color(217, 217, 217));
+        bt_encrypt = new Panel_MA_HOA_DOI_XUNG_FILE.RoundedButton("MÃ HÓA", 0, new Color(217, 217, 217));
         bt_encrypt.setBounds(19, 432, 115, 37);
 
         bt_encrypt.addMouseListener(new MouseAdapter() {
@@ -117,74 +172,69 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
                     // Nếu user đã chọn File
                     if (name_selected_file.length() > 0 && path_selected_file.length() > 0 && path_folder_contain_selected_file.length() > 0) {
 
-                        String dest_file = path_folder_contain_selected_file + "/" + name_algorithm.toUpperCase() + "_FILE_MA_HOA_" + name_selected_file;
+                        // Lấy thời gian hiện tại
+                        Date currentTime = new Date();
+
+                        // Định dạng thời gian thành chuỗi
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+                        String timestamp = dateFormat.format(currentTime);
+
+                        String dest_file = path_folder_contain_selected_file + "/" + name_algorithm.toUpperCase() + "_FILE_MA_HOA_" + timestamp + "_" + name_selected_file;
 
                         key = key_text_field.getText();
 
-                        // TH: nếu key là loại "Base64"
-                        if (name_type_key != null && name_type_key.equalsIgnoreCase(TypeKey.BASE64)) {
 
-                            // Nếu chưa có key MÃ HÓA
-                            if (key.isEmpty()) {
+                        // Nếu chưa có key MÃ HÓA
+                        if (key.isEmpty()) {
 
-                                key = Controller_MA_HOA_DOI_XUNG.createKeyRandom(name_algorithm);
+                            key = Controller_MA_HOA_DOI_XUNG.createKeyRandom(name_algorithm);
 
-                                int check_encrypted_file = Controller_MA_HOA_DOI_XUNG.encryptFileWithKeyBase64(name_algorithm, name_language, path_selected_file, dest_file, key);
+                            int check_encrypted_file = Controller_MA_HOA_DOI_XUNG.encryptFileWithKeyBase64(name_algorithm, name_language, path_selected_file, dest_file, key, name_mode_padding);
 
-                                // TH: MÃ HÓA FILE THÀNH CÔNG
-                                if (check_encrypted_file == EncryptFile.SUCCESS) {
+                            // TH: MÃ HÓA FILE THÀNH CÔNG
+                            if (check_encrypted_file == EncryptFile.SUCCESS) {
 
-                                    JOptionPane.showMessageDialog(null, "MÃ HÓA FILE THÀNH CÔNG", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
-                                    key_text_field.setText(key);
-                                    resetSelectedFile(); // loại bỏ file đã được chọn bởi user
+                                JOptionPane.showMessageDialog(null, "MÃ HÓA FILE THÀNH CÔNG", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+                                key_text_field.setText(key);
+                                resetSelectedFile(); // loại bỏ file đã được chọn bởi user
 
-                                }
-                                // TH: MÃ HÓA FILE THẤT BẠI
-                                else if (check_encrypted_file == EncryptFile.ERROR) {
+                            }
+                            // TH: MÃ HÓA FILE THẤT BẠI
+                            else if (check_encrypted_file == EncryptFile.ERROR) {
 
-                                    JOptionPane.showMessageDialog(null, "MÃ HÓA FILE THẤT BẠI", "Lỗi", JOptionPane.ERROR_MESSAGE);
-                                    resetTextFieldKey();
-                                    FileUtil.deleteFile(dest_file); // đảm bảo không có File được tạo ra nếu đã MÃ HÓA THẤT BẠI
+                                JOptionPane.showMessageDialog(null, "MÃ HÓA FILE THẤT BẠI", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                                resetTextFieldKey();
+                                FileUtil.deleteFile(dest_file); // đảm bảo không có File được tạo ra nếu đã MÃ HÓA THẤT BẠI
 
-                                }
-                                // TH: KHÔNG CÓ GIẢI THUẬT PHÙ HỢP ĐỂ MÃ HÓA FILE
-                                else if (check_encrypted_file == EncryptFile.NOT_FOUND_ALGORITHM) {
+                            }
+                            // TH: KHÔNG CÓ GIẢI THUẬT PHÙ HỢP ĐỂ MÃ HÓA FILE
+                            else if (check_encrypted_file == EncryptFile.NOT_FOUND_ALGORITHM) {
 
-                                    JOptionPane.showMessageDialog(null, "KHÔNG TÌM THẤY GIẢI THUẬT PHÙ HỢP", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
-                                    resetTextFieldKey();
-
-                                }
+                                JOptionPane.showMessageDialog(null, "KHÔNG TÌM THẤY GIẢI THUẬT PHÙ HỢP", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                                resetTextFieldKey();
 
                             }
 
-                            // Nếu đã có key MÃ HÓA
-                            else {
+                        }
 
-                                int check_encrypted_file = Controller_MA_HOA_DOI_XUNG.encryptFileWithKeyBase64(name_algorithm, name_language, path_selected_file, dest_file, key);
+                        // Nếu đã có key MÃ HÓA
+                        else {
 
-                                if (check_encrypted_file == EncryptFile.SUCCESS) {
-                                    JOptionPane.showMessageDialog(null, "MÃ HÓA FILE THÀNH CÔNG", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
-                                    resetSelectedFile(); // loại bỏ file đã được chọn bởi user
+                            int check_encrypted_file = Controller_MA_HOA_DOI_XUNG.encryptFileWithKeyBase64(name_algorithm, name_language, path_selected_file, dest_file, key, name_mode_padding);
 
-                                } else if (check_encrypted_file == EncryptFile.ERROR) {
+                            if (check_encrypted_file == EncryptFile.SUCCESS) {
+                                JOptionPane.showMessageDialog(null, "MÃ HÓA FILE THÀNH CÔNG", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+                                resetSelectedFile(); // loại bỏ file đã được chọn bởi user
 
-                                    JOptionPane.showMessageDialog(null, "MÃ HÓA FILE THẤT BẠI", "Lỗi", JOptionPane.ERROR_MESSAGE);
-                                    FileUtil.deleteFile(dest_file); // đảm bảo không có File được tạo ra nếu đã MÃ HÓA THẤT BẠI
+                            } else if (check_encrypted_file == EncryptFile.ERROR) {
 
-                                } else if (check_encrypted_file == EncryptFile.NOT_FOUND_ALGORITHM) {
-                                    JOptionPane.showMessageDialog(null, "KHÔNG TÌM THẤY GIẢI THUẬT PHÙ HỢP", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
-                                }
+                                JOptionPane.showMessageDialog(null, "MÃ HÓA FILE THẤT BẠI", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                                FileUtil.deleteFile(dest_file); // đảm bảo không có File được tạo ra nếu đã MÃ HÓA THẤT BẠI
+
+                            } else if (check_encrypted_file == EncryptFile.NOT_FOUND_ALGORITHM) {
+                                JOptionPane.showMessageDialog(null, "KHÔNG TÌM THẤY GIẢI THUẬT PHÙ HỢP", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
                             }
-
-                            return;
                         }
-
-                        // TH: Nếu key là loại "Text"
-                        if (name_type_key != null && name_type_key.equalsIgnoreCase(TypeKey.TEXT)) {
-                            JOptionPane.showMessageDialog(null, "Chức năng này đang được phát triển", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
-                            return;
-                        }
-
                     }
 
                     // Nếu user chưa chọn File
@@ -199,7 +249,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
     }
 
     public void createButtonDecrypt() {
-        bt_decrypt = new Panel_MA_HOA_DOI_XUNG_FILE.RoundedButton("GIẢI MÃ", 25, new Color(217, 217, 217));
+        bt_decrypt = new Panel_MA_HOA_DOI_XUNG_FILE.RoundedButton("GIẢI MÃ", 0, new Color(217, 217, 217));
         bt_decrypt.setBounds(190, 432, 115, 37);
 
         bt_decrypt.addMouseListener(new MouseAdapter() {
@@ -214,44 +264,42 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
 
                         key = key_text_field.getText();
 
-                        // TH: Nếu key là loại "Base64"
-                        if (name_type_key != null && name_type_key.equalsIgnoreCase(TypeKey.BASE64)) {
-
-                            // Nếu chưa có key để GIẢI MÃ
-                            if (key == null || key.isEmpty()) {
-                                JOptionPane.showMessageDialog(null, "BẠN HÃY NHẬP KEY ĐỂ GIẢI MÃ FILE", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
-                            }
-
-                            // Nếu đã có key đã GIẢI MÃ
-                            else {
-                                String dest_file = path_folder_contain_selected_file + "/" + name_algorithm.toUpperCase() + "_FILE_GIAI_MA_" + name_selected_file;
-                                int check_decrypted_file = Controller_MA_HOA_DOI_XUNG.decryptFileWithKeyBase64(name_algorithm, name_language, path_selected_file, dest_file, key);
-
-                                // TH: GIẢI MÃ FILE THÀNH CÔNG
-                                if (check_decrypted_file == DecryptFile.SUCCESS) {
-                                    JOptionPane.showMessageDialog(null, "GIẢI MÃ FILE THÀNH CÔNG", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
-                                    resetSelectedFile();
-                                }
-                                // TH: GIẢI MÃ FILE THẤT BẠI
-                                else if (check_decrypted_file == DecryptFile.ERROR) {
-                                    JOptionPane.showMessageDialog(null, "GIẢI MÃ FILE THẤT BẠI", "Lỗi", JOptionPane.ERROR_MESSAGE);
-                                    FileUtil.deleteFile(dest_file); // đảm bảo không có File được tạo ra nếu GIẢI MÃ FILE THẤT BẠI
-                                }
-                                // TH: KHÔNG CÓ GIẢI THUẬT PHÙ HỢP ĐỂ GIẢI MÃ FILE
-                                else if (check_decrypted_file == DecryptFile.NOT_FOUND_ALGORITHM) {
-                                    JOptionPane.showMessageDialog(null, "KHÔNG TÌM THẤY GIẢI THUẬT PHÙ HỢP", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
-                                }
-
-                            }
-
-                            return;
+                        // Nếu chưa có key để GIẢI MÃ
+                        if (key == null || key.isEmpty()) {
+                            JOptionPane.showMessageDialog(null, "BẠN HÃY NHẬP KEY ĐỂ GIẢI MÃ FILE", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
                         }
 
-                        // TH: Nếu key là loại "Text"
-                        if (name_type_key != null && name_type_key.equalsIgnoreCase(TypeKey.TEXT)) {
-                            JOptionPane.showMessageDialog(null, "Chức năng này đang được phát triển", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
-                            return;
+                        // Nếu đã có key đã GIẢI MÃ
+                        else {
+
+                            // Lấy thời gian hiện tại
+                            Date currentTime = new Date();
+
+                            // Định dạng thời gian thành chuỗi
+                            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+                            String timestamp = dateFormat.format(currentTime);
+
+                            String dest_file = path_folder_contain_selected_file + "/" + name_algorithm.toUpperCase() + "_FILE_GIAI_MA_" + timestamp + "_" + name_selected_file;
+
+                            int check_decrypted_file = Controller_MA_HOA_DOI_XUNG.decryptFileWithKeyBase64(name_algorithm, name_language, path_selected_file, dest_file, key, name_mode_padding);
+
+                            // TH: GIẢI MÃ FILE THÀNH CÔNG
+                            if (check_decrypted_file == DecryptFile.SUCCESS) {
+                                JOptionPane.showMessageDialog(null, "GIẢI MÃ FILE THÀNH CÔNG", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+                                resetSelectedFile();
+                            }
+                            // TH: GIẢI MÃ FILE THẤT BẠI
+                            else if (check_decrypted_file == DecryptFile.ERROR) {
+                                JOptionPane.showMessageDialog(null, "GIẢI MÃ FILE THẤT BẠI", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                                FileUtil.deleteFile(dest_file); // đảm bảo không có File được tạo ra nếu GIẢI MÃ FILE THẤT BẠI
+                            }
+                            // TH: KHÔNG CÓ GIẢI THUẬT PHÙ HỢP ĐỂ GIẢI MÃ FILE
+                            else if (check_decrypted_file == DecryptFile.NOT_FOUND_ALGORITHM) {
+                                JOptionPane.showMessageDialog(null, "KHÔNG TÌM THẤY GIẢI THUẬT PHÙ HỢP", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                            }
+
                         }
+
 
                     }
                     // Nếu chưa chọn File
@@ -264,8 +312,8 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
     }
 
     public void createButtonCopyKey() {
-        bt_copy_key = new Panel_MA_HOA_DOI_XUNG_FILE.RoundedButton("COPY", 25, new Color(136, 196, 230));
-        bt_copy_key.setBounds(510, 82, 101, 37);
+        bt_copy_key = new Panel_MA_HOA_DOI_XUNG_FILE.RoundedButton("COPY", 0, new Color(136, 196, 230));
+        bt_copy_key.setBounds(565, 82, 100, 37);
         bt_copy_key.addMouseListener(new MouseAdapter() {
 
             @Override
@@ -283,7 +331,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
 
     public void createButtonHome() {
         bt_home = new RoundedButton("TRANG CHỦ", 15, new Color(136, 196, 230));
-        bt_home.setBounds(495, 432, 115, 37);
+        bt_home.setBounds(550, 432, 115, 37);
         bt_home.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -295,14 +343,16 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
 
     public void createComboBoxGroup() {
         createComboBoxAlgorithm();
-        createComboBoxLanguage();
-        createComboBoxTypeKey();
+        createComboBoxModePadding();
     }
 
     public void createComboBoxAlgorithm() {
         Arrays.sort(arr_algorithms);
         combo_box_algorithm = new JComboBox<>(arr_algorithms);
         combo_box_algorithm.setBounds(145, 19, 210, 38);
+        combo_box_algorithm.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        combo_box_algorithm.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        combo_box_algorithm.setFont(new Font("Arial", Font.PLAIN, 14));
 
         name_algorithm = combo_box_algorithm.getSelectedItem().toString();
         // System.out.println(name_algorithm);
@@ -329,32 +379,18 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
         });
     }
 
-    public void createComboBoxLanguage() {
-        combo_box_language = new JComboBox<>(arr_languages);
-        combo_box_language.setBounds(483, 20, 128, 34);
+    private void createComboBoxModePadding() {
+        combo_box_mode_padding = new JComboBox<>(arr_mode_paddings);
+        combo_box_mode_padding.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        combo_box_mode_padding.setFont(new Font("Arial", Font.PLAIN, 14));
+        combo_box_mode_padding.setBounds(490, 19, 175, 38);
 
-        name_language = combo_box_language.getSelectedItem().toString();
-        // System.out.println(name_language);
+        name_mode_padding = combo_box_mode_padding.getSelectedItem().toString();
 
-        combo_box_language.addActionListener(new ActionListener() {
+        combo_box_mode_padding.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                name_language = combo_box_language.getSelectedItem().toString();
-                // System.out.println(name_language);
-
-            }
-        });
-    }
-
-    public void createComboBoxTypeKey() {
-
-        combo_box_type_key = new JComboBox<>(arr_type_key);
-        combo_box_type_key.setBounds(370, 82, 120, 37);
-        combo_box_type_key.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                name_type_key = combo_box_type_key.getSelectedItem().toString();
-                // System.out.println(name_type_key);
+                name_mode_padding = combo_box_mode_padding.getSelectedItem().toString();
             }
         });
 
@@ -446,20 +482,8 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
         name_algorithm = combo_box_algorithm.getSelectedItem().toString();
     }
 
-    public void resetComboBoxLanguage() {
-        combo_box_language.setSelectedIndex(0);
-        name_language = combo_box_language.getSelectedItem().toString();
-    }
-
-    public void resetComboBoxTypeKey() {
-        name_type_key = "Base64";
-        combo_box_type_key.setSelectedItem(name_type_key);
-    }
-
     public void resetLayout() {
         resetComboBoxAlgorithm();
-        resetComboBoxLanguage();
-        resetComboBoxTypeKey();
         resetTextFieldKey();
         resetSelectedFile();
     }

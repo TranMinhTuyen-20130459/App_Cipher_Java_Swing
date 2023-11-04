@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="thêm ComboBox chọn Mode/Padding">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="thêm giải thuật mã hóa đối xứng TwoFish">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/helper/Algorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/helper/Algorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_AES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_AES.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_DES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_DES.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_TwoFish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/no_use/Cipher_TwoFish_NoUse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/interfaces/I_Create.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/interfaces/I_Create.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,21 +231,9 @@
       <workItem from="1699026495274" duration="1684000" />
       <workItem from="1699063073278" duration="12814000" />
       <workItem from="1699077837718" duration="6944000" />
-      <workItem from="1699089653537" duration="8233000" />
-    </task>
-    <task id="LOCAL-00018" summary="đổi tên function menuClicked() trong Frame_Home thành showPanel()">
-      <created>1697432787242</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1697432787242</updated>
-    </task>
-    <task id="LOCAL-00019" summary="hiện thực giải thuật mã hóa DES">
-      <created>1697452517698</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1697452517698</updated>
+      <workItem from="1699089653537" duration="8581000" />
+      <workItem from="1699098597044" duration="578000" />
+      <workItem from="1699106304901" duration="8854000" />
     </task>
     <task id="LOCAL-00020" summary="xử lí sự kiện tại Panel_MA_HOA_DOI_XUNG_TEXT">
       <created>1697471111244</created>
@@ -581,7 +564,21 @@
       <option name="project" value="LOCAL" />
       <updated>1699084758088</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="thêm giải thuật mã hóa đối xứng Serpent">
+      <created>1699098070800</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1699098070800</updated>
+    </task>
+    <task id="LOCAL-00068" summary="thêm giải thuật mã hóa đối xứng TwoFish">
+      <created>1699098096627</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1699098096627</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -599,8 +596,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="hiện thực giải thuật mã hóa file AES lên View" />
-    <MESSAGE value="thêm thư viện Bouncy Castle để sử dụng các giải thuật MÃ HÓA bên ngoài" />
     <MESSAGE value="mã hóa và giải mã văn bản với giải thuật TwoFish" />
     <MESSAGE value="mã hóa và giải mã File với giải thuật TwoFish" />
     <MESSAGE value="hiện thực MÃ HÓA và GIẢI MÃ File với giải thuật TwoFish trên View" />
@@ -624,7 +619,9 @@
     <MESSAGE value="bỏ combo_box_type_key, thay vào bt_create_key và xử lý sự kiện cho button" />
     <MESSAGE value="hiện thực giải thuật Vigenere trên View trong component Panel_MA_HOA_DOI_XUNG_TEXT" />
     <MESSAGE value="thêm ComboBox chọn Mode/Padding" />
-    <option name="LAST_COMMIT_MESSAGE" value="thêm ComboBox chọn Mode/Padding" />
+    <MESSAGE value="thêm giải thuật mã hóa đối xứng Serpent" />
+    <MESSAGE value="thêm giải thuật mã hóa đối xứng TwoFish" />
+    <option name="LAST_COMMIT_MESSAGE" value="thêm giải thuật mã hóa đối xứng TwoFish" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

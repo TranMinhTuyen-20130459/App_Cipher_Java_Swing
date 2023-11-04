@@ -5,7 +5,6 @@ import helper.DecryptFile;
 import helper.EncryptFile;
 import helper.Languague;
 import model.services.ma_hoa_doi_xung.*;
-import model.services.ma_hoa_doi_xung.no_use.Cipher_TwoFish_NoUse;
 
 public class Controller_MA_HOA_DOI_XUNG {
 
@@ -238,7 +237,8 @@ public class Controller_MA_HOA_DOI_XUNG {
                                                String language,
                                                String srcFile,
                                                String destFile,
-                                               String key) {
+                                               String key,
+                                               String name_mode_padding) {
 
         /**
          * return -1 => đã xảy ra lỗi trong quá trình Mã Hóa File
@@ -248,7 +248,7 @@ public class Controller_MA_HOA_DOI_XUNG {
 
         try {
 
-            if (algorithm == null || language == null || srcFile == null || destFile == null || key == null) {
+            if (algorithm == null || language == null || srcFile == null || destFile == null || key == null || name_mode_padding == null) {
                 return EncryptFile.ERROR;
             }
 
@@ -256,22 +256,43 @@ public class Controller_MA_HOA_DOI_XUNG {
                 case Algorithm.DES: {
                     Cipher_DES des = new Cipher_DES();
                     des.importKey(key);
+
+                    des.setTransformation(algorithm + "/" + name_mode_padding + "Padding");
                     des.encryptFile(srcFile, destFile);
+
                     return EncryptFile.SUCCESS;
                 }
 
                 case Algorithm.AES: {
                     Cipher_AES aes = new Cipher_AES();
                     aes.importKey(key);
+
+                    aes.setTransformation(algorithm + "/" + name_mode_padding + "Padding");
                     aes.encryptFile(srcFile, destFile);
+
                     return EncryptFile.SUCCESS;
                 }
 
                 case Algorithm.TWO_FISH: {
-                    Cipher_TwoFish_NoUse twoFish = new Cipher_TwoFish_NoUse();
+                    Cipher_TwoFish twoFish = new Cipher_TwoFish();
                     twoFish.importKey(key);
+
+                    twoFish.setTransformation(algorithm + "/" + name_mode_padding + "Padding");
                     twoFish.encryptFile(srcFile, destFile);
+
                     return EncryptFile.SUCCESS;
+                }
+
+                case Algorithm.SERPENT: {
+
+                    Cipher_Serpent serpent = new Cipher_Serpent();
+                    serpent.importKey(key);
+
+                    serpent.setTransformation(algorithm + "/" + name_mode_padding + "Padding");
+                    serpent.encryptFile(srcFile, destFile);
+
+                    return EncryptFile.SUCCESS;
+
                 }
 
                 default:
@@ -288,11 +309,12 @@ public class Controller_MA_HOA_DOI_XUNG {
                                                String language,
                                                String srcFile,
                                                String destFile,
-                                               String key) {
+                                               String key,
+                                               String name_mode_padding) {
 
         try {
 
-            if (algorithm == null || language == null || srcFile == null || destFile == null || key == null) {
+            if (algorithm == null || language == null || srcFile == null || destFile == null || key == null || name_mode_padding == null) {
                 return DecryptFile.ERROR;
             }
 
@@ -300,6 +322,8 @@ public class Controller_MA_HOA_DOI_XUNG {
                 case Algorithm.DES: {
                     Cipher_DES des = new Cipher_DES();
                     des.importKey(key);
+
+                    des.setTransformation(algorithm + "/" + name_mode_padding + "Padding");
                     des.decryptFile(srcFile, destFile);
                     return DecryptFile.SUCCESS;
                 }
@@ -307,16 +331,30 @@ public class Controller_MA_HOA_DOI_XUNG {
                 case Algorithm.AES: {
                     Cipher_AES aes = new Cipher_AES();
                     aes.importKey(key);
+
+                    aes.setTransformation(algorithm + "/" + name_mode_padding + "Padding");
                     aes.decryptFile(srcFile, destFile);
                     return DecryptFile.SUCCESS;
                 }
 
                 case Algorithm.TWO_FISH: {
-                    Cipher_TwoFish_NoUse twoFish = new Cipher_TwoFish_NoUse();
+                    Cipher_TwoFish twoFish = new Cipher_TwoFish();
                     twoFish.importKey(key);
+
+                    twoFish.setTransformation(algorithm + "/" + name_mode_padding + "Padding");
                     twoFish.decryptFile(srcFile, destFile);
                     return DecryptFile.SUCCESS;
                 }
+                case Algorithm.SERPENT: {
+
+                    Cipher_Serpent serpent = new Cipher_Serpent();
+                    serpent.importKey(key);
+
+                    serpent.setTransformation(algorithm + "/" + name_mode_padding + "Padding");
+                    serpent.decryptFile(srcFile, destFile);
+                    return DecryptFile.SUCCESS;
+                }
+
                 default:
                     return DecryptFile.NOT_FOUND_ALGORITHM;
             }
