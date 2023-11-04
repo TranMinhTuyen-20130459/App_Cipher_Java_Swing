@@ -1,141 +1,97 @@
 package model.services.ma_hoa_doi_xung;
 
-import model.services.ma_hoa_doi_xung.interfaces.I_Decrypt;
-import model.services.ma_hoa_doi_xung.interfaces.I_Encrypt;
-import model.services.ma_hoa_doi_xung.interfaces.I_Export;
-import org.bouncycastle.crypto.BufferedBlockCipher;
-import org.bouncycastle.crypto.engines.TwofishEngine;
-import org.bouncycastle.crypto.paddings.PaddedBufferedBlockCipher;
-import org.bouncycastle.crypto.params.KeyParameter;
+import model.services.ma_hoa_doi_xung.interfaces.*;
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
+import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.nio.charset.StandardCharsets;
-import java.security.SecureRandom;
-import java.util.Arrays;
+import java.security.Security;
 import java.util.Base64;
 
-/**
- * Các Function trong Class này có sự hỗ trợ của ChatGPT,
- * Em đã dựa vào các function do ChatGPT hỗ trợ, chỉnh sửa lại code đáp ứng theo yêu cầu của bài toán
- * */
-public class Cipher_TwoFish implements I_Encrypt, I_Decrypt, I_Export {
-    private KeyParameter key;
-    private TwofishEngine engine;
+public class Cipher_TwoFish implements I_Encrypt, I_Decrypt, I_Export, I_Import, I_Create {
+    private SecretKey key;
+    private String transformation;
 
-    public Cipher_TwoFish() {
-        engine = new TwofishEngine(); // Tạo một engine TwoFish mới
-    }
-    public KeyParameter createKeyFromInput(String keyText) throws Exception {
-        byte[] keyBytes = keyText.getBytes("UTF-8");
-
-        if (keyBytes.length != 16 && keyBytes.length != 24 && keyBytes.length != 32) {
-            throw new Exception("Key must be 16, 24, or 32 bytes (128, 192, or 256 bits).");
-        }
-        key = new KeyParameter(keyBytes);
+    @Override
+    public SecretKey createKeyRandom(int key_size) throws Exception {
+        Security.addProvider(new BouncyCastleProvider());
+        KeyGenerator key_generator = KeyGenerator.getInstance("TwoFish");
+        key_generator.init(key_size); // Độ dài của khóa (128,192 hoặc 256 bit)
+        key = key_generator.generateKey();
         return key;
     }
 
-    public KeyParameter createKeyRandom(int key_size) throws Exception {
-
-        if (key_size != 128 && key_size != 192 && key_size != 256) {
-            throw new Exception("Key size must be 128, 192, or 256 bits.");
-        }
-
-        // Sử dụng SecureRandom để tạo một mảng byte ngẫu nhiên có độ dài key_size / 8
-        SecureRandom secureRandom = new SecureRandom();
-        byte[] arr_bytes = new byte[key_size / 8]; //=> 1 byte = 8 bits
-        secureRandom.nextBytes(arr_bytes);
-
-        // Tạo KeyParameter từ mảng byte ngẫu nhiên
-        key = new KeyParameter(arr_bytes);
-
-        return key;
-    }
     @Override
     public byte[] encrypt(String text) throws Exception {
-        if (key == null || engine == null) {
-            return new byte[]{};
-        }
+        if (key == null) return new byte[]{};
 
-        // Chuyển đổi văn bản thành mảng byte sử dụng UTF-8 encoding
-        byte[] inputBytes = text.getBytes(StandardCharsets.UTF_8);
+        Security.addProvider(new BouncyCastleProvider());
+        Cipher cipher = Cipher.getInstance(transformation);
 
-        // Tạo một đối tượng BufferedBlockCipher với engine đã cung cấp
-        BufferedBlockCipher cipher = new PaddedBufferedBlockCipher(engine);
+        if (transformation.contains("ECB")) cipher.init(Cipher.ENCRYPT_MODE, key);
+        else cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(new byte[16]));
 
-        // Khởi tạo cipher cho quá trình mã hóa
-        cipher.init(true, key);
-
-        // Tính toán kích thước đầu ra dự kiến
-        int maxOutputSize = cipher.getOutputSize(inputBytes.length);
-
-        // Mã hóa dữ liệu và trả về dữ liệu đã mã hóa
-        byte[] encryptedData = new byte[maxOutputSize];
-        int length = cipher.processBytes(inputBytes, 0, inputBytes.length, encryptedData, 0);
-        length += cipher.doFinal(encryptedData, length);
-
-        // Cắt mảng đầu ra để loại bỏ dữ liệu thừa
-        byte[] finalData = Arrays.copyOf(encryptedData, length);
-        return finalData;
+        var text_bytes = text.getBytes("UTF-8");
+        return cipher.doFinal(text_bytes);
     }
+
     @Override
     public String encryptToBase64(String text) throws Exception {
+        if (key == null) return "";
+        Security.addProvider(new BouncyCastleProvider());
+        Cipher cipher = Cipher.getInstance(transformation);
 
-        if (key == null || engine == null) return "";
+        if (transformation.contains("ECB")) cipher.init(Cipher.ENCRYPT_MODE, key);
+        else cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(new byte[16]));
 
-        // Chuyển đổi văn bản thành mảng byte sử dụng UTF-8 encoding
-        byte[] inputBytes = text.getBytes(StandardCharsets.UTF_8);
-
-        // Tạo một đối tượng BufferedBlockCipher với engine đã cung cấp
-        BufferedBlockCipher cipher = new PaddedBufferedBlockCipher(engine);
-
-        // Khởi tạo cipher cho quá trình mã hóa
-        cipher.init(true, key);
-
-        // Tính toán kích thước đầu ra dự kiến
-        int maxOutputSize = cipher.getOutputSize(inputBytes.length);
-
-        // Mã hóa dữ liệu và trả về dữ liệu đã mã hóa
-        byte[] encryptedData = new byte[maxOutputSize];
-        int length = cipher.processBytes(inputBytes, 0, inputBytes.length, encryptedData, 0);
-        length += cipher.doFinal(encryptedData, length);
-
-        // Cắt mảng đầu ra để loại bỏ dữ liệu thừa
-        byte[] finalData = Arrays.copyOf(encryptedData, length);
-
-        // Chuyển mảng byte thành chuỗi Base64 và trả về
-        return Base64.getEncoder().encodeToString(finalData);
+        var text_bytes = text.getBytes("UTF-8");
+        var encrypted_text_bytes = cipher.doFinal(text_bytes);
+        return Base64.getEncoder().encodeToString(encrypted_text_bytes);
     }
+
     @Override
     public void encryptFile(String srcFile, String destFile) throws Exception {
+
         FileInputStream fis = null;
         FileOutputStream fos = null;
+
         try {
-            File file = new File(srcFile);
-            if (file.isFile()) {
-                fis = new FileInputStream(file);
+            if (key == null) throw new Exception("Key Not Found");
+            File fileSrc = new File(srcFile);
+            if (fileSrc.isFile()) {
+
+                Security.addProvider(new BouncyCastleProvider());
+                Cipher cipher = Cipher.getInstance(transformation);
+
+                if (transformation.contains("ECB")) cipher.init(Cipher.ENCRYPT_MODE, key);
+                else cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(new byte[16]));
+
+                fis = new FileInputStream(fileSrc);
                 fos = new FileOutputStream(destFile);
 
-                if (key == null || engine == null) {
-                    throw new Exception("Key or engine not initialized.");
-                }
-
-                BufferedBlockCipher cipher = new PaddedBufferedBlockCipher(engine);
-                cipher.init(true, key);
-
                 byte[] input_byte = new byte[1024];
-                int byte_read;
-                byte[] output_byte = new byte[cipher.getOutputSize(input_byte.length)];
+                int bytes_read;
+                while ((bytes_read = fis.read(input_byte)) != -1) {
 
-                while ((byte_read = fis.read(input_byte)) != -1) {
-                    int length = cipher.processBytes(input_byte, 0, byte_read, output_byte, 0);
-                    fos.write(output_byte, 0, length);
+                    byte[] output_byte = cipher.update(input_byte, 0, bytes_read);
+                    if (output_byte != null) fos.write(output_byte);
+
                 }
 
-                int final_length = cipher.doFinal(output_byte, 0);
-                fos.write(output_byte, 0, final_length);
+                /**
+                 - cipher.update() chỉ thực hiện mã hóa một phần của dữ liệu và trả về kết quả tương ứng với phần đó.
+                 - cipher.doFinal() được sử dụng để xử lý phần còn lại của dữ liệu và đảm bảo rằng không có dữ liệu nào bị bỏ sót.
+                 => Điều này đặc biệt quan trọng trong trường hợp mã hóa dữ liệu lớn chia thành nhiều khối.
+                 */
+
+                byte[] output = cipher.doFinal();
+                if (output != null) fos.write(output);
 
                 fos.flush();
                 System.out.println("Done Encrypted File");
@@ -144,224 +100,138 @@ public class Cipher_TwoFish implements I_Encrypt, I_Decrypt, I_Export {
             if (fis != null) fis.close();
             if (fos != null) fos.close();
         }
+
     }
+
     @Override
     public String decrypt(byte[] encrypt) throws Exception {
-        if (key == null || engine == null) return "";
+        if (key == null) return "";
 
-        // Tạo đối tượng BufferedBlockCipher với engine đã cung cấp
-        BufferedBlockCipher cipher = new PaddedBufferedBlockCipher(engine);
+        Security.addProvider(new BouncyCastleProvider());
+        Cipher cipher = Cipher.getInstance(transformation);
 
-        // Khởi tạo cipher cho quá trình giải mã
-        cipher.init(false, key);
+        if (transformation.contains("ECB")) cipher.init(Cipher.DECRYPT_MODE, key);
+        else cipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(new byte[16]));
 
-        // Tính toán kích thước đầu ra dự kiến
-        int maxOutputSize = cipher.getOutputSize(encrypt.length);
-
-        // Giải mã dữ liệu và trả về dữ liệu đã giải mã
-        byte[] decryptedData = new byte[maxOutputSize];
-        int length = cipher.processBytes(encrypt, 0, encrypt.length, decryptedData, 0);
-        length += cipher.doFinal(decryptedData, length);
-
-        // Chuyển mảng byte đã giải mã thành chuỗi UTF-8 và trả về
-        return new String(decryptedData, 0, length, StandardCharsets.UTF_8);
+        var decrypted_text_bytes = cipher.doFinal(encrypt);
+        return new String(decrypted_text_bytes);
     }
+
     @Override
     public String decryptFromBase64(String text) throws Exception {
+        if (key == null) return "";
 
-        if (key == null || engine == null) return "";
+        Security.addProvider(new BouncyCastleProvider());
+        Cipher cipher = Cipher.getInstance(transformation);
 
-        // Giải mã chuỗi Base64 thành mảng byte ban đầu
-        byte[] encryptedData = Base64.getDecoder().decode(text);
+        if (transformation.contains("ECB")) cipher.init(Cipher.DECRYPT_MODE, key);
+        else cipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(new byte[16]));
 
-        // Tạo đối tượng BufferedBlockCipher với engine đã cung cấp
-        BufferedBlockCipher cipher = new PaddedBufferedBlockCipher(engine);
-
-        // Khởi tạo cipher cho quá trình giải mã
-        cipher.init(false, key);
-
-        // Tính toán kích thước đầu ra dự kiến
-        int maxOutputSize = cipher.getOutputSize(encryptedData.length);
-
-        // Giải mã dữ liệu và trả về dữ liệu đã giải mã
-        byte[] decryptedData = new byte[maxOutputSize];
-        int length = cipher.processBytes(encryptedData, 0, encryptedData.length, decryptedData, 0);
-        length += cipher.doFinal(decryptedData, length);
-
-        // Chuyển mảng byte đã giải mã thành chuỗi UTF-8 và trả về
-        return new String(decryptedData, 0, length, StandardCharsets.UTF_8);
+        var plain_text = cipher.doFinal(Base64.getDecoder().decode(text));
+        return new String(plain_text, "UTF-8");
     }
+
     @Override
     public void decryptFile(String srcFile, String destFile) throws Exception {
+
         FileInputStream fis = null;
         FileOutputStream fos = null;
+
         try {
-            File file = new File(srcFile);
-            if (file.isFile()) {
-                fis = new FileInputStream(file);
+            if (key == null) throw new Exception("Key Not Found");
+            File fileSrc = new File(srcFile);
+            if (fileSrc.isFile()) {
+
+                Security.addProvider(new BouncyCastleProvider());
+                Cipher cipher = Cipher.getInstance(transformation);
+
+                if (transformation.contains("ECB")) cipher.init(Cipher.DECRYPT_MODE, key);
+                else cipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(new byte[16]));
+
+                fis = new FileInputStream(fileSrc);
                 fos = new FileOutputStream(destFile);
 
-                if (key == null || engine == null) {
-                    throw new Exception("Key or engine not initialized.");
-                }
-
-                BufferedBlockCipher cipher = new PaddedBufferedBlockCipher(engine);
-                cipher.init(false, key);
-
                 byte[] input_byte = new byte[1024];
-                int byte_read;
-                byte[] output_byte = new byte[cipher.getOutputSize(input_byte.length)];
+                int bytes_read;
+                while ((bytes_read = fis.read(input_byte)) != -1) {
 
-                while ((byte_read = fis.read(input_byte)) != -1) {
-                    int length = cipher.processBytes(input_byte, 0, byte_read, output_byte, 0);
-                    fos.write(output_byte, 0, length);
+                    byte[] output_byte = cipher.update(input_byte, 0, bytes_read);
+                    if (output_byte != null) fos.write(output_byte);
+
                 }
-
-                int final_length = cipher.doFinal(output_byte, 0);
-                fos.write(output_byte, 0, final_length);
+                /**
+                 - cipher.update() chỉ thực hiện mã hóa một phần của dữ liệu và trả về kết quả tương ứng với phần đó.
+                 - cipher.doFinal() được sử dụng để xử lý phần còn lại của dữ liệu và đảm bảo rằng không có dữ liệu nào bị bỏ sót.
+                 => Điều này đặc biệt quan trọng trong trường hợp mã hóa dữ liệu lớn chia thành nhiều khối.
+                 */
+                byte[] output = cipher.doFinal();
+                if (output != null) fos.write(output);
 
                 fos.flush();
+
                 System.out.println("Done Decrypted File");
             }
         } finally {
+
             if (fis != null) fis.close();
             if (fos != null) fos.close();
         }
+
     }
+
     @Override
     public String exportKey() throws Exception {
         if (key == null) return "";
-        return Base64.getEncoder().encodeToString(key.getKey());
+        return Base64.getEncoder().encodeToString(key.getEncoded());
     }
-    public KeyParameter importKey(String keyText) throws Exception {
 
-        /**
-         * keyText là một chuỗi string dạng Base64
-         * */
+    @Override
+    public SecretKey importKey(String keyText) throws Exception {
 
         if (keyText == null || keyText.isEmpty()) {
             throw new IllegalArgumentException("Invalid key text");
         }
 
         try {
-            byte[] key_bytes = Base64.getDecoder().decode(keyText.getBytes());
-            key = new KeyParameter(key_bytes);
-            return key;
+            byte[] keyBytes = Base64.getDecoder().decode(keyText);
+            SecretKey importedKey = new SecretKeySpec(keyBytes, "TwoFish");
+            this.key = importedKey;
+            return importedKey;
         } catch (Exception e) {
             throw new Exception("Failed to import key: " + e.getMessage());
         }
     }
+
+    public SecretKey getKey() {
+        return key;
+    }
+    public void setTransformation(String transformation) {
+        this.transformation = transformation;
+    }
+
     public static void main(String[] args) throws Exception {
 
-        // CodeOfChatGPT();
-        // TestCreateKey();
-
-        Test_Encrypt_Decrypt_Text_With_Bytes();
-        System.out.println("-----------------------------");
-        Test_Encrypt_Decrypt_Text_With_Base64();
-        System.out.println("-----------------------------");
-        Test_Encrypt_Decrypt_With_File();
-
-    }
-
-    public static void CodeOfChatGPT() {
-        String plaintext = "Khoa CNTT,Trường Đại Học Nông Lâm TPHCM";
-
-        String keyString = "12345678";
-        byte[] key = keyString.getBytes(StandardCharsets.UTF_8);
-
-        // Tạo một engine Twofish mới
-        TwofishEngine engine = new TwofishEngine();
-
-        // Tạo một key parameter mới từ khóa bí mật của chúng ta
-        KeyParameter keyParam = new KeyParameter(key);
-
-        // Tạo một buffer cipher mới với Twofish engine
-        BufferedBlockCipher cipher = new PaddedBufferedBlockCipher(engine);
-
-        // Khởi tạo buffer cipher với khóa của chúng ta
-        cipher.init(true, keyParam);
-
-        // Mã hóa plaintext
-        byte[] ciphertext = new byte[cipher.getOutputSize(plaintext.getBytes().length)];
-        int len = cipher.processBytes(plaintext.getBytes(), 0, plaintext.getBytes().length, ciphertext, 0);
-        try {
-            cipher.doFinal(ciphertext, len);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        // In ra ciphertext
-        System.out.println("Ciphertext: " + new String(ciphertext));
-
-        // Giải mã ciphertext
-        cipher.init(false, keyParam); // Sử dụng cùng một key
-        byte[] decrypted = new byte[cipher.getOutputSize(ciphertext.length)];
-        len = cipher.processBytes(ciphertext, 0, ciphertext.length, decrypted, 0);
-        try {
-            len += cipher.doFinal(decrypted, len);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        // In ra plaintext đã giải mã
-        System.out.println("Decrypted: " + new String(decrypted));
-    }
-
-    public static void TestCreateKey() throws Exception {
+        var plain_text = "I am a student. I study at Đại Học Nông Lâm";
         Cipher_TwoFish twoFish = new Cipher_TwoFish();
-        twoFish.createKeyFromInput("TRAN_MINH_TUYEN_");
-
-        System.out.println("Key From Input: " + twoFish.exportKey());
-
-        twoFish.createKeyRandom(128);
-        System.out.println("Key 128 bit: " + twoFish.exportKey());
-
-        twoFish.createKeyRandom(192);
-        System.out.println("Key 192 bit: " + twoFish.exportKey());
-
-        twoFish.createKeyRandom(256);
-        System.out.println("Key 256 bit: " + twoFish.exportKey());
-    }
-
-    public static void Test_Encrypt_Decrypt_Text_With_Bytes() throws Exception {
-
-        String plain_text = "Khoa CNTT,Trường Đại Học Nông Lâm TPHCM";
-        Cipher_TwoFish twoFish = new Cipher_TwoFish();
+        twoFish.setTransformation("TwoFish/CBC/PKCS5Padding");
         twoFish.createKeyRandom(128);
 
-        byte[] encrypted_bytes = twoFish.encrypt(plain_text);
-        var decrypted_text = twoFish.decrypt(encrypted_bytes);
-        System.out.println("Encrypted Bytes: " + encrypted_bytes);
-        System.out.println("Decrypted Text: " + decrypted_text);
+        var encrypt_bytes = twoFish.encrypt(plain_text);
+        var encrypt_text = twoFish.encryptToBase64(plain_text);
 
-    }
+        System.out.println("Key: " + twoFish.exportKey());
+        System.out.println("------------------------------------");
+        System.out.println("Encrypt To Base64: " + encrypt_text);
+        System.out.println(twoFish.decryptFromBase64(encrypt_text));
+        System.out.println("------------------------------------");
+        System.out.println("Encrypt To Bytes: " + encrypt_bytes);
+        System.out.println(twoFish.decrypt(encrypt_bytes));
 
-    public static void Test_Encrypt_Decrypt_Text_With_Base64() throws Exception {
-
-        String plain_text = "Khoa CNTT,Trường Đại Học Nông Lâm TPHCM";
-        Cipher_TwoFish twoFish = new Cipher_TwoFish();
-        twoFish.createKeyFromInput("TRAN_MINH_TUYEN1");
-
-        String encrypted_text = twoFish.encryptToBase64(plain_text);
-        String decrypted_text = twoFish.decryptFromBase64(encrypted_text);
-
-        System.out.println("Encrypted Text: " + encrypted_text);
-        System.out.println("Decrypted Text: " + decrypted_text);
-
-    }
-
-    public static void Test_Encrypt_Decrypt_With_File() throws Exception {
-        Cipher_TwoFish twoFish = new Cipher_TwoFish();
-        twoFish.createKeyRandom(128);
-
-        String srcFile = "C:/Users/tmt01/Downloads/Nhom5_Ionic_App_Ban_Giay.pptx";
-        String destFile = "C:/Users/tmt01/Downloads/TWOFISH_ENCRYPT_Nhom5_Ionic_App_Ban_Giay.pptx";
-
-        twoFish.encryptFile(srcFile, destFile);
-        System.out.println("---------------------------------------------------");
-        twoFish.decryptFile(destFile, "C:/Users/tmt01/Downloads/TWOFISH_DECRYPT_Nhom5_Ionic_App_Ban_Giay.pptx");
-
+//        String srcFileEncrypt = "C:/Users/tmt01/Downloads/Nhom5_Ionic_App_Ban_Giay.pptx";
+//        String destFileEncrypt = "C:/Users/tmt01/Downloads/DES_FILE_ENCRYPT_Nhom5_Ionic_App_Ban_Giay.pptx";
+//        String destFileDecrypt = "C:/Users/tmt01/Downloads/DES_FILE_DECRYPT_Nhom5_Ionic_App_Ban_Giay.pptx";
+//        twoFish.encryptFile(srcFileEncrypt, destFileEncrypt);
+//        twoFish.decryptFile(destFileEncrypt, destFileDecrypt);
     }
 
 }
