@@ -7,7 +7,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class Frame_Home extends JFrame {
-    private int WIDTH = 1000;
+    private int WIDTH = 1100;
     private int HEIGHT = 650;
     private JPanel panel_root,
             panel_menu,
@@ -21,7 +21,7 @@ public class Frame_Home extends JFrame {
             panel_menu_chu_ky_dien_tu;
     private Image img_avatar = new ImageIcon("src/it-nlu/resources/image/it-nlu.png").getImage().getScaledInstance(150, 150,
             Image.SCALE_SMOOTH);
-    private static int WIDTH_PANEL_CONTENT_MAIN = 1000 - (1000 / 3 + 38);
+    private static int WIDTH_PANEL_CONTENT_MAIN = 1100 - (1100 / 3 + 38);
     private static int HEIGHT_PANEL_CONTENT_MAIN = 650 - (650 / 6 + 60);
     public static JPanel panel_ma_hoa_doi_xung = new Panel_MA_HOA_DOI_XUNG(WIDTH_PANEL_CONTENT_MAIN, HEIGHT_PANEL_CONTENT_MAIN);
     public static JPanel panel_mhdx_text = new Panel_MA_HOA_DOI_XUNG_TEXT(WIDTH_PANEL_CONTENT_MAIN, HEIGHT_PANEL_CONTENT_MAIN);
@@ -37,7 +37,8 @@ public class Frame_Home extends JFrame {
 
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(0, 15, WIDTH, HEIGHT);
+        setSize(WIDTH,HEIGHT);
+        setLocationRelativeTo(null);
 
         panel_root = new JPanel();
         panel_root.setBackground(new Color(136, 196, 230));
@@ -56,22 +57,22 @@ public class Frame_Home extends JFrame {
         panel_menu.setBackground(new Color(136, 196, 230));
 
         // Tạo đường viền màu đen bao quanh panel_menu
-        panel_menu.setBorder(BorderFactory.createLineBorder(Color.BLACK, 5));
+        panel_menu.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
 
-        panel_menu.setBounds(0, 0, WIDTH / 3, HEIGHT - 40);
+        panel_menu.setBounds(3, 0, WIDTH / 3, HEIGHT - 40);
         panel_root.add(panel_menu);
         panel_menu.setLayout(null);
 
         JLabel label_avatar = new JLabel("");
         label_avatar.setHorizontalAlignment(SwingConstants.CENTER);
-        label_avatar.setBounds(65, 0, 180, 180);
+        label_avatar.setBounds(93, 0, 180, 180);
         label_avatar.setIcon(new ImageIcon(img_avatar));
         panel_menu.add(label_avatar);
 
         JLabel label_mon_hoc = new JLabel("AN TOÀN BẢO MẬT HỆ THỐNG THÔNG TIN");
         label_mon_hoc.setHorizontalAlignment(SwingConstants.CENTER);
         label_mon_hoc.setForeground(new Color(255, 255, 255));
-        label_mon_hoc.setBounds(0, 150, 330, 100);
+        label_mon_hoc.setBounds(20, 150, 330, 100);
         // Tạo một đối tượng Font mới
         Font custom_font_1 = new Font("Arial", Font.BOLD, 14);
         label_mon_hoc.setFont(custom_font_1);
@@ -80,7 +81,7 @@ public class Frame_Home extends JFrame {
         JLabel label_giang_vien = new JLabel("GV: Ths.Phan Đình Long");
         label_giang_vien.setHorizontalAlignment(SwingConstants.CENTER);
         label_giang_vien.setForeground(new Color(9, 27, 229));
-        label_giang_vien.setBounds(0, 180, 330, 100);
+        label_giang_vien.setBounds(20, 180, 330, 100);
         // Tạo một đối tượng Font mới
         Font custom_font_2 = new Font("Arial", Font.PLAIN, 15);
         // Đặt font chữ cho label_giang_vien
@@ -100,7 +101,7 @@ public class Frame_Home extends JFrame {
         panel_content.setBackground(new Color(136, 196, 230));
 
         // Tạo đường viền màu đen bao quanh panel_menu
-        panel_content.setBorder(BorderFactory.createLineBorder(Color.BLACK, 5));
+        panel_content.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
 
         panel_content.setBounds(WIDTH / 3, 0, WIDTH - (WIDTH / 3 + 18), HEIGHT - 40);
         panel_root.add(panel_content);
@@ -195,7 +196,7 @@ public class Frame_Home extends JFrame {
         panel_menu_doi_xung.setBackground(new Color(215, 187, 18));
         panel_menu_doi_xung.setBounds(5, 250, WIDTH / 3 - 10, HEIGHT / 7);
 
-        panel_menu_doi_xung.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
+        panel_menu_doi_xung.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         panel_menu_doi_xung.addMouseListener(new PanelButtonMouseAdapter(panel_menu_doi_xung) {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -222,7 +223,7 @@ public class Frame_Home extends JFrame {
         panel_menu_bat_doi_xung.setBackground(new Color(0, 139, 139));
         panel_menu_bat_doi_xung.setBounds(5, 250 + (HEIGHT / 7), WIDTH / 3 - 10, HEIGHT / 7);
 
-        panel_menu_bat_doi_xung.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
+        panel_menu_bat_doi_xung.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         panel_menu_bat_doi_xung.addMouseListener(new PanelButtonMouseAdapter(panel_menu_bat_doi_xung) {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -251,7 +252,7 @@ public class Frame_Home extends JFrame {
         panel_menu_hash.setBackground(new Color(0, 139, 139));
         panel_menu_hash.setBounds(5, 250 + (HEIGHT / 7) * 2, WIDTH / 3 - 10, HEIGHT / 7);
 
-        panel_menu_hash.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
+        panel_menu_hash.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         panel_menu_hash.addMouseListener(new PanelButtonMouseAdapter(panel_menu_hash) {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -278,7 +279,7 @@ public class Frame_Home extends JFrame {
         panel_menu_chu_ky_dien_tu.setBackground(new Color(0, 139, 139));
         panel_menu_chu_ky_dien_tu.setBounds(5, 250 + (HEIGHT / 7) * 3, WIDTH / 3 - 10, HEIGHT / 8);
 
-        panel_menu_chu_ky_dien_tu.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
+        panel_menu_chu_ky_dien_tu.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         panel_menu_chu_ky_dien_tu.addMouseListener(new PanelButtonMouseAdapter(panel_menu_chu_ky_dien_tu) {
             @Override
             public void mouseClicked(MouseEvent e) {

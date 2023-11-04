@@ -18,7 +18,9 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
             label_chon_ngon_ngu,
             label_key,
             label_van_ban_ma_hoa,
-            label_van_ban_giai_ma;
+            label_van_ban_giai_ma,
+
+    label_chon_mode_padding;
     private JButton bt_encrypt,
             bt_decrypt,
             bt_copy_key,
@@ -28,16 +30,30 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     private JTextArea plain_text_area,
             encrypted_text_area,
             decrypted_text_area;
-
     private JScrollPane scroll_pane_plain_text_area,
             scroll_pane_encrypted_text_area,
             scroll_pane_decrypted_text_area;
 
     private JTextField key_text_field;
     private JComboBox combo_box_algorithm,
-            combo_box_language;
+            combo_box_language,
+            combo_box_mode;
     private final String[] arr_algorithms = {"Vigenere", "Hill", "DES", "AES", "TwoFish"};
     private final String[] arr_languages = {"English", "Vietnamese"};
+    private final String[] arr_mode_paddings = {
+            "ECB",
+            "CBC",
+            "CFB",
+            "OFB",
+            "CTR",
+            "ECB/PKCS5",
+            "CBC/PKCS5",
+            "CFB/PKCS5",
+            "OFB/PKCS5",
+            "CTR/PKCS5"
+    };
+
+
     private String plain_text = "",
             encrypted_text = "",
             decrypted_text = "",
@@ -64,6 +80,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         add(label_key);
         add(label_van_ban_ma_hoa);
         add(label_van_ban_giai_ma);
+        add(label_chon_mode_padding);
 
         add(scroll_pane_plain_text_area);
         add(scroll_pane_encrypted_text_area);
@@ -78,6 +95,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
 
         add(combo_box_algorithm);
         add(combo_box_language);
+        add(combo_box_mode);
 
         add(key_text_field);
     }
@@ -115,6 +133,12 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         label_van_ban_giai_ma.setFont(new Font("Arial", Font.PLAIN, 14));
         label_van_ban_giai_ma.setBounds(17, 330, 145, 70);
 
+        label_chon_mode_padding = new JLabel("Mode/Padding:");
+        label_chon_mode_padding.setForeground(Color.BLACK);
+        label_chon_mode_padding.setHorizontalAlignment(SwingConstants.LEFT);
+        label_chon_mode_padding.setFont(new Font("Arial", Font.PLAIN, 14));
+        label_chon_mode_padding.setBounds(375, 19, 120, 37);
+
     }
 
     public void createButtonGroup() {
@@ -127,7 +151,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     }
 
     public void createButtonEncrypt() {
-        bt_encrypt = new RoundedButton("MÃ HÓA", 25, new Color(217, 217, 217));
+        bt_encrypt = new RoundedButton("MÃ HÓA", 0, new Color(217, 217, 217));
         bt_encrypt.setBounds(19, 432, 115, 37);
         bt_encrypt.setEnabled(false);
 
@@ -248,7 +272,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     }
 
     public void createButtonDecrypt() {
-        bt_decrypt = new RoundedButton("GIẢI MÃ", 25, new Color(217, 217, 217));
+        bt_decrypt = new RoundedButton("GIẢI MÃ", 0, new Color(217, 217, 217));
         bt_decrypt.setBounds(190, 432, 115, 37);
         bt_decrypt.setEnabled(false);
 
@@ -293,7 +317,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     }
 
     public void createButtonCopyKey() {
-        bt_copy_key = new RoundedButton("COPY", 25, new Color(136, 196, 230));
+        bt_copy_key = new RoundedButton("COPY", 0, new Color(136, 196, 230));
         bt_copy_key.setBounds(510, 82, 101, 37);
         bt_copy_key.setFont(new Font("Arial", Font.PLAIN, 12));
 
@@ -314,7 +338,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     }
 
     public void createButtonCopyEncryptedText() {
-        bt_copy_encrypted_text = new RoundedButton("COPY VB MÃ HÓA", 25, new Color(217, 217, 217));
+        bt_copy_encrypted_text = new RoundedButton("COPY VB MÃ HÓA", 0, new Color(217, 217, 217));
         bt_copy_encrypted_text.setBounds(325, 432, 150, 37);
         bt_copy_encrypted_text.setFont(new Font("Arial", Font.PLAIN, 12));
         bt_copy_encrypted_text.addActionListener(new ActionListener() {
@@ -544,12 +568,22 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     public void createComboBoxGroup() {
         createComboBoxAlgorithm();
         createComboBoxLanguage();
+        createComboBoxMode();
+    }
+
+    private void createComboBoxMode() {
+        combo_box_mode = new JComboBox<>(arr_mode_paddings);
+        combo_box_mode.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        combo_box_mode.setFont(new Font("Arial", Font.PLAIN, 14));
+        combo_box_mode.setBounds(490, 19, 175, 38);
     }
 
     public void createComboBoxAlgorithm() {
         Arrays.sort(arr_algorithms);
         combo_box_algorithm = new JComboBox<>(arr_algorithms);
         combo_box_algorithm.setBounds(145, 19, 210, 38);
+        combo_box_algorithm.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        combo_box_algorithm.setFont(new Font("Arial", Font.PLAIN, 14));
 
         name_algorithm = combo_box_algorithm.getSelectedItem().toString();
         // System.out.println(name_algorithm);
@@ -580,7 +614,9 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     public void createComboBoxLanguage() {
         combo_box_language = new JComboBox<>(arr_languages);
         combo_box_language.setBounds(483, 20, 128, 34);
+        combo_box_language.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         combo_box_language.setVisible(false);
+        combo_box_language.setFont(new Font("Arial", Font.BOLD, 14));
 
         name_language = combo_box_language.getSelectedItem().toString();
         // System.out.println(name_language);
