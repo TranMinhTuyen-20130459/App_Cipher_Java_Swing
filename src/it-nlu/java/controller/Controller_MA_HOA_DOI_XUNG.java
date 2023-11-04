@@ -98,11 +98,16 @@ public class Controller_MA_HOA_DOI_XUNG {
     public static String encryptTextWithKeyBase64(String algorithm,
                                                   String language,
                                                   String plain_text,
-                                                  String key) {
+                                                  String key,
+                                                  String name_mode_padding) {
 
         try {
 
-            if (key == null || key.isEmpty()) return "Error";
+            if (algorithm == null || language == null || plain_text == null || key == null || name_mode_padding == null)
+                return "Error";
+
+            if (algorithm.isEmpty() || language.isEmpty() || plain_text.isEmpty() || key.isEmpty() || name_mode_padding.isEmpty())
+                return "Error";
 
             switch (algorithm.toUpperCase()) {
 
@@ -110,6 +115,7 @@ public class Controller_MA_HOA_DOI_XUNG {
 
                     Cipher_DES des = new Cipher_DES();
                     des.importKey(key);
+                    des.setTransformation(algorithm + "/" + name_mode_padding + "Padding");
 
                     return des.encryptToBase64(plain_text);
                 }
@@ -118,6 +124,7 @@ public class Controller_MA_HOA_DOI_XUNG {
 
                     Cipher_AES aes = new Cipher_AES();
                     aes.importKey(key);
+                    aes.setTransformation(algorithm + "/" + name_mode_padding + "Padding");
 
                     return aes.encryptToBase64(plain_text);
                 }
@@ -145,11 +152,16 @@ public class Controller_MA_HOA_DOI_XUNG {
     public static String decryptTextWithKeyBase64(String algorithm,
                                                   String language,
                                                   String encrypt_text,
-                                                  String key) {
+                                                  String key,
+                                                  String name_mode_padding) {
 
         try {
 
-            if (key == null || key.isEmpty()) return "Error";
+            if (algorithm == null || language == null || encrypt_text == null || key == null || name_mode_padding == null)
+                return "Error";
+
+            if (algorithm.isEmpty() || language.isEmpty() || encrypt_text.isEmpty() || key.isEmpty() || name_mode_padding.isEmpty())
+                return "Error";
 
             switch (algorithm.toUpperCase()) {
 
@@ -157,6 +169,7 @@ public class Controller_MA_HOA_DOI_XUNG {
 
                     Cipher_DES des = new Cipher_DES();
                     des.importKey(key);
+                    des.setTransformation(algorithm + "/" + name_mode_padding + "Padding");
 
                     return des.decryptFromBase64(encrypt_text);
 
@@ -166,6 +179,7 @@ public class Controller_MA_HOA_DOI_XUNG {
 
                     Cipher_AES aes = new Cipher_AES();
                     aes.importKey(key);
+                    aes.setTransformation(algorithm + "/" + name_mode_padding + "Padding");
 
                     return aes.decryptFromBase64(encrypt_text);
 

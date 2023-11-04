@@ -5,6 +5,7 @@ import model.services.ma_hoa_doi_xung.interfaces.*;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
+import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,7 +14,7 @@ import java.util.Base64;
 
 public class Cipher_AES implements I_Create, I_Encrypt, I_Decrypt, I_Export, I_Import {
     private SecretKey key;
-
+    private String transformation;
     @Override
     public SecretKey createKeyFromInput(String keyText) throws Exception {
         byte[] keyBytes = keyText.getBytes("UTF-8");
@@ -37,8 +38,11 @@ public class Cipher_AES implements I_Create, I_Encrypt, I_Decrypt, I_Export, I_I
     @Override
     public byte[] encrypt(String text) throws Exception {
         if (key == null) return new byte[]{};
-        Cipher cipher = Cipher.getInstance("AES");
-        cipher.init(Cipher.ENCRYPT_MODE, key);
+        Cipher cipher = Cipher.getInstance(transformation);
+
+        if (transformation.contains("ECB")) cipher.init(Cipher.ENCRYPT_MODE, key);
+        else cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(new byte[16]));
+
         var text_bytes = text.getBytes("UTF-8");
         return cipher.doFinal(text_bytes);
     }
@@ -46,8 +50,11 @@ public class Cipher_AES implements I_Create, I_Encrypt, I_Decrypt, I_Export, I_I
     @Override
     public String encryptToBase64(String text) throws Exception {
         if (key == null) return "";
-        Cipher cipher = Cipher.getInstance("AES");
-        cipher.init(Cipher.ENCRYPT_MODE, key);
+        Cipher cipher = Cipher.getInstance(transformation);
+
+        if (transformation.contains("ECB")) cipher.init(Cipher.ENCRYPT_MODE, key);
+        else cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(new byte[16]));
+
         var text_bytes = text.getBytes("UTF-8");
         var encrypted_text_bytes = cipher.doFinal(text_bytes);
         return Base64.getEncoder().encodeToString(encrypted_text_bytes);
@@ -62,8 +69,10 @@ public class Cipher_AES implements I_Create, I_Encrypt, I_Decrypt, I_Export, I_I
         try {
             File file = new File(srcFile);
             if (file.isFile()) {
-                Cipher cipher = Cipher.getInstance("AES");
-                cipher.init(Cipher.ENCRYPT_MODE, key);
+                Cipher cipher = Cipher.getInstance(transformation);
+
+                if (transformation.contains("ECB")) cipher.init(Cipher.ENCRYPT_MODE, key);
+                else cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(new byte[16]));
 
                 fis = new FileInputStream(file);
                 fos = new FileOutputStream(destFile);
@@ -93,8 +102,11 @@ public class Cipher_AES implements I_Create, I_Encrypt, I_Decrypt, I_Export, I_I
     @Override
     public String decrypt(byte[] encrypt) throws Exception {
         if (key == null) return "";
-        Cipher cipher = Cipher.getInstance("AES");
-        cipher.init(Cipher.DECRYPT_MODE, key);
+        Cipher cipher = Cipher.getInstance(transformation);
+
+        if (transformation.contains("ECB")) cipher.init(Cipher.DECRYPT_MODE, key);
+        else cipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(new byte[16]));
+
         var decrypted_text_bytes = cipher.doFinal(encrypt);
         return new String(decrypted_text_bytes);
     }
@@ -102,8 +114,11 @@ public class Cipher_AES implements I_Create, I_Encrypt, I_Decrypt, I_Export, I_I
     @Override
     public String decryptFromBase64(String text) throws Exception {
         if (key == null) return "";
-        Cipher cipher = Cipher.getInstance("AES");
-        cipher.init(Cipher.DECRYPT_MODE, key);
+        Cipher cipher = Cipher.getInstance(transformation);
+
+        if (transformation.contains("ECB")) cipher.init(Cipher.DECRYPT_MODE, key);
+        else cipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(new byte[16]));
+
         var encrypted_text_bytes = Base64.getDecoder().decode(text);
         var decrypted_text_bytes = cipher.doFinal(encrypted_text_bytes);
         return new String(decrypted_text_bytes);
@@ -120,8 +135,10 @@ public class Cipher_AES implements I_Create, I_Encrypt, I_Decrypt, I_Export, I_I
             File file = new File(srcFile);
             if (file.isFile()) {
 
-                Cipher cipher = Cipher.getInstance("AES");
-                cipher.init(Cipher.DECRYPT_MODE, key);
+                Cipher cipher = Cipher.getInstance(transformation);
+
+                if (transformation.contains("ECB")) cipher.init(Cipher.DECRYPT_MODE, key);
+                else cipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(new byte[16]));
 
                 fis = new FileInputStream(file);
                 fos = new FileOutputStream(destFile);
@@ -170,41 +187,46 @@ public class Cipher_AES implements I_Create, I_Encrypt, I_Decrypt, I_Export, I_I
         }
     }
 
+    public void setTransformation(String transformation) {
+        this.transformation = transformation;
+    }
+
     public static void main(String[] args) throws Exception {
 
         String plain_text = "Khoa CNTT-Trường Đại Học Nông Lâm-TPHCM";
+
         Cipher_AES aes = new Cipher_AES();
+        aes.setTransformation("AES/CBC/PKCS5Padding");
+
         aes.createKeyRandom(128);
 
-       /*
-        byte[] encrypted_text_bytes = aes.encrypt(plain_text);
-        String decrypted_text_bytes = aes.decrypt(encrypted_text_bytes);
 
-        String encrypted_text_base64_one = aes.encryptToBase64(plain_text);
-        String decrypted_text_base64_one = aes.decryptFromBase64(encrypted_text_base64_one);
-
+//        byte[] encrypted_text_bytes = aes.encrypt(plain_text);
+//        String decrypted_text_bytes = aes.decrypt(encrypted_text_bytes);
+//
+//        String encrypted_text_base64_one = aes.encryptToBase64(plain_text);
+//        String decrypted_text_base64_one = aes.decryptFromBase64(encrypted_text_base64_one);
+//
+//        System.out.println("----------------------------------------");
+//        System.out.println("Export Key Random: " + aes.exportKey());
+//        System.out.println("Encrypted Text Bytes: " + encrypted_text_bytes);
+//        System.out.println("Decrypted Text Bytes: " + decrypted_text_bytes);
+//        System.out.println("Encrypted Text Base 64: " + encrypted_text_base64_one);
+//        System.out.println("Decrypted Text Base 64: " + decrypted_text_base64_one);
+//
+//        System.out.println("----------------------------------------");
+//
+//        aes.createKeyFromInput("TRAN_MINH_TUYEN_");
+//        System.out.println("Export Key Input: " + aes.exportKey());
+//        String encrypted_text_base64_two = aes.encryptToBase64(plain_text);
+//        String decrypted_text_base64_two = aes.decryptFromBase64(encrypted_text_base64_two);
+//        System.out.println("Encrypted Text Base 64: " + encrypted_text_base64_two);
+//        System.out.println("Decrypted Text Base 64: " + decrypted_text_base64_two);
         System.out.println("----------------------------------------");
-        System.out.println("Export Key Random: " + aes.exportKey());
-        System.out.println("Encrypted Text Bytes: " + encrypted_text_bytes);
-        System.out.println("Decrypted Text Bytes: " + decrypted_text_bytes);
-        System.out.println("Encrypted Text Base 64: " + encrypted_text_base64_one);
-        System.out.println("Decrypted Text Base 64: " + decrypted_text_base64_one);
 
-        System.out.println("----------------------------------------");
-
-        aes.createKeyFromInput("TRAN_MINH_TUYEN_");
-        System.out.println("Export Key Input: " + aes.exportKey());
-        String encrypted_text_base64_two = aes.encryptToBase64(plain_text);
-        String decrypted_text_base64_two = aes.decryptFromBase64(encrypted_text_base64_two);
-        System.out.println("Encrypted Text Base 64: " + encrypted_text_base64_two);
-        System.out.println("Decrypted Text Base 64: " + decrypted_text_base64_two);
-*/
-        System.out.println("----------------------------------------");
-
-        String srcFileEncrypt = "C:/Users/tmt01/Downloads/Seminar_Ionic_App_Ban_Giay.pptx.pptx";
-        String destFileEncrypt = "C:/Users/tmt01/Downloads/AES_FILE_ENCRYPT_Seminar_Ionic_App_Ban_Giay.pptx.pptx";
-        String destFileDecrypt = "C:/Users/tmt01/Downloads/AES_FILE_DECRYPT_Seminar_Ionic_App_Ban_Giay.pptx.pptx";
-        ;
+        String srcFileEncrypt = "C:/Users/tmt01/Downloads/Nhom5_Ionic_App_Ban_Giay.pptx";
+        String destFileEncrypt = "C:/Users/tmt01/Downloads/AES_FILE_ENCRYPT_Nhom5_Ionic_App_Ban_Giay.pptx";
+        String destFileDecrypt = "C:/Users/tmt01/Downloads/AES_FILE_DECRYPT_Nhom5_Ionic_App_Ban_Giay.pptx";
         aes.encryptFile(srcFileEncrypt, destFileEncrypt);
         aes.decryptFile(destFileEncrypt, destFileDecrypt);
     }

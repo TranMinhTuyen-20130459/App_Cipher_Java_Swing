@@ -5,6 +5,7 @@ import model.services.ma_hoa_doi_xung.interfaces.*;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
+import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,6 +14,7 @@ import java.util.Base64;
 
 public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export, I_Import, I_Create {
     private SecretKey key;
+    private String transformation;
 
     @Override
     public SecretKey createKeyFromInput(String text) throws Exception {
@@ -43,8 +45,11 @@ public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export, I_Import, I_C
     @Override
     public byte[] encrypt(String text) throws Exception {
         if (key == null) return new byte[]{};
-        Cipher cipher = Cipher.getInstance("DES");
-        cipher.init(Cipher.ENCRYPT_MODE, key);
+        Cipher cipher = Cipher.getInstance(transformation);
+
+        if (transformation.contains("ECB")) cipher.init(Cipher.ENCRYPT_MODE, key);
+        else cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(new byte[8]));
+
         var text_bytes = text.getBytes("UTF-8");
         return cipher.doFinal(text_bytes);
     }
@@ -52,8 +57,11 @@ public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export, I_Import, I_C
     @Override
     public String encryptToBase64(String text) throws Exception {
         if (key == null) return "";
-        Cipher cipher = Cipher.getInstance("DES");
-        cipher.init(Cipher.ENCRYPT_MODE, key);
+        Cipher cipher = Cipher.getInstance(transformation);
+
+        if (transformation.contains("ECB")) cipher.init(Cipher.ENCRYPT_MODE, key);
+        else cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(new byte[8]));
+
         var text_bytes = text.getBytes("UTF-8");
         var encrypted_text_bytes = cipher.doFinal(text_bytes);
         return Base64.getEncoder().encodeToString(encrypted_text_bytes);
@@ -69,8 +77,9 @@ public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export, I_Import, I_C
             if (key == null) throw new Exception("Key Not Found");
             File fileSrc = new File(srcFile);
             if (fileSrc.isFile()) {
-                Cipher cipher = Cipher.getInstance("DES");
-                cipher.init(Cipher.ENCRYPT_MODE, key);
+                Cipher cipher = Cipher.getInstance(transformation);
+                if (transformation.contains("ECB")) cipher.init(Cipher.ENCRYPT_MODE, key);
+                else cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(new byte[8]));
 
                 fis = new FileInputStream(fileSrc);
                 fos = new FileOutputStream(destFile);
@@ -106,8 +115,11 @@ public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export, I_Import, I_C
     @Override
     public String decrypt(byte[] encrypt) throws Exception {
         if (key == null) return "";
-        Cipher cipher = Cipher.getInstance("DES");
-        cipher.init(Cipher.DECRYPT_MODE, key);
+        Cipher cipher = Cipher.getInstance(transformation);
+
+        if (transformation.contains("ECB")) cipher.init(Cipher.DECRYPT_MODE, key);
+        else cipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(new byte[8]));
+
         var decrypted_text_bytes = cipher.doFinal(encrypt);
         return new String(decrypted_text_bytes);
     }
@@ -115,8 +127,11 @@ public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export, I_Import, I_C
     @Override
     public String decryptFromBase64(String text) throws Exception {
         if (key == null) return "";
-        Cipher cipher = Cipher.getInstance("DES");
-        cipher.init(Cipher.DECRYPT_MODE, key);
+        Cipher cipher = Cipher.getInstance(transformation);
+
+        if (transformation.contains("ECB")) cipher.init(Cipher.DECRYPT_MODE, key);
+        else cipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(new byte[8]));
+
         var plain_text = cipher.doFinal(Base64.getDecoder().decode(text));
         return new String(plain_text, "UTF-8");
     }
@@ -132,8 +147,9 @@ public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export, I_Import, I_C
             File fileSrc = new File(srcFile);
             if (fileSrc.isFile()) {
 
-                Cipher cipher = Cipher.getInstance("DES");
-                cipher.init(Cipher.DECRYPT_MODE, key);
+                Cipher cipher = Cipher.getInstance(transformation);
+                if (transformation.contains("ECB")) cipher.init(Cipher.DECRYPT_MODE, key);
+                else cipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(new byte[8]));
 
                 fis = new FileInputStream(fileSrc);
                 fos = new FileOutputStream(destFile);
@@ -193,10 +209,15 @@ public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export, I_Import, I_C
         return key;
     }
 
+    public void setTransformation(String transformation) {
+        this.transformation = transformation;
+    }
+
     public static void main(String[] args) throws Exception {
 
         var plain_text = "I am a student. I study at Đại Học Nông Lâm";
         Cipher_DES des = new Cipher_DES();
+        des.setTransformation("DES/CBC/PKCS5Padding");
         des.createKeyRandom(56);
 
 //        var encrypt_bytes = des.encrypt(plain_text);
@@ -210,15 +231,11 @@ public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export, I_Import, I_C
 //        System.out.println("Encrypt To Bytes: " + encrypt_bytes);
 //        System.out.println(des.decrypt(encrypt_bytes));
 
-        String src_file = "C:\\Users\\tmt01\\Downloads\\Nhóm3-LTTTBDĐ.pptx";
-        String dest_file_encrypted = "C:\\Users\\tmt01\\Downloads\\DES_Encrypted_File.pptx";
-        String dest_file_decrypted = "C:\\Users\\tmt01\\Downloads\\DES_Decrypted_File.pptx";
-
-        des.encryptFile(src_file, dest_file_encrypted);
-        des.decryptFile(dest_file_encrypted, dest_file_decrypted);
-        des.encryptFile(dest_file_encrypted, "C:\\Users\\tmt01\\Downloads\\DES_Encrypted_File-2.pptx");
-        des.decryptFile("C:\\Users\\tmt01\\Downloads\\DES_Encrypted_File-2.pptx", "C:\\Users\\tmt01\\Downloads\\DES_Decrypted_File-2.pptx");
-        des.decryptFile("C:\\Users\\tmt01\\Downloads\\DES_Decrypted_File-2.pptx", "C:\\Users\\tmt01\\Downloads\\DES_Decrypted_File-3.pptx");
+        String srcFileEncrypt = "C:/Users/tmt01/Downloads/Nhom5_Ionic_App_Ban_Giay.pptx";
+        String destFileEncrypt = "C:/Users/tmt01/Downloads/DES_FILE_ENCRYPT_Nhom5_Ionic_App_Ban_Giay.pptx";
+        String destFileDecrypt = "C:/Users/tmt01/Downloads/DES_FILE_DECRYPT_Nhom5_Ionic_App_Ban_Giay.pptx";
+        des.encryptFile(srcFileEncrypt, destFileEncrypt);
+        des.decryptFile(destFileEncrypt, destFileDecrypt);
     }
 
 }

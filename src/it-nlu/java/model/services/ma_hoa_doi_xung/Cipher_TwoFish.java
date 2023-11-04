@@ -27,7 +27,6 @@ public class Cipher_TwoFish implements I_Encrypt, I_Decrypt, I_Export {
     public Cipher_TwoFish() {
         engine = new TwofishEngine(); // Tạo một engine TwoFish mới
     }
-
     public KeyParameter createKeyFromInput(String keyText) throws Exception {
         byte[] keyBytes = keyText.getBytes("UTF-8");
 

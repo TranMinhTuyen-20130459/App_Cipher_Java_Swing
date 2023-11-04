@@ -37,29 +37,28 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     private JTextField key_text_field;
     private JComboBox combo_box_algorithm,
             combo_box_language,
-            combo_box_mode;
+            combo_box_mode_padding;
     private final String[] arr_algorithms = {"Vigenere", "Hill", "DES", "AES", "TwoFish"};
     private final String[] arr_languages = {"English", "Vietnamese"};
     private final String[] arr_mode_paddings = {
-            "ECB",
-            "CBC",
-            "CFB",
-            "OFB",
-            "CTR",
             "ECB/PKCS5",
             "CBC/PKCS5",
             "CFB/PKCS5",
             "OFB/PKCS5",
-            "CTR/PKCS5"
+            "ECB/ISO10126",
+            "CBC/ISO10126",
+            "CFB/ISO10126",
+            "OFB/ISO10126"
     };
-
 
     private String plain_text = "",
             encrypted_text = "",
             decrypted_text = "",
             key = "",
             name_algorithm = "",
-            name_language = "";
+            name_language = "",
+
+    name_mode_padding = "";
 
     public Panel_MA_HOA_DOI_XUNG_TEXT(int WIDTH, int HEIGHT) {
 
@@ -95,7 +94,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
 
         add(combo_box_algorithm);
         add(combo_box_language);
-        add(combo_box_mode);
+        add(combo_box_mode_padding);
 
         add(key_text_field);
     }
@@ -217,7 +216,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
 
                                 encrypted_text = Controller_MA_HOA_DOI_XUNG.encryptTextWithKeyBase64(name_algorithm,
                                         name_language,
-                                        plain_text, key);
+                                        plain_text, key, name_mode_padding);
 
                                 encrypted_text_area.setEnabled(true);
                                 encrypted_text_area.setText(encrypted_text);
@@ -258,7 +257,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                         // TH: Nếu là giải thuật AES, DES, TwoFish
                         encrypted_text = Controller_MA_HOA_DOI_XUNG.encryptTextWithKeyBase64(name_algorithm,
                                 name_language,
-                                plain_text, key);
+                                plain_text, key, name_mode_padding);
 
                         encrypted_text_area.setEnabled(true);
                         encrypted_text_area.setText(encrypted_text);
@@ -305,7 +304,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                         // TH: Nếu là giải thuật AES,DES,TwoFish
                         decrypted_text = Controller_MA_HOA_DOI_XUNG.decryptTextWithKeyBase64(name_algorithm,
                                 name_language,
-                                encrypted_text, key);
+                                encrypted_text, key, name_mode_padding);
 
                         decrypted_text_area.setText(decrypted_text);
                     }
@@ -318,7 +317,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
 
     public void createButtonCopyKey() {
         bt_copy_key = new RoundedButton("COPY", 0, new Color(136, 196, 230));
-        bt_copy_key.setBounds(510, 82, 101, 37);
+        bt_copy_key.setBounds(565, 82, 100, 37);
         bt_copy_key.setFont(new Font("Arial", Font.PLAIN, 12));
 
         bt_copy_key.addMouseListener(new MouseAdapter() {
@@ -338,8 +337,8 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     }
 
     public void createButtonCopyEncryptedText() {
-        bt_copy_encrypted_text = new RoundedButton("COPY VB MÃ HÓA", 0, new Color(217, 217, 217));
-        bt_copy_encrypted_text.setBounds(325, 432, 150, 37);
+        bt_copy_encrypted_text = new RoundedButton("COPY", 0, new Color(217, 217, 217));
+        bt_copy_encrypted_text.setBounds(615, 240, 75, 70);
         bt_copy_encrypted_text.setFont(new Font("Arial", Font.PLAIN, 12));
         bt_copy_encrypted_text.addActionListener(new ActionListener() {
 
@@ -361,7 +360,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
 
     public void createButtonHome() {
         bt_home = new RoundedButton("TRANG CHỦ", 15, new Color(136, 196, 230));
-        bt_home.setBounds(495, 432, 115, 37);
+        bt_home.setBounds(550, 432, 115, 37);
 
         bt_home.addMouseListener(new MouseAdapter() {
             @Override
@@ -374,7 +373,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
 
     public void createButtonCreateKey() {
         bt_create_key = new RoundedButton("TẠO KEY", 0, new Color(217, 217, 217));
-        bt_create_key.setBounds(370, 82, 120, 37);
+        bt_create_key.setBounds(400, 82, 120, 37);
 
         bt_create_key.addActionListener(new ActionListener() {
 
@@ -568,14 +567,27 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     public void createComboBoxGroup() {
         createComboBoxAlgorithm();
         createComboBoxLanguage();
-        createComboBoxMode();
+        createComboBoxModePadding();
     }
 
-    private void createComboBoxMode() {
-        combo_box_mode = new JComboBox<>(arr_mode_paddings);
-        combo_box_mode.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-        combo_box_mode.setFont(new Font("Arial", Font.PLAIN, 14));
-        combo_box_mode.setBounds(490, 19, 175, 38);
+    private void createComboBoxModePadding() {
+        combo_box_mode_padding = new JComboBox<>(arr_mode_paddings);
+        combo_box_mode_padding.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        combo_box_mode_padding.setFont(new Font("Arial", Font.PLAIN, 14));
+        combo_box_mode_padding.setBounds(490, 19, 175, 38);
+
+        name_mode_padding = combo_box_mode_padding.getSelectedItem().toString();
+
+        combo_box_mode_padding.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                name_mode_padding = combo_box_mode_padding.getSelectedItem().toString();
+
+                resetEncryptedTextArea();
+                resetDecryptedTextArea();
+            }
+        });
+
     }
 
     public void createComboBoxAlgorithm() {
