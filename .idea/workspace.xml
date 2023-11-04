@@ -7,9 +7,11 @@
     <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="thêm ComboBox chọn Mode/Padding">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/helper/Algorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/helper/Algorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_AES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_AES.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_DES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_DES.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_TwoFish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_TwoFish.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_TwoFish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/no_use/Cipher_TwoFish_NoUse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/interfaces/I_Create.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/interfaces/I_Create.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +77,7 @@
       <module name="App_Ma_Hoa_Java_Swing" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="model.services.ma_hoa_doi_xung.*" />
+          <option name="PATTERN" value="model.services.ma_hoa_doi_xung.no_use.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -88,7 +90,7 @@
       <module name="App_Ma_Hoa_Java_Swing" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="model.services.ma_hoa_doi_xung.*" />
+          <option name="PATTERN" value="model.services.ma_hoa_doi_xung.no_use.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -96,8 +98,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Cipher_Vigenere_English" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="model.services.ma_hoa_doi_xung.Cipher_Vigenere_English" />
+    <configuration name="Cipher_Serpent" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="model.services.ma_hoa_doi_xung.Cipher_Serpent" />
       <module name="App_Ma_Hoa_Java_Swing" />
       <extension name="coverage">
         <pattern>
@@ -109,12 +111,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Cipher_Vigenere_Vietnamese" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="model.services.ma_hoa_doi_xung.Cipher_Vigenere_Vietnamese" />
+    <configuration name="Cipher_TwoFish" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="model.services.ma_hoa_doi_xung.Cipher_TwoFish" />
       <module name="App_Ma_Hoa_Java_Swing" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="model.services.ma_hoa_doi_xung.*" />
+          <option name="PATTERN" value="model.services.ma_hoa_doi_xung.no_use.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -136,10 +138,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Application" />
+        <item itemvalue="Application.Cipher_Serpent" />
+        <item itemvalue="Application.Cipher_TwoFish" />
         <item itemvalue="Application.Cipher_DES" />
         <item itemvalue="Application.Cipher_AES" />
-        <item itemvalue="Application.Cipher_Vigenere_Vietnamese" />
-        <item itemvalue="Application.Cipher_Vigenere_English" />
       </list>
     </recent_temporary>
   </component>
@@ -233,14 +235,8 @@
       <workItem from="1699015823010" duration="9506000" />
       <workItem from="1699026495274" duration="1684000" />
       <workItem from="1699063073278" duration="12814000" />
-      <workItem from="1699077837718" duration="6572000" />
-    </task>
-    <task id="LOCAL-00017" summary="hoàn thành xử lí sự kiện khi click vào &quot;MÃ HÓA VĂN BẢN&quot; or &quot;MÃ HÓA FILE&quot; của components &quot;MÃ HÓA ĐỐI XỨNG&quot;">
-      <created>1697432188366</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1697432188366</updated>
+      <workItem from="1699077837718" duration="6944000" />
+      <workItem from="1699089653537" duration="8233000" />
     </task>
     <task id="LOCAL-00018" summary="đổi tên function menuClicked() trong Frame_Home thành showPanel()">
       <created>1697432787242</created>
@@ -578,7 +574,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699073709443</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="thêm ComboBox chọn Mode/Padding">
+      <created>1699084758088</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1699084758088</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

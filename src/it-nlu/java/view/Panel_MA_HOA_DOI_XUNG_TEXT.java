@@ -19,8 +19,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
             label_key,
             label_van_ban_ma_hoa,
             label_van_ban_giai_ma,
-
-    label_chon_mode_padding;
+            label_chon_mode_padding;
     private JButton bt_encrypt,
             bt_decrypt,
             bt_copy_key,
@@ -33,12 +32,11 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     private JScrollPane scroll_pane_plain_text_area,
             scroll_pane_encrypted_text_area,
             scroll_pane_decrypted_text_area;
-
     private JTextField key_text_field;
     private JComboBox combo_box_algorithm,
             combo_box_language,
             combo_box_mode_padding;
-    private final String[] arr_algorithms = {"Vigenere", "Hill", "DES", "AES", "TwoFish"};
+    private final String[] arr_algorithms = {"Vigenere", "DES", "AES", "TwoFish", "Serpent"};
     private final String[] arr_languages = {"English", "Vietnamese"};
     private final String[] arr_mode_paddings = {
             "ECB/PKCS5",
@@ -57,8 +55,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
             key = "",
             name_algorithm = "",
             name_language = "",
-
-    name_mode_padding = "";
+            name_mode_padding = "";
 
     public Panel_MA_HOA_DOI_XUNG_TEXT(int WIDTH, int HEIGHT) {
 
@@ -109,9 +106,9 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
 
         label_chon_ngon_ngu = new JLabel("Chọn ngôn ngữ:");
         label_chon_ngon_ngu.setForeground(Color.BLACK);
-        label_chon_ngon_ngu.setHorizontalAlignment(SwingConstants.CENTER);
+        label_chon_ngon_ngu.setHorizontalAlignment(SwingConstants.LEFT);
         label_chon_ngon_ngu.setFont(new Font("Arial", Font.PLAIN, 14));
-        label_chon_ngon_ngu.setBounds(364, 19, 119, 37);
+        label_chon_ngon_ngu.setBounds(375, 19, 120, 37);
         label_chon_ngon_ngu.setVisible(false);
 
         label_key = new JLabel("Key:");
@@ -199,7 +196,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                             return;
                         }
 
-                        // TH: Nếu là giải thuật AES, DES, TwoFish
+                        // TH: Nếu là giải thuật AES, DES, TwoFish,Serpent
                         key = Controller_MA_HOA_DOI_XUNG.createKeyRandom(name_algorithm);
 
                         // TH: Không có lỗi khi tạo key
@@ -254,7 +251,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                             return;
                         }
 
-                        // TH: Nếu là giải thuật AES, DES, TwoFish
+                        // TH: Nếu là giải thuật AES, DES, TwoFish, Serpent
                         encrypted_text = Controller_MA_HOA_DOI_XUNG.encryptTextWithKeyBase64(name_algorithm,
                                 name_language,
                                 plain_text, key, name_mode_padding);
@@ -301,7 +298,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
 
                         }
 
-                        // TH: Nếu là giải thuật AES,DES,TwoFish
+                        // TH: Nếu là giải thuật AES, DES, TwoFish, Serpent
                         decrypted_text = Controller_MA_HOA_DOI_XUNG.decryptTextWithKeyBase64(name_algorithm,
                                 name_language,
                                 encrypted_text, key, name_mode_padding);
@@ -388,7 +385,8 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
 
                         case Algorithm.AES:
                         case Algorithm.DES:
-                        case Algorithm.TWO_FISH: {
+                        case Algorithm.TWO_FISH:
+                        case Algorithm.SERPENT: {
                             key = Controller_MA_HOA_DOI_XUNG.createKeyRandom(name_algorithm);
 
                             if (key == null || key.isEmpty() || key.equalsIgnoreCase("NOT_FOUND_ALGORITHM")) {
@@ -615,9 +613,15 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                         || name_algorithm.equalsIgnoreCase("Vigenere")) {
                     label_chon_ngon_ngu.setVisible(true);
                     combo_box_language.setVisible(true);
+
+                    label_chon_mode_padding.setVisible(false);
+                    combo_box_mode_padding.setVisible(false);
                 } else {
                     label_chon_ngon_ngu.setVisible(false);
                     combo_box_language.setVisible(false);
+
+                    label_chon_mode_padding.setVisible(true);
+                    combo_box_mode_padding.setVisible(true);
                 }
             }
         });
@@ -625,10 +629,10 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
 
     public void createComboBoxLanguage() {
         combo_box_language = new JComboBox<>(arr_languages);
-        combo_box_language.setBounds(483, 20, 128, 34);
+        combo_box_language.setBounds(490, 19, 175, 38);
         combo_box_language.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         combo_box_language.setVisible(false);
-        combo_box_language.setFont(new Font("Arial", Font.BOLD, 14));
+        combo_box_language.setFont(new Font("Arial", Font.PLAIN, 14));
 
         name_language = combo_box_language.getSelectedItem().toString();
         // System.out.println(name_language);

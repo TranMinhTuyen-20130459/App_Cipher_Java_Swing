@@ -15,20 +15,6 @@ import java.util.Base64;
 public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export, I_Import, I_Create {
     private SecretKey key;
     private String transformation;
-
-    @Override
-    public SecretKey createKeyFromInput(String text) throws Exception {
-        var textBytes = text.getBytes("UTF-8");
-
-        // Kiểm tra xem độ dài của mảng byte có đủ 8 byte không (64 bit)
-        if (textBytes.length != 8) {
-            throw new IllegalArgumentException("Text length must be 8 bytes for a DES key.");
-        }
-
-        key = new SecretKeySpec(textBytes, "DES");
-        return key;
-    }
-
     @Override
     public SecretKey createKeyRandom(int key_size) throws Exception {
         KeyGenerator key_generator = KeyGenerator.getInstance("DES");

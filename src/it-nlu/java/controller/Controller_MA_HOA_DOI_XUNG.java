@@ -5,6 +5,7 @@ import helper.DecryptFile;
 import helper.EncryptFile;
 import helper.Languague;
 import model.services.ma_hoa_doi_xung.*;
+import model.services.ma_hoa_doi_xung.no_use.Cipher_TwoFish_NoUse;
 
 public class Controller_MA_HOA_DOI_XUNG {
 
@@ -48,7 +49,7 @@ public class Controller_MA_HOA_DOI_XUNG {
         }
     }
 
-    // đây là function tạo Key cho thuật toán AES,DES,TwoFish
+    // đây là function tạo Key cho thuật toán AES,DES,TwoFish,Serpent
     public static String createKeyRandom(String algorithm) {
 
         try {
@@ -83,6 +84,14 @@ public class Controller_MA_HOA_DOI_XUNG {
                     return twoFish.exportKey();
                 }
 
+                case Algorithm.SERPENT: {
+
+                    Cipher_Serpent serpent = new Cipher_Serpent();
+                    serpent.createKeyRandom(128);
+
+                    return serpent.exportKey();
+                }
+
                 default:
                     return "NOT_FOUND_ALGORITHM";
 
@@ -94,7 +103,7 @@ public class Controller_MA_HOA_DOI_XUNG {
         }
     }
 
-    // đây là function mã hóa văn bản của các thuật toán AES,DES,TwoFish
+    // đây là function mã hóa văn bản của các thuật toán AES,DES,TwoFish,Serpent
     public static String encryptTextWithKeyBase64(String algorithm,
                                                   String language,
                                                   String plain_text,
@@ -133,8 +142,19 @@ public class Controller_MA_HOA_DOI_XUNG {
 
                     Cipher_TwoFish twoFish = new Cipher_TwoFish();
                     twoFish.importKey(key);
+                    twoFish.setTransformation(algorithm + "/" + name_mode_padding + "Padding");
 
                     return twoFish.encryptToBase64(plain_text);
+
+                }
+
+                case Algorithm.SERPENT: {
+
+                    Cipher_Serpent serpent = new Cipher_Serpent();
+                    serpent.importKey(key);
+                    serpent.setTransformation(algorithm + "/" + name_mode_padding + "Padding");
+
+                    return serpent.encryptToBase64(plain_text);
 
                 }
                 default:
@@ -148,7 +168,7 @@ public class Controller_MA_HOA_DOI_XUNG {
         }
     }
 
-    // đây là function giải mã văn bản của các thuật toán AES,DES,TwoFish
+    // đây là function giải mã văn bản của các thuật toán AES,DES,TwoFish,Serpent
     public static String decryptTextWithKeyBase64(String algorithm,
                                                   String language,
                                                   String encrypt_text,
@@ -189,8 +209,17 @@ public class Controller_MA_HOA_DOI_XUNG {
 
                     Cipher_TwoFish twoFish = new Cipher_TwoFish();
                     twoFish.importKey(key);
+                    twoFish.setTransformation(algorithm + "/" + name_mode_padding + "Padding");
 
                     return twoFish.decryptFromBase64(encrypt_text);
+                }
+
+                case Algorithm.SERPENT: {
+                    Cipher_Serpent serpent = new Cipher_Serpent();
+                    serpent.importKey(key);
+                    serpent.setTransformation(algorithm + "/" + name_mode_padding + "Padding");
+
+                    return serpent.decryptFromBase64(encrypt_text);
                 }
                 default:
                     return "";
@@ -204,7 +233,7 @@ public class Controller_MA_HOA_DOI_XUNG {
 
     }
 
-    // đây là function mã hóa File của các thuật toán AES,DES,TwoFish
+    // đây là function mã hóa File của các thuật toán AES,DES,TwoFish,Serpent
     public static int encryptFileWithKeyBase64(String algorithm,
                                                String language,
                                                String srcFile,
@@ -239,7 +268,7 @@ public class Controller_MA_HOA_DOI_XUNG {
                 }
 
                 case Algorithm.TWO_FISH: {
-                    Cipher_TwoFish twoFish = new Cipher_TwoFish();
+                    Cipher_TwoFish_NoUse twoFish = new Cipher_TwoFish_NoUse();
                     twoFish.importKey(key);
                     twoFish.encryptFile(srcFile, destFile);
                     return EncryptFile.SUCCESS;
@@ -254,7 +283,7 @@ public class Controller_MA_HOA_DOI_XUNG {
         }
     }
 
-    // đây là function giải mã File của các thuật toán AES,DES,TwoFish
+    // đây là function giải mã File của các thuật toán AES,DES,TwoFish,Serpent
     public static int decryptFileWithKeyBase64(String algorithm,
                                                String language,
                                                String srcFile,
@@ -283,7 +312,7 @@ public class Controller_MA_HOA_DOI_XUNG {
                 }
 
                 case Algorithm.TWO_FISH: {
-                    Cipher_TwoFish twoFish = new Cipher_TwoFish();
+                    Cipher_TwoFish_NoUse twoFish = new Cipher_TwoFish_NoUse();
                     twoFish.importKey(key);
                     twoFish.decryptFile(srcFile, destFile);
                     return DecryptFile.SUCCESS;
