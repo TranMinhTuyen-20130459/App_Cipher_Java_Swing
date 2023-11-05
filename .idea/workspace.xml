@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="mã hóa file với các mode/padding tự chọn">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="thêm thuật toán mã hóa đối xứng Blowfish, hiện thực lên View trong component Panel_MA_HOA_DOI_XUNG_TEXT, Panel_MA_HOA_DOI_XUNG_FILE">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/helper/Algorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/helper/Algorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_AES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_AES.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_FILE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_TEXT.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,14 +237,7 @@
       <workItem from="1699106304901" duration="8977000" />
       <workItem from="1699150274742" duration="2335000" />
       <workItem from="1699152684928" duration="1512000" />
-      <workItem from="1699155302447" duration="8285000" />
-    </task>
-    <task id="LOCAL-00021" summary="thêm Controller để điều phối giữa Model và View">
-      <created>1697471148605</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1697471148605</updated>
+      <workItem from="1699155302447" duration="10313000" />
     </task>
     <task id="LOCAL-00022" summary="cho user sử dụng giải thuật mã hóa đối xứng DES (key được sinh ra ngẫu nhiên)">
       <created>1697620155281</created>
@@ -585,7 +575,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699115333371</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="thêm thuật toán mã hóa đối xứng Blowfish, hiện thực lên View trong component Panel_MA_HOA_DOI_XUNG_TEXT, Panel_MA_HOA_DOI_XUNG_FILE">
+      <created>1699177100310</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1699177100314</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -603,7 +600,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="mã hóa và giải mã File với giải thuật TwoFish" />
     <MESSAGE value="hiện thực MÃ HÓA và GIẢI MÃ File với giải thuật TwoFish trên View" />
     <MESSAGE value="nâng cấp trải nghiệm người dùng tại component Panel_MA_HOA_DOI_XUNG_TEXT" />
     <MESSAGE value="bỏ đi ComboBox chọn ngôn ngữ tại component Panel_MA_HOA_DOI_XUNG_FILE" />
@@ -628,7 +624,8 @@
     <MESSAGE value="thêm giải thuật mã hóa đối xứng Serpent" />
     <MESSAGE value="thêm giải thuật mã hóa đối xứng TwoFish" />
     <MESSAGE value="mã hóa file với các mode/padding tự chọn" />
-    <option name="LAST_COMMIT_MESSAGE" value="mã hóa file với các mode/padding tự chọn" />
+    <MESSAGE value="thêm thuật toán mã hóa đối xứng Blowfish, hiện thực lên View trong component Panel_MA_HOA_DOI_XUNG_TEXT, Panel_MA_HOA_DOI_XUNG_FILE" />
+    <option name="LAST_COMMIT_MESSAGE" value="thêm thuật toán mã hóa đối xứng Blowfish, hiện thực lên View trong component Panel_MA_HOA_DOI_XUNG_TEXT, Panel_MA_HOA_DOI_XUNG_FILE" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

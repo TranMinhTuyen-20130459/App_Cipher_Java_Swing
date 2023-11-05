@@ -30,7 +30,7 @@ public class Panel_MA_HOA_HASH extends JPanel {
 
         panel_cipher_text = new JPanel();
         panel_cipher_text.setBackground(new Color(217, 217, 217));
-        panel_cipher_text.setBounds(55, 134, 248, 192);
+        panel_cipher_text.setBounds(65, 134, 248, 192);
         panel_cipher_text.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
         panel_cipher_text.setLayout(null);
 
@@ -56,7 +56,7 @@ public class Panel_MA_HOA_HASH extends JPanel {
         panel_cipher_file = new JPanel();
         panel_cipher_file.setLayout(null);
         panel_cipher_file.setBackground(new Color(217, 217, 217));
-        panel_cipher_file.setBounds(340, 134, 248, 192);
+        panel_cipher_file.setBounds(390, 134, 248, 192);
         panel_cipher_file.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
 
         label_cipher_file = new JLabel("FILE");

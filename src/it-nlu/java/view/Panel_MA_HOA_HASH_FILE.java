@@ -92,6 +92,8 @@ public class Panel_MA_HOA_HASH_FILE extends JPanel {
     public void createComboBoxAlgorithm() {
         combo_box_algorithm = new JComboBox<>(arr_algorithms);
         combo_box_algorithm.setBounds(145, 19, 210, 38);
+        combo_box_algorithm.setFont(new Font("Arial", Font.PLAIN, 14));
+        combo_box_algorithm.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 
         name_algorithm = combo_box_algorithm.getSelectedItem().toString();
         // System.out.println(name_algorithm);
