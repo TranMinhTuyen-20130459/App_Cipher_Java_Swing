@@ -35,7 +35,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
             bt_create_key;
     private JTextField key_text_field;
     private JComboBox combo_box_algorithm, combo_box_mode_padding;
-    private final String[] arr_algorithms = {"Vigenere", "DES", "AES", "TwoFish", "Serpent"};
+    private final String[] arr_algorithms = {"DES", "AES", "TwoFish", "Blowfish", "Serpent"};
     private final String[] arr_mode_paddings = {
             "ECB/PKCS5",
             "CBC/PKCS5",
@@ -137,6 +137,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
                         case Algorithm.AES:
                         case Algorithm.DES:
                         case Algorithm.TWO_FISH:
+                        case Algorithm.BLOW_FISH:
                         case Algorithm.SERPENT: {
                             key = Controller_MA_HOA_DOI_XUNG.createKeyRandom(name_algorithm);
 
@@ -482,8 +483,14 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
         name_algorithm = combo_box_algorithm.getSelectedItem().toString();
     }
 
+    public void resetComboBoxModePadding() {
+        combo_box_mode_padding.setSelectedIndex(0);
+        name_mode_padding = combo_box_mode_padding.getSelectedItem().toString();
+    }
+
     public void resetLayout() {
         resetComboBoxAlgorithm();
+        resetComboBoxModePadding();
         resetTextFieldKey();
         resetSelectedFile();
     }

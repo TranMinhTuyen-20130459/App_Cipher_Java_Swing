@@ -83,6 +83,14 @@ public class Controller_MA_HOA_DOI_XUNG {
                     return twoFish.exportKey();
                 }
 
+                case Algorithm.BLOW_FISH: {
+
+                    Cipher_BlowFish blowFish = new Cipher_BlowFish();
+                    blowFish.createKeyRandom(128);
+
+                    return blowFish.exportKey();
+                }
+
                 case Algorithm.SERPENT: {
 
                     Cipher_Serpent serpent = new Cipher_Serpent();
@@ -144,6 +152,16 @@ public class Controller_MA_HOA_DOI_XUNG {
                     twoFish.setTransformation(algorithm + "/" + name_mode_padding + "Padding");
 
                     return twoFish.encryptToBase64(plain_text);
+
+                }
+
+                case Algorithm.BLOW_FISH: {
+
+                    Cipher_BlowFish blowFish = new Cipher_BlowFish();
+                    blowFish.importKey(key);
+
+                    blowFish.setTransformation(algorithm + "/" + name_mode_padding + "Padding");
+                    return blowFish.encryptToBase64(plain_text);
 
                 }
 
@@ -211,6 +229,16 @@ public class Controller_MA_HOA_DOI_XUNG {
                     twoFish.setTransformation(algorithm + "/" + name_mode_padding + "Padding");
 
                     return twoFish.decryptFromBase64(encrypt_text);
+                }
+
+                case Algorithm.BLOW_FISH: {
+
+                    Cipher_BlowFish blowFish = new Cipher_BlowFish();
+                    blowFish.importKey(key);
+
+                    blowFish.setTransformation(algorithm + "/" + name_mode_padding + "Padding");
+                    return blowFish.decryptFromBase64(encrypt_text);
+
                 }
 
                 case Algorithm.SERPENT: {
@@ -283,6 +311,16 @@ public class Controller_MA_HOA_DOI_XUNG {
                     return EncryptFile.SUCCESS;
                 }
 
+                case Algorithm.BLOW_FISH: {
+                    Cipher_BlowFish blowFish = new Cipher_BlowFish();
+                    blowFish.importKey(key);
+
+                    blowFish.setTransformation(algorithm + "/" + name_mode_padding + "Padding");
+                    blowFish.encryptFile(srcFile, destFile);
+
+                    return EncryptFile.SUCCESS;
+                }
+
                 case Algorithm.SERPENT: {
 
                     Cipher_Serpent serpent = new Cipher_Serpent();
@@ -292,7 +330,6 @@ public class Controller_MA_HOA_DOI_XUNG {
                     serpent.encryptFile(srcFile, destFile);
 
                     return EncryptFile.SUCCESS;
-
                 }
 
                 default:
@@ -325,6 +362,7 @@ public class Controller_MA_HOA_DOI_XUNG {
 
                     des.setTransformation(algorithm + "/" + name_mode_padding + "Padding");
                     des.decryptFile(srcFile, destFile);
+
                     return DecryptFile.SUCCESS;
                 }
 
@@ -334,6 +372,7 @@ public class Controller_MA_HOA_DOI_XUNG {
 
                     aes.setTransformation(algorithm + "/" + name_mode_padding + "Padding");
                     aes.decryptFile(srcFile, destFile);
+
                     return DecryptFile.SUCCESS;
                 }
 
@@ -343,8 +382,21 @@ public class Controller_MA_HOA_DOI_XUNG {
 
                     twoFish.setTransformation(algorithm + "/" + name_mode_padding + "Padding");
                     twoFish.decryptFile(srcFile, destFile);
+
                     return DecryptFile.SUCCESS;
                 }
+
+                case Algorithm.BLOW_FISH:{
+
+                    Cipher_BlowFish blowFish = new Cipher_BlowFish();
+                    blowFish.importKey(key);
+
+                    blowFish.setTransformation(algorithm + "/" + name_mode_padding + "Padding");
+                    blowFish.decryptFile(srcFile, destFile);
+
+                    return DecryptFile.SUCCESS;
+                }
+
                 case Algorithm.SERPENT: {
 
                     Cipher_Serpent serpent = new Cipher_Serpent();

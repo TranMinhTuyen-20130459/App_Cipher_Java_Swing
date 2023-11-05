@@ -36,7 +36,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     private JComboBox combo_box_algorithm,
             combo_box_language,
             combo_box_mode_padding;
-    private final String[] arr_algorithms = {"Vigenere", "DES", "AES", "TwoFish", "Serpent"};
+    private final String[] arr_algorithms = {"Vigenere", "DES", "AES", "TwoFish", "Blowfish", "Serpent"};
     private final String[] arr_languages = {"English", "Vietnamese"};
     private final String[] arr_mode_paddings = {
             "ECB/PKCS5",
@@ -196,7 +196,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                             return;
                         }
 
-                        // TH: Nếu là giải thuật AES, DES, TwoFish,Serpent
+                        // TH: Nếu là giải thuật AES, DES, TwoFish, BlowFish, Serpent
                         key = Controller_MA_HOA_DOI_XUNG.createKeyRandom(name_algorithm);
 
                         // TH: Không có lỗi khi tạo key
@@ -251,7 +251,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                             return;
                         }
 
-                        // TH: Nếu là giải thuật AES, DES, TwoFish, Serpent
+                        // TH: Nếu là giải thuật AES, DES, TwoFish, BlowFish, Serpent
                         encrypted_text = Controller_MA_HOA_DOI_XUNG.encryptTextWithKeyBase64(name_algorithm,
                                 name_language,
                                 plain_text, key, name_mode_padding);
@@ -386,6 +386,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                         case Algorithm.AES:
                         case Algorithm.DES:
                         case Algorithm.TWO_FISH:
+                        case Algorithm.BLOW_FISH:
                         case Algorithm.SERPENT: {
                             key = Controller_MA_HOA_DOI_XUNG.createKeyRandom(name_algorithm);
 
@@ -706,6 +707,11 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         name_language = combo_box_language.getSelectedItem().toString();
     }
 
+    public void resetComboBoxModePadding() {
+        combo_box_mode_padding.setSelectedIndex(0);
+        name_mode_padding = combo_box_mode_padding.getSelectedItem().toString();
+    }
+
    /*
    public void resetComboBoxTypeKey() {
         name_type_key = "Base64";
@@ -716,6 +722,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     public void resetLayout() {
         resetComboBoxAlgorithm();
         resetComboBoxLanguage();
+        resetComboBoxModePadding();
         resetTextFieldKey();
         resetPlainTextArea();
         resetEncryptedTextArea();

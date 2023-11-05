@@ -12,14 +12,14 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Base64;
 
-public class Cipher_AES implements I_Create, I_Encrypt, I_Decrypt, I_Export, I_Import {
+public class Cipher_BlowFish implements I_Create, I_Encrypt, I_Decrypt, I_Export, I_Import {
     private SecretKey key;
     private String transformation;
 
     @Override
     public SecretKey createKeyRandom(int key_size) throws Exception {
-        KeyGenerator key_generator = KeyGenerator.getInstance("AES");
-        key_generator.init(key_size); // Độ dài của khóa (128,192 hoặc 256 bit)
+        KeyGenerator key_generator = KeyGenerator.getInstance("Blowfish");
+        key_generator.init(key_size); // Độ dài của khóa từ 32 đến 448 bit
         key = key_generator.generateKey();
         return key;
     }
@@ -30,7 +30,7 @@ public class Cipher_AES implements I_Create, I_Encrypt, I_Decrypt, I_Export, I_I
         Cipher cipher = Cipher.getInstance(transformation);
 
         if (transformation.contains("ECB")) cipher.init(Cipher.ENCRYPT_MODE, key);
-        else cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(new byte[16]));
+        else cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(new byte[8]));
 
         var text_bytes = text.getBytes("UTF-8");
         return cipher.doFinal(text_bytes);
@@ -42,7 +42,7 @@ public class Cipher_AES implements I_Create, I_Encrypt, I_Decrypt, I_Export, I_I
         Cipher cipher = Cipher.getInstance(transformation);
 
         if (transformation.contains("ECB")) cipher.init(Cipher.ENCRYPT_MODE, key);
-        else cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(new byte[16]));
+        else cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(new byte[8]));
 
         var text_bytes = text.getBytes("UTF-8");
         var encrypted_text_bytes = cipher.doFinal(text_bytes);
@@ -61,7 +61,7 @@ public class Cipher_AES implements I_Create, I_Encrypt, I_Decrypt, I_Export, I_I
                 Cipher cipher = Cipher.getInstance(transformation);
 
                 if (transformation.contains("ECB")) cipher.init(Cipher.ENCRYPT_MODE, key);
-                else cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(new byte[16]));
+                else cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(new byte[8]));
 
                 fis = new FileInputStream(file);
                 fos = new FileOutputStream(destFile);
@@ -94,7 +94,7 @@ public class Cipher_AES implements I_Create, I_Encrypt, I_Decrypt, I_Export, I_I
         Cipher cipher = Cipher.getInstance(transformation);
 
         if (transformation.contains("ECB")) cipher.init(Cipher.DECRYPT_MODE, key);
-        else cipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(new byte[16]));
+        else cipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(new byte[8]));
 
         var decrypted_text_bytes = cipher.doFinal(encrypt);
         return new String(decrypted_text_bytes);
@@ -106,7 +106,7 @@ public class Cipher_AES implements I_Create, I_Encrypt, I_Decrypt, I_Export, I_I
         Cipher cipher = Cipher.getInstance(transformation);
 
         if (transformation.contains("ECB")) cipher.init(Cipher.DECRYPT_MODE, key);
-        else cipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(new byte[16]));
+        else cipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(new byte[8]));
 
         var encrypted_text_bytes = Base64.getDecoder().decode(text);
         var decrypted_text_bytes = cipher.doFinal(encrypted_text_bytes);
@@ -127,7 +127,7 @@ public class Cipher_AES implements I_Create, I_Encrypt, I_Decrypt, I_Export, I_I
                 Cipher cipher = Cipher.getInstance(transformation);
 
                 if (transformation.contains("ECB")) cipher.init(Cipher.DECRYPT_MODE, key);
-                else cipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(new byte[16]));
+                else cipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(new byte[8]));
 
                 fis = new FileInputStream(file);
                 fos = new FileOutputStream(destFile);
@@ -169,7 +169,7 @@ public class Cipher_AES implements I_Create, I_Encrypt, I_Decrypt, I_Export, I_I
 
         try {
             byte[] key_bytes = Base64.getDecoder().decode(keyText.getBytes());
-            key = new SecretKeySpec(key_bytes, "AES");
+            key = new SecretKeySpec(key_bytes, "Blowfish");
             return key;
         } catch (Exception e) {
             throw new Exception("Failed to import key: " + e.getMessage());
@@ -184,18 +184,18 @@ public class Cipher_AES implements I_Create, I_Encrypt, I_Decrypt, I_Export, I_I
 
         String plain_text = "Khoa CNTT-Trường Đại Học Nông Lâm-TPHCM";
 
-        Cipher_AES aes = new Cipher_AES();
-        aes.setTransformation("AES/CBC/PKCS5Padding");
-        aes.createKeyRandom(128);
+        Cipher_BlowFish blowFish = new Cipher_BlowFish();
+        blowFish.setTransformation("Blowfish/CBC/PKCS5Padding");
+        blowFish.createKeyRandom(128);
 
-        byte[] encrypted_text_bytes = aes.encrypt(plain_text);
-        String decrypted_text_bytes = aes.decrypt(encrypted_text_bytes);
+        byte[] encrypted_text_bytes = blowFish.encrypt(plain_text);
+        String decrypted_text_bytes = blowFish.decrypt(encrypted_text_bytes);
 
-        String encrypted_text_base64_one = aes.encryptToBase64(plain_text);
-        String decrypted_text_base64_one = aes.decryptFromBase64(encrypted_text_base64_one);
+        String encrypted_text_base64_one = blowFish.encryptToBase64(plain_text);
+        String decrypted_text_base64_one = blowFish.decryptFromBase64(encrypted_text_base64_one);
 
         System.out.println("----------------------------------------");
-        System.out.println("Export Key Random: " + aes.exportKey());
+        System.out.println("Export Key Random: " + blowFish.exportKey());
         System.out.println("Encrypted Text Bytes: " + encrypted_text_bytes);
         System.out.println("Decrypted Text Bytes: " + decrypted_text_bytes);
         System.out.println("Encrypted Text Base 64: " + encrypted_text_base64_one);
@@ -203,9 +203,9 @@ public class Cipher_AES implements I_Create, I_Encrypt, I_Decrypt, I_Export, I_I
 
         System.out.println("----------------------------------------");
 
-        System.out.println("Export Key Input: " + aes.exportKey());
-        String encrypted_text_base64_two = aes.encryptToBase64(plain_text);
-        String decrypted_text_base64_two = aes.decryptFromBase64(encrypted_text_base64_two);
+        System.out.println("Export Key Input: " + blowFish.exportKey());
+        String encrypted_text_base64_two = blowFish.encryptToBase64(plain_text);
+        String decrypted_text_base64_two = blowFish.decryptFromBase64(encrypted_text_base64_two);
         System.out.println("Encrypted Text Base 64: " + encrypted_text_base64_two);
         System.out.println("Decrypted Text Base 64: " + decrypted_text_base64_two);
 
@@ -214,7 +214,8 @@ public class Cipher_AES implements I_Create, I_Encrypt, I_Decrypt, I_Export, I_I
 //        String srcFileEncrypt = "C:/Users/tmt01/Downloads/Nhom5_Ionic_App_Ban_Giay.pptx";
 //        String destFileEncrypt = "C:/Users/tmt01/Downloads/AES_FILE_ENCRYPT_Nhom5_Ionic_App_Ban_Giay.pptx";
 //        String destFileDecrypt = "C:/Users/tmt01/Downloads/AES_FILE_DECRYPT_Nhom5_Ionic_App_Ban_Giay.pptx";
-//        aes.encryptFile(srcFileEncrypt, destFileEncrypt);
-//        aes.decryptFile(destFileEncrypt, destFileDecrypt);
+//        blowFish.encryptFile(srcFileEncrypt, destFileEncrypt);
+//        blowFish.decryptFile(destFileEncrypt, destFileDecrypt);
     }
 }
+
