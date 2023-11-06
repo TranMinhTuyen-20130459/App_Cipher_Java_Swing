@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="bỏ giao diện Trang Chủ của component Panel_MA_HOA_DOI_XUNG">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="bỏ giao diện Trang Chủ của component Panel_MA_HOA_HASH">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Frame_Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Frame_Home.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_BAT_DOI_XUNG.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_FILE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_TEXT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_bat_doi_xung/Cipher_RSA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_bat_doi_xung/Cipher_RSA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_BAT_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_BAT_DOI_XUNG_TEXT.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,12 +80,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Cipher_Serpent" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="model.services.ma_hoa_doi_xung.Cipher_Serpent" />
+    <configuration name="Cipher_RSA" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="model.services.ma_hoa_bat_doi_xung.Cipher_RSA" />
       <module name="App_Ma_Hoa_Java_Swing" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="model.services.ma_hoa_doi_xung.*" />
+          <option name="PATTERN" value="model.services.ma_hoa_bat_doi_xung.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -95,12 +93,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Cipher_TwoFish" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="model.services.ma_hoa_doi_xung.Cipher_TwoFish" />
+    <configuration name="Cipher_Serpent" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="model.services.ma_hoa_doi_xung.Cipher_Serpent" />
       <module name="App_Ma_Hoa_Java_Swing" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="model.services.ma_hoa_doi_xung.no_use.*" />
+          <option name="PATTERN" value="model.services.ma_hoa_doi_xung.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -135,10 +133,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Application" />
+        <item itemvalue="Application.Cipher_RSA" />
         <item itemvalue="Application.Cipher_BlowFish" />
         <item itemvalue="Application.SHA" />
         <item itemvalue="Application.Cipher_Serpent" />
-        <item itemvalue="Application.Cipher_TwoFish" />
       </list>
     </recent_temporary>
   </component>
@@ -242,21 +240,7 @@
       <workItem from="1699189216789" duration="3281000" />
       <workItem from="1699202747241" duration="1382000" />
       <workItem from="1699243762005" duration="8666000" />
-      <workItem from="1699258882062" duration="873000" />
-    </task>
-    <task id="LOCAL-00025" summary="mã hóa và giải mã File với thuật toán DES">
-      <created>1697772939966</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1697772939966</updated>
-    </task>
-    <task id="LOCAL-00026" summary="thêm component Chọn File trong view Panel_MA_HOA_DOI_XUNG_FILE, xử lý sự kiện khi click vào button &quot;CHỌN FILE&quot;">
-      <created>1697795508981</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1697795508981</updated>
+      <workItem from="1699258882062" duration="9118000" />
     </task>
     <task id="LOCAL-00027" summary="mã hóa file với thuật toán DES khi user chọn button &quot;MÃ HÓA&quot; tại component Panel_MA_HOA_DOI_XUNG_FILE">
       <created>1697814420040</created>
@@ -587,7 +571,21 @@
       <option name="project" value="LOCAL" />
       <updated>1699252395769</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="bỏ giao diện Trang Chủ của component Panel_MA_HOA_HASH, Panel_MA_HOA_BAT_DOI_XUNG.java">
+      <created>1699259797955</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1699259797956</updated>
+    </task>
+    <task id="LOCAL-00075" summary="bỏ giao diện Trang Chủ của component Panel_MA_HOA_HASH">
+      <created>1699259837005</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1699259837005</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -605,8 +603,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="bỏ đi bt_input_key trên View của Component Panel_MA_HOA_DOI_XUNG_TEXT" />
-    <MESSAGE value="đổi tên function trong Controller_MA_HOA_DOI_XUNG" />
     <MESSAGE value="thêm bt_copy đoạn văn bản đã mã hóa và xử lý sự kiện cho button đó" />
     <MESSAGE value="thêm function để reset lại ComboBox TypeKey" />
     <MESSAGE value="thêm ComboBox &quot;Loại Key&quot; trên View của component Panel_MA_HOA_DOI_XUNG_FILE" />
@@ -630,7 +626,9 @@
     <MESSAGE value="sửa giao diện Trang Chủ thuật toán mã hóa HASH" />
     <MESSAGE value="giao diện cho thuật toán mã hóa bất đối" />
     <MESSAGE value="bỏ giao diện Trang Chủ của component Panel_MA_HOA_DOI_XUNG" />
-    <option name="LAST_COMMIT_MESSAGE" value="bỏ giao diện Trang Chủ của component Panel_MA_HOA_DOI_XUNG" />
+    <MESSAGE value="bỏ giao diện Trang Chủ của component Panel_MA_HOA_HASH, Panel_MA_HOA_BAT_DOI_XUNG.java" />
+    <MESSAGE value="bỏ giao diện Trang Chủ của component Panel_MA_HOA_HASH" />
+    <option name="LAST_COMMIT_MESSAGE" value="bỏ giao diện Trang Chủ của component Panel_MA_HOA_HASH" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

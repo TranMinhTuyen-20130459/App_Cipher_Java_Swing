@@ -34,8 +34,7 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
 
     private final String[] arr_key_sizes = {"512 bit", "1024 bit", "2048 bit", "4096 bit"};
 
-    private final String[] arr_mode_padding = {"PKCS1Padding",
-            "OAEPPadding"};
+    private final String[] arr_mode_padding = {"RSA/ECB/PKCS1Padding", "RSA"};
     private String key_size = "", mode_padding = "";
 
     public Panel_MA_HOA_BAT_DOI_XUNG_TEXT(int WIDTH, int HEIGHT) {
@@ -119,7 +118,7 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
     private void createComboBoxModePadding() {
         combo_box_mode_padding = new JComboBox<>(arr_mode_padding);
         combo_box_mode_padding.setFont(new Font("Arial", Font.PLAIN, 14));
-        combo_box_mode_padding.setBounds(24, 115, 159, 32);
+        combo_box_mode_padding.setBounds(24, 115, 180, 32);
         combo_box_mode_padding.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 
         mode_padding = combo_box_mode_padding.getSelectedItem().toString();
@@ -234,7 +233,7 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
 
         scroll_pane_output = new JScrollPane(text_area_output);
         scroll_pane_output.setBounds(402, 204, 271, 215);
-        scroll_pane_output.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
+        scroll_pane_output.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 
         // Thiết lập hiển thị thanh cuộn theo cần thiết
         scroll_pane_output.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -253,7 +252,7 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
 
         scroll_pane_input = new JScrollPane(text_area_input);
         scroll_pane_input.setBounds(24, 204, 271, 215);
-        scroll_pane_input.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
+        scroll_pane_input.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 
         // Thiết lập hiển thị thanh cuộn theo cần thiết
         scroll_pane_input.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -271,7 +270,7 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
 
         scroll_pane_public_key = new JScrollPane(text_area_public_key);
         scroll_pane_public_key.setBounds(314, 38, 154, 127);
-        scroll_pane_public_key.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
+        scroll_pane_public_key.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 
         // Thiết lập hiển thị thanh cuộn theo cần thiết
         scroll_pane_public_key.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -289,7 +288,7 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
 
         scroll_pane_private_key = new JScrollPane(text_area_private_key);
         scroll_pane_private_key.setBounds(519, 38, 154, 127);
-        scroll_pane_private_key.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
+        scroll_pane_private_key.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 
         // Thiết lập hiển thị thanh cuộn theo cần thiết
         scroll_pane_private_key.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
