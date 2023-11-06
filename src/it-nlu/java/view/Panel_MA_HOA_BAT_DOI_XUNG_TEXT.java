@@ -1,5 +1,8 @@
 package view;
 
+import controller.Controller_MA_HOA_BAT_DOI_XUNG;
+import helper.Algorithm;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,7 +10,6 @@ import java.awt.event.ActionListener;
 import java.awt.geom.RoundRectangle2D;
 
 public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
-
     private JLabel lb_key_size,
             lb_public_key,
             lb_private_key,
@@ -21,7 +23,6 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
             bt_encrypt,
             bt_decrypt,
             bt_home;
-
     private JTextArea text_area_public_key,
             text_area_private_key,
             text_area_input,
@@ -33,9 +34,9 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
             scroll_pane_output;
 
     private final String[] arr_key_sizes = {"512 bit", "1024 bit", "2048 bit", "4096 bit"};
-
-    private final String[] arr_mode_padding = {"RSA/ECB/PKCS1Padding", "RSA"};
-    private String key_size = "", mode_padding = "";
+    private final String[] arr_mode_padding = {"RSA", "RSA/ECB/PKCS1Padding"};
+    private String name_key_size = "", name_mode_padding = "",
+            public_key = "", private_key = "", text_input = "", text_output = "";
 
     public Panel_MA_HOA_BAT_DOI_XUNG_TEXT(int WIDTH, int HEIGHT) {
 
@@ -121,13 +122,13 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
         combo_box_mode_padding.setBounds(24, 115, 180, 32);
         combo_box_mode_padding.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 
-        mode_padding = combo_box_mode_padding.getSelectedItem().toString();
+        name_mode_padding = combo_box_mode_padding.getSelectedItem().toString();
 
         combo_box_mode_padding.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                mode_padding = combo_box_mode_padding.getSelectedItem().toString();
+                name_mode_padding = combo_box_mode_padding.getSelectedItem().toString();
             }
         });
 
@@ -139,13 +140,13 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
         combo_box_key_size.setBounds(24, 38, 159, 32);
         combo_box_key_size.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 
-        key_size = combo_box_key_size.getSelectedItem().toString();
+        name_key_size = combo_box_key_size.getSelectedItem().toString();
 
         combo_box_key_size.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                key_size = combo_box_key_size.getSelectedItem().toString();
+                name_key_size = combo_box_key_size.getSelectedItem().toString();
             }
         });
 
@@ -168,6 +169,28 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                if (bt_encrypt.isEnabled()) {
+
+                    text_input = text_area_input.getText();
+                    if (text_input == null || text_input.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Bạn hãy nhập vào văn bản cần MÃ HÓA", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                        return;
+                    }
+
+                    public_key = text_area_public_key.getText();
+                    if (public_key == null || public_key.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Bạn hãy nhập vào PUBLIC KEY", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                        return;
+                    }
+
+                    text_output = Controller_MA_HOA_BAT_DOI_XUNG.encryptText(Algorithm.RSA, text_input, public_key, name_mode_padding);
+                    if (text_output == null) {
+                        JOptionPane.showMessageDialog(null, "Lỗi trong khi MÃ HÓA", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+
+                    text_area_output.setText(text_output);
+                }
             }
         });
 
@@ -213,6 +236,21 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                if (bt_create_key.isEnabled()) {
+
+                    if (name_key_size == null) return;
+                    int key_size = Integer.parseInt(name_key_size.replaceAll("[^0-9]", ""));
+
+                    var arr_key = Controller_MA_HOA_BAT_DOI_XUNG.createKeyRandom(Algorithm.RSA, key_size);
+                    if (arr_key == null) return;
+
+                    public_key = arr_key[0];
+                    private_key = arr_key[1];
+
+                    text_area_public_key.setText(public_key);
+                    text_area_private_key.setText(private_key);
+
+                }
             }
         });
 

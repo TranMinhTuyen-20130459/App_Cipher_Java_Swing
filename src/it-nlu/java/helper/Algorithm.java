@@ -8,4 +8,6 @@ public class Algorithm {
     public static final String SERPENT = "SERPENT";
     public static final String HILL = "HILL";
     public static final String VIGENERE = "VIGENERE";
+    public static final String RSA = "RSA";
+
 }
