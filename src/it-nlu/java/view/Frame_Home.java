@@ -23,7 +23,6 @@ public class Frame_Home extends JFrame {
             Image.SCALE_SMOOTH);
     private static int WIDTH_PANEL_CONTENT_MAIN = 1100 - (1100 / 3 + 38);
     private static int HEIGHT_PANEL_CONTENT_MAIN = 650 - (650 / 6 + 60);
-    public static JPanel panel_ma_hoa_doi_xung = new Panel_MA_HOA_DOI_XUNG(WIDTH_PANEL_CONTENT_MAIN, HEIGHT_PANEL_CONTENT_MAIN);
     public static JPanel panel_mhdx_text = new Panel_MA_HOA_DOI_XUNG_TEXT(WIDTH_PANEL_CONTENT_MAIN, HEIGHT_PANEL_CONTENT_MAIN);
     public static JPanel panel_mhdx_file = new Panel_MA_HOA_DOI_XUNG_FILE(WIDTH_PANEL_CONTENT_MAIN, HEIGHT_PANEL_CONTENT_MAIN);
     public static JPanel panel_ma_hoa_bat_doi_xung = new Panel_MA_HOA_BAT_DOI_XUNG(WIDTH_PANEL_CONTENT_MAIN, HEIGHT_PANEL_CONTENT_MAIN);
@@ -180,12 +179,11 @@ public class Frame_Home extends JFrame {
            => dùng cấu trúc Hàng đợi (Queue)
          */
 
-        panel_content_main.add(panel_ma_hoa_doi_xung).setVisible(true);
+        panel_content_main.add(panel_mhdx_text).setVisible(true);
+        panel_content_main.add(panel_mhdx_file).setVisible(false);
         panel_content_main.add(panel_ma_hoa_bat_doi_xung).setVisible(false);
         panel_content_main.add(panel_ma_hoa_hash).setVisible(false);
         panel_content_main.add(panel_chu_ky_dien_tu).setVisible(false);
-        panel_content_main.add(panel_mhdx_text).setVisible(false);
-        panel_content_main.add(panel_mhdx_file).setVisible(false);
         panel_content_main.add(panel_ma_hoa_hash_text).setVisible(false);
         panel_content_main.add(panel_ma_hoa_hash_file).setVisible(false);
         panel_content_main.add(panel_mhbdx_text).setVisible(false);
@@ -202,7 +200,7 @@ public class Frame_Home extends JFrame {
         panel_menu_doi_xung.addMouseListener(new PanelButtonMouseAdapter(panel_menu_doi_xung) {
             @Override
             public void mouseClicked(MouseEvent e) {
-                showPanel(panel_ma_hoa_doi_xung);
+                showPanel(panel_mhdx_text);
                 changeColorMenuPanel(panel_menu_doi_xung);
             }
         });
@@ -314,7 +312,6 @@ public class Frame_Home extends JFrame {
     // khi click vào Menu nào thì sẽ hiện ra cái Panel mà Menu đó tham chiếu tới
     public static void showPanel(JPanel panel) {
 
-        if (panel_ma_hoa_doi_xung != null) panel_ma_hoa_doi_xung.setVisible(false);
         if (panel_mhdx_text != null) panel_mhdx_text.setVisible(false);
         if (panel_mhdx_file != null) panel_mhdx_file.setVisible(false);
         if (panel_ma_hoa_bat_doi_xung != null) panel_ma_hoa_bat_doi_xung.setVisible(false);

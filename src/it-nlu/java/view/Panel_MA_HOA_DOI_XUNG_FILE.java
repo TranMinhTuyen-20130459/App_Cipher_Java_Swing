@@ -30,7 +30,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
     private JButton bt_encrypt,
             bt_decrypt,
             bt_copy_key,
-            bt_home,
+            bt_switch_text,
             bt_choose_file,
             bt_create_key;
     private JTextField key_text_field;
@@ -79,7 +79,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
         add(bt_copy_key);
         add(bt_encrypt);
         add(bt_decrypt);
-        add(bt_home);
+        add(bt_switch_text);
         add(bt_create_key);
 
         add(panel_choose_file);
@@ -117,7 +117,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
         createButtonEncrypt();
         createButtonDecrypt();
         createButtonCopyKey();
-        createButtonHome();
+        createButtonSwitchText();
         createButtonCreateKey();
     }
 
@@ -315,6 +315,8 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
     public void createButtonCopyKey() {
         bt_copy_key = new Panel_MA_HOA_DOI_XUNG_FILE.RoundedButton("COPY", 0, new Color(136, 196, 230));
         bt_copy_key.setBounds(565, 82, 100, 37);
+        bt_copy_key.setFont(new Font("Arial", Font.PLAIN, 12));
+
         bt_copy_key.addMouseListener(new MouseAdapter() {
 
             @Override
@@ -330,14 +332,16 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
         });
     }
 
-    public void createButtonHome() {
-        bt_home = new RoundedButton("TRANG CHỦ", 15, new Color(136, 196, 230));
-        bt_home.setBounds(550, 432, 115, 37);
-        bt_home.addMouseListener(new MouseAdapter() {
+    public void createButtonSwitchText() {
+        bt_switch_text = new RoundedButton("TEXT", 15, new Color(215, 187, 18));
+        bt_switch_text.setBounds(550, 432, 115, 37);
+        bt_switch_text.setFont(new Font("Arial", Font.ITALIC,20));
+
+        bt_switch_text.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 resetLayout();
-                Frame_Home.showPanel(Frame_Home.panel_ma_hoa_doi_xung);
+                Frame_Home.showPanel(Frame_Home.panel_mhdx_text);
             }
         });
     }

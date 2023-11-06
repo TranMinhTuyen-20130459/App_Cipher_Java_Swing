@@ -24,7 +24,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
             bt_decrypt,
             bt_copy_key,
             bt_create_key,
-            bt_home,
+            bt_switch_file,
             bt_copy_encrypted_text;
     private JTextArea plain_text_area,
             encrypted_text_area,
@@ -86,7 +86,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         add(bt_decrypt);
         add(bt_copy_key);
         add(bt_copy_encrypted_text);
-        add(bt_home);
+        add(bt_switch_file);
         add(bt_create_key);
 
         add(combo_box_algorithm);
@@ -142,7 +142,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         createButtonDecrypt();
         createButtonCopyKey();
         createButtonCopyEncryptedText();
-        createButtonHome();
+        createButtonSwitchFile();
         createButtonCreateKey();
     }
 
@@ -355,15 +355,16 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
 
     }
 
-    public void createButtonHome() {
-        bt_home = new RoundedButton("TRANG CHỦ", 15, new Color(136, 196, 230));
-        bt_home.setBounds(550, 432, 115, 37);
+    public void createButtonSwitchFile() {
+        bt_switch_file = new RoundedButton("FILE", 15, new Color(215, 187, 18));
+        bt_switch_file.setBounds(550, 432, 115, 37);
+        bt_switch_file.setFont(new Font("Arial", Font.ITALIC, 20));
 
-        bt_home.addMouseListener(new MouseAdapter() {
+        bt_switch_file.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 resetLayout();
-                Frame_Home.showPanel(Frame_Home.panel_ma_hoa_doi_xung);
+                Frame_Home.showPanel(Frame_Home.panel_mhdx_file);
             }
         });
     }
