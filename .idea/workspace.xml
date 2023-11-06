@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="giao diện cho thuật toán mã hóa bất đối">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="bỏ giao diện Trang Chủ của component Panel_MA_HOA_DOI_XUNG">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Frame_Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Frame_Home.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_BAT_DOI_XUNG.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_FILE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_TEXT.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,14 +241,8 @@
       <workItem from="1699155302447" duration="10447000" />
       <workItem from="1699189216789" duration="3281000" />
       <workItem from="1699202747241" duration="1382000" />
-      <workItem from="1699243762005" duration="8497000" />
-    </task>
-    <task id="LOCAL-00024" summary="cho phép user tạo KEY (giải thuật DES)">
-      <created>1697650382319</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1697650382319</updated>
+      <workItem from="1699243762005" duration="8666000" />
+      <workItem from="1699258882062" duration="873000" />
     </task>
     <task id="LOCAL-00025" summary="mã hóa và giải mã File với thuật toán DES">
       <created>1697772939966</created>
@@ -586,7 +580,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699251201699</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="bỏ giao diện Trang Chủ của component Panel_MA_HOA_DOI_XUNG">
+      <created>1699252395769</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1699252395769</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -604,7 +605,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="bỏ đi ComboBox chọn ngôn ngữ tại component Panel_MA_HOA_DOI_XUNG_FILE" />
     <MESSAGE value="bỏ đi bt_input_key trên View của Component Panel_MA_HOA_DOI_XUNG_TEXT" />
     <MESSAGE value="đổi tên function trong Controller_MA_HOA_DOI_XUNG" />
     <MESSAGE value="thêm bt_copy đoạn văn bản đã mã hóa và xử lý sự kiện cho button đó" />
@@ -629,7 +629,8 @@
     <MESSAGE value="thêm thuật toán mã hóa đối xứng Blowfish, hiện thực lên View trong component Panel_MA_HOA_DOI_XUNG_TEXT, Panel_MA_HOA_DOI_XUNG_FILE" />
     <MESSAGE value="sửa giao diện Trang Chủ thuật toán mã hóa HASH" />
     <MESSAGE value="giao diện cho thuật toán mã hóa bất đối" />
-    <option name="LAST_COMMIT_MESSAGE" value="giao diện cho thuật toán mã hóa bất đối" />
+    <MESSAGE value="bỏ giao diện Trang Chủ của component Panel_MA_HOA_DOI_XUNG" />
+    <option name="LAST_COMMIT_MESSAGE" value="bỏ giao diện Trang Chủ của component Panel_MA_HOA_DOI_XUNG" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

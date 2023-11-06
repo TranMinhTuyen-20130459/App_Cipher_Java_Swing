@@ -20,7 +20,7 @@ public class Panel_MA_HOA_HASH_TEXT extends JPanel {
 
     private JComboBox combo_box_algorithm;
 
-    private JButton bt_hash, bt_copy, bt_home;
+    private JButton bt_hash, bt_copy, bt_switch_file;
 
     private JTextArea input_text_area, output_text_area;
 
@@ -54,7 +54,7 @@ public class Panel_MA_HOA_HASH_TEXT extends JPanel {
 
         add(bt_hash);
         add(bt_copy);
-        add(bt_home);
+        add(bt_switch_file);
 
         add(combo_box_algorithm);
 
@@ -86,7 +86,7 @@ public class Panel_MA_HOA_HASH_TEXT extends JPanel {
     public void createButtonGroup() {
         createButtonHash();
         createButtonCopy();
-        createButtonHome();
+        createButtonSwitchFile();
     }
 
     public void createTextAreaGroup() {
@@ -231,16 +231,17 @@ public class Panel_MA_HOA_HASH_TEXT extends JPanel {
         });
     }
 
-    public void createButtonHome() {
-        bt_home = new RoundedButton("TRANG CHỦ", 15, new Color(136, 196, 230));
-        bt_home.setBounds(495, 432, 115, 35);
+    public void createButtonSwitchFile() {
+        bt_switch_file = new RoundedButton("FILE", 15, new Color(215, 187, 18));
+        bt_switch_file.setBounds(495, 432, 115, 35);
+        bt_switch_file.setFont(new Font("Arial", Font.ITALIC, 20));
 
-        bt_home.addActionListener(new ActionListener() {
+        bt_switch_file.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
                 resetLayout();
-                Frame_Home.showPanel(Frame_Home.panel_ma_hoa_hash);
+                Frame_Home.showPanel(Frame_Home.panel_ma_hoa_hash_file);
             }
         });
     }
