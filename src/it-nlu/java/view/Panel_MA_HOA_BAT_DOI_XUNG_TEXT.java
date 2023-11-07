@@ -10,6 +10,8 @@ import java.awt.event.ActionListener;
 import java.awt.geom.RoundRectangle2D;
 
 public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
+
+    private Image img_swap = new ImageIcon("src/it-nlu/resources/image/swap.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
     private JLabel lb_key_size,
             lb_public_key,
             lb_private_key,
@@ -22,7 +24,8 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
     private JButton bt_create_key,
             bt_encrypt,
             bt_decrypt,
-            bt_switch_file;
+            bt_switch_file,
+            bt_swap_input_output;
     private JTextArea text_area_public_key,
             text_area_private_key,
             text_area_input,
@@ -65,6 +68,7 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
         add(bt_encrypt);
         add(bt_decrypt);
         add(bt_switch_file);
+        add(bt_swap_input_output);
 
         add(scroll_pane_public_key);
         add(scroll_pane_private_key);
@@ -161,6 +165,7 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
         createButtonSwitchFile();
         createButtonEncrypt();
         createButtonDecrypt();
+        createButtonSwapInputOutput();
     }
 
     private void createButtonEncrypt() {
@@ -283,6 +288,12 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
             }
         });
 
+    }
+
+    public void createButtonSwapInputOutput() {
+        bt_swap_input_output = new RoundedButton("", 0, new Color(217, 217, 217));
+        bt_swap_input_output.setBounds(305, 387, 87, 30);
+        bt_swap_input_output.setIcon(new ImageIcon(img_swap));
     }
 
     public void createTextAreaGroup() {

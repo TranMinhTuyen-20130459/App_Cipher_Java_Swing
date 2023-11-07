@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="giải mã với thuật toán RSA trên View">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="chỉnh sửa giao diện">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_BAT_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_BAT_DOI_XUNG_TEXT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_FILE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_TEXT.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,14 +243,7 @@
       <workItem from="1699277049959" duration="11225000" />
       <workItem from="1699344231575" duration="383000" />
       <workItem from="1699344641031" duration="9734000" />
-      <workItem from="1699363799841" duration="7397000" />
-    </task>
-    <task id="LOCAL-00030" summary="Thêm chức năng Copy Key ở component MA_HOA_DOI_XUNG_FILE">
-      <created>1697984911686</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1697984911686</updated>
+      <workItem from="1699363799841" duration="12010000" />
     </task>
     <task id="LOCAL-00031" summary="Reset lại Layout của component Panel_MA_HOA_DOI_XUNG_FILE khi click vào button &quot;TRANG CHỦ&quot;">
       <created>1697990224206</created>
@@ -590,7 +581,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699355450829</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="chỉnh sửa giao diện">
+      <created>1699371234291</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1699371234291</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -608,7 +606,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="thêm giao diện của component MA_HOA_HASH_TEXT" />
     <MESSAGE value="thêm giao diện của component Panel_MA_HOA_HASH_FILE" />
     <MESSAGE value="nâng cấp giao diện của component Panel_MA_HOA_HASH_FILE" />
     <MESSAGE value="hiện thực giải thuật MD5 trong model" />
@@ -633,7 +630,8 @@
     <MESSAGE value="hiện thực giải thực RSA trong model" />
     <MESSAGE value="tạo key, mã hóa với thuật toán RSA trên View" />
     <MESSAGE value="giải mã với thuật toán RSA trên View" />
-    <option name="LAST_COMMIT_MESSAGE" value="giải mã với thuật toán RSA trên View" />
+    <MESSAGE value="chỉnh sửa giao diện" />
+    <option name="LAST_COMMIT_MESSAGE" value="chỉnh sửa giao diện" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
