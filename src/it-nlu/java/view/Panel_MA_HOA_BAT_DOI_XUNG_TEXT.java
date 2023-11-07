@@ -22,7 +22,7 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
     private JButton bt_create_key,
             bt_encrypt,
             bt_decrypt,
-            bt_home;
+            bt_switch_file;
     private JTextArea text_area_public_key,
             text_area_private_key,
             text_area_input,
@@ -64,7 +64,7 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
         add(bt_create_key);
         add(bt_encrypt);
         add(bt_decrypt);
-        add(bt_home);
+        add(bt_switch_file);
 
         add(scroll_pane_public_key);
         add(scroll_pane_private_key);
@@ -129,6 +129,7 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 name_mode_padding = combo_box_mode_padding.getSelectedItem().toString();
+                resetOutputTextArea();
             }
         });
 
@@ -147,6 +148,9 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 name_key_size = combo_box_key_size.getSelectedItem().toString();
+
+                resetPublicKeyTextArea();
+                resetPrivateKeyTextArea();
             }
         });
 
@@ -154,15 +158,17 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
 
     public void createButtonGroup() {
         createButtonCreateKey();
-        createButtonHome();
+        createButtonSwitchFile();
         createButtonEncrypt();
         createButtonDecrypt();
     }
 
     private void createButtonEncrypt() {
 
-        bt_encrypt = new RoundedButton("MÃ HÓA", 0, new Color(217, 217, 217));
-        bt_encrypt.setBounds(309, 271, 83, 30);
+        bt_encrypt = new RoundedButton("MÃ HÓA", 15, new Color(9, 135, 232));
+        bt_encrypt.setBounds(305, 260, 87, 30);
+        bt_encrypt.setFont(new Font("Arial", Font.BOLD, 12));
+        bt_encrypt.setForeground(new Color(255, 255, 255));
 
         bt_encrypt.addActionListener(new ActionListener() {
 
@@ -198,9 +204,9 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
 
     private void createButtonDecrypt() {
 
-        bt_decrypt = new RoundedButton("GIẢI MÃ", 0, new Color(217, 217, 217));
-        bt_decrypt.setBounds(309, 326, 83, 30);
-
+        bt_decrypt = new RoundedButton("GIẢI MÃ", 15, new Color(217, 217, 217));
+        bt_decrypt.setBounds(305, 326, 87, 30);
+        bt_decrypt.setFont(new Font("Arial", Font.BOLD, 12));
         bt_decrypt.addActionListener(new ActionListener() {
 
             @Override
@@ -233,16 +239,17 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
 
     }
 
-    private void createButtonHome() {
+    private void createButtonSwitchFile() {
 
-        bt_home = new RoundedButton("TRANG CHỦ", 0, new Color(217, 217, 217));
-        bt_home.setBounds(565, 439, 108, 31);
+        bt_switch_file = new RoundedButton("FILE", 15, new Color(215, 187, 18));
+        bt_switch_file.setBounds(550, 432, 115, 35);
+        bt_switch_file.setFont(new Font("Arial", Font.ITALIC, 20));
 
-        bt_home.addActionListener(new ActionListener() {
+        bt_switch_file.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                resetLayout();
             }
         });
 
@@ -290,6 +297,7 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
         text_area_output = new JTextArea();
         text_area_output.setFont(new Font("Arial", Font.PLAIN, 16));
         text_area_output.setBackground(new Color(217, 217, 217));
+        text_area_output.setEditable(false);
 
         scroll_pane_output = new JScrollPane(text_area_output);
         scroll_pane_output.setBounds(402, 204, 271, 215);
@@ -357,6 +365,45 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
         text_area_private_key.setLineWrap(true);
         text_area_private_key.setWrapStyleWord(true);
 
+    }
+
+    public void resetInputTextArea() {
+        text_input = "";
+        text_area_input.setText(text_input);
+    }
+
+    public void resetOutputTextArea() {
+        text_output = "";
+        text_area_output.setText(text_output);
+    }
+
+    public void resetPublicKeyTextArea() {
+        public_key = "";
+        text_area_public_key.setText(public_key);
+    }
+
+    public void resetPrivateKeyTextArea() {
+        private_key = "";
+        text_area_private_key.setText(private_key);
+    }
+
+    public void resetComboBoxKeySize() {
+        combo_box_key_size.setSelectedIndex(0);
+        name_key_size = combo_box_key_size.getSelectedItem().toString();
+    }
+
+    public void resetComboBoxModePadding() {
+        combo_box_mode_padding.setSelectedIndex(0);
+        name_mode_padding = combo_box_mode_padding.getSelectedItem().toString();
+    }
+
+    public void resetLayout() {
+        resetComboBoxKeySize();
+        resetComboBoxModePadding();
+        resetPublicKeyTextArea();
+        resetPrivateKeyTextArea();
+        resetInputTextArea();
+        resetOutputTextArea();
     }
 
     public class RoundedButton extends JButton {

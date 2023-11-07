@@ -127,10 +127,10 @@ public class Panel_MA_HOA_HASH_FILE extends JPanel {
     }
 
     public void createButtonHash() {
-        bt_hash = new RoundedButton("HASH", 15, new Color(229, 117, 216));
+        bt_hash = new RoundedButton("HASH", 15, new Color(9, 135, 232));
         bt_hash.setBounds(245, 218, 144, 34);
-        bt_hash.setFont(new Font("Arial", Font.PLAIN, 14));
-
+        bt_hash.setFont(new Font("Arial", Font.BOLD, 14));
+        bt_hash.setForeground(Color.WHITE);
         bt_hash.addActionListener(new ActionListener() {
 
             @Override
@@ -183,7 +183,7 @@ public class Panel_MA_HOA_HASH_FILE extends JPanel {
 
     public void createButtonSwitchText() {
         bt_switch_text = new RoundedButton("TEXT", 15, new Color(215, 187, 18));
-        bt_switch_text.setBounds(495, 432, 115, 35);
+        bt_switch_text.setBounds(550, 432, 115, 35);
         bt_switch_text.setFont(new Font("Arial", Font.ITALIC, 20));
         bt_switch_text.addActionListener(new ActionListener() {
             @Override
