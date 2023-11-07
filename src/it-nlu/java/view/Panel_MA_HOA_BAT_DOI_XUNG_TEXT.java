@@ -91,7 +91,7 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
         lb_private_key.setFont(new Font("Arial", Font.PLAIN, 14));
         lb_private_key.setBounds(522, 12, 95, 21);
 
-        lb_mode_padding = new JLabel("Mode/Padding:");
+        lb_mode_padding = new JLabel("Cipher Type:");
         lb_mode_padding.setForeground(Color.BLACK);
         lb_mode_padding.setHorizontalAlignment(SwingConstants.LEFT);
         lb_mode_padding.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -185,7 +185,7 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
 
                     text_output = Controller_MA_HOA_BAT_DOI_XUNG.encryptText(Algorithm.RSA, text_input, public_key, name_mode_padding);
                     if (text_output == null) {
-                        JOptionPane.showMessageDialog(null, "Lỗi trong khi MÃ HÓA", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "MÃ HÓA THẤT BẠI", "Lỗi", JOptionPane.ERROR_MESSAGE);
                         return;
                     }
 
@@ -205,6 +205,28 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
 
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                if (bt_decrypt.isEnabled()) {
+
+                    text_input = text_area_input.getText();
+                    if (text_input == null || text_input.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Bạn hãy nhập vào văn bản cần GIẢI MÃ", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                        return;
+                    }
+
+                    private_key = text_area_private_key.getText();
+                    if (private_key == null || private_key.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Bạn hãy nhập vào PRIVATE KEY", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                        return;
+                    }
+
+                    text_output = Controller_MA_HOA_BAT_DOI_XUNG.decryptText(Algorithm.RSA, text_input, private_key, name_mode_padding);
+                    if (text_output == null) {
+                        JOptionPane.showMessageDialog(null, "GIẢI MÃ THẤT BẠI", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+                    text_area_output.setText(text_output);
+                }
 
             }
         });

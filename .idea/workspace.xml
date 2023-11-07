@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="hiện thực giải thực RSA trong model">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="tạo key, mã hóa với thuật toán RSA trên View">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/helper/Algorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/helper/Algorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_BAT_DOI_XUNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_BAT_DOI_XUNG.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_bat_doi_xung/Cipher_RSA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_bat_doi_xung/Cipher_RSA.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_BAT_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_BAT_DOI_XUNG_TEXT.java" afterDir="false" />
     </list>
@@ -242,14 +242,9 @@
       <workItem from="1699202747241" duration="1382000" />
       <workItem from="1699243762005" duration="8666000" />
       <workItem from="1699258882062" duration="9162000" />
-      <workItem from="1699277049959" duration="10764000" />
-    </task>
-    <task id="LOCAL-00028" summary="giải mã file với thuật toán DES khi user chọn button GIẢI MÃ">
-      <created>1697888068121</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1697888068122</updated>
+      <workItem from="1699277049959" duration="11225000" />
+      <workItem from="1699344231575" duration="383000" />
+      <workItem from="1699344641031" duration="9632000" />
     </task>
     <task id="LOCAL-00029" summary="Fix lỗi tự tạo File mới mặc dù đã MÃ HÓA or GIẢI MÃ file &quot;THẤT BẠI&quot;">
       <created>1697983704713</created>
@@ -587,7 +582,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699268282953</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="tạo key, mã hóa với thuật toán RSA trên View">
+      <created>1699288870068</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1699288870068</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -605,7 +607,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="thêm function để reset lại ComboBox TypeKey" />
     <MESSAGE value="thêm ComboBox &quot;Loại Key&quot; trên View của component Panel_MA_HOA_DOI_XUNG_FILE" />
     <MESSAGE value="thêm giao diện của component MA_HOA_HASH_TEXT" />
     <MESSAGE value="thêm giao diện của component Panel_MA_HOA_HASH_FILE" />
@@ -630,7 +631,8 @@
     <MESSAGE value="bỏ giao diện Trang Chủ của component Panel_MA_HOA_HASH, Panel_MA_HOA_BAT_DOI_XUNG.java" />
     <MESSAGE value="bỏ giao diện Trang Chủ của component Panel_MA_HOA_HASH" />
     <MESSAGE value="hiện thực giải thực RSA trong model" />
-    <option name="LAST_COMMIT_MESSAGE" value="hiện thực giải thực RSA trong model" />
+    <MESSAGE value="tạo key, mã hóa với thuật toán RSA trên View" />
+    <option name="LAST_COMMIT_MESSAGE" value="tạo key, mã hóa với thuật toán RSA trên View" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
