@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="chỉnh sửa giao diện">
+    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="thêm icon">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_BAT_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_BAT_DOI_XUNG_TEXT.java" afterDir="false" />
     </list>
@@ -243,14 +243,8 @@
       <workItem from="1699277049959" duration="11225000" />
       <workItem from="1699344231575" duration="383000" />
       <workItem from="1699344641031" duration="9734000" />
-      <workItem from="1699363799841" duration="12010000" />
-    </task>
-    <task id="LOCAL-00031" summary="Reset lại Layout của component Panel_MA_HOA_DOI_XUNG_FILE khi click vào button &quot;TRANG CHỦ&quot;">
-      <created>1697990224206</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1697990224206</updated>
+      <workItem from="1699363799841" duration="12143000" />
+      <workItem from="1699409091162" duration="1687000" />
     </task>
     <task id="LOCAL-00032" summary="Reset lại Layout của component Panel_MA_HOA_DOI_XUNG_TEXT khi click vào button &quot;TRANG CHỦ&quot;">
       <created>1697990738557</created>
@@ -588,7 +582,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699371234291</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="thêm icon">
+      <created>1699375858001</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1699375858001</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -606,7 +607,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="thêm giao diện của component Panel_MA_HOA_HASH_FILE" />
     <MESSAGE value="nâng cấp giao diện của component Panel_MA_HOA_HASH_FILE" />
     <MESSAGE value="hiện thực giải thuật MD5 trong model" />
     <MESSAGE value="hiện thực giải thuật SHA trong model" />
@@ -631,7 +631,8 @@
     <MESSAGE value="tạo key, mã hóa với thuật toán RSA trên View" />
     <MESSAGE value="giải mã với thuật toán RSA trên View" />
     <MESSAGE value="chỉnh sửa giao diện" />
-    <option name="LAST_COMMIT_MESSAGE" value="chỉnh sửa giao diện" />
+    <MESSAGE value="thêm icon" />
+    <option name="LAST_COMMIT_MESSAGE" value="thêm icon" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

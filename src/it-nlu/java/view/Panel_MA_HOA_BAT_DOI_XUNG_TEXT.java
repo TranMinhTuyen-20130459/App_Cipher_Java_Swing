@@ -294,6 +294,29 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
         bt_swap_input_output = new RoundedButton("", 0, new Color(217, 217, 217));
         bt_swap_input_output.setBounds(305, 387, 87, 30);
         bt_swap_input_output.setIcon(new ImageIcon(img_swap));
+
+        bt_swap_input_output.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                if (bt_swap_input_output.isEnabled()) {
+
+                    text_input = text_area_input.getText();
+                    text_output = text_area_output.getText();
+
+                    String temp_text_input = text_output;
+                    String temp_text_output = text_input;
+
+                    text_input = temp_text_input;
+                    text_output = temp_text_output;
+
+                    text_area_input.setText(text_input);
+                    text_area_output.setText(text_output);
+                }
+
+            }
+        });
     }
 
     public void createTextAreaGroup() {
@@ -308,7 +331,7 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
         text_area_output = new JTextArea();
         text_area_output.setFont(new Font("Arial", Font.PLAIN, 16));
         text_area_output.setBackground(new Color(217, 217, 217));
-        text_area_output.setEditable(false);
+        // text_area_output.setEditable(false);
 
         scroll_pane_output = new JScrollPane(text_area_output);
         scroll_pane_output.setBounds(402, 204, 271, 215);
