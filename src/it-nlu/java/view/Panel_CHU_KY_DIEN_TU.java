@@ -1,5 +1,7 @@
 package view;
 
+import controller.Controller_CHU_KI_DIEN_TU;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -16,12 +18,15 @@ public class Panel_CHU_KY_DIEN_TU extends JPanel {
     private JTextArea input_text_area;
     private JComboBox combo_box_algorithm;
 
-    private JButton bt_choose_file, bt_check;
+    private JButton bt_choose_file, bt_check, bt_reset;
 
     private JPanel panel_choose_file;
     private final String[] arr_algorithms = {"MD5", "SHA-1", "SHA-224", "SHA-256", "SHA-384", "SHA-512"};
 
-    private String name_algorithm = "";
+    private String name_algorithm = "",
+            hash_text_input = "",
+            name_file_selected = "",
+            path_file_selected = "";
 
     public Panel_CHU_KY_DIEN_TU(int WIDTH, int HEIGHT) {
 
@@ -48,6 +53,7 @@ public class Panel_CHU_KY_DIEN_TU extends JPanel {
         add(combo_box_algorithm);
 
         add(bt_check);
+        add(bt_reset);
     }
 
     public void createLabelGroup() {
@@ -106,15 +112,16 @@ public class Panel_CHU_KY_DIEN_TU extends JPanel {
         input_text_area.setLineWrap(true);
         input_text_area.setWrapStyleWord(true);
 
-
     }
 
     public void createButtonGroup() {
         createButtonCheck();
+        createButtonReset();
     }
 
     public void createButtonCheck() {
-        bt_check = new RoundedButton("KIỂM TRA", 0, new Color(9, 135, 232));
+
+        bt_check = new RoundedButton("KIỂM TRA", 20, new Color(9, 135, 232));
         bt_check.setForeground(Color.WHITE);
         bt_check.setFont(new Font("Arial", Font.BOLD, 12));
         bt_check.setBounds(494, 185, 123, 109);
@@ -123,9 +130,36 @@ public class Panel_CHU_KY_DIEN_TU extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                if (bt_check.isEnabled()) {
+
+                    if (name_algorithm == null || name_algorithm.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Bạn cần chọn GIẢI THUẬT", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                        return;
+                    }
+
+                    if (name_file_selected == null || path_file_selected == null ||
+                            name_file_selected.isEmpty() || path_file_selected.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Bạn cần chọn FILE để kiểm tra", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                        return;
+                    }
+
+                    hash_text_input = input_text_area.getText();
+                    if (hash_text_input == null || hash_text_input.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Bạn cần nhập vào chuỗi HASH để kiểm tra", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                        return;
+                    }
+
+                    boolean checkFileValid = Controller_CHU_KI_DIEN_TU.checkFileValid(name_algorithm, path_file_selected, hash_text_input);
+
+                    if (checkFileValid == true)
+                        JOptionPane.showMessageDialog(null, "FILE HỢP LỆ", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+                    else
+                        JOptionPane.showMessageDialog(null, "FILE KHÔNG HỢP LỆ !!!", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+
+                }
+
             }
         });
-
 
     }
 
@@ -167,6 +201,10 @@ public class Panel_CHU_KY_DIEN_TU extends JPanel {
                     // Lấy tệp đã chọn
                     File selectedFile = fileChooser.getSelectedFile();
 
+                    name_file_selected = selectedFile.getName();
+                    path_file_selected = selectedFile.getAbsolutePath();
+
+                    lb_name_file.setText(name_file_selected);
 
                     // System.out.println("Đường dẫn tuyệt đối đến tệp: " + path_selected_file);
                     // System.out.println("Đường dẫn đến thư mục chứa tệp: " + path_folder_contain_selected_file);
@@ -174,6 +212,40 @@ public class Panel_CHU_KY_DIEN_TU extends JPanel {
             }
         });
 
+    }
+
+    public void createButtonReset() {
+        bt_reset = new RoundedButton("RESET", 0, new Color(217, 217, 217));
+        bt_reset.setBounds(540, 25, 75, 35);
+        bt_reset.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                resetLayout();
+            }
+        });
+    }
+
+    public void resetComboBoxAlgorithm() {
+        combo_box_algorithm.setSelectedIndex(0);
+        name_algorithm = combo_box_algorithm.getSelectedItem().toString();
+    }
+
+    public void resetInputTextArea() {
+        hash_text_input = "";
+        input_text_area.setText(hash_text_input);
+    }
+
+    public void resetSelectedFile() {
+        name_file_selected = "";
+        path_file_selected = "";
+        lb_name_file.setText(name_file_selected);
+    }
+
+    public void resetLayout() {
+        resetComboBoxAlgorithm();
+        resetSelectedFile();
+        resetInputTextArea();
     }
 
     public class RoundedButton extends JButton {
