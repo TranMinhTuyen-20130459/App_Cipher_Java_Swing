@@ -2,6 +2,7 @@ package view;
 
 import controller.Controller_MA_HOA_DOI_XUNG;
 import helper.Algorithm;
+import helper.Image;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
@@ -149,6 +150,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     public void createButtonEncrypt() {
         bt_encrypt = new RoundedButton("MÃ HÓA", 0, new Color(217, 217, 217));
         bt_encrypt.setBounds(19, 432, 115, 37);
+        bt_encrypt.setIcon(new ImageIcon(Image.img_encrypt));
         bt_encrypt.setEnabled(false);
 
         bt_encrypt.addMouseListener(new MouseAdapter() {
@@ -270,6 +272,8 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     public void createButtonDecrypt() {
         bt_decrypt = new RoundedButton("GIẢI MÃ", 0, new Color(217, 217, 217));
         bt_decrypt.setBounds(190, 432, 115, 37);
+        bt_decrypt.setIcon(new ImageIcon(Image.img_decrypt));
+
         bt_decrypt.setEnabled(false);
 
         bt_decrypt.addMouseListener(new MouseAdapter() {
@@ -316,6 +320,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         bt_copy_key = new RoundedButton("COPY", 0, new Color(136, 196, 230));
         bt_copy_key.setBounds(565, 82, 100, 37);
         bt_copy_key.setFont(new Font("Arial", Font.PLAIN, 12));
+        bt_copy_key.setIcon(new ImageIcon(Image.img_copy));
 
         bt_copy_key.addMouseListener(new MouseAdapter() {
 
@@ -334,9 +339,10 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     }
 
     public void createButtonCopyEncryptedText() {
-        bt_copy_encrypted_text = new RoundedButton("COPY", 0, new Color(217, 217, 217));
+        bt_copy_encrypted_text = new RoundedButton("", 0, new Color(217, 217, 217));
         bt_copy_encrypted_text.setBounds(615, 240, 75, 70);
         bt_copy_encrypted_text.setFont(new Font("Arial", Font.PLAIN, 12));
+        bt_copy_encrypted_text.setIcon(new ImageIcon(Image.img_copy));
         bt_copy_encrypted_text.addActionListener(new ActionListener() {
 
             @Override
@@ -359,6 +365,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         bt_switch_file = new RoundedButton("FILE", 15, new Color(215, 187, 18));
         bt_switch_file.setBounds(550, 432, 115, 37);
         bt_switch_file.setFont(new Font("Arial", Font.ITALIC, 20));
+        bt_switch_file.setIcon(new ImageIcon(Image.img_folder));
 
         bt_switch_file.addMouseListener(new MouseAdapter() {
             @Override
@@ -372,6 +379,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     public void createButtonCreateKey() {
         bt_create_key = new RoundedButton("TẠO KEY", 0, new Color(217, 217, 217));
         bt_create_key.setBounds(400, 82, 120, 37);
+        bt_create_key.setIcon(new ImageIcon(Image.img_add));
 
         bt_create_key.addActionListener(new ActionListener() {
 

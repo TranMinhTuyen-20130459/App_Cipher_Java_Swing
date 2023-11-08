@@ -2,6 +2,7 @@ package view;
 
 import controller.Controller_MA_HOA_BAT_DOI_XUNG;
 import helper.Algorithm;
+import helper.Image;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,7 +12,6 @@ import java.awt.geom.RoundRectangle2D;
 
 public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
 
-    private Image img_swap = new ImageIcon("src/it-nlu/resources/image/swap.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
     private JLabel lb_key_size,
             lb_public_key,
             lb_private_key,
@@ -264,7 +264,6 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
 
         bt_create_key = new RoundedButton("TẠO KEY", 0, new Color(217, 217, 217));
         bt_create_key.setBounds(207, 38, 83, 31);
-
         bt_create_key.addActionListener(new ActionListener() {
 
             @Override
@@ -293,7 +292,7 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
     public void createButtonSwapInputOutput() {
         bt_swap_input_output = new RoundedButton("", 0, new Color(217, 217, 217));
         bt_swap_input_output.setBounds(305, 387, 87, 30);
-        bt_swap_input_output.setIcon(new ImageIcon(img_swap));
+        bt_swap_input_output.setIcon(new ImageIcon(Image.img_swap));
 
         bt_swap_input_output.addActionListener(new ActionListener() {
 

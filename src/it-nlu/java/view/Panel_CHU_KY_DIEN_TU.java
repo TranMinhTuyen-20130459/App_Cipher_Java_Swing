@@ -1,6 +1,7 @@
 package view;
 
 import controller.Controller_CHU_KI_DIEN_TU;
+import helper.Image;
 
 import javax.swing.*;
 import java.awt.*;
@@ -121,10 +122,11 @@ public class Panel_CHU_KY_DIEN_TU extends JPanel {
 
     public void createButtonCheck() {
 
-        bt_check = new RoundedButton("KIỂM TRA", 20, new Color(9, 135, 232));
-        bt_check.setForeground(Color.WHITE);
+        bt_check = new RoundedButton("KIỂM TRA", 20, new Color(136, 196, 230));
+        bt_check.setForeground(Color.BLACK);
         bt_check.setFont(new Font("Arial", Font.BOLD, 12));
         bt_check.setBounds(494, 185, 123, 109);
+        bt_check.setIcon(new ImageIcon(Image.img_checked));
         bt_check.addActionListener(new ActionListener() {
 
             @Override
@@ -215,8 +217,9 @@ public class Panel_CHU_KY_DIEN_TU extends JPanel {
     }
 
     public void createButtonReset() {
-        bt_reset = new RoundedButton("RESET", 0, new Color(217, 217, 217));
+        bt_reset = new RoundedButton("", 0, new Color(217, 217, 217));
         bt_reset.setBounds(540, 25, 75, 35);
+        bt_reset.setIcon(new ImageIcon(Image.img_reset));
         bt_reset.addActionListener(new ActionListener() {
 
             @Override

@@ -1,6 +1,7 @@
 package view;
 
 import controller.Controller_MA_HOA_HASH;
+import helper.Image;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
@@ -176,6 +177,7 @@ public class Panel_MA_HOA_HASH_TEXT extends JPanel {
         bt_hash.setBounds(250, 248, 144, 34);
         bt_hash.setFont(new Font("Arial", Font.BOLD, 14));
         bt_hash.setForeground(Color.WHITE);
+
         bt_hash.addActionListener(new ActionListener() {
 
             @Override
@@ -211,7 +213,6 @@ public class Panel_MA_HOA_HASH_TEXT extends JPanel {
         bt_copy = new RoundedButton("COPY", 0, new Color(217, 217, 217));
         bt_copy.setBounds(517, 276, 90, 22);
         bt_copy.setFont(new Font("Arial", Font.PLAIN, 14));
-
         bt_copy.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -235,6 +236,7 @@ public class Panel_MA_HOA_HASH_TEXT extends JPanel {
         bt_switch_file = new RoundedButton("FILE", 15, new Color(215, 187, 18));
         bt_switch_file.setBounds(550, 432, 115, 35);
         bt_switch_file.setFont(new Font("Arial", Font.ITALIC, 20));
+        bt_switch_file.setIcon(new ImageIcon(Image.img_folder));
 
         bt_switch_file.addActionListener(new ActionListener() {
 

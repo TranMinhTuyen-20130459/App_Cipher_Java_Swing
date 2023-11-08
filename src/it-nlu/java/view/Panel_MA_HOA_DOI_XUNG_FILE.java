@@ -4,6 +4,7 @@ import controller.Controller_MA_HOA_DOI_XUNG;
 import helper.Algorithm;
 import helper.DecryptFile;
 import helper.EncryptFile;
+import helper.Image;
 import utils.FileUtil;
 
 import javax.swing.*;
@@ -124,6 +125,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
     public void createButtonCreateKey() {
         bt_create_key = new RoundedButton("TẠO KEY", 0, new Color(217, 217, 217));
         bt_create_key.setBounds(400, 82, 120, 37);
+        bt_create_key.setIcon(new ImageIcon(Image.img_add));
         bt_create_key.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -163,6 +165,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
     public void createButtonEncrypt() {
         bt_encrypt = new Panel_MA_HOA_DOI_XUNG_FILE.RoundedButton("MÃ HÓA", 0, new Color(217, 217, 217));
         bt_encrypt.setBounds(19, 432, 115, 37);
+        bt_encrypt.setIcon(new ImageIcon(Image.img_encrypt));
 
         bt_encrypt.addMouseListener(new MouseAdapter() {
             @Override
@@ -252,6 +255,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
     public void createButtonDecrypt() {
         bt_decrypt = new Panel_MA_HOA_DOI_XUNG_FILE.RoundedButton("GIẢI MÃ", 0, new Color(217, 217, 217));
         bt_decrypt.setBounds(190, 432, 115, 37);
+        bt_decrypt.setIcon(new ImageIcon(Image.img_decrypt));
 
         bt_decrypt.addMouseListener(new MouseAdapter() {
 
@@ -316,6 +320,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
         bt_copy_key = new Panel_MA_HOA_DOI_XUNG_FILE.RoundedButton("COPY", 0, new Color(136, 196, 230));
         bt_copy_key.setBounds(565, 82, 100, 37);
         bt_copy_key.setFont(new Font("Arial", Font.PLAIN, 12));
+        bt_copy_key.setIcon(new ImageIcon(Image.img_copy));
 
         bt_copy_key.addMouseListener(new MouseAdapter() {
 
@@ -335,7 +340,8 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
     public void createButtonSwitchText() {
         bt_switch_text = new RoundedButton("TEXT", 15, new Color(215, 187, 18));
         bt_switch_text.setBounds(550, 432, 115, 37);
-        bt_switch_text.setFont(new Font("Arial", Font.ITALIC,20));
+        bt_switch_text.setFont(new Font("Arial", Font.ITALIC, 20));
+        bt_switch_text.setIcon(new ImageIcon(Image.img_text));
 
         bt_switch_text.addMouseListener(new MouseAdapter() {
             @Override

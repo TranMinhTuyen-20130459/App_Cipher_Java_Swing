@@ -1,6 +1,7 @@
 package view;
 
 import controller.Controller_MA_HOA_HASH;
+import helper.Image;
 
 import javax.swing.*;
 import java.awt.*;
@@ -185,6 +186,8 @@ public class Panel_MA_HOA_HASH_FILE extends JPanel {
         bt_switch_text = new RoundedButton("TEXT", 15, new Color(215, 187, 18));
         bt_switch_text.setBounds(550, 432, 115, 35);
         bt_switch_text.setFont(new Font("Arial", Font.ITALIC, 20));
+        bt_switch_text.setIcon(new ImageIcon(Image.img_text));
+
         bt_switch_text.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

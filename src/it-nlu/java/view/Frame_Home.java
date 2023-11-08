@@ -203,11 +203,13 @@ public class Frame_Home extends JFrame {
         panel_menu.add(panel_menu_doi_xung);
         panel_menu_doi_xung.setLayout(null);
 
-        JLabel label_ma_hoa_doi_xung = new JLabel("MÃ HÓA ĐỐI XỨNG");
+        JLabel label_ma_hoa_doi_xung = new JLabel("GIẢI THUẬT ĐỐI XỨNG");
         label_ma_hoa_doi_xung.setForeground(Color.BLACK);
         label_ma_hoa_doi_xung.setHorizontalAlignment(SwingConstants.CENTER);
         label_ma_hoa_doi_xung.setFont(new Font("Arial", Font.PLAIN, 16));
         label_ma_hoa_doi_xung.setBounds(0, 25, WIDTH / 3, 40);
+        label_ma_hoa_doi_xung.setIcon(new ImageIcon(helper.Image.img_symmetry));
+
         panel_menu_doi_xung.add(label_ma_hoa_doi_xung);
 
     }
@@ -232,11 +234,13 @@ public class Frame_Home extends JFrame {
         panel_menu.add(panel_menu_bat_doi_xung);
         panel_menu_bat_doi_xung.setLayout(null);
 
-        JLabel label_ma_hoa_bat_doi_xung = new JLabel("MÃ HÓA BẤT ĐỐI XỨNG");
+        JLabel label_ma_hoa_bat_doi_xung = new JLabel("GIẢI THUẬT BẤT ĐỐI XỨNG");
         label_ma_hoa_bat_doi_xung.setForeground(Color.BLACK);
         label_ma_hoa_bat_doi_xung.setHorizontalAlignment(SwingConstants.CENTER);
         label_ma_hoa_bat_doi_xung.setFont(new Font("Arial", Font.PLAIN, 16));
         label_ma_hoa_bat_doi_xung.setBounds(0, 25, WIDTH / 3, 40);
+        label_ma_hoa_bat_doi_xung.setIcon(new ImageIcon(helper.Image.img_asymmetrical));
+
         panel_menu_bat_doi_xung.add(label_ma_hoa_bat_doi_xung);
 
     }
@@ -259,11 +263,13 @@ public class Frame_Home extends JFrame {
         panel_menu.add(panel_menu_hash);
         panel_menu_hash.setLayout(null);
 
-        JLabel label_ma_hoa_hash = new JLabel("MÃ HÓA HASH");
+        JLabel label_ma_hoa_hash = new JLabel("GIẢI THUẬT HASH");
         label_ma_hoa_hash.setForeground(Color.BLACK);
         label_ma_hoa_hash.setHorizontalAlignment(SwingConstants.CENTER);
         label_ma_hoa_hash.setFont(new Font("Arial", Font.PLAIN, 16));
         label_ma_hoa_hash.setBounds(0, 25, WIDTH / 3, 40);
+        label_ma_hoa_hash.setIcon(new ImageIcon(helper.Image.img_hash));
+
         panel_menu_hash.add(label_ma_hoa_hash);
 
     }
@@ -291,6 +297,8 @@ public class Frame_Home extends JFrame {
         label_chu_ky_dien_tu.setHorizontalAlignment(SwingConstants.CENTER);
         label_chu_ky_dien_tu.setFont(new Font("Arial", Font.PLAIN, 16));
         label_chu_ky_dien_tu.setBounds(0, 25, WIDTH / 3, 40);
+        label_chu_ky_dien_tu.setIcon(new ImageIcon(helper.Image.img_signature));
+
         panel_menu_chu_ky_dien_tu.add(label_chu_ky_dien_tu);
     }
 
