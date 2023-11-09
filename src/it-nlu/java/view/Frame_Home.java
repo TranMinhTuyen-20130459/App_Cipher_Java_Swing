@@ -1,5 +1,7 @@
 package view;
 
+import helper.Image;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -19,8 +21,7 @@ public class Frame_Home extends JFrame {
             panel_menu_bat_doi_xung,
             panel_menu_hash,
             panel_menu_chu_ky_dien_tu;
-    private Image img_avatar = new ImageIcon("src/it-nlu/resources/image/it-nlu.png").getImage().getScaledInstance(150, 150,
-            Image.SCALE_SMOOTH);
+
     private static int WIDTH_PANEL_CONTENT_MAIN = 1100 - (1100 / 3 + 38);
     private static int HEIGHT_PANEL_CONTENT_MAIN = 650 - (650 / 6 + 60);
     public static JPanel panel_mhdx_text = new Panel_MA_HOA_DOI_XUNG_TEXT(WIDTH_PANEL_CONTENT_MAIN, HEIGHT_PANEL_CONTENT_MAIN);
@@ -64,7 +65,7 @@ public class Frame_Home extends JFrame {
         JLabel label_avatar = new JLabel("");
         label_avatar.setHorizontalAlignment(SwingConstants.CENTER);
         label_avatar.setBounds(93, 0, 180, 180);
-        label_avatar.setIcon(new ImageIcon(img_avatar));
+        label_avatar.setIcon(new ImageIcon(Image.img_avatar));
         panel_menu.add(label_avatar);
 
         JLabel label_mon_hoc = new JLabel("AN TOÀN BẢO MẬT HỆ THỐNG THÔNG TIN");

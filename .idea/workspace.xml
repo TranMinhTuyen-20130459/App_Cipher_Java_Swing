@@ -1,18 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="App_Ma_Hoa_Java_Swing:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="thêm chức năng Chữ Kí Điện Tử">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/helper/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/helper/Image.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Frame_Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Frame_Home.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_CHU_KY_DIEN_TU.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_CHU_KY_DIEN_TU.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_BAT_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_BAT_DOI_XUNG_TEXT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_FILE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_TEXT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/resources/image/add.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/add.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/resources/image/asymmetrical.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/asymmetrical.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/resources/image/checked.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/checked.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/resources/image/copy.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/copy.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/resources/image/decrypt.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/decrypt.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/resources/image/encrypt.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/encrypt.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/resources/image/folder.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/folder.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/resources/image/hash.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/hash.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/resources/image/it-nlu.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/it-nlu.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/resources/image/reset.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/reset.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/resources/image/signature.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/signature.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/resources/image/swap.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/swap.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/resources/image/symmetry.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/symmetry.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/resources/image/text-format.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/text-format.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/resources/image/upload.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/upload.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,8 +69,8 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;last_opened_file_path&quot;: &quot;F:/Git/Git-Local-Personal&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.14941406&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
   }
@@ -64,9 +80,9 @@
       <recent name="F:\Git\App_Ma_Hoa_Java_Swing\src\it-nlu\resources\image" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Application">
-    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Application" />
+  <component name="RunManager" selected="Application.App">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="App" />
       <module name="App_Ma_Hoa_Java_Swing" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -137,7 +153,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Application" />
+        <item itemvalue="Application.App" />
         <item itemvalue="Application.Cipher_RSA" />
         <item itemvalue="Application.Cipher_BlowFish" />
         <item itemvalue="Application.SHA" />
@@ -254,6 +270,8 @@
       <workItem from="1699421408529" duration="3508000" />
       <workItem from="1699436757220" duration="6337000" />
       <workItem from="1699451400784" duration="5633000" />
+      <workItem from="1699540454671" duration="1919000" />
+      <workItem from="1699542883677" duration="2014000" />
     </task>
     <task id="LOCAL-00035" summary="hiện thực giải thuật mã hóa AES trong model">
       <created>1698243456357</created>

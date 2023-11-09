@@ -2,7 +2,7 @@ import view.Frame_Home;
 
 import javax.swing.*;
 
-public class Application {
+public class App {
 
     public static void main(String[] args) {
         try {
