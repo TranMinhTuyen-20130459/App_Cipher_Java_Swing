@@ -97,7 +97,7 @@ public class Cipher_AES implements I_Create, I_Encrypt, I_Decrypt, I_Export, I_I
         else cipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(new byte[16]));
 
         var decrypted_text_bytes = cipher.doFinal(encrypt);
-        return new String(decrypted_text_bytes);
+        return new String(decrypted_text_bytes, "UTF-8");
     }
 
     @Override
@@ -110,7 +110,7 @@ public class Cipher_AES implements I_Create, I_Encrypt, I_Decrypt, I_Export, I_I
 
         var encrypted_text_bytes = Base64.getDecoder().decode(text);
         var decrypted_text_bytes = cipher.doFinal(encrypted_text_bytes);
-        return new String(decrypted_text_bytes);
+        return new String(decrypted_text_bytes, "UTF-8");
     }
 
     @Override

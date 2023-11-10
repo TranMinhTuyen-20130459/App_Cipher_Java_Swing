@@ -47,7 +47,7 @@ public class Cipher_RSA {
         Cipher cipher = Cipher.getInstance(transformation);
         cipher.init(Cipher.DECRYPT_MODE, private_key);
         var byte_decrypted = cipher.doFinal(byte_encrypted);
-        return new String(byte_decrypted);
+        return new String(byte_decrypted, StandardCharsets.UTF_8);
     }
 
     public String decryptFromBase64(String encrypted, String transformation) throws Exception {
@@ -58,7 +58,7 @@ public class Cipher_RSA {
         cipher.init(Cipher.DECRYPT_MODE, private_key);
 
         var byte_decrypted = cipher.doFinal(byte_encrypted);
-        return new String(byte_decrypted);
+        return new String(byte_decrypted, StandardCharsets.UTF_8);
     }
 
     public String exportPublicKey() {

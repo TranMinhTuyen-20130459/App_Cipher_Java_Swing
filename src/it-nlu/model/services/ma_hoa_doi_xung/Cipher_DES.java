@@ -1,7 +1,6 @@
 package model.services.ma_hoa_doi_xung;
 
 import model.services.ma_hoa_doi_xung.interfaces.*;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -11,18 +10,20 @@ import javax.crypto.spec.SecretKeySpec;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.security.Security;
 import java.util.Base64;
 
-public class Cipher_Serpent implements I_Encrypt, I_Decrypt, I_Export, I_Import, I_Create {
+public class Cipher_DES implements I_Encrypt, I_Decrypt, I_Export, I_Import, I_Create {
     private SecretKey key;
     private String transformation;
-
     @Override
     public SecretKey createKeyRandom(int key_size) throws Exception {
-        Security.addProvider(new BouncyCastleProvider());
-        KeyGenerator key_generator = KeyGenerator.getInstance("Serpent");
-        key_generator.init(key_size); // Độ dài của khóa (128,192 hoặc 256 bit)
+        KeyGenerator key_generator = KeyGenerator.getInstance("DES");
+        key_generator.init(key_size);
+        /*
+         *  DES yêu cầu một khóa đầy đủ có 64 bit,
+         *  nhưng chỉ sử dụng 56 bit trong số đó để thực hiện mã hóa,
+         *  và 8 bit còn lại được sử dụng để kiểm tra tính chính xác của khóa.
+         */
         key = key_generator.generateKey();
         return key;
     }
@@ -30,12 +31,10 @@ public class Cipher_Serpent implements I_Encrypt, I_Decrypt, I_Export, I_Import,
     @Override
     public byte[] encrypt(String text) throws Exception {
         if (key == null) return new byte[]{};
-
-        Security.addProvider(new BouncyCastleProvider());
         Cipher cipher = Cipher.getInstance(transformation);
 
         if (transformation.contains("ECB")) cipher.init(Cipher.ENCRYPT_MODE, key);
-        else cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(new byte[16]));
+        else cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(new byte[8]));
 
         var text_bytes = text.getBytes("UTF-8");
         return cipher.doFinal(text_bytes);
@@ -44,11 +43,10 @@ public class Cipher_Serpent implements I_Encrypt, I_Decrypt, I_Export, I_Import,
     @Override
     public String encryptToBase64(String text) throws Exception {
         if (key == null) return "";
-        Security.addProvider(new BouncyCastleProvider());
         Cipher cipher = Cipher.getInstance(transformation);
 
         if (transformation.contains("ECB")) cipher.init(Cipher.ENCRYPT_MODE, key);
-        else cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(new byte[16]));
+        else cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(new byte[8]));
 
         var text_bytes = text.getBytes("UTF-8");
         var encrypted_text_bytes = cipher.doFinal(text_bytes);
@@ -65,12 +63,9 @@ public class Cipher_Serpent implements I_Encrypt, I_Decrypt, I_Export, I_Import,
             if (key == null) throw new Exception("Key Not Found");
             File fileSrc = new File(srcFile);
             if (fileSrc.isFile()) {
-
-                Security.addProvider(new BouncyCastleProvider());
                 Cipher cipher = Cipher.getInstance(transformation);
-
                 if (transformation.contains("ECB")) cipher.init(Cipher.ENCRYPT_MODE, key);
-                else cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(new byte[16]));
+                else cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(new byte[8]));
 
                 fis = new FileInputStream(fileSrc);
                 fos = new FileOutputStream(destFile);
@@ -106,26 +101,22 @@ public class Cipher_Serpent implements I_Encrypt, I_Decrypt, I_Export, I_Import,
     @Override
     public String decrypt(byte[] encrypt) throws Exception {
         if (key == null) return "";
-
-        Security.addProvider(new BouncyCastleProvider());
         Cipher cipher = Cipher.getInstance(transformation);
 
         if (transformation.contains("ECB")) cipher.init(Cipher.DECRYPT_MODE, key);
-        else cipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(new byte[16]));
+        else cipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(new byte[8]));
 
         var decrypted_text_bytes = cipher.doFinal(encrypt);
-        return new String(decrypted_text_bytes);
+        return new String(decrypted_text_bytes,"UTF-8");
     }
 
     @Override
     public String decryptFromBase64(String text) throws Exception {
         if (key == null) return "";
-
-        Security.addProvider(new BouncyCastleProvider());
         Cipher cipher = Cipher.getInstance(transformation);
 
         if (transformation.contains("ECB")) cipher.init(Cipher.DECRYPT_MODE, key);
-        else cipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(new byte[16]));
+        else cipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(new byte[8]));
 
         var plain_text = cipher.doFinal(Base64.getDecoder().decode(text));
         return new String(plain_text, "UTF-8");
@@ -142,11 +133,9 @@ public class Cipher_Serpent implements I_Encrypt, I_Decrypt, I_Export, I_Import,
             File fileSrc = new File(srcFile);
             if (fileSrc.isFile()) {
 
-                Security.addProvider(new BouncyCastleProvider());
                 Cipher cipher = Cipher.getInstance(transformation);
-
                 if (transformation.contains("ECB")) cipher.init(Cipher.DECRYPT_MODE, key);
-                else cipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(new byte[16]));
+                else cipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(new byte[8]));
 
                 fis = new FileInputStream(fileSrc);
                 fos = new FileOutputStream(destFile);
@@ -194,7 +183,7 @@ public class Cipher_Serpent implements I_Encrypt, I_Decrypt, I_Export, I_Import,
 
         try {
             byte[] keyBytes = Base64.getDecoder().decode(keyText);
-            SecretKey importedKey = new SecretKeySpec(keyBytes, "Serpent");
+            SecretKey importedKey = new SecretKeySpec(keyBytes, "DES");
             this.key = importedKey;
             return importedKey;
         } catch (Exception e) {
@@ -205,6 +194,7 @@ public class Cipher_Serpent implements I_Encrypt, I_Decrypt, I_Export, I_Import,
     public SecretKey getKey() {
         return key;
     }
+
     public void setTransformation(String transformation) {
         this.transformation = transformation;
     }
@@ -212,26 +202,26 @@ public class Cipher_Serpent implements I_Encrypt, I_Decrypt, I_Export, I_Import,
     public static void main(String[] args) throws Exception {
 
         var plain_text = "I am a student. I study at Đại Học Nông Lâm";
-        Cipher_Serpent serpent = new Cipher_Serpent();
-        serpent.setTransformation("Serpent/CBC/PKCS5Padding");
-        serpent.createKeyRandom(128);
+        Cipher_DES des = new Cipher_DES();
+        des.setTransformation("DES/CBC/PKCS5Padding");
+        des.createKeyRandom(56);
 
-        var encrypt_bytes = serpent.encrypt(plain_text);
-        var encrypt_text = serpent.encryptToBase64(plain_text);
+//        var encrypt_bytes = des.encrypt(plain_text);
+//        var encrypt_text = des.encryptToBase64(plain_text);
+//
+//        System.out.println("Key: " + des.exportKey());
+//        System.out.println("------------------------------------");
+//        System.out.println("Encrypt To Base64: " + encrypt_text);
+//        System.out.println(des.decryptFromBase64(encrypt_text));
+//        System.out.println("------------------------------------");
+//        System.out.println("Encrypt To Bytes: " + encrypt_bytes);
+//        System.out.println(des.decrypt(encrypt_bytes));
 
-        System.out.println("Key: " + serpent.exportKey());
-        System.out.println("------------------------------------");
-        System.out.println("Encrypt To Base64: " + encrypt_text);
-        System.out.println(serpent.decryptFromBase64(encrypt_text));
-        System.out.println("------------------------------------");
-        System.out.println("Encrypt To Bytes: " + encrypt_bytes);
-        System.out.println(serpent.decrypt(encrypt_bytes));
-
-//        String srcFileEncrypt = "C:/Users/tmt01/Downloads/Nhom5_Ionic_App_Ban_Giay.pptx";
-//        String destFileEncrypt = "C:/Users/tmt01/Downloads/DES_FILE_ENCRYPT_Nhom5_Ionic_App_Ban_Giay.pptx";
-//        String destFileDecrypt = "C:/Users/tmt01/Downloads/DES_FILE_DECRYPT_Nhom5_Ionic_App_Ban_Giay.pptx";
-//        twoFish.encryptFile(srcFileEncrypt, destFileEncrypt);
-//        twoFish.decryptFile(destFileEncrypt, destFileDecrypt);
+        String srcFileEncrypt = "C:/Users/tmt01/Downloads/Nhom5_Ionic_App_Ban_Giay.pptx";
+        String destFileEncrypt = "C:/Users/tmt01/Downloads/DES_FILE_ENCRYPT_Nhom5_Ionic_App_Ban_Giay.pptx";
+        String destFileDecrypt = "C:/Users/tmt01/Downloads/DES_FILE_DECRYPT_Nhom5_Ionic_App_Ban_Giay.pptx";
+        des.encryptFile(srcFileEncrypt, destFileEncrypt);
+        des.decryptFile(destFileEncrypt, destFileDecrypt);
     }
 
 }

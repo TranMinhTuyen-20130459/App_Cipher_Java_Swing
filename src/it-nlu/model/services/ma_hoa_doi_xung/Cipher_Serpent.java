@@ -14,14 +14,14 @@ import java.io.FileOutputStream;
 import java.security.Security;
 import java.util.Base64;
 
-public class Cipher_TwoFish implements I_Encrypt, I_Decrypt, I_Export, I_Import, I_Create {
+public class Cipher_Serpent implements I_Encrypt, I_Decrypt, I_Export, I_Import, I_Create {
     private SecretKey key;
     private String transformation;
 
     @Override
     public SecretKey createKeyRandom(int key_size) throws Exception {
         Security.addProvider(new BouncyCastleProvider());
-        KeyGenerator key_generator = KeyGenerator.getInstance("TwoFish");
+        KeyGenerator key_generator = KeyGenerator.getInstance("Serpent");
         key_generator.init(key_size); // Độ dài của khóa (128,192 hoặc 256 bit)
         key = key_generator.generateKey();
         return key;
@@ -114,7 +114,7 @@ public class Cipher_TwoFish implements I_Encrypt, I_Decrypt, I_Export, I_Import,
         else cipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(new byte[16]));
 
         var decrypted_text_bytes = cipher.doFinal(encrypt);
-        return new String(decrypted_text_bytes);
+        return new String(decrypted_text_bytes,"UTF-8");
     }
 
     @Override
@@ -194,7 +194,7 @@ public class Cipher_TwoFish implements I_Encrypt, I_Decrypt, I_Export, I_Import,
 
         try {
             byte[] keyBytes = Base64.getDecoder().decode(keyText);
-            SecretKey importedKey = new SecretKeySpec(keyBytes, "TwoFish");
+            SecretKey importedKey = new SecretKeySpec(keyBytes, "Serpent");
             this.key = importedKey;
             return importedKey;
         } catch (Exception e) {
@@ -212,20 +212,20 @@ public class Cipher_TwoFish implements I_Encrypt, I_Decrypt, I_Export, I_Import,
     public static void main(String[] args) throws Exception {
 
         var plain_text = "I am a student. I study at Đại Học Nông Lâm";
-        Cipher_TwoFish twoFish = new Cipher_TwoFish();
-        twoFish.setTransformation("TwoFish/CBC/PKCS5Padding");
-        twoFish.createKeyRandom(128);
+        Cipher_Serpent serpent = new Cipher_Serpent();
+        serpent.setTransformation("Serpent/CBC/PKCS5Padding");
+        serpent.createKeyRandom(128);
 
-        var encrypt_bytes = twoFish.encrypt(plain_text);
-        var encrypt_text = twoFish.encryptToBase64(plain_text);
+        var encrypt_bytes = serpent.encrypt(plain_text);
+        var encrypt_text = serpent.encryptToBase64(plain_text);
 
-        System.out.println("Key: " + twoFish.exportKey());
+        System.out.println("Key: " + serpent.exportKey());
         System.out.println("------------------------------------");
         System.out.println("Encrypt To Base64: " + encrypt_text);
-        System.out.println(twoFish.decryptFromBase64(encrypt_text));
+        System.out.println(serpent.decryptFromBase64(encrypt_text));
         System.out.println("------------------------------------");
         System.out.println("Encrypt To Bytes: " + encrypt_bytes);
-        System.out.println(twoFish.decrypt(encrypt_bytes));
+        System.out.println(serpent.decrypt(encrypt_bytes));
 
 //        String srcFileEncrypt = "C:/Users/tmt01/Downloads/Nhom5_Ionic_App_Ban_Giay.pptx";
 //        String destFileEncrypt = "C:/Users/tmt01/Downloads/DES_FILE_ENCRYPT_Nhom5_Ionic_App_Ban_Giay.pptx";

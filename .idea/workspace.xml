@@ -1,34 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ArtifactsWorkspaceSettings">
-    <artifacts-to-build>
-      <artifact name="App_Ma_Hoa_Java_Swing:jar" />
-    </artifacts-to-build>
-  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="thêm chức năng Chữ Kí Điện Tử">
+    <list default="true" id="d82f7b8d-1bf4-4e63-ae43-1dbdd92a14b5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/helper/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/helper/Image.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Frame_Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/java/view/Frame_Home.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/resources/image/add.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/add.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/resources/image/asymmetrical.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/asymmetrical.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/resources/image/checked.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/checked.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/resources/image/copy.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/copy.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/resources/image/decrypt.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/decrypt.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/resources/image/encrypt.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/encrypt.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/resources/image/folder.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/folder.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/resources/image/hash.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/hash.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/resources/image/it-nlu.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/it-nlu.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/resources/image/reset.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/reset.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/resources/image/signature.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/signature.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/resources/image/swap.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/swap.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/resources/image/symmetry.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/symmetry.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/resources/image/text-format.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/text-format.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/resources/image/upload.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/upload.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_CHU_KI_DIEN_TU.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/controller/Controller_CHU_KI_DIEN_TU.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_BAT_DOI_XUNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/controller/Controller_MA_HOA_BAT_DOI_XUNG.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/controller/Controller_MA_HOA_DOI_XUNG.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_HASH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/controller/Controller_MA_HOA_HASH.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/helper/Algorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/helper/Algorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/helper/DecryptFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/helper/DecryptFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/helper/EncryptFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/helper/EncryptFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/helper/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/helper/Image.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/helper/Languague.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/helper/Languague.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/helper/TypeKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/helper/TypeKey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_bat_doi_xung/Cipher_RSA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_bat_doi_xung/Cipher_RSA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_AES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_doi_xung/Cipher_AES.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_BlowFish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_doi_xung/Cipher_BlowFish.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_DES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_doi_xung/Cipher_DES.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_Hill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_doi_xung/Cipher_Hill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_Serpent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_doi_xung/Cipher_Serpent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_TwoFish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_doi_xung/Cipher_TwoFish.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_Vigenere_English.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_doi_xung/Cipher_Vigenere_English.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_Vigenere_Vietnamese.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_doi_xung/Cipher_Vigenere_Vietnamese.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/interfaces/I_Create.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_doi_xung/interfaces/I_Create.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/interfaces/I_Decrypt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_doi_xung/interfaces/I_Decrypt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/interfaces/I_Encrypt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_doi_xung/interfaces/I_Encrypt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/interfaces/I_Export.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_doi_xung/interfaces/I_Export.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/interfaces/I_Import.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_doi_xung/interfaces/I_Import.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/no_use/Cipher_TwoFish_NoUse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_doi_xung/no_use/Cipher_TwoFish_NoUse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_hash/MD5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_hash/MD5.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_hash/SHA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_hash/SHA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/utils/FileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/utils/FileUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Frame_Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/view/Frame_Home.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_CHU_KY_DIEN_TU.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/view/Panel_CHU_KY_DIEN_TU.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_BAT_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/view/Panel_MA_HOA_BAT_DOI_XUNG_TEXT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/view/Panel_MA_HOA_DOI_XUNG_FILE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/view/Panel_MA_HOA_HASH_FILE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/view/Panel_MA_HOA_HASH_TEXT.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +51,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -47,576 +59,79 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
   </component>
-  <component name="JsbtTreeLayoutManager">
-    <layout place="tools.popupGrunt">
-      <scroll-view-position x="0" y="0" />
-    </layout>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectId" id="2WPoGYPhElsRIMQ8JJwpELx22YL" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="1" id="Add" />
-  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2Xz6T6wzeB7FoVLcPzeMw9YqB0s" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;F:/Git/Git-Local-Personal&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.14941406&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propCompiler",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\Git\App_Ma_Hoa_Java_Swing\src\it-nlu\resources\image" />
+      <recent name="F:\Git\App_Ma_Hoa_Java_Swing\src\it-nlu" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.App">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.App (1)">
+    <configuration name="App (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App" />
       <module name="App_Ma_Hoa_Java_Swing" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Cipher_BlowFish" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="model.services.ma_hoa_doi_xung.Cipher_BlowFish" />
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="src.dev.java.App" />
       <module name="App_Ma_Hoa_Java_Swing" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="model.services.ma_hoa_doi_xung.*" />
+          <option name="PATTERN" value="src.dev.java.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Cipher_RSA" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="model.services.ma_hoa_bat_doi_xung.Cipher_RSA" />
-      <module name="App_Ma_Hoa_Java_Swing" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.services.ma_hoa_bat_doi_xung.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Cipher_Serpent" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="model.services.ma_hoa_doi_xung.Cipher_Serpent" />
-      <module name="App_Ma_Hoa_Java_Swing" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.services.ma_hoa_doi_xung.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SHA" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="model.services.ma_hoa_hash.SHA" />
-      <module name="App_Ma_Hoa_Java_Swing" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.services.ma_hoa_hash.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.App (1)" />
         <item itemvalue="Application.App" />
-        <item itemvalue="Application.Cipher_RSA" />
-        <item itemvalue="Application.Cipher_BlowFish" />
-        <item itemvalue="Application.SHA" />
-        <item itemvalue="Application.Cipher_Serpent" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="97216dc2-9283-480c-9a03-6b2f7333aa29" name="Changes" comment="" />
-      <created>1696643484425</created>
+      <changelist id="d82f7b8d-1bf4-4e63-ae43-1dbdd92a14b5" name="Changes" comment="" />
+      <created>1699619571491</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1696643484425</updated>
-      <workItem from="1696643486746" duration="34000" />
-      <workItem from="1696643525159" duration="8738000" />
-      <workItem from="1696663960517" duration="9001000" />
-      <workItem from="1696673266220" duration="90000" />
-      <workItem from="1696684684641" duration="88000" />
-      <workItem from="1696732001960" duration="2508000" />
-      <workItem from="1696754905441" duration="6937000" />
-      <workItem from="1696769472178" duration="91000" />
-      <workItem from="1696823023166" duration="82000" />
-      <workItem from="1696953229364" duration="210000" />
-      <workItem from="1697109708425" duration="369000" />
-      <workItem from="1697121114460" duration="1983000" />
-      <workItem from="1697161809107" duration="2773000" />
-      <workItem from="1697164749841" duration="5912000" />
-      <workItem from="1697247120317" duration="321000" />
-      <workItem from="1697249347008" duration="124000" />
-      <workItem from="1697250478691" duration="1742000" />
-      <workItem from="1697253449862" duration="5687000" />
-      <workItem from="1697259358226" duration="110000" />
-      <workItem from="1697274978883" duration="6442000" />
-      <workItem from="1697343281366" duration="78000" />
-      <workItem from="1697354100693" duration="6777000" />
-      <workItem from="1697360969133" duration="2261000" />
-      <workItem from="1697363317086" duration="4066000" />
-      <workItem from="1697377491126" duration="9885000" />
-      <workItem from="1697427900623" duration="5322000" />
-      <workItem from="1697433920332" duration="283000" />
-      <workItem from="1697441412099" duration="11641000" />
-      <workItem from="1697461482032" duration="9790000" />
-      <workItem from="1697473159224" duration="619000" />
-      <workItem from="1697600656635" duration="3949000" />
-      <workItem from="1697611396134" duration="10179000" />
-      <workItem from="1697623186583" duration="8411000" />
-      <workItem from="1697637639038" duration="10705000" />
-      <workItem from="1697676357562" duration="18000" />
-      <workItem from="1697676399431" duration="2313000" />
-      <workItem from="1697679030478" duration="164000" />
-      <workItem from="1697765726932" duration="30000" />
-      <workItem from="1697765774602" duration="6830000" />
-      <workItem from="1697786321131" duration="9236000" />
-      <workItem from="1697807473503" duration="7849000" />
-      <workItem from="1697865593089" duration="1359000" />
-      <workItem from="1697868853017" duration="12000" />
-      <workItem from="1697882369352" duration="6089000" />
-      <workItem from="1697904022709" duration="569000" />
-      <workItem from="1697979171675" duration="7440000" />
-      <workItem from="1697987323615" duration="3909000" />
-      <workItem from="1698117567919" duration="23000" />
-      <workItem from="1698117611697" duration="1563000" />
-      <workItem from="1698158554991" duration="5892000" />
-      <workItem from="1698199917996" duration="956000" />
-      <workItem from="1698218148224" duration="11949000" />
-      <workItem from="1698239267446" duration="8757000" />
-      <workItem from="1698249500541" duration="4391000" />
-      <workItem from="1698306899995" duration="11849000" />
-      <workItem from="1698327101306" duration="7348000" />
-      <workItem from="1698371039071" duration="3652000" />
-      <workItem from="1698386160028" duration="7083000" />
-      <workItem from="1698467002559" duration="75000" />
-      <workItem from="1698548211619" duration="575000" />
-      <workItem from="1698574775503" duration="8964000" />
-      <workItem from="1698587900332" duration="16000" />
-      <workItem from="1698587946107" duration="3203000" />
-      <workItem from="1698591400330" duration="228000" />
-      <workItem from="1698651407457" duration="11188000" />
-      <workItem from="1698673489716" duration="10585000" />
-      <workItem from="1698716011030" duration="8763000" />
-      <workItem from="1698762359535" duration="1883000" />
-      <workItem from="1698805403454" duration="186000" />
-      <workItem from="1698823120733" duration="11192000" />
-      <workItem from="1698890178777" duration="202000" />
-      <workItem from="1698919721099" duration="7738000" />
-      <workItem from="1698928341941" duration="497000" />
-      <workItem from="1698935506294" duration="42000" />
-      <workItem from="1698935577147" duration="8791000" />
-      <workItem from="1698945520382" duration="1448000" />
-      <workItem from="1698976568843" duration="8177000" />
-      <workItem from="1699001841090" duration="2124000" />
-      <workItem from="1699004415345" duration="6004000" />
-      <workItem from="1699015823010" duration="9506000" />
-      <workItem from="1699026495274" duration="1684000" />
-      <workItem from="1699063073278" duration="12814000" />
-      <workItem from="1699077837718" duration="6944000" />
-      <workItem from="1699089653537" duration="8581000" />
-      <workItem from="1699098597044" duration="578000" />
-      <workItem from="1699106304901" duration="8977000" />
-      <workItem from="1699150274742" duration="2335000" />
-      <workItem from="1699152684928" duration="1512000" />
-      <workItem from="1699155302447" duration="10447000" />
-      <workItem from="1699189216789" duration="3281000" />
-      <workItem from="1699202747241" duration="1382000" />
-      <workItem from="1699243762005" duration="8666000" />
-      <workItem from="1699258882062" duration="9162000" />
-      <workItem from="1699277049959" duration="11225000" />
-      <workItem from="1699344231575" duration="383000" />
-      <workItem from="1699344641031" duration="9734000" />
-      <workItem from="1699363799841" duration="12143000" />
-      <workItem from="1699409091162" duration="4848000" />
-      <workItem from="1699421408529" duration="3508000" />
-      <workItem from="1699436757220" duration="6337000" />
-      <workItem from="1699451400784" duration="5633000" />
-      <workItem from="1699540454671" duration="1919000" />
-      <workItem from="1699542883677" duration="2014000" />
+      <updated>1699619571491</updated>
+      <workItem from="1699619574359" duration="582000" />
+      <workItem from="1699623719228" duration="1534000" />
     </task>
-    <task id="LOCAL-00035" summary="hiện thực giải thuật mã hóa AES trong model">
-      <created>1698243456357</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1698243456357</updated>
-    </task>
-    <task id="LOCAL-00036" summary="đổi tên biến trong một số function của class Cipher_DES">
-      <created>1698243496110</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1698243496110</updated>
-    </task>
-    <task id="LOCAL-00037" summary="tạo class Cipher_TwoFish">
-      <created>1698243532944</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1698243532944</updated>
-    </task>
-    <task id="LOCAL-00038" summary="thêm tham số cho function createKeyRandom()">
-      <created>1698243578470</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1698243578470</updated>
-    </task>
-    <task id="LOCAL-00039" summary="hiện thực giải thuật mã hóa AES lên View">
-      <created>1698243612562</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1698243612562</updated>
-    </task>
-    <task id="LOCAL-00040" summary="hiện thực giải thuật mã hóa file AES lên View">
-      <created>1698246243686</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1698246243686</updated>
-    </task>
-    <task id="LOCAL-00041" summary="thêm thư viện Bouncy Castle để sử dụng các giải thuật MÃ HÓA bên ngoài">
-      <created>1698247066269</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1698247066269</updated>
-    </task>
-    <task id="LOCAL-00042" summary="mã hóa và giải mã văn bản với giải thuật TwoFish">
-      <created>1698318320682</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1698318320682</updated>
-    </task>
-    <task id="LOCAL-00043" summary="mã hóa và giải mã File với giải thuật TwoFish">
-      <created>1698334096015</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1698334096015</updated>
-    </task>
-    <task id="LOCAL-00044" summary="hiện thực MÃ HÓA và GIẢI MÃ File với giải thuật TwoFish trên View">
-      <created>1698374159093</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1698374159093</updated>
-    </task>
-    <task id="LOCAL-00045" summary="nâng cấp trải nghiệm người dùng tại component Panel_MA_HOA_DOI_XUNG_TEXT">
-      <created>1698391896329</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1698391896329</updated>
-    </task>
-    <task id="LOCAL-00046" summary="bỏ đi ComboBox chọn ngôn ngữ tại component Panel_MA_HOA_DOI_XUNG_FILE">
-      <created>1698391947686</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1698391947686</updated>
-    </task>
-    <task id="LOCAL-00047" summary="bỏ đi bt_input_key trên View của Component Panel_MA_HOA_DOI_XUNG_TEXT">
-      <created>1698578922649</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1698578922649</updated>
-    </task>
-    <task id="LOCAL-00048" summary="đổi tên function trong Controller_MA_HOA_DOI_XUNG">
-      <created>1698582475430</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1698582475430</updated>
-    </task>
-    <task id="LOCAL-00049" summary="thêm bt_copy đoạn văn bản đã mã hóa và xử lý sự kiện cho button đó">
-      <created>1698582523656</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1698582523656</updated>
-    </task>
-    <task id="LOCAL-00050" summary="thêm function để reset lại ComboBox TypeKey">
-      <created>1698583676260</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1698583676260</updated>
-    </task>
-    <task id="LOCAL-00051" summary="thêm function để reset lại ComboBox TypeKey">
-      <created>1698583685531</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1698583685531</updated>
-    </task>
-    <task id="LOCAL-00052" summary="thêm ComboBox &quot;Loại Key&quot; trên View của component Panel_MA_HOA_DOI_XUNG_FILE">
-      <created>1698591006446</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1698591006446</updated>
-    </task>
-    <task id="LOCAL-00053" summary="thêm giao diện của component MA_HOA_HASH_TEXT">
-      <created>1698663186867</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1698663186867</updated>
-    </task>
-    <task id="LOCAL-00054" summary="thêm giao diện của component Panel_MA_HOA_HASH_FILE">
-      <created>1698664831361</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1698664831361</updated>
-    </task>
-    <task id="LOCAL-00055" summary="nâng cấp giao diện của component Panel_MA_HOA_HASH_FILE">
-      <created>1698676583167</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1698676583168</updated>
-    </task>
-    <task id="LOCAL-00056" summary="hiện thực giải thuật MD5 trong model">
-      <created>1698683282579</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1698683282579</updated>
-    </task>
-    <task id="LOCAL-00057" summary="hiện thực giải thuật SHA trong model">
-      <created>1698684059830</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1698684059831</updated>
-    </task>
-    <task id="LOCAL-00058" summary="nâng cấp function resetComboBoxAlgorithm() và resetComboBoxLanguage()">
-      <created>1698721171091</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1698721171092</updated>
-    </task>
-    <task id="LOCAL-00059" summary="hiện thực mã hóa Hash lên view trong component Panel_MA_HOA_HASH_TEXT">
-      <created>1698725470766</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1698725470766</updated>
-    </task>
-    <task id="LOCAL-00060" summary="hiện thực mã hóa Hash lên view trong component Panel_MA_HOA_HASH_FILE">
-      <created>1698826160403</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1698826160404</updated>
-    </task>
-    <task id="LOCAL-00061" summary="hiện thực giải thuật Vigenere để mã hóa và giải mã bảng chữ cái Tiếng Anh">
-      <created>1698944823391</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1698944823391</updated>
-    </task>
-    <task id="LOCAL-00062" summary="hiện thực giải thuật Vigenere để mã hóa và giải mã bảng chữ cái Tiếng Việt">
-      <created>1698983979824</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1698983979825</updated>
-    </task>
-    <task id="LOCAL-00063" summary="bỏ combo_box_type_key, thay vào bt_create_key và xử lý sự kiện cho button">
-      <created>1699009882200</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1699009882201</updated>
-    </task>
-    <task id="LOCAL-00064" summary="hiện thực giải thuật Vigenere trên View trong component Panel_MA_HOA_DOI_XUNG_TEXT">
-      <created>1699027549575</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1699027549575</updated>
-    </task>
-    <task id="LOCAL-00065" summary="thêm ComboBox chọn Mode/Padding">
-      <created>1699073709442</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1699073709443</updated>
-    </task>
-    <task id="LOCAL-00066" summary="thêm ComboBox chọn Mode/Padding">
-      <created>1699084758088</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1699084758088</updated>
-    </task>
-    <task id="LOCAL-00067" summary="thêm giải thuật mã hóa đối xứng Serpent">
-      <created>1699098070800</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1699098070800</updated>
-    </task>
-    <task id="LOCAL-00068" summary="thêm giải thuật mã hóa đối xứng TwoFish">
-      <created>1699098096627</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1699098096627</updated>
-    </task>
-    <task id="LOCAL-00069" summary="mã hóa file với các mode/padding tự chọn">
-      <created>1699115333371</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1699115333371</updated>
-    </task>
-    <task id="LOCAL-00070" summary="thêm thuật toán mã hóa đối xứng Blowfish, hiện thực lên View trong component Panel_MA_HOA_DOI_XUNG_TEXT, Panel_MA_HOA_DOI_XUNG_FILE">
-      <created>1699177100310</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1699177100314</updated>
-    </task>
-    <task id="LOCAL-00071" summary="sửa giao diện Trang Chủ thuật toán mã hóa HASH">
-      <created>1699180422566</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1699180422566</updated>
-    </task>
-    <task id="LOCAL-00072" summary="giao diện cho thuật toán mã hóa bất đối">
-      <created>1699251201698</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1699251201699</updated>
-    </task>
-    <task id="LOCAL-00073" summary="bỏ giao diện Trang Chủ của component Panel_MA_HOA_DOI_XUNG">
-      <created>1699252395769</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1699252395769</updated>
-    </task>
-    <task id="LOCAL-00074" summary="bỏ giao diện Trang Chủ của component Panel_MA_HOA_HASH, Panel_MA_HOA_BAT_DOI_XUNG.java">
-      <created>1699259797955</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1699259797956</updated>
-    </task>
-    <task id="LOCAL-00075" summary="bỏ giao diện Trang Chủ của component Panel_MA_HOA_HASH">
-      <created>1699259837005</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1699259837005</updated>
-    </task>
-    <task id="LOCAL-00076" summary="hiện thực giải thực RSA trong model">
-      <created>1699268282953</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1699268282953</updated>
-    </task>
-    <task id="LOCAL-00077" summary="tạo key, mã hóa với thuật toán RSA trên View">
-      <created>1699288870068</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1699288870068</updated>
-    </task>
-    <task id="LOCAL-00078" summary="giải mã với thuật toán RSA trên View">
-      <created>1699355450828</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1699355450829</updated>
-    </task>
-    <task id="LOCAL-00079" summary="chỉnh sửa giao diện">
-      <created>1699371234291</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1699371234291</updated>
-    </task>
-    <task id="LOCAL-00080" summary="thêm icon">
-      <created>1699375858001</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1699375858001</updated>
-    </task>
-    <task id="LOCAL-00081" summary="thêm chức năng hoán đổi text_input và text_output">
-      <created>1699411068490</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1699411068491</updated>
-    </task>
-    <task id="LOCAL-00082" summary="thêm giao diện cho chức năng chữ ký điện tử">
-      <created>1699424873497</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1699424873498</updated>
-    </task>
-    <task id="LOCAL-00083" summary="thêm chức năng Chữ Kí Điện Tử">
-      <created>1699442746364</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1699442746364</updated>
-    </task>
-    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -632,37 +147,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="nâng cấp function resetComboBoxAlgorithm() và resetComboBoxLanguage()" />
-    <MESSAGE value="hiện thực mã hóa Hash lên view trong component Panel_MA_HOA_HASH_TEXT" />
-    <MESSAGE value="hiện thực mã hóa Hash lên view trong component Panel_MA_HOA_HASH_FILE" />
-    <MESSAGE value="hiện thực giải thuật Vigenere để mã hóa và giải mã bảng chữ cái Tiếng Anh" />
-    <MESSAGE value="hiện thực giải thuật Vigenere để mã hóa và giải mã bảng chữ cái Tiếng Việt" />
-    <MESSAGE value="bỏ combo_box_type_key, thay vào bt_create_key và xử lý sự kiện cho button" />
-    <MESSAGE value="hiện thực giải thuật Vigenere trên View trong component Panel_MA_HOA_DOI_XUNG_TEXT" />
-    <MESSAGE value="thêm ComboBox chọn Mode/Padding" />
-    <MESSAGE value="thêm giải thuật mã hóa đối xứng Serpent" />
-    <MESSAGE value="thêm giải thuật mã hóa đối xứng TwoFish" />
-    <MESSAGE value="mã hóa file với các mode/padding tự chọn" />
-    <MESSAGE value="thêm thuật toán mã hóa đối xứng Blowfish, hiện thực lên View trong component Panel_MA_HOA_DOI_XUNG_TEXT, Panel_MA_HOA_DOI_XUNG_FILE" />
-    <MESSAGE value="sửa giao diện Trang Chủ thuật toán mã hóa HASH" />
-    <MESSAGE value="giao diện cho thuật toán mã hóa bất đối" />
-    <MESSAGE value="bỏ giao diện Trang Chủ của component Panel_MA_HOA_DOI_XUNG" />
-    <MESSAGE value="bỏ giao diện Trang Chủ của component Panel_MA_HOA_HASH, Panel_MA_HOA_BAT_DOI_XUNG.java" />
-    <MESSAGE value="bỏ giao diện Trang Chủ của component Panel_MA_HOA_HASH" />
-    <MESSAGE value="hiện thực giải thực RSA trong model" />
-    <MESSAGE value="tạo key, mã hóa với thuật toán RSA trên View" />
-    <MESSAGE value="giải mã với thuật toán RSA trên View" />
-    <MESSAGE value="chỉnh sửa giao diện" />
-    <MESSAGE value="thêm icon" />
-    <MESSAGE value="thêm chức năng hoán đổi text_input và text_output" />
-    <MESSAGE value="thêm giao diện cho chức năng chữ ký điện tử" />
-    <MESSAGE value="thêm chức năng Chữ Kí Điện Tử" />
-    <option name="LAST_COMMIT_MESSAGE" value="thêm chức năng Chữ Kí Điện Tử" />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>
