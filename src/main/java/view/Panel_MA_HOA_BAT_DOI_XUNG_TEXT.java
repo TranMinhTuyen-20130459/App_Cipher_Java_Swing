@@ -251,10 +251,10 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
         bt_switch_file.setFont(new Font("Arial", Font.ITALIC, 20));
         bt_switch_file.setIcon(new ImageIcon(Image.img_folder));
         bt_switch_file.addActionListener(new ActionListener() {
-
             @Override
             public void actionPerformed(ActionEvent e) {
                 resetLayout();
+                Frame_Home.showPanel(Frame_Home.panel_mhbdx_file);
             }
         });
 
