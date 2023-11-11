@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact name="App_Ma_Hoa:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/App_Ma_Hoa</output-path>
+    <root id="root">
+      <element id="archive" name="App_Ma_Hoa.jar">
+        <element id="module-output" name="App_Ma_Hoa" />
+      </element>
+      <element id="library" level="project" name="Maven: org.bouncycastle:bcprov-jdk15on:1.58" />
+    </root>
+  </artifact>
+</component>

@@ -1,72 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="App_Ma_Hoa:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d82f7b8d-1bf4-4e63-ae43-1dbdd92a14b5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_CHU_KI_DIEN_TU.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/controller/Controller_CHU_KI_DIEN_TU.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_BAT_DOI_XUNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/controller/Controller_MA_HOA_BAT_DOI_XUNG.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_DOI_XUNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/controller/Controller_MA_HOA_DOI_XUNG.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/controller/Controller_MA_HOA_HASH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/controller/Controller_MA_HOA_HASH.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/helper/Algorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/helper/Algorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/helper/DecryptFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/helper/DecryptFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/helper/EncryptFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/helper/EncryptFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/helper/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/helper/Image.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/helper/Languague.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/helper/Languague.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/helper/TypeKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/helper/TypeKey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_bat_doi_xung/Cipher_RSA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_bat_doi_xung/Cipher_RSA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_AES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_doi_xung/Cipher_AES.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_BlowFish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_doi_xung/Cipher_BlowFish.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_DES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_doi_xung/Cipher_DES.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_Hill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_doi_xung/Cipher_Hill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_Serpent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_doi_xung/Cipher_Serpent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_TwoFish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_doi_xung/Cipher_TwoFish.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_Vigenere_English.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_doi_xung/Cipher_Vigenere_English.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/Cipher_Vigenere_Vietnamese.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_doi_xung/Cipher_Vigenere_Vietnamese.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/interfaces/I_Create.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_doi_xung/interfaces/I_Create.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/interfaces/I_Decrypt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_doi_xung/interfaces/I_Decrypt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/interfaces/I_Encrypt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_doi_xung/interfaces/I_Encrypt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/interfaces/I_Export.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_doi_xung/interfaces/I_Export.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/interfaces/I_Import.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_doi_xung/interfaces/I_Import.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_doi_xung/no_use/Cipher_TwoFish_NoUse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_doi_xung/no_use/Cipher_TwoFish_NoUse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_hash/MD5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_hash/MD5.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/model/services/ma_hoa_hash/SHA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/model/services/ma_hoa_hash/SHA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/utils/FileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/utils/FileUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Frame_Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/view/Frame_Home.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_CHU_KY_DIEN_TU.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/view/Panel_CHU_KY_DIEN_TU.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_BAT_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/view/Panel_MA_HOA_BAT_DOI_XUNG_TEXT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/view/Panel_MA_HOA_DOI_XUNG_FILE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/view/Panel_MA_HOA_HASH_FILE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it-nlu/java/view/Panel_MA_HOA_HASH_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it-nlu/view/Panel_MA_HOA_HASH_TEXT.java" afterDir="false" />
+    <list default="true" id="aea98578-a857-4ebe-8b11-7edaa46407d0" name="Changes" comment="tạo cấu trúc thư mục cho project theo Maven">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="366d6f15-5976-4511-a92a-f888af771eee" />
+        <option name="url" value="https://github.com/TranMinhTuyen-20130459/App_Ma_Hoa_Java_Swing" />
+      </UrlAndAccount>
     </option>
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="HARD" />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 0
-}</component>
-  <component name="ProjectId" id="2Xz6T6wzeB7FoVLcPzeMw9YqB0s" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="2Y0OOZr3sakmXq5ckf5FC3i5BWp" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -75,38 +50,44 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "dev",
+    "last_opened_file_path": "F:/Git/App_Ma_Hoa/src/main/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "onboarding.tips.debug.path": "F:/Git/App_Ma_Hoa/src/main/java/org/example/Main.java",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "project.propCompiler",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\Git\App_Ma_Hoa_Java_Swing\src\it-nlu" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Git\App_Ma_Hoa\src\main\resources" />
+      <recent name="F:\Git\App_Ma_Hoa" />
+      <recent name="F:\Git\App_Ma_Hoa\src\main\java" />
+      <recent name="F:\Git\App_Ma_Hoa\src\main\java\org" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.App (1)">
-    <configuration name="App (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.App">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App" />
-      <module name="App_Ma_Hoa_Java_Swing" />
+      <module name="App_Ma_Hoa" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="src.dev.java.App" />
-      <module name="App_Ma_Hoa_Java_Swing" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+      <module name="App_Ma_Hoa" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="src.dev.java.*" />
+          <option name="PATTERN" value="org.example.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -116,22 +97,30 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.App (1)" />
         <item itemvalue="Application.App" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d82f7b8d-1bf4-4e63-ae43-1dbdd92a14b5" name="Changes" comment="" />
-      <created>1699619571491</created>
+      <changelist id="aea98578-a857-4ebe-8b11-7edaa46407d0" name="Changes" comment="" />
+      <created>1699658999970</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1699619571491</updated>
-      <workItem from="1699619574359" duration="582000" />
-      <workItem from="1699623719228" duration="1534000" />
+      <updated>1699658999970</updated>
+      <workItem from="1699659000898" duration="1719000" />
     </task>
+    <task id="LOCAL-00001" summary="tạo cấu trúc thư mục cho project theo Maven">
+      <option name="closed" value="true" />
+      <created>1699660228692</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1699660228692</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,5 +136,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="tạo cấu trúc thư mục cho project theo Maven" />
+    <option name="LAST_COMMIT_MESSAGE" value="tạo cấu trúc thư mục cho project theo Maven" />
   </component>
 </project>
