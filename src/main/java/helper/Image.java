@@ -13,7 +13,7 @@ public class Image {
 
     public static final java.awt.Image img_upload = new ImageIcon(Image.class.getClassLoader().getResource("image/upload.png")).getImage().getScaledInstance(25, 25, java.awt.Image.SCALE_SMOOTH);
     public static final java.awt.Image img_reset = new ImageIcon(Image.class.getClassLoader().getResource("image/reset.png")).getImage().getScaledInstance(25, 25, java.awt.Image.SCALE_SMOOTH);
-    public static final java.awt.Image img_checked = new ImageIcon(Image.class.getClassLoader().getResource("image/checked.png")).getImage().getScaledInstance(25, 25, java.awt.Image.SCALE_SMOOTH);
+    public static final java.awt.Image img_checked = new ImageIcon(Image.class.getClassLoader().getResource("image/checked.png")).getImage().getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
     public static final java.awt.Image img_symmetry = new ImageIcon(Image.class.getClassLoader().getResource("image/symmetry.png")).getImage().getScaledInstance(45, 45, java.awt.Image.SCALE_SMOOTH);
     public static final java.awt.Image img_asymmetrical = new ImageIcon(Image.class.getClassLoader().getResource("image/asymmetrical.png")).getImage().getScaledInstance(45, 45, java.awt.Image.SCALE_SMOOTH);
     public static final java.awt.Image img_hash = new ImageIcon(Image.class.getClassLoader().getResource("image/hash.png")).getImage().getScaledInstance(45, 45, java.awt.Image.SCALE_SMOOTH);

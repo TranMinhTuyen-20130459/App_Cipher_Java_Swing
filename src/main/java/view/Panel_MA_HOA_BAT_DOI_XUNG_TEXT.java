@@ -249,7 +249,7 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
         bt_switch_file = new RoundedButton("FILE", 15, new Color(215, 187, 18));
         bt_switch_file.setBounds(550, 432, 115, 35);
         bt_switch_file.setFont(new Font("Arial", Font.ITALIC, 20));
-
+        bt_switch_file.setIcon(new ImageIcon(Image.img_folder));
         bt_switch_file.addActionListener(new ActionListener() {
 
             @Override

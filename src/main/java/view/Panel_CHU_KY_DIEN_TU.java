@@ -122,7 +122,7 @@ public class Panel_CHU_KY_DIEN_TU extends JPanel {
 
     public void createButtonCheck() {
 
-        bt_check = new RoundedButton("KIỂM TRA", 20, new Color(136, 196, 230));
+        bt_check = new RoundedButton("", 20, new Color(136, 196, 230));
         bt_check.setForeground(Color.BLACK);
         bt_check.setFont(new Font("Arial", Font.BOLD, 12));
         bt_check.setBounds(494, 185, 123, 109);
