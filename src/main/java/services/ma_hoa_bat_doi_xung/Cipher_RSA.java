@@ -13,9 +13,7 @@ import java.security.*;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
-import java.text.SimpleDateFormat;
 import java.util.Base64;
-import java.util.Date;
 
 public class Cipher_RSA {
     private KeyPair key_pair;
@@ -201,6 +199,9 @@ public class Cipher_RSA {
         if (transformation == null || transformation.isEmpty()) throw new Exception("transformation is null or empty");
         if (private_key == null || private_key.isEmpty()) throw new Exception("private_key is null or empty");
 
+        if (!transformation.contains(symmetric_algorithm))
+            throw new Exception("Algorithm is " + symmetric_algorithm + " while Transformation is " + transformation);
+
         importPrivateKey(private_key); // Đây là Private Key của RSA dùng để giải mã Key của các thuật toán đối xứng như AES, DES, TwoFish được lưu vào file mã hóa
 
         File fileInput = new File(srcFile);
@@ -292,13 +293,13 @@ public class Cipher_RSA {
         int index = 0;
         for (String mode_padding : arr_mode_paddings) {
 
-            String transformation = symmetric_algorithm + "/" + mode_padding + "Padding";
+            String transformation_encrypt = symmetric_algorithm + "/" + mode_padding + "Padding";
 
             String destFileEncrypt = "C:/Users/tmt01/Downloads/RSA_MA_HOA_KEY_" + symmetric_algorithm + "_" + index + "_Nhom5-Dich_vu_cho_thue_san_bong_da_mini.docx";
-            rsa.encryptFile(srcFile, destFileEncrypt, symmetric_algorithm, transformation, key, publicKey);
+            rsa.encryptFile(srcFile, destFileEncrypt, symmetric_algorithm, transformation_encrypt, key, publicKey);
 
             String destFileDecrypt = "C:/Users/tmt01/Downloads/RSA_GIAI_MA_KEY_" + symmetric_algorithm + "_" + index + "_Nhom5-Dich_vu_cho_thue_san_bong_da_mini.docx";
-            rsa.decryptFile(destFileEncrypt, destFileDecrypt, symmetric_algorithm, transformation, privateKey);
+            rsa.decryptFile(destFileEncrypt, destFileDecrypt, symmetric_algorithm, "AES/ECB/PKCS5Padding", privateKey);
 
             index = index + 1;
         }
