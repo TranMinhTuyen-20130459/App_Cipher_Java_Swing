@@ -176,14 +176,14 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                             plain_text = plain_text_area.getText();
 
                             if (plain_text == null || plain_text.isEmpty()) {
-                                JOptionPane.showMessageDialog(null, "Bạn cần nhập vào đoạn văn bản cần mã hóa", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                                JOptionPane.showMessageDialog(null, "BẠN CẦN NHẬP VÀO VĂN BẢN ĐỂ MÃ HÓA", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
                                 return;
                             }
 
                             key = Controller_MA_HOA_DOI_XUNG.createKeyRandomFor_Hill_Vigenere(name_algorithm, name_language, plain_text);
 
                             if (key == null || key.isEmpty() || key.equalsIgnoreCase("NOT_FOUND_ALGORITHM")) {
-                                JOptionPane.showMessageDialog(null, "Không tạo được Key", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                                JOptionPane.showMessageDialog(null, "KHÔNG TẠO ĐƯỢC KEY", "Lỗi", JOptionPane.ERROR_MESSAGE);
                                 return;
                             }
 
@@ -192,7 +192,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                             encrypted_text = Controller_MA_HOA_DOI_XUNG.encryptTextWithKeyText(name_algorithm, name_language, plain_text, key);
 
                             if (encrypted_text == null || encrypted_text.isEmpty() || encrypted_text.equalsIgnoreCase("NOT_FOUND_ALGORITHM")) {
-                                JOptionPane.showMessageDialog(null, "Mã hóa văn bản không thành công", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                                JOptionPane.showMessageDialog(null, "MÃ HÓA VĂN BẢN THẤT BẠI", "Lỗi", JOptionPane.ERROR_MESSAGE);
                                 return;
                             }
 
@@ -246,7 +246,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                             encrypted_text = Controller_MA_HOA_DOI_XUNG.encryptTextWithKeyText(name_algorithm, name_language, plain_text, key);
 
                             if (encrypted_text == null || encrypted_text.isEmpty() || encrypted_text.equalsIgnoreCase("NOT_FOUND_ALGORITHM")) {
-                                JOptionPane.showMessageDialog(null, "Mã hóa văn bản không thành công", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                                JOptionPane.showMessageDialog(null, "MÃ HÓA VĂN BẢN THẤT BẠI", "Lỗi", JOptionPane.ERROR_MESSAGE);
                                 // System.out.println(encrypted_text);
                                 return;
                             }
@@ -289,7 +289,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                     key = key_text_field.getText();
 
                     if (key == null || key.isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "CHƯA CÓ KEY ĐỂ GIẢI MÃ", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "BẠN CẦN NHẬP VÀO KEY ĐỂ GIẢI MÃ", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
                     } else {
                         encrypted_text = encrypted_text_area.getText();
 

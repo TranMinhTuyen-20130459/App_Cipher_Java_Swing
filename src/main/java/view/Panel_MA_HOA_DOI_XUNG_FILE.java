@@ -246,7 +246,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
 
                     // Nếu user chưa chọn File
                     else {
-                        JOptionPane.showMessageDialog(null, "BẠN CHƯA CHỌN FILE ĐỂ MÃ HÓA", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "BẠN CẦN CHỌN FILE ĐỂ MÃ HÓA", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
                     }
 
                 }
@@ -274,7 +274,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
 
                         // Nếu chưa có key để GIẢI MÃ
                         if (key == null || key.isEmpty()) {
-                            JOptionPane.showMessageDialog(null, "BẠN HÃY NHẬP KEY ĐỂ GIẢI MÃ FILE", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                            JOptionPane.showMessageDialog(null, "BẠN CẦN NHẬP KEY ĐỂ GIẢI MÃ", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
                         }
 
                         // Nếu đã có key đã GIẢI MÃ
@@ -312,7 +312,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
                     }
                     // Nếu chưa chọn File
                     else {
-                        JOptionPane.showMessageDialog(null, "BẠN CHƯA CHỌN FILE ĐỂ GIẢI MÃ", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "BẠN CẦN CHỌN FILE ĐỂ GIẢI MÃ", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
                     }
                 }
             }

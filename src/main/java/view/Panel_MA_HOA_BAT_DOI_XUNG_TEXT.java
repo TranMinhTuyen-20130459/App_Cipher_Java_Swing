@@ -187,13 +187,13 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
 
                     text_input = text_area_input.getText();
                     if (text_input == null || text_input.isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Bạn hãy nhập vào văn bản cần MÃ HÓA", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Bạn cần nhập vào văn bản để MÃ HÓA", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
                         return;
                     }
 
                     public_key = text_area_public_key.getText();
                     if (public_key == null || public_key.isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Bạn hãy nhập vào PUBLIC KEY", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Bạn cần nhập vào PUBLIC KEY", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
                         return;
                     }
 

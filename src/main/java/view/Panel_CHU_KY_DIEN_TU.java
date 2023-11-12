@@ -141,13 +141,13 @@ public class Panel_CHU_KY_DIEN_TU extends JPanel {
 
                     if (name_file_selected == null || path_file_selected == null ||
                             name_file_selected.isEmpty() || path_file_selected.isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Bạn cần chọn FILE để kiểm tra", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Bạn cần chọn FILE", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
                         return;
                     }
 
                     hash_text_input = input_text_area.getText();
                     if (hash_text_input == null || hash_text_input.isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Bạn cần nhập vào chuỗi HASH để kiểm tra", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Bạn cần nhập vào chuỗi HASH", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
                         return;
                     }
 

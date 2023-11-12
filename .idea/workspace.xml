@@ -9,8 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aea98578-a857-4ebe-8b11-7edaa46407d0" name="Changes" comment="hiện thực chức năng mã hóa file của thuật toán RSA trên View">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="aea98578-a857-4ebe-8b11-7edaa46407d0" name="Changes" comment="Thêm button Reset trong tất cả các View của App">
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/Panel_CHU_KY_DIEN_TU.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Panel_CHU_KY_DIEN_TU.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/Panel_MA_HOA_BAT_DOI_XUNG_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Panel_MA_HOA_BAT_DOI_XUNG_FILE.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/Panel_MA_HOA_BAT_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Panel_MA_HOA_BAT_DOI_XUNG_TEXT.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" afterDir="false" />
@@ -147,7 +147,7 @@
       <workItem from="1699776442034" duration="9444000" />
       <workItem from="1699787804595" duration="57000" />
       <workItem from="1699787880292" duration="2292000" />
-      <workItem from="1699798195982" duration="2358000" />
+      <workItem from="1699798195982" duration="4369000" />
     </task>
     <task id="LOCAL-00001" summary="tạo cấu trúc thư mục cho project theo Maven">
       <option name="closed" value="true" />
@@ -213,7 +213,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699785115629</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Thêm button Reset trong tất cả các View của App">
+      <option name="closed" value="true" />
+      <created>1699800741603</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1699800741603</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,6 +247,7 @@
     <MESSAGE value="thêm câu if để kiểm tra trường hợp lỗi trong function decryptFile() của RSA" />
     <MESSAGE value="nâng cấp giao diện cho thuật toán RSA file" />
     <MESSAGE value="hiện thực chức năng mã hóa file của thuật toán RSA trên View" />
-    <option name="LAST_COMMIT_MESSAGE" value="hiện thực chức năng mã hóa file của thuật toán RSA trên View" />
+    <MESSAGE value="Thêm button Reset trong tất cả các View của App" />
+    <option name="LAST_COMMIT_MESSAGE" value="Thêm button Reset trong tất cả các View của App" />
   </component>
 </project>

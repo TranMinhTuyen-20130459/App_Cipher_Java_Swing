@@ -312,7 +312,7 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_FILE extends JPanel {
 
                     if (name_selected_file == null || path_selected_file == null || path_folder_contain_selected_file == null ||
                             name_selected_file.isEmpty() || path_selected_file.isEmpty() || path_folder_contain_selected_file.isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Bạn cần chọn file để MÃ HÓA", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Bạn cần chọn FILE để MÃ HÓA", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
                         return;
                     }
 
@@ -370,7 +370,7 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_FILE extends JPanel {
 
                     if (name_selected_file == null || path_selected_file == null || path_folder_contain_selected_file == null ||
                             name_selected_file.isEmpty() || path_selected_file.isEmpty() || path_folder_contain_selected_file.isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Bạn cần chọn file để GIẢI MÃ", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Bạn cần chọn FILE để GIẢI MÃ", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
                         return;
                     }
 

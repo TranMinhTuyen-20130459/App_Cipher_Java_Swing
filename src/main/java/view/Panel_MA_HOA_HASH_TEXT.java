@@ -190,12 +190,12 @@ public class Panel_MA_HOA_HASH_TEXT extends JPanel {
                     input_text = input_text_area.getText();
 
                     if (name_algorithm == null || name_algorithm.isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Bạn chưa chọn Giải Thuật !!!", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Bạn cần chọn GIẢI THUẬT !!!", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
                         return;
                     }
 
                     if (input_text == null || input_text.isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Bạn hãy nhập vào đoạn văn bản cần Hash !!!", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Bạn cần nhập vào văn bản để HASH !!!", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
                         return;
                     }
 

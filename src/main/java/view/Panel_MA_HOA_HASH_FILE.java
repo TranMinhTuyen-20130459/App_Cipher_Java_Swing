@@ -142,12 +142,12 @@ public class Panel_MA_HOA_HASH_FILE extends JPanel {
                 if (bt_hash.isEnabled()) {
 
                     if (name_algorithm == null || name_algorithm.isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Bạn chưa chọn Giải Thuật !!!", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Bạn cần chọn GIẢI THUẬT !!!", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
                         return;
                     }
 
                     if (name_selected_file == null || path_selected_file == null || name_selected_file.isEmpty() || path_selected_file.isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Bạn chưa chọn File để Hash !!!", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Bạn cần chọn FILE để HASH !!!", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
                         return;
                     }
 
