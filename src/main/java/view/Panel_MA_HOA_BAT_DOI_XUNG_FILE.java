@@ -186,13 +186,13 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_FILE extends JPanel {
         combo_box_cipher_type.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 
         cipher_type = combo_box_cipher_type.getSelectedItem().toString();
-        System.out.println("Cipher type: " + cipher_type);
+        // System.out.println("Cipher type: " + cipher_type);
         combo_box_cipher_type.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
                 cipher_type = combo_box_cipher_type.getSelectedItem().toString();
-                System.out.println("Cipher type: " + cipher_type);
+                // System.out.println("Cipher type: " + cipher_type);
             }
         });
 
@@ -205,13 +205,13 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_FILE extends JPanel {
         combo_box_key_size.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 
         name_key_size = combo_box_key_size.getSelectedItem().toString();
-        System.out.println("Key size: " + name_key_size);
+        // System.out.println("Key size: " + name_key_size);
         combo_box_key_size.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
                 name_key_size = combo_box_key_size.getSelectedItem().toString();
-                System.out.println("Key size: " + name_key_size);
+                // System.out.println("Key size: " + name_key_size);
 
             }
         });
@@ -225,12 +225,12 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_FILE extends JPanel {
         combo_box_algorithm_symmetry.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 
         algorithm_symmetry = combo_box_algorithm_symmetry.getSelectedItem().toString();
-        System.out.println("Algorithm Symmetry: " + algorithm_symmetry);
+        // System.out.println("Algorithm Symmetry: " + algorithm_symmetry);
         combo_box_algorithm_symmetry.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 algorithm_symmetry = combo_box_algorithm_symmetry.getSelectedItem().toString();
-                System.out.println("Algorithm Symmetry: " + algorithm_symmetry);
+                // System.out.println("Algorithm Symmetry: " + algorithm_symmetry);
             }
         });
 
@@ -244,12 +244,12 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_FILE extends JPanel {
         combo_box_mode_padding_symmetry.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 
         mode_padding_symmetry = combo_box_mode_padding_symmetry.getSelectedItem().toString();
-        System.out.println("Mode/Padding :" + mode_padding_symmetry);
+        // System.out.println("Mode/Padding :" + mode_padding_symmetry);
         combo_box_mode_padding_symmetry.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 mode_padding_symmetry = combo_box_mode_padding_symmetry.getSelectedItem().toString();
-                System.out.println("Mode/Padding :" + mode_padding_symmetry);
+                // System.out.println("Mode/Padding :" + mode_padding_symmetry);
             }
         });
 
@@ -516,26 +516,26 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_FILE extends JPanel {
     public void resetComboBoxKeySize() {
         combo_box_key_size.setSelectedIndex(0);
         name_key_size = combo_box_key_size.getSelectedItem().toString();
-        System.out.println("Key Size: " + name_key_size);
+        // System.out.println("Key Size: " + name_key_size);
     }
 
     public void resetComboBoxCipherType() {
         combo_box_cipher_type.setSelectedIndex(0);
         cipher_type = combo_box_cipher_type.getSelectedItem().toString();
-        System.out.println("Cipher Type: " + cipher_type);
+        // System.out.println("Cipher Type: " + cipher_type);
     }
 
     public void resetComboBoxAlgorithmSymmetry() {
         combo_box_algorithm_symmetry.setSelectedIndex(0);
         algorithm_symmetry = combo_box_algorithm_symmetry.getSelectedItem().toString();
 
-        System.out.println("Algorithm: " + algorithm_symmetry);
+        // System.out.println("Algorithm: " + algorithm_symmetry);
     }
 
     public void resetComboboxModePaddingSymmetry() {
         combo_box_mode_padding_symmetry.setSelectedIndex(0);
         mode_padding_symmetry = combo_box_mode_padding_symmetry.getSelectedItem().toString();
-        System.out.println("Mode/Padding: " + mode_padding_symmetry);
+        // System.out.println("Mode/Padding: " + mode_padding_symmetry);
     }
 
     public void resetSelectedFile() {
