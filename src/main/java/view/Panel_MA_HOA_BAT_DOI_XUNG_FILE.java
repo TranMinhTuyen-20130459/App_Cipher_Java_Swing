@@ -1,8 +1,12 @@
 package view;
 
 import controller.Controller_MA_HOA_BAT_DOI_XUNG;
+import controller.Controller_MA_HOA_DOI_XUNG;
 import helper.Algorithm;
+import helper.DecryptFile;
+import helper.EncryptFile;
 import helper.Image;
+import utils.FileUtil;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,6 +14,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.RoundRectangle2D;
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Panel_MA_HOA_BAT_DOI_XUNG_FILE extends JPanel {
     private JLabel lb_key_size,
@@ -287,12 +293,113 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_FILE extends JPanel {
         bt_encrypt = new RoundedButton("MÃ HÓA", 0, new Color(217, 217, 217));
         bt_encrypt.setBounds(19, 432, 115, 37);
         bt_encrypt.setIcon(new ImageIcon(Image.img_encrypt));
+
+        bt_encrypt.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                if (bt_encrypt.isEnabled()) {
+
+                    public_key = text_area_public_key.getText();
+
+                    if (public_key == null || public_key.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Bạn cần nhập vào PUBLIC KEY", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                        return;
+                    }
+
+                    if (name_selected_file == null || path_selected_file == null || path_folder_contain_selected_file == null ||
+                            name_selected_file.isEmpty() || path_selected_file.isEmpty() || path_folder_contain_selected_file.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Bạn cần chọn file để MÃ HÓA", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                        return;
+                    }
+
+                    // đây là Key của thuật toán đối xứng dùng để mã hóa File
+                    String symmetry_key = Controller_MA_HOA_DOI_XUNG.createKeyRandom(algorithm_symmetry);
+
+                    // Lấy thời gian hiện tại
+                    Date currentTime = new Date();
+
+                    // Định dạng thời gian thành chuỗi
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+                    String timestamp = dateFormat.format(currentTime);
+
+                    String dest_file = path_folder_contain_selected_file + "/" + "RSA_MA_HOA_KEY_"
+                            + algorithm_symmetry.toUpperCase() + "_" + timestamp + "_" + name_selected_file;
+
+                    int checkEncryptFile = Controller_MA_HOA_BAT_DOI_XUNG.encryptFileWithPublicKeyRSA
+                            (path_selected_file, dest_file, algorithm_symmetry, mode_padding_symmetry, symmetry_key, public_key);
+
+                    if (checkEncryptFile == EncryptFile.SUCCESS) {
+
+                        JOptionPane.showMessageDialog(null, "MÃ HÓA FILE THÀNH CÔNG", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+                        resetSelectedFile();
+
+                    } else if (checkEncryptFile == EncryptFile.ERROR) {
+
+                        JOptionPane.showMessageDialog(null, "MÃ HÓA FILE THẤT BẠI", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                        FileUtil.deleteFile(dest_file);
+                    }
+
+
+                }
+
+            }
+        });
     }
 
     public void createButtonDecrypt() {
         bt_decrypt = new RoundedButton("GIẢI MÃ", 0, new Color(217, 217, 217));
         bt_decrypt.setBounds(190, 432, 115, 37);
         bt_decrypt.setIcon(new ImageIcon(Image.img_decrypt));
+
+        bt_decrypt.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                if (bt_decrypt.isEnabled()) {
+
+                    private_key = text_area_private_key.getText();
+                    if (private_key == null || private_key.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Bạn cần nhập vào PRIVATE KEY", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                        return;
+                    }
+
+                    if (name_selected_file == null || path_selected_file == null || path_folder_contain_selected_file == null ||
+                            name_selected_file.isEmpty() || path_selected_file.isEmpty() || path_folder_contain_selected_file.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Bạn cần chọn file để GIẢI MÃ", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                        return;
+                    }
+
+                    // Lấy thời gian hiện tại
+                    Date currentTime = new Date();
+
+                    // Định dạng thời gian thành chuỗi
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+                    String timestamp = dateFormat.format(currentTime);
+
+                    String dest_file = path_folder_contain_selected_file + "/" + "RSA_GIAI_MA_KEY_"
+                            + algorithm_symmetry.toUpperCase() + "_" + timestamp + "_" + name_selected_file;
+
+                    int checkDecryptFile = Controller_MA_HOA_BAT_DOI_XUNG.decryptFileWithPrivateKeyRSA
+                            (path_selected_file, dest_file, algorithm_symmetry, mode_padding_symmetry, private_key);
+
+                    if (checkDecryptFile == DecryptFile.SUCCESS) {
+
+                        JOptionPane.showMessageDialog(null, "GIẢI MÃ FILE THÀNH CÔNG", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+                        resetSelectedFile();
+
+                    } else if (checkDecryptFile == DecryptFile.ERROR) {
+
+                        JOptionPane.showMessageDialog(null, "GIẢI MÃ FILE THẤT BẠI", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                        FileUtil.deleteFile(dest_file);
+
+                    }
+
+                }
+
+            }
+        });
     }
 
     public void createButtonCreateKey() {
