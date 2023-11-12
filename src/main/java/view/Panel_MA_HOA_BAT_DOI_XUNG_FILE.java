@@ -1,5 +1,7 @@
 package view;
 
+import controller.Controller_MA_HOA_BAT_DOI_XUNG;
+import helper.Algorithm;
 import helper.Image;
 
 import javax.swing.*;
@@ -10,33 +12,49 @@ import java.awt.geom.RoundRectangle2D;
 import java.io.File;
 
 public class Panel_MA_HOA_BAT_DOI_XUNG_FILE extends JPanel {
-
-    private JLabel lb_algorithm_encrypt,
-            lb_mode_padding_encrypt,
-            lb_algorithm_decrypt,
-            lb_mode_padding_decrypt,
-            lb_key,
+    private JLabel lb_key_size,
             lb_public_key,
             lb_private_key,
-            lb_name_file;
-
-    private JComboBox combo_box_algorithm_encrypt,
-            combo_box_mode_padding_encrypt,
-            combo_box_algorithm_decrypt,
-            combo_box_mode_padding_decrypt;
-
-    private JTextField text_field_key,
-            text_field_public_key,
-            text_field_private_key;
+            lb_cipher_type,
+            lb_name_file,
+            lb_algorithm_symmetry,
+            lb_combo_box_mode_padding_symmetry;
+    private JComboBox combo_box_key_size,
+            combo_box_cipher_type,
+            combo_box_algorithm_symmetry,
+            combo_box_mode_padding_symmetry;
+    private JTextArea text_area_public_key,
+            text_area_private_key;
+    private JScrollPane scroll_pane_public_key,
+            scroll_pane_private_key;
     private JPanel panel_choose_file;
     private JButton bt_choose_file,
+            bt_create_key,
             bt_encrypt,
             bt_decrypt,
             bt_switch_text;
-    private JSeparator separator_one;
-    private String name_selected_file = "",
+    private final String[] arr_key_sizes = {"512 bit", "1024 bit", "2048 bit", "4096 bit"};
+    private final String[] arr_cipher_type = {"RSA", "RSA/ECB/PKCS1Padding"};
+    private final String[] arr_algorithm_symmetry = {"AES", "DES", "Blowfish"};
+    private final String[] arr_mode_padding_symmetry = {
+            "ECB/PKCS5",
+            "CBC/PKCS5",
+            "CFB/PKCS5",
+            "OFB/PKCS5",
+            "ECB/ISO10126",
+            "CBC/ISO10126",
+            "CFB/ISO10126",
+            "OFB/ISO10126"
+    };
+    private String name_key_size = "",
+            cipher_type = "",
+            public_key = "",
+            private_key = "",
+            name_selected_file = "",
             path_selected_file = "",
-            path_folder_contain_selected_file = "";
+            path_folder_contain_selected_file = "",
+            algorithm_symmetry = "",
+            mode_padding_symmetry = "";
 
     public Panel_MA_HOA_BAT_DOI_XUNG_FILE(int WIDTH, int HEIGHT) {
 
@@ -49,96 +67,37 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_FILE extends JPanel {
         createLabelGroup();
         createButtonGroup();
         createComboBoxGroup();
-        createTextFieldGroup();
-        createSeparatorGroup();
+        createTextAreaGroup();
 
         createPanelChooseFile();
 
         add(bt_encrypt);
         add(bt_decrypt);
         add(bt_switch_text);
-
-        add(separator_one);
+        add(bt_create_key);
 
         add(panel_choose_file);
 
-        add(lb_algorithm_encrypt);
-        add(lb_algorithm_decrypt);
-        add(lb_mode_padding_encrypt);
-        add(lb_mode_padding_decrypt);
-        add(lb_key);
+        add(lb_key_size);
+        add(lb_cipher_type);
         add(lb_public_key);
         add(lb_private_key);
-    }
+        add(lb_algorithm_symmetry);
+        add(lb_combo_box_mode_padding_symmetry);
 
-    public void createLabelGroup() {
+        add(combo_box_key_size);
+        add(combo_box_cipher_type);
+        add(combo_box_algorithm_symmetry);
+        add(combo_box_mode_padding_symmetry);
 
-        lb_algorithm_encrypt = new JLabel("Chọn giải thuật:");
-        lb_algorithm_encrypt.setForeground(Color.BLACK);
-        lb_algorithm_encrypt.setHorizontalAlignment(SwingConstants.LEFT);
-        lb_algorithm_encrypt.setFont(new Font("Arial", Font.PLAIN, 14));
-        lb_algorithm_encrypt.setBounds(16, 107, 117, 27);
-
-        lb_algorithm_decrypt = new JLabel("Chọn giải thuật:");
-        lb_algorithm_decrypt.setForeground(Color.BLACK);
-        lb_algorithm_decrypt.setHorizontalAlignment(SwingConstants.LEFT);
-        lb_algorithm_decrypt.setFont(new Font("Arial", Font.PLAIN, 14));
-        lb_algorithm_decrypt.setBounds(373, 107, 117, 27);
-
-        lb_mode_padding_encrypt = new JLabel("Mode/Padding:");
-        lb_mode_padding_encrypt.setForeground(Color.BLACK);
-        lb_mode_padding_encrypt.setHorizontalAlignment(SwingConstants.LEFT);
-        lb_mode_padding_encrypt.setFont(new Font("Arial", Font.PLAIN, 14));
-        lb_mode_padding_encrypt.setBounds(16, 161, 117, 27);
-
-        lb_mode_padding_decrypt = new JLabel("Mode/Padding:");
-        lb_mode_padding_decrypt.setForeground(Color.BLACK);
-        lb_mode_padding_decrypt.setHorizontalAlignment(SwingConstants.LEFT);
-        lb_mode_padding_decrypt.setFont(new Font("Arial", Font.PLAIN, 14));
-        lb_mode_padding_decrypt.setBounds(373, 161, 117, 27);
-
-        lb_key = new JLabel("Key:");
-        lb_key.setForeground(Color.BLACK);
-        lb_key.setHorizontalAlignment(SwingConstants.LEFT);
-        lb_key.setFont(new Font("Arial", Font.PLAIN, 14));
-        lb_key.setBounds(16, 220, 117, 27);
-
-        lb_public_key = new JLabel("Public Key:");
-        lb_public_key.setForeground(Color.BLACK);
-        lb_public_key.setHorizontalAlignment(SwingConstants.LEFT);
-        lb_public_key.setFont(new Font("Arial", Font.PLAIN, 14));
-        lb_public_key.setBounds(16, 279, 117, 27);
-
-        lb_private_key = new JLabel("Private Key:");
-        lb_private_key.setForeground(Color.BLACK);
-        lb_private_key.setHorizontalAlignment(SwingConstants.LEFT);
-        lb_private_key.setFont(new Font("Arial", Font.PLAIN, 14));
-        lb_private_key.setBounds(373, 279, 117, 27);
-
-    }
-
-    public void createButtonGroup() {
-        createButtonSwitchText();
-        createButtonEncrypt();
-        createButtonDecrypt();
-    }
-
-    public void createComboBoxGroup() {
-
-    }
-
-    public void createTextFieldGroup() {
-
-    }
-
-    public void createSeparatorGroup() {
-        createSeparatorOne();
+        add(scroll_pane_public_key);
+        add(scroll_pane_private_key);
     }
 
     public void createPanelChooseFile() {
 
         panel_choose_file = new JPanel();
-        panel_choose_file.setBounds(16, 21, 662, 54);
+        panel_choose_file.setBounds(19, 279, 654, 54);
         panel_choose_file.setBackground(new Color(217, 217, 217));
         panel_choose_file.setLayout(null);
         panel_choose_file.setVisible(true);
@@ -152,31 +111,139 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_FILE extends JPanel {
 
     }
 
+    public void createLabelGroup() {
+        lb_key_size = new JLabel("Key Size:");
+        lb_key_size.setForeground(Color.BLACK);
+        lb_key_size.setHorizontalAlignment(SwingConstants.LEFT);
+        lb_key_size.setFont(new Font("Arial", Font.PLAIN, 14));
+        lb_key_size.setBounds(27, 12, 125, 19);
 
-    public void resetLayout() {
+        lb_public_key = new JLabel("Public Key:");
+        lb_public_key.setForeground(Color.BLACK);
+        lb_public_key.setHorizontalAlignment(SwingConstants.LEFT);
+        lb_public_key.setFont(new Font("Arial", Font.PLAIN, 14));
+        lb_public_key.setBounds(314, 12, 110, 21);
+
+        lb_private_key = new JLabel("Private Key:");
+        lb_private_key.setForeground(Color.BLACK);
+        lb_private_key.setHorizontalAlignment(SwingConstants.LEFT);
+        lb_private_key.setFont(new Font("Arial", Font.PLAIN, 14));
+        lb_private_key.setBounds(522, 12, 95, 21);
+
+        lb_cipher_type = new JLabel("Cipher Type:");
+        lb_cipher_type.setForeground(Color.BLACK);
+        lb_cipher_type.setHorizontalAlignment(SwingConstants.LEFT);
+        lb_cipher_type.setFont(new Font("Arial", Font.PLAIN, 14));
+        lb_cipher_type.setBounds(27, 88, 125, 19);
+
+        lb_algorithm_symmetry = new JLabel("Thuật toán đối xứng:");
+        lb_algorithm_symmetry.setForeground(Color.BLACK);
+        lb_algorithm_symmetry.setHorizontalAlignment(SwingConstants.LEFT);
+        lb_algorithm_symmetry.setFont(new Font("Arial", Font.PLAIN, 14));
+        lb_algorithm_symmetry.setBounds(314, 185, 154, 19);
+
+        lb_combo_box_mode_padding_symmetry = new JLabel("Mode/Padding:");
+        lb_combo_box_mode_padding_symmetry.setForeground(Color.BLACK);
+        lb_combo_box_mode_padding_symmetry.setHorizontalAlignment(SwingConstants.LEFT);
+        lb_combo_box_mode_padding_symmetry.setFont(new Font("Arial", Font.PLAIN, 14));
+        lb_combo_box_mode_padding_symmetry.setBounds(519, 185, 154, 19);
 
     }
 
-    public void createSeparatorOne() {
-        separator_one = new JSeparator(SwingConstants.VERTICAL);
-        separator_one.setBounds(347, 88, 2, 380);
-        separator_one.setBackground(Color.BLACK);
-        separator_one.setBorder(BorderFactory.createLineBorder(Color.BLACK, 5));
+    public void createButtonGroup() {
+        createButtonCreateKey();
+        createButtonSwitchText();
+        createButtonEncrypt();
+        createButtonDecrypt();
     }
 
-    public void createButtonSwitchText() {
+    public void createComboBoxGroup() {
+        createComboBoxKeySize();
+        createComboBoxCipherType();
+        createComboBoxAlgorithmSymmetry();
+        createComboBoxModePaddingSymmetry();
+    }
 
-        bt_switch_text = new RoundedButton("TEXT", 15, new Color(215, 187, 18));
-        bt_switch_text.setBounds(550, 432, 115, 35);
-        bt_switch_text.setFont(new Font("Arial", Font.ITALIC, 20));
-        bt_switch_text.setIcon(new ImageIcon(Image.img_folder));
-        bt_switch_text.addActionListener(new ActionListener() {
+    public void createTextAreaGroup() {
+        createTextAreaPublicKey();
+        createTextAreaPrivateKey();
+    }
+
+
+    public void createComboBoxCipherType() {
+        combo_box_cipher_type = new JComboBox<>(arr_cipher_type);
+        combo_box_cipher_type.setFont(new Font("Arial", Font.PLAIN, 14));
+        combo_box_cipher_type.setBounds(24, 115, 180, 32);
+        combo_box_cipher_type.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+
+        cipher_type = combo_box_cipher_type.getSelectedItem().toString();
+        System.out.println("Cipher type: " + cipher_type);
+        combo_box_cipher_type.addActionListener(new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent e) {
-                resetLayout();
-                Frame_Home.showPanel(Frame_Home.panel_mhbdx_text);
+                cipher_type = combo_box_cipher_type.getSelectedItem().toString();
+                System.out.println("Cipher type: " + cipher_type);
             }
         });
+
+    }
+
+    public void createComboBoxKeySize() {
+        combo_box_key_size = new JComboBox<>(arr_key_sizes);
+        combo_box_key_size.setFont(new Font("Arial", Font.PLAIN, 14));
+        combo_box_key_size.setBounds(24, 38, 159, 32);
+        combo_box_key_size.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+
+        name_key_size = combo_box_key_size.getSelectedItem().toString();
+        System.out.println("Key size: " + name_key_size);
+        combo_box_key_size.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                name_key_size = combo_box_key_size.getSelectedItem().toString();
+                System.out.println("Key size: " + name_key_size);
+
+            }
+        });
+
+    }
+
+    public void createComboBoxAlgorithmSymmetry() {
+        combo_box_algorithm_symmetry = new JComboBox(arr_algorithm_symmetry);
+        combo_box_algorithm_symmetry.setFont(new Font("Arial", Font.PLAIN, 14));
+        combo_box_algorithm_symmetry.setBounds(314, 209, 154, 32);
+        combo_box_algorithm_symmetry.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+
+        algorithm_symmetry = combo_box_algorithm_symmetry.getSelectedItem().toString();
+        System.out.println("Algorithm Symmetry: " + algorithm_symmetry);
+        combo_box_algorithm_symmetry.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                algorithm_symmetry = combo_box_algorithm_symmetry.getSelectedItem().toString();
+                System.out.println("Algorithm Symmetry: " + algorithm_symmetry);
+            }
+        });
+
+    }
+
+    public void createComboBoxModePaddingSymmetry() {
+
+        combo_box_mode_padding_symmetry = new JComboBox(arr_mode_padding_symmetry);
+        combo_box_mode_padding_symmetry.setFont(new Font("Arial", Font.PLAIN, 14));
+        combo_box_mode_padding_symmetry.setBounds(519, 209, 154, 32);
+        combo_box_mode_padding_symmetry.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+
+        mode_padding_symmetry = combo_box_mode_padding_symmetry.getSelectedItem().toString();
+        System.out.println("Mode/Padding :" + mode_padding_symmetry);
+        combo_box_mode_padding_symmetry.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mode_padding_symmetry = combo_box_mode_padding_symmetry.getSelectedItem().toString();
+                System.out.println("Mode/Padding :" + mode_padding_symmetry);
+            }
+        });
+
 
     }
 
@@ -218,14 +285,151 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_FILE extends JPanel {
 
     public void createButtonEncrypt() {
         bt_encrypt = new RoundedButton("MÃ HÓA", 0, new Color(217, 217, 217));
-        bt_encrypt.setBounds(16, 387, 115, 37);
+        bt_encrypt.setBounds(19, 432, 115, 37);
         bt_encrypt.setIcon(new ImageIcon(Image.img_encrypt));
     }
 
     public void createButtonDecrypt() {
         bt_decrypt = new RoundedButton("GIẢI MÃ", 0, new Color(217, 217, 217));
-        bt_decrypt.setBounds(373, 387, 115, 37);
+        bt_decrypt.setBounds(190, 432, 115, 37);
         bt_decrypt.setIcon(new ImageIcon(Image.img_decrypt));
+    }
+
+    public void createButtonCreateKey() {
+
+        bt_create_key = new RoundedButton("TẠO KEY", 0, new Color(217, 217, 217));
+        bt_create_key.setBounds(207, 38, 83, 31);
+        bt_create_key.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                if (bt_create_key.isEnabled()) {
+
+                    if (name_key_size == null) return;
+                    int key_size = Integer.parseInt(name_key_size.replaceAll("[^0-9]", ""));
+
+                    var arr_key = Controller_MA_HOA_BAT_DOI_XUNG.createKeyRandom(Algorithm.RSA, key_size);
+                    if (arr_key == null) return;
+
+                    public_key = arr_key[0];
+                    private_key = arr_key[1];
+
+                    text_area_public_key.setText(public_key);
+                    text_area_private_key.setText(private_key);
+
+                }
+            }
+        });
+
+    }
+
+    public void createButtonSwitchText() {
+
+        bt_switch_text = new RoundedButton("TEXT", 15, new Color(215, 187, 18));
+        bt_switch_text.setBounds(550, 432, 115, 35);
+        bt_switch_text.setFont(new Font("Arial", Font.ITALIC, 20));
+        bt_switch_text.setIcon(new ImageIcon(Image.img_text));
+        bt_switch_text.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                resetLayout();
+                Frame_Home.showPanel(Frame_Home.panel_mhbdx_text);
+            }
+        });
+
+    }
+
+    public void createTextAreaPublicKey() {
+        text_area_public_key = new JTextArea();
+        text_area_public_key.setFont(new Font("Arial", Font.PLAIN, 16));
+        text_area_public_key.setBackground(new Color(217, 217, 217));
+
+        scroll_pane_public_key = new JScrollPane(text_area_public_key);
+        scroll_pane_public_key.setBounds(314, 38, 154, 127);
+        scroll_pane_public_key.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+
+        // Thiết lập hiển thị thanh cuộn theo cần thiết
+        scroll_pane_public_key.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+        // Đảm bảo thanh cuộn sẽ hiển thị khi nội dung vượt quá kích thước của JTextArea
+        text_area_public_key.setLineWrap(true);
+        text_area_public_key.setWrapStyleWord(true);
+    }
+
+    private void createTextAreaPrivateKey() {
+
+        text_area_private_key = new JTextArea();
+        text_area_private_key.setFont(new Font("Arial", Font.PLAIN, 16));
+        text_area_private_key.setBackground(new Color(217, 217, 217));
+
+        scroll_pane_private_key = new JScrollPane(text_area_private_key);
+        scroll_pane_private_key.setBounds(519, 38, 154, 127);
+        scroll_pane_private_key.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+
+        // Thiết lập hiển thị thanh cuộn theo cần thiết
+        scroll_pane_private_key.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+        // Đảm bảo thanh cuộn sẽ hiển thị khi nội dung vượt quá kích thước của JTextArea
+        text_area_private_key.setLineWrap(true);
+        text_area_private_key.setWrapStyleWord(true);
+
+    }
+
+    public void resetPublicKeyTextArea() {
+        public_key = "";
+        text_area_public_key.setText(public_key);
+    }
+
+    public void resetPrivateKeyTextArea() {
+        private_key = "";
+        text_area_private_key.setText(private_key);
+    }
+
+    public void resetComboBoxKeySize() {
+        combo_box_key_size.setSelectedIndex(0);
+        name_key_size = combo_box_key_size.getSelectedItem().toString();
+        System.out.println("Key Size: " + name_key_size);
+    }
+
+    public void resetComboBoxCipherType() {
+        combo_box_cipher_type.setSelectedIndex(0);
+        cipher_type = combo_box_cipher_type.getSelectedItem().toString();
+        System.out.println("Cipher Type: " + cipher_type);
+    }
+
+    public void resetComboBoxAlgorithmSymmetry() {
+        combo_box_algorithm_symmetry.setSelectedIndex(0);
+        algorithm_symmetry = combo_box_algorithm_symmetry.getSelectedItem().toString();
+
+        System.out.println("Algorithm: " + algorithm_symmetry);
+    }
+
+    public void resetComboboxModePaddingSymmetry() {
+        combo_box_mode_padding_symmetry.setSelectedIndex(0);
+        mode_padding_symmetry = combo_box_mode_padding_symmetry.getSelectedItem().toString();
+        System.out.println("Mode/Padding: " + mode_padding_symmetry);
+    }
+
+    public void resetSelectedFile() {
+        name_selected_file = "";
+        path_selected_file = "";
+        path_folder_contain_selected_file = "";
+        lb_name_file.setText(name_selected_file);
+    }
+
+    public void resetLayout() {
+        resetComboBoxKeySize();
+        resetComboBoxCipherType();
+
+        resetPublicKeyTextArea();
+        resetPrivateKeyTextArea();
+
+        resetComboBoxAlgorithmSymmetry();
+        resetComboboxModePaddingSymmetry();
+
+        resetSelectedFile();
     }
 
     public class RoundedButton extends JButton {

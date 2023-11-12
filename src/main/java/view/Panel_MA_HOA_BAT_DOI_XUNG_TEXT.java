@@ -77,7 +77,7 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
     }
 
     public void createLabelGroup() {
-        lb_key_size = new JLabel("Chọn Key Size:");
+        lb_key_size = new JLabel("Key Size:");
         lb_key_size.setForeground(Color.BLACK);
         lb_key_size.setHorizontalAlignment(SwingConstants.LEFT);
         lb_key_size.setFont(new Font("Arial", Font.PLAIN, 14));
