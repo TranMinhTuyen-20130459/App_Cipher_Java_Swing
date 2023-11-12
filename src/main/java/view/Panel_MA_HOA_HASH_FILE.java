@@ -20,7 +20,7 @@ public class Panel_MA_HOA_HASH_FILE extends JPanel {
             label_name_file;
     private JComboBox combo_box_algorithm;
 
-    private JButton bt_hash, bt_copy, bt_switch_text, bt_choose_file;
+    private JButton bt_hash, bt_copy, bt_switch_text, bt_choose_file, bt_reset;
 
     private JTextArea output_text_area;
 
@@ -54,6 +54,7 @@ public class Panel_MA_HOA_HASH_FILE extends JPanel {
         add(bt_hash);
         add(bt_copy);
         add(bt_switch_text);
+        add(bt_reset);
 
         add(combo_box_algorithm);
 
@@ -80,6 +81,7 @@ public class Panel_MA_HOA_HASH_FILE extends JPanel {
         createButtonHash();
         createButtonCopy();
         createButtonSwitchText();
+        createButtonReset();
     }
 
     public void createTextAreaGroup() {
@@ -164,7 +166,7 @@ public class Panel_MA_HOA_HASH_FILE extends JPanel {
 
     public void createButtonCopy() {
         bt_copy = new RoundedButton("COPY", 0, new Color(217, 217, 217));
-        bt_copy.setBounds(517, 276, 90, 22);
+        bt_copy.setBounds(519, 276, 90, 22);
         bt_copy.setFont(new Font("Arial", Font.PLAIN, 14));
 
         bt_copy.addActionListener(new ActionListener() {
@@ -197,9 +199,22 @@ public class Panel_MA_HOA_HASH_FILE extends JPanel {
         });
     }
 
+    public void createButtonReset() {
+        bt_reset = new RoundedButton("", 0, new Color(217, 217, 217));
+        bt_reset.setBounds(535, 25, 75, 35);
+        bt_reset.setIcon(new ImageIcon(Image.img_reset));
+        bt_reset.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                resetLayout();
+            }
+        });
+    }
+
     public void createPanelChooseFile() {
         panel_choose_file = new JPanel();
-        panel_choose_file.setBounds(23, 119, 594, 54);
+        panel_choose_file.setBounds(23, 119, 585, 54);
         panel_choose_file.setBackground(new Color(217, 217, 217));
         panel_choose_file.setLayout(null);
         panel_choose_file.setVisible(true);

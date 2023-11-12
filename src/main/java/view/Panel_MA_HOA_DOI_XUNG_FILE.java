@@ -33,7 +33,8 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
             bt_copy_key,
             bt_switch_text,
             bt_choose_file,
-            bt_create_key;
+            bt_create_key,
+            bt_reset;
     private JTextField key_text_field;
     private JComboBox combo_box_algorithm, combo_box_mode_padding;
     private final String[] arr_algorithms = {"DES", "AES", "TwoFish", "Blowfish", "Serpent"};
@@ -82,6 +83,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
         add(bt_decrypt);
         add(bt_switch_text);
         add(bt_create_key);
+        add(bt_reset);
 
         add(panel_choose_file);
     }
@@ -120,6 +122,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
         createButtonCopyKey();
         createButtonSwitchText();
         createButtonCreateKey();
+        createButtonReset();
     }
 
     public void createButtonCreateKey() {
@@ -352,6 +355,22 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
         });
     }
 
+    public void createButtonReset() {
+
+        bt_reset = new RoundedButton("", 0, new Color(217, 217, 217));
+        bt_reset.setBounds(370, 432, 110, 37);
+        bt_reset.setIcon(new ImageIcon(Image.img_reset));
+
+        bt_reset.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                resetLayout();
+            }
+        });
+
+    }
+
     public void createComboBoxGroup() {
         createComboBoxAlgorithm();
         createComboBoxModePadding();
@@ -420,7 +439,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
 
     public void createPanelChooseFile() {
         panel_choose_file = new JPanel();
-        panel_choose_file.setBounds(17, 200, 594, 54);
+        panel_choose_file.setBounds(17, 200, 648, 54);
         panel_choose_file.setBackground(new Color(217, 217, 217));
         panel_choose_file.setLayout(null);
         panel_choose_file.setVisible(true);

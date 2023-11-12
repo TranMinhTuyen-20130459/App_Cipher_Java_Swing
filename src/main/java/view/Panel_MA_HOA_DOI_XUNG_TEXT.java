@@ -26,7 +26,8 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
             bt_copy_key,
             bt_create_key,
             bt_switch_file,
-            bt_copy_encrypted_text;
+            bt_copy_encrypted_text,
+            bt_reset;
     private JTextArea plain_text_area,
             encrypted_text_area,
             decrypted_text_area;
@@ -89,6 +90,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         add(bt_copy_encrypted_text);
         add(bt_switch_file);
         add(bt_create_key);
+        add(bt_reset);
 
         add(combo_box_algorithm);
         add(combo_box_language);
@@ -145,6 +147,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         createButtonCopyEncryptedText();
         createButtonSwitchFile();
         createButtonCreateKey();
+        createButtonReset();
     }
 
     public void createButtonEncrypt() {
@@ -433,6 +436,22 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                     }
                 }
 
+            }
+        });
+
+    }
+
+    public void createButtonReset() {
+
+        bt_reset = new RoundedButton("", 0, new Color(217, 217, 217));
+        bt_reset.setBounds(370, 432, 110, 37);
+        bt_reset.setIcon(new ImageIcon(Image.img_reset));
+
+        bt_reset.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                resetLayout();
             }
         });
 

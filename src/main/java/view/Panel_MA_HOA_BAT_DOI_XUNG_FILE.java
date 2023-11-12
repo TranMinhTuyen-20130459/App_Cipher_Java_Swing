@@ -38,7 +38,8 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_FILE extends JPanel {
             bt_create_key,
             bt_encrypt,
             bt_decrypt,
-            bt_switch_text;
+            bt_switch_text,
+            bt_reset;
     private final String[] arr_key_sizes = {"512 bit", "1024 bit", "2048 bit", "4096 bit"};
     private final String[] arr_cipher_type = {"RSA", "RSA/ECB/PKCS1Padding"};
     private final String[] arr_algorithm_symmetry = {"AES", "DES", "Blowfish"};
@@ -81,6 +82,7 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_FILE extends JPanel {
         add(bt_decrypt);
         add(bt_switch_text);
         add(bt_create_key);
+        add(bt_reset);
 
         add(panel_choose_file);
 
@@ -161,6 +163,7 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_FILE extends JPanel {
         createButtonSwitchText();
         createButtonEncrypt();
         createButtonDecrypt();
+        createButtonReset();
     }
 
     public void createComboBoxGroup() {
@@ -443,6 +446,22 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_FILE extends JPanel {
 
                 resetLayout();
                 Frame_Home.showPanel(Frame_Home.panel_mhbdx_text);
+            }
+        });
+
+    }
+
+    public void createButtonReset() {
+
+        bt_reset = new RoundedButton("", 0, new Color(217, 217, 217));
+        bt_reset.setBounds(370, 432, 110, 37);
+        bt_reset.setIcon(new ImageIcon(Image.img_reset));
+
+        bt_reset.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                resetLayout();
             }
         });
 

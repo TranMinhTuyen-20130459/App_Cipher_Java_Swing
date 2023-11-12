@@ -21,7 +21,7 @@ public class Panel_MA_HOA_HASH_TEXT extends JPanel {
 
     private JComboBox combo_box_algorithm;
 
-    private JButton bt_hash, bt_copy, bt_switch_file;
+    private JButton bt_hash, bt_copy, bt_switch_file,bt_reset;
 
     private JTextArea input_text_area, output_text_area;
 
@@ -56,6 +56,7 @@ public class Panel_MA_HOA_HASH_TEXT extends JPanel {
         add(bt_hash);
         add(bt_copy);
         add(bt_switch_file);
+        add(bt_reset);
 
         add(combo_box_algorithm);
 
@@ -88,6 +89,7 @@ public class Panel_MA_HOA_HASH_TEXT extends JPanel {
         createButtonHash();
         createButtonCopy();
         createButtonSwitchFile();
+        createButtonReset();
     }
 
     public void createTextAreaGroup() {
@@ -211,7 +213,7 @@ public class Panel_MA_HOA_HASH_TEXT extends JPanel {
 
     public void createButtonCopy() {
         bt_copy = new RoundedButton("COPY", 0, new Color(217, 217, 217));
-        bt_copy.setBounds(517, 276, 90, 22);
+        bt_copy.setBounds(519, 276, 90, 22);
         bt_copy.setFont(new Font("Arial", Font.PLAIN, 14));
         bt_copy.addActionListener(new ActionListener() {
             @Override
@@ -244,6 +246,19 @@ public class Panel_MA_HOA_HASH_TEXT extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 resetLayout();
                 Frame_Home.showPanel(Frame_Home.panel_ma_hoa_hash_file);
+            }
+        });
+    }
+
+    public void createButtonReset() {
+        bt_reset = new RoundedButton("", 0, new Color(217, 217, 217));
+        bt_reset.setBounds(535, 25, 75, 35);
+        bt_reset.setIcon(new ImageIcon(Image.img_reset));
+        bt_reset.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                resetLayout();
             }
         });
     }
