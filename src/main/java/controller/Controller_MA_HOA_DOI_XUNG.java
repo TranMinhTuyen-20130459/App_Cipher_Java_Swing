@@ -5,31 +5,31 @@ import helper.DecryptFile;
 import helper.EncryptFile;
 import helper.Languague;
 import services.ma_hoa_doi_xung.*;
-import services.ma_hoa_doi_xung.Cipher_Vigenere_English;
+import services.ma_hoa_doi_xung.Cipher_Vigenere;
 
 public class Controller_MA_HOA_DOI_XUNG {
 
     // đây là function tạo Key cho thuật toán Hill,Vigenere
-    public static String createKeyRandomFor_Hill_Vigenere(String algorithm, String language, String plain_text) {
+    public static String createKeyRandomFor_Hill_Vigenere(String algorithm, String language, int key_size) {
         try {
-            if (algorithm == null || plain_text == null || language == null) return null;
-            if (algorithm.isEmpty() || plain_text.isEmpty() || language.isEmpty()) return "";
+            if (algorithm == null || language == null) return null;
+            if (algorithm.isEmpty() || language.isEmpty()) return "";
             switch (algorithm.toUpperCase()) {
 
                 case Algorithm.VIGENERE: {
 
                     if (language.equalsIgnoreCase(Languague.ENGLISH)) {
-                        Cipher_Vigenere_English vigenereEnglish = new Cipher_Vigenere_English();
-                        vigenereEnglish.createKeyRandom(plain_text.length());
 
-                        return vigenereEnglish.exportKey();
+                        Cipher_Vigenere vigEnglish = new Cipher_Vigenere(Languague.ENGLISH);
+
+                        if (key_size > 0) vigEnglish.createKeyRandom(key_size);
+                        else vigEnglish.createKeyRandom(10); //=> key có độ lớn mặc định là 10 kí tự
+
+                        return vigEnglish.exportKey();
                     }
 
                     if (language.equalsIgnoreCase(Languague.VIETNAM)) {
-                        Cipher_Vigenere_Vietnamese vigenereVietnamese = new Cipher_Vigenere_Vietnamese();
-                        vigenereVietnamese.createKeyRandom(plain_text.length());
 
-                        return vigenereVietnamese.exportKey();
                     }
 
                     return "";
@@ -434,15 +434,13 @@ public class Controller_MA_HOA_DOI_XUNG {
                 case Algorithm.VIGENERE: {
 
                     if (language.equalsIgnoreCase(Languague.ENGLISH)) {
-                        Cipher_Vigenere_English vigenereEnglish = new Cipher_Vigenere_English();
-                        vigenereEnglish.importKey(key);
-                        return vigenereEnglish.encrypt(plain_text);
+                        Cipher_Vigenere vigEnglish = new Cipher_Vigenere(Languague.ENGLISH);
+                        vigEnglish.importKey(key);
+                        return vigEnglish.encrypt(plain_text);
                     }
 
                     if (language.equalsIgnoreCase(Languague.VIETNAM)) {
-                        Cipher_Vigenere_Vietnamese vigenereVietnamese = new Cipher_Vigenere_Vietnamese();
-                        vigenereVietnamese.importKey(key);
-                        return vigenereVietnamese.encrypt(plain_text);
+
                     }
 
                     return "";
@@ -475,15 +473,14 @@ public class Controller_MA_HOA_DOI_XUNG {
                 case Algorithm.VIGENERE: {
 
                     if (language.equalsIgnoreCase(Languague.ENGLISH)) {
-                        Cipher_Vigenere_English vigenereEnglish = new Cipher_Vigenere_English();
-                        vigenereEnglish.importKey(key);
-                        return vigenereEnglish.decrypt(encrypted_text);
+
+                        Cipher_Vigenere vigEnglish = new Cipher_Vigenere(Languague.ENGLISH);
+                        vigEnglish.importKey(key);
+                        return vigEnglish.decrypt(encrypted_text);
                     }
 
                     if (language.equalsIgnoreCase(Languague.VIETNAM)) {
-                        Cipher_Vigenere_Vietnamese vigenereVietnamese = new Cipher_Vigenere_Vietnamese();
-                        vigenereVietnamese.importKey(key);
-                        return vigenereVietnamese.decrypt(encrypted_text);
+
                     }
 
                     return "";
