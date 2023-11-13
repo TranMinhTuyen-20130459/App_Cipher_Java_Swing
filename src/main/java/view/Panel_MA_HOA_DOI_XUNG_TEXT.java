@@ -35,11 +35,28 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
             scroll_pane_encrypted_text_area,
             scroll_pane_decrypted_text_area;
     private JTextField key_text_field;
-    private JComboBox combo_box_algorithm,
+    private JComboBox<String> combo_box_algorithm,
             combo_box_language,
-            combo_box_mode_padding;
+            combo_box_mode_padding,
+            combo_box_key_size;
     private final String[] arr_algorithms = {"Vigenere", "DES", "AES", "TwoFish", "Blowfish", "Serpent"};
     private final String[] arr_languages = {"English", "Vietnamese"};
+    private final String[] arr_key_size_AES = {"128 bit", "192 bit", "256 bit"};
+    private final DefaultComboBoxModel<String> combo_box_model_AES = new DefaultComboBoxModel<String>(arr_key_size_AES);
+    private final String[] arr_key_size_DES = {"56 bit"};
+    private final DefaultComboBoxModel<String> combo_box_model_DES = new DefaultComboBoxModel<String>(arr_key_size_DES);
+
+    private final String[] arr_key_size_Blowfish = {"32 bit", "64 bit", "128 bit", "256 bit", "448 bit"};
+
+    private final DefaultComboBoxModel<String> combo_box_model_Blowfish = new DefaultComboBoxModel<String>(arr_key_size_Blowfish);
+    private final String[] arr_key_size_Serpent = {"128 bit", "192 bit", "256 bit"};
+    private final DefaultComboBoxModel<String> combo_box_model_Serpent = new DefaultComboBoxModel<String>(arr_key_size_Serpent);
+
+    private final String[] arr_key_size_TwoFish = {"128 bit", "192 bit", "256 bit"};
+
+    private final DefaultComboBoxModel<String> combo_box_model_TwoFish = new DefaultComboBoxModel<String>(arr_key_size_TwoFish);
+
+
     private final String[] arr_mode_paddings = {
             "ECB/PKCS5",
             "CBC/PKCS5",
@@ -57,7 +74,8 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
             key = "",
             name_algorithm = "",
             name_language = "",
-            name_mode_padding = "";
+            name_mode_padding = "",
+            name_key_size = "";
 
     public Panel_MA_HOA_DOI_XUNG_TEXT(int WIDTH, int HEIGHT) {
 
@@ -95,6 +113,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         add(combo_box_algorithm);
         add(combo_box_language);
         add(combo_box_mode_padding);
+        add(combo_box_key_size);
 
         add(key_text_field);
     }
@@ -202,7 +221,9 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                         }
 
                         // TH: Nếu là giải thuật AES, DES, TwoFish, BlowFish, Serpent
-                        key = Controller_MA_HOA_DOI_XUNG.createKeyRandom(name_algorithm);
+                        if (name_key_size == null) return;
+                        int key_size = Integer.parseInt(name_key_size.replaceAll("[^0-9]", ""));
+                        key = Controller_MA_HOA_DOI_XUNG.createKeyRandom(name_algorithm, key_size);
 
                         // TH: Không có lỗi khi tạo key
                         if (key != null) {
@@ -400,7 +421,11 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                         case Algorithm.TWO_FISH:
                         case Algorithm.BLOW_FISH:
                         case Algorithm.SERPENT: {
-                            key = Controller_MA_HOA_DOI_XUNG.createKeyRandom(name_algorithm);
+
+                            if (name_key_size == null) return;
+                            int key_size = Integer.parseInt(name_key_size.replaceAll("[^0-9]", ""));
+
+                            key = Controller_MA_HOA_DOI_XUNG.createKeyRandom(name_algorithm, key_size);
 
                             if (key == null || key.isEmpty() || key.equalsIgnoreCase("NOT_FOUND_ALGORITHM")) {
                                 JOptionPane.showMessageDialog(null, "Không tạo được Key", "Lỗi", JOptionPane.ERROR_MESSAGE);
@@ -589,6 +614,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         createComboBoxAlgorithm();
         createComboBoxLanguage();
         createComboBoxModePadding();
+        createComboBoxKeySize();
     }
 
     private void createComboBoxModePadding() {
@@ -646,6 +672,9 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                     label_chon_mode_padding.setVisible(true);
                     combo_box_mode_padding.setVisible(true);
                 }
+
+                // hiển thị danh sách các key_size của thuật toán tương ứng
+                changeListKeySizeByAlgorithm(name_algorithm);
             }
         });
     }
@@ -674,19 +703,22 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         });
     }
 
-    /*
-    public void createComboBoxTypeKey() {
+    public void createComboBoxKeySize() {
+        combo_box_key_size = new JComboBox<>(arr_key_size_AES);
+        combo_box_key_size.setFont(new Font("Arial", Font.PLAIN, 14));
+        combo_box_key_size.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        combo_box_key_size.setBounds(298, 82, 82, 37);
+        name_key_size = combo_box_key_size.getSelectedItem().toString();
+        System.out.println("Key Size: " + name_key_size);
 
-        combo_box_type_key = new JComboBox<>(arr_type_key);
-        combo_box_type_key.setBounds(370, 82, 120, 37);
-        combo_box_type_key.addActionListener(new ActionListener() {
+        combo_box_key_size.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                name_type_key = combo_box_type_key.getSelectedItem().toString();
-                // System.out.println(name_type_key);
+                name_key_size = combo_box_key_size.getSelectedItem().toString();
+                System.out.println("Key Size: " + name_key_size);
             }
         });
-    }*/
+    }
 
     public void createTextFieldGroup() {
         createTextFieldKey();
@@ -694,7 +726,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
 
     public void createTextFieldKey() {
         key_text_field = new JTextField();
-        key_text_field.setBounds(145, 82, 210, 37);
+        key_text_field.setBounds(65, 82, 215, 37);
         key_text_field.setFont(new Font("Arial", Font.PLAIN, 16));
         key_text_field.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
     }
@@ -749,6 +781,57 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
         resetPlainTextArea();
         resetEncryptedTextArea();
         resetDecryptedTextArea();
+    }
+
+    public void changeListKeySizeByAlgorithm(String algorithm) {
+
+        switch (algorithm.toUpperCase()) {
+
+            case Algorithm.AES: {
+
+                combo_box_key_size.setModel(combo_box_model_AES);
+                name_key_size = combo_box_key_size.getSelectedItem().toString();
+                break;
+
+            }
+
+            case Algorithm.BLOW_FISH: {
+
+                combo_box_key_size.setModel(combo_box_model_Blowfish);
+                name_key_size = combo_box_key_size.getSelectedItem().toString();
+                break;
+
+            }
+            case Algorithm.DES: {
+
+                combo_box_key_size.setModel(combo_box_model_DES);
+                name_key_size = combo_box_key_size.getSelectedItem().toString();
+                break;
+
+            }
+
+            case Algorithm.SERPENT: {
+
+                combo_box_key_size.setModel(combo_box_model_Serpent);
+                name_key_size = combo_box_key_size.getSelectedItem().toString();
+                break;
+            }
+
+            case Algorithm.TWO_FISH: {
+
+                combo_box_key_size.setModel(combo_box_model_TwoFish);
+                name_key_size = combo_box_key_size.getSelectedItem().toString();
+                break;
+            }
+
+            default:
+                combo_box_key_size.setModel(combo_box_model_AES);
+                name_key_size = combo_box_key_size.getSelectedItem().toString();
+
+        }
+
+        System.out.println("Key Size: " + name_key_size);
+
     }
 
     public class RoundedButton extends JButton {

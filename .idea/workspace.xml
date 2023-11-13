@@ -9,12 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aea98578-a857-4ebe-8b11-7edaa46407d0" name="Changes" comment="sửa file gitignore">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/App_Ma_Hoa_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/App_Ma_Hoa_jar.xml" afterDir="false" />
+    <list default="true" id="aea98578-a857-4ebe-8b11-7edaa46407d0" name="Changes" comment="thêm function để giải mã bảng chữ cái tiếng Việt bằng thuật toán Vigenere">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/Controller_MA_HOA_DOI_XUNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller_MA_HOA_DOI_XUNG.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/ma_hoa_doi_xung/Cipher_Vigenere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ma_hoa_doi_xung/Cipher_Vigenere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/ma_hoa_doi_xung/Cipher_Hill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ma_hoa_doi_xung/Cipher_Hill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/Panel_MA_HOA_BAT_DOI_XUNG_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Panel_MA_HOA_BAT_DOI_XUNG_FILE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Panel_MA_HOA_DOI_XUNG_TEXT.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +104,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Cipher_Hill" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="services.ma_hoa_doi_xung.Cipher_Hill" />
+      <module name="App_Ma_Hoa" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="services.ma_hoa_doi_xung.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Cipher_Hill" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="services.ma_hoa_doi_xung.Cipher_Hill" />
+      <module name="App_Ma_Hoa" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="services.ma_hoa_doi_xung.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Cipher_RSA" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="services.ma_hoa_bat_doi_xung.Cipher_RSA" />
       <module name="App_Ma_Hoa" />
@@ -132,7 +159,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
-        <item itemvalue="Application.Cipher_Vigenere_English" />
+        <item itemvalue="Application.Cipher_Hill" />
+        <item itemvalue="Application.Cipher_Hill" />
         <item itemvalue="Application.Cipher_RSA" />
       </list>
     </recent_temporary>
@@ -162,7 +190,9 @@
       <workItem from="1699798195982" duration="6286000" />
       <workItem from="1699805354544" duration="4562000" />
       <workItem from="1699846411085" duration="4156000" />
-      <workItem from="1699857955410" duration="8893000" />
+      <workItem from="1699857955410" duration="12665000" />
+      <workItem from="1699873507007" duration="7837000" />
+      <workItem from="1699885237190" duration="8572000" />
     </task>
     <task id="LOCAL-00001" summary="tạo cấu trúc thư mục cho project theo Maven">
       <option name="closed" value="true" />
@@ -308,7 +338,23 @@
       <option name="project" value="LOCAL" />
       <updated>1699864882843</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="sửa class Cipher_Vigenere.java">
+      <option name="closed" value="true" />
+      <created>1699867401599</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1699867401599</updated>
+    </task>
+    <task id="LOCAL-00020" summary="thêm function để giải mã bảng chữ cái tiếng Việt bằng thuật toán Vigenere">
+      <option name="closed" value="true" />
+      <created>1699867602817</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1699867602817</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -343,6 +389,8 @@
     <MESSAGE value="sửa function createKeyRandomFor_Hill_Vigenere, encryptTextWithKeyText, decryptTextWithKeyText" />
     <MESSAGE value="cho phép tạo Key của thuật toán Vigenere mà không cần nhập vào văn bản trước" />
     <MESSAGE value="sửa file gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="sửa file gitignore" />
+    <MESSAGE value="sửa class Cipher_Vigenere.java" />
+    <MESSAGE value="thêm function để giải mã bảng chữ cái tiếng Việt bằng thuật toán Vigenere" />
+    <option name="LAST_COMMIT_MESSAGE" value="thêm function để giải mã bảng chữ cái tiếng Việt bằng thuật toán Vigenere" />
   </component>
 </project>

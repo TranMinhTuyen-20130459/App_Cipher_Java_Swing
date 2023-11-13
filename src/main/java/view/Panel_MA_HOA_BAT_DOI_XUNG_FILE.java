@@ -317,7 +317,7 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_FILE extends JPanel {
                     }
 
                     // đây là Key của thuật toán đối xứng dùng để mã hóa File
-                    String symmetry_key = Controller_MA_HOA_DOI_XUNG.createKeyRandom(algorithm_symmetry);
+                    String symmetry_key = Controller_MA_HOA_DOI_XUNG.createKeyRandom(algorithm_symmetry, -1);
 
                     // Lấy thời gian hiện tại
                     Date currentTime = new Date();

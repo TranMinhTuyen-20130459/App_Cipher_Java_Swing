@@ -144,7 +144,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
                         case Algorithm.TWO_FISH:
                         case Algorithm.BLOW_FISH:
                         case Algorithm.SERPENT: {
-                            key = Controller_MA_HOA_DOI_XUNG.createKeyRandom(name_algorithm);
+                            key = Controller_MA_HOA_DOI_XUNG.createKeyRandom(name_algorithm, -1);
 
                             if (key == null || key.isEmpty() || key.equalsIgnoreCase("NOT_FOUND_ALGORITHM")) {
                                 JOptionPane.showMessageDialog(null, "Không tạo được Key", "Lỗi", JOptionPane.ERROR_MESSAGE);
@@ -194,7 +194,7 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
                         // Nếu chưa có key MÃ HÓA
                         if (key.isEmpty()) {
 
-                            key = Controller_MA_HOA_DOI_XUNG.createKeyRandom(name_algorithm);
+                            key = Controller_MA_HOA_DOI_XUNG.createKeyRandom(name_algorithm, -1);
 
                             int check_encrypted_file = Controller_MA_HOA_DOI_XUNG.encryptFileWithKeyBase64(name_algorithm, name_language, path_selected_file, dest_file, key, name_mode_padding);
 

@@ -57,7 +57,7 @@ public class Controller_MA_HOA_DOI_XUNG {
     }
 
     // đây là function tạo Key cho thuật toán AES,DES,TwoFish,Serpent
-    public static String createKeyRandom(String algorithm) {
+    public static String createKeyRandom(String algorithm, int key_size) {
 
         try {
 
@@ -68,7 +68,9 @@ public class Controller_MA_HOA_DOI_XUNG {
                 case Algorithm.DES: {
 
                     Cipher_DES des = new Cipher_DES();
-                    des.createKeyRandom(56);
+
+                    if (key_size > 0) des.createKeyRandom(key_size);
+                    else des.createKeyRandom(56); // => đây là key_size mặc định của thuật toán
 
                     return des.exportKey();
 
@@ -77,7 +79,9 @@ public class Controller_MA_HOA_DOI_XUNG {
                 case Algorithm.AES: {
 
                     Cipher_AES aes = new Cipher_AES();
-                    aes.createKeyRandom(128);
+
+                    if (key_size > 0) aes.createKeyRandom(key_size);
+                    else aes.createKeyRandom(128);
 
                     return aes.exportKey();
 
@@ -86,7 +90,9 @@ public class Controller_MA_HOA_DOI_XUNG {
                 case Algorithm.TWO_FISH: {
 
                     Cipher_TwoFish twoFish = new Cipher_TwoFish();
-                    twoFish.createKeyRandom(128);
+
+                    if (key_size > 0) twoFish.createKeyRandom(key_size);
+                    else twoFish.createKeyRandom(128);
 
                     return twoFish.exportKey();
                 }
@@ -94,7 +100,9 @@ public class Controller_MA_HOA_DOI_XUNG {
                 case Algorithm.BLOW_FISH: {
 
                     Cipher_BlowFish blowFish = new Cipher_BlowFish();
-                    blowFish.createKeyRandom(128);
+
+                    if (key_size > 0) blowFish.createKeyRandom(key_size);
+                    else blowFish.createKeyRandom(128);
 
                     return blowFish.exportKey();
                 }
@@ -102,7 +110,9 @@ public class Controller_MA_HOA_DOI_XUNG {
                 case Algorithm.SERPENT: {
 
                     Cipher_Serpent serpent = new Cipher_Serpent();
-                    serpent.createKeyRandom(128);
+
+                    if (key_size > 0) serpent.createKeyRandom(key_size);
+                    else serpent.createKeyRandom(128);
 
                     return serpent.exportKey();
                 }
