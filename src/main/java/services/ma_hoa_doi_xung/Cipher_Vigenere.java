@@ -48,7 +48,8 @@ import helper.*;
  */
 public class Cipher_Vigenere {
     private static final String ALPHABET_ENGLISH = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    private static final String ALPHABET_VIETNAMESE = "AĂÂBCDĐEÊFGHIJKLMNOÔƠPQRSTUƯVXYaăâbcdđeêfghijklmnoôơpqrstuưvxy";
+    private static final String ALPHABET_VIETNAMESE = "AĂÂBCDĐEÊGHIKLMNOÔƠPQRSTUƯVXYaăâbcdđeêghiklmnoôơpqrstuưvxy0123456789";
+
     private String key;
     private final String alphabet;
 
@@ -86,7 +87,7 @@ public class Cipher_Vigenere {
     }
 
     public String encrypt(String plain_text) throws Exception {
-        if (key == null || key.isEmpty()) createKeyRandom(plain_text.length());
+        if (key == null || key.isEmpty()) throw new Exception("Key is null or empty");
 
         StringBuilder encrypted_text = new StringBuilder();
         int key_index = 0; // Biến đếm vị trí trong chuỗi key
@@ -98,7 +99,7 @@ public class Cipher_Vigenere {
             // TH: Nếu là kí tự trong bảng chữ cái
             if (alphabet.contains(String.valueOf(plain_char))) {
                 int plain_index = alphabet.indexOf(plain_char);
-                int key_char_index = alphabet.indexOf(Character.toUpperCase(key_char));
+                int key_char_index = alphabet.indexOf(key_char);
                 int encrypted_index = (plain_index + key_char_index) % alphabet.length();
                 encrypted_text.append(alphabet.charAt(encrypted_index));
             } else {
@@ -126,7 +127,7 @@ public class Cipher_Vigenere {
             // TH: Nếu là kí tự chữ cái trong bảng chữ cái
             if (alphabet.contains(String.valueOf(encrypt_char))) {
                 int encrypt_index = alphabet.indexOf(encrypt_char);
-                int key_char_index = alphabet.indexOf(Character.toUpperCase(key_char));
+                int key_char_index = alphabet.indexOf(key_char);
                 int decrypted_index = (encrypt_index - key_char_index + alphabet.length()) % alphabet.length();
                 decrypted_text.append(alphabet.charAt(decrypted_index));
             } else {
@@ -152,6 +153,12 @@ public class Cipher_Vigenere {
     }
 
     public static void main(String[] args) throws Exception {
+
+        // TestWithEnglish();
+        TestWithVietNam();
+    }
+
+    public static void TestWithEnglish() throws Exception {
         String plaintext = "Sam Bankman-Fried, the tousle-haired mogul who founded the FTX cryptocurrency exchange, was convicted on Thursday of seven charges of fraud and conspiracy after a monthlong trial that laid bare the rampant hubris and risk-taking across the crypto industry.\n" +
                 "\n" +
                 "Mr. Bankman-Fried became a symbol of crypto’s excesses last year when FTX collapsed and he was charged with stealing as much as $10 billion from customers to finance political contributions, venture capital investments and other extravagant spending. A jury of nine women and three men took just over four hours of deliberation on Thursday to reach a verdict, convicting Mr. Bankman-Fried of wire fraud, conspiracy and money laundering.\n" +
@@ -214,25 +221,56 @@ public class Cipher_Vigenere {
                 "\n" +
                 "He thanked the jury for its work and praised the lawyers on both sides. “A good job all around,” he said, and left the room.";
 
-        Cipher_Vigenere vigenere = new Cipher_Vigenere(Languague.ENGLISH);
+        Cipher_Vigenere vigEnglish = new Cipher_Vigenere(Languague.ENGLISH);
         String encryptedText = "";
         String decryptedText = "";
 
-//        for (int i = 0; i < 1000; i++) {
-//            encryptedText = vigenere.encrypt(plaintext);
-//            System.out.println("Encrypted: " + encryptedText);
-//            System.out.println("Key:" + vigenere.exportKey());
-//            vigenere.key = null;
-//            System.out.println("----------------------------------------------------");
-//        }
-
-        vigenere.importKey("TRANMINHTUYEN123");
-        encryptedText = vigenere.encrypt(plaintext);
-        System.out.println("Key: " + vigenere.exportKey());
+        vigEnglish.importKey("TRANMINHTUYEN123");
+        encryptedText = vigEnglish.encrypt(plaintext);
+        System.out.println("Key: " + vigEnglish.exportKey());
         System.out.println("----------------------------------------------------");
         System.out.println("Encrypted: " + encryptedText);
         System.out.println("----------------------------------------------------");
-        decryptedText = vigenere.decrypt(encryptedText);
+        decryptedText = vigEnglish.decrypt(encryptedText);
+        System.out.println("Decrypted: " + decryptedText);
+        System.out.println("----------------------------------------------------");
+        System.out.println("Check Decrypted: " + plaintext.equals(decryptedText));
+    }
+
+    public static void TestWithVietNam() throws Exception {
+        String plaintext = "Tương lai thách thức sau 100 năm 'phép màu' kinh tế Đức\n" +
+                "Vươn lên mạnh mẽ sau siêu lạm phát, Đại suy thoái và bại trận Thế chiến II, \"phép màu\" kinh tế Đức giờ gặp thử thách mới.\n" +
+                "\n" +
+                "Tháng 11/1923, người ta đẩy những chiếc xe cút kít chất đầy tiền mặt qua các con phố để mua một ổ bánh mì. Từ 120 tỷ mark (nội tệ cũ của Đức) lưu hành trong nền kinh tế năm 1921, các nhà máy của chính phủ in ra hàng núi tiền giấy. Tháng 10/1923, mệnh giá 2.500 triệu tỷ mark được lưu hành và vọt lên 400.000 triệu tỷ mark những tháng sau đó. Giai đoạn siêu lạm phát nghiêm trọng đến mức một USD trị giá 1.000 tỷ mark. \"Không bao giờ nữa\" là lời tuyên bố kể từ đó.\n" +
+                "\n" +
+                "Nhưng siêu lạm phát chỉ là thử thách lớn đầu tiên trong 100 năm kinh tế Đức vừa qua. Đất nước này còn thành công trong việc vượt qua Đại suy thoái và thất bại Thế chiến II. Sau đó, Đức phục hồi ngoạn mục những năm 50 và 60 mạnh mẽ đến nỗi được ca ngợi là \"Wirtschaftswunder\", hay \"phép màu kinh tế\".\n" +
+                "\n" +
+                "Công nhân ở Berlin mang giỏ đi nhận lương năm 1923. Ảnh: Popperfoto\n" +
+                "Công nhân ở Berlin mang giỏ đi nhận lương năm 1923. Ảnh: Popperfoto\n" +
+                "\n" +
+                "Nhưng \"phép màu\" hiện gặp rắc rối. Hôm 8/11, báo cáo thường niên của Hội đồng chuyên gia kinh tế Đức cho biết nền kinh tế này sẽ suy thoái năm nay và chỉ phục hồi nhẹ vào 2024. Họ dự kiến GDP Đức 2023 sẽ giảm 0,4%, tương đồng với dự báo của chính phủ. Năm sau, các chuyên gia dự báo mức tăng trưởng là 0,7%, thấp hơn nhiều so với mức 1,3% mà chính phủ dự kiến. Do đó, triển vọng tăng trưởng trung hạn đang ở mức thấp nhất mọi thời đại.\n" +
+                "\n" +
+                "The Guardian cho rằng có 3 yếu tố cơ bản đang tạo ra thách thức mới cho kinh tế Đức, gồm: cuộc chiến ở Ukraine, tăng trưởng chậm hơn ở Trung Quốc và toàn cầu hóa yếu dần. Ngoài ra, còn có những vấn đề sâu xa hơn như dân số già đi và mô hình công nghiệp đang già cỗi.\n" +
+                "\n" +
+                "Sản xuất công nghiệp nước này đã giảm 5 tháng liên tiếp và thấp hơn 7% so với mức trước đại dịch. Quỹ Tiền tệ Quốc tế (IMF) dự báo Đức sẽ là nền kinh tế yếu nhất trong nhóm G7 (Mỹ, Anh, Đức, Nhật Bản, Pháp, Canada và Italy) năm nay và là nước duy nhất chứng kiến sản lượng giảm.\n" +
+                "\n" +
+                "Carsten Brzeski, Trưởng bộ phận vĩ mô toàn cầu tại ngân hàng ING, cho biết vấn đề của Đức là sự kết hợp của yếu tố chu kỳ và cơ bản. Theo chuyên gia, sau khi GDP thu hẹp trong quý III, rất có khả năng nó cũng xảy ra trong ba tháng cuối năm nay. Hai quý giảm liên tiếp sẽ khiến nền kinh tế rơi vào suy thoái kỹ thuật.\n" +
+                "\n" +
+                "Đức đã tìm được nguồn năng lượng thay thế để bù đắp lượng khí đốt không còn của Nga, nhưng chi phí lại đắt hơn. Các lĩnh vực sử dụng nhiều năng lượng như hóa chất bị ảnh hưởng đặc biệt nặng nề. Ngoài ra, thành tích xuất khẩu mạnh mẽ của những năm trước đại dịch một phần nhờ nhu cầu lớn từ Trung Quốc, hiện đã chững lại.\n" +
+                "\n" +
+                "Trong khi, ngành công nghiệp ôtô của nước này đang bị tấn công trên hai mặt trận: ôtô điện giá rẻ của Trung Quốc và các ưu đãi do Đạo luật Giảm lạm phát của Tổng thống Mỹ Joe Biden thu hút đầu tư về nước này. Và theo Brzeski, vấn đề lớn nhất là các công ty Đức đã chậm thay đổi vào những thời điểm thuận lợi. Nó phần nào cho thấy họ thiếu tầm nhìn xa. \"Thời kỳ tốt đẹp sắp kết thúc và lẽ ra các công ty nên hành động trước\", ông nói.";
+
+        Cipher_Vigenere vigVietNam = new Cipher_Vigenere(Languague.VIETNAM);
+        String encryptedText = "";
+        String decryptedText = "";
+
+        vigVietNam.createKeyRandom(20);
+        encryptedText = vigVietNam.encrypt(plaintext);
+        System.out.println("Key: " + vigVietNam.exportKey());
+        System.out.println("----------------------------------------------------");
+        System.out.println("Encrypted: " + encryptedText);
+        System.out.println("----------------------------------------------------");
+        decryptedText = vigVietNam.decrypt(encryptedText);
         System.out.println("Decrypted: " + decryptedText);
         System.out.println("----------------------------------------------------");
         System.out.println("Check Decrypted: " + plaintext.equals(decryptedText));
