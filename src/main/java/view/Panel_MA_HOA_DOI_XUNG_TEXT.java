@@ -180,7 +180,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                                 return;
                             }
 
-                            key = Controller_MA_HOA_DOI_XUNG.createKeyRandomFor_Hill_Vigenere(name_algorithm, name_language, plain_text);
+                            key = Controller_MA_HOA_DOI_XUNG.createKeyRandomFor_Hill_Vigenere(name_algorithm, name_language, -1);
 
                             if (key == null || key.isEmpty() || key.equalsIgnoreCase("NOT_FOUND_ALGORITHM")) {
                                 JOptionPane.showMessageDialog(null, "KHÔNG TẠO ĐƯỢC KEY", "Lỗi", JOptionPane.ERROR_MESSAGE);
@@ -414,13 +414,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                         case Algorithm.VIGENERE:
                         case Algorithm.HILL: {
 
-                            plain_text = plain_text_area.getText();
-                            if (plain_text == null || plain_text.isEmpty()) {
-                                JOptionPane.showMessageDialog(null, "Bạn cần nhập vào đoạn văn bản cần mã hóa", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
-                                return;
-                            }
-
-                            key = Controller_MA_HOA_DOI_XUNG.createKeyRandomFor_Hill_Vigenere(name_algorithm, name_language, plain_text);
+                            key = Controller_MA_HOA_DOI_XUNG.createKeyRandomFor_Hill_Vigenere(name_algorithm, name_language, -1);
 
                             if (key == null || key.isEmpty() || key.equalsIgnoreCase("NOT_FOUND_ALGORITHM")) {
                                 JOptionPane.showMessageDialog(null, "Không tạo được Key", "Lỗi", JOptionPane.ERROR_MESSAGE);
