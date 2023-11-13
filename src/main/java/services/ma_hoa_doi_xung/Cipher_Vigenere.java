@@ -2,6 +2,8 @@ package services.ma_hoa_doi_xung;
 
 import java.util.Random;
 
+import helper.*;
+
 /**
  * Dưới đây là mô tả chi tiết về cách hoạt động cơ bản của thuật toán Vigenère:
  * <p>
@@ -44,23 +46,38 @@ import java.util.Random;
  * Mã hóa: "HELLO" -> "RIJVS"
  * Giải mã: "RIJVS" -> "HELLO"
  */
-public class Cipher_Vigenere_English {
-    private static final String ALPHABET_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    private static final String ALPHABET_LOWERCASE = "abcdefghijklmnopqrstuvwxyz";
+public class Cipher_Vigenere {
+    private static final String ALPHABET_ENGLISH = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    private static final String ALPHABET_VIETNAMESE = "AĂÂBCDĐEÊFGHIJKLMNOÔƠPQRSTUƯVXYaăâbcdđeêfghijklmnoôơpqrstuưvxy";
     private String key;
+    private final String alphabet;
+
+    public Cipher_Vigenere(String language) {
+        switch (language.toUpperCase()) {
+            case Languague.ENGLISH: {
+                this.alphabet = ALPHABET_ENGLISH;
+                break;
+            }
+            case Languague.VIETNAM: {
+                this.alphabet = ALPHABET_VIETNAMESE;
+                break;
+            }
+            default: {
+                this.alphabet = ALPHABET_ENGLISH;
+            }
+        }
+    }
 
     public String createKeyRandom(int key_size) throws Exception {
 
         if (key_size <= 0) throw new Exception("Key size must be >0");
 
         Random random = new Random();
-        String characters = ALPHABET_UPPERCASE + ALPHABET_LOWERCASE;
-        int length_string_random = random.nextInt(1, key_size);
-        StringBuilder randomString = new StringBuilder(length_string_random);
+        StringBuilder randomString = new StringBuilder();
 
-        for (int i = 0; i < length_string_random; i++) {
-            int randomIndex = random.nextInt(characters.length());
-            char randomChar = characters.charAt(randomIndex);
+        for (int i = 0; i < key_size; i++) {
+            int randomIndex = random.nextInt(alphabet.length());
+            char randomChar = alphabet.charAt(randomIndex);
             randomString.append(randomChar);
         }
 
@@ -73,25 +90,19 @@ public class Cipher_Vigenere_English {
 
         StringBuilder encrypted_text = new StringBuilder();
         int key_index = 0; // Biến đếm vị trí trong chuỗi key
+
         for (int i = 0; i < plain_text.length(); i++) {
             char plain_char = plain_text.charAt(i);
             char key_char = key.charAt(key_index); // Sử dụng keyChar tại vị trí key_index
 
-            // TH: Nếu là kí tự chữ cái hoa trong bảng chữ cái tiếng Anh
-            if (ALPHABET_UPPERCASE.contains(String.valueOf(plain_char))) {
-                int plain_index = ALPHABET_UPPERCASE.indexOf(plain_char);
-                int key_char_index = ALPHABET_UPPERCASE.indexOf(Character.toUpperCase(key_char));
-                int encrypted_index = (plain_index + key_char_index) % ALPHABET_UPPERCASE.length();
-                encrypted_text.append(ALPHABET_UPPERCASE.charAt(encrypted_index));
-            }
-            // TH: Nếu là kí tự chữ kí thường trong bảng chữ cái tiếng Anh
-            else if (ALPHABET_LOWERCASE.contains(String.valueOf(plain_char))) {
-                int plain_index = ALPHABET_LOWERCASE.indexOf(plain_char);
-                int key_char_index = ALPHABET_LOWERCASE.indexOf(Character.toLowerCase(key_char));
-                int encrypted_index = (plain_index + key_char_index) % ALPHABET_LOWERCASE.length();
-                encrypted_text.append(ALPHABET_LOWERCASE.charAt(encrypted_index));
+            // TH: Nếu là kí tự trong bảng chữ cái
+            if (alphabet.contains(String.valueOf(plain_char))) {
+                int plain_index = alphabet.indexOf(plain_char);
+                int key_char_index = alphabet.indexOf(Character.toUpperCase(key_char));
+                int encrypted_index = (plain_index + key_char_index) % alphabet.length();
+                encrypted_text.append(alphabet.charAt(encrypted_index));
             } else {
-                // Kí tự không thuộc bảng chữ cái tiếng Anh, giữ nguyên
+                // Kí tự không thuộc bảng chữ cái, giữ nguyên
                 encrypted_text.append(plain_char);
             }
 
@@ -106,26 +117,20 @@ public class Cipher_Vigenere_English {
 
         StringBuilder decrypted_text = new StringBuilder();
         int key_index = 0; // Biến đếm vị trí trong chuỗi key
+
         for (int i = 0; i < encrypted_text.length(); i++) {
 
             char encrypt_char = encrypted_text.charAt(i);
             char key_char = key.charAt(key_index); // Sử dụng keyChar tại vị trí keyIndex
 
-            // TH: Nếu là kí tự chữ cái hoa trong bảng chữ cái Tiếng Anh
-            if (ALPHABET_UPPERCASE.contains(String.valueOf(encrypt_char))) {
-                int encrypt_index = ALPHABET_UPPERCASE.indexOf(encrypt_char);
-                int key_char_index = ALPHABET_UPPERCASE.indexOf(Character.toUpperCase(key_char));
-                int decrypted_index = (encrypt_index - key_char_index + ALPHABET_UPPERCASE.length()) % ALPHABET_UPPERCASE.length();
-                decrypted_text.append(ALPHABET_UPPERCASE.charAt(decrypted_index));
-            }
-            // TH: Nếu là kí tự chữ cái thường trong bảng chữ cái Tiếng Anh
-            else if (ALPHABET_LOWERCASE.contains(String.valueOf(encrypt_char))) {
-                int encrypt_index = ALPHABET_LOWERCASE.indexOf(encrypt_char);
-                int key_char_index = ALPHABET_LOWERCASE.indexOf(Character.toLowerCase(key_char));
-                int decrypted_index = (encrypt_index - key_char_index + ALPHABET_LOWERCASE.length()) % ALPHABET_LOWERCASE.length();
-                decrypted_text.append(ALPHABET_LOWERCASE.charAt(decrypted_index));
+            // TH: Nếu là kí tự chữ cái trong bảng chữ cái
+            if (alphabet.contains(String.valueOf(encrypt_char))) {
+                int encrypt_index = alphabet.indexOf(encrypt_char);
+                int key_char_index = alphabet.indexOf(Character.toUpperCase(key_char));
+                int decrypted_index = (encrypt_index - key_char_index + alphabet.length()) % alphabet.length();
+                decrypted_text.append(alphabet.charAt(decrypted_index));
             } else {
-                // Kí tự không thuộc bảng chữ cái tiếng Anh, giữ nguyên
+                // Kí tự không thuộc bảng chữ cái, giữ nguyên
                 decrypted_text.append(encrypt_char);
             }
 
@@ -133,12 +138,6 @@ public class Cipher_Vigenere_English {
             key_index = (key_index + 1) % key.length();
         }
         return decrypted_text.toString();
-    }
-
-    public void encryptFile(String srcFile, String destFile) throws Exception {
-    }
-
-    public void decryptFile(String srcFile, String destFile) throws Exception {
     }
 
     public String exportKey() {
@@ -215,7 +214,7 @@ public class Cipher_Vigenere_English {
                 "\n" +
                 "He thanked the jury for its work and praised the lawyers on both sides. “A good job all around,” he said, and left the room.";
 
-        Cipher_Vigenere_English vigenere = new Cipher_Vigenere_English();
+        Cipher_Vigenere vigenere = new Cipher_Vigenere(Languague.ENGLISH);
         String encryptedText = "";
         String decryptedText = "";
 
@@ -227,7 +226,7 @@ public class Cipher_Vigenere_English {
 //            System.out.println("----------------------------------------------------");
 //        }
 
-        vigenere.importKey("TRANMINHTUYEN");
+        vigenere.importKey("TRANMINHTUYEN123");
         encryptedText = vigenere.encrypt(plaintext);
         System.out.println("Key: " + vigenere.exportKey());
         System.out.println("----------------------------------------------------");
