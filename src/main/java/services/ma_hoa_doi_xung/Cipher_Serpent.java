@@ -20,7 +20,7 @@ public class Cipher_Serpent implements I_Encrypt, I_Decrypt, I_Export, I_Import,
 
     @Override
     public SecretKey createKeyRandom(int key_size) throws Exception {
-        Security.addProvider(new BouncyCastleProvider());
+
         KeyGenerator key_generator = KeyGenerator.getInstance("Serpent");
         key_generator.init(key_size); // Độ dài của khóa (128,192 hoặc 256 bit)
         key = key_generator.generateKey();
@@ -31,7 +31,6 @@ public class Cipher_Serpent implements I_Encrypt, I_Decrypt, I_Export, I_Import,
     public byte[] encrypt(String text) throws Exception {
         if (key == null) return new byte[]{};
 
-        Security.addProvider(new BouncyCastleProvider());
         Cipher cipher = Cipher.getInstance(transformation);
 
         if (transformation.contains("ECB")) cipher.init(Cipher.ENCRYPT_MODE, key);
@@ -44,7 +43,7 @@ public class Cipher_Serpent implements I_Encrypt, I_Decrypt, I_Export, I_Import,
     @Override
     public String encryptToBase64(String text) throws Exception {
         if (key == null) return "";
-        Security.addProvider(new BouncyCastleProvider());
+
         Cipher cipher = Cipher.getInstance(transformation);
 
         if (transformation.contains("ECB")) cipher.init(Cipher.ENCRYPT_MODE, key);
@@ -66,7 +65,7 @@ public class Cipher_Serpent implements I_Encrypt, I_Decrypt, I_Export, I_Import,
             File fileSrc = new File(srcFile);
             if (fileSrc.isFile()) {
 
-                Security.addProvider(new BouncyCastleProvider());
+
                 Cipher cipher = Cipher.getInstance(transformation);
 
                 if (transformation.contains("ECB")) cipher.init(Cipher.ENCRYPT_MODE, key);
@@ -107,7 +106,7 @@ public class Cipher_Serpent implements I_Encrypt, I_Decrypt, I_Export, I_Import,
     public String decrypt(byte[] encrypt) throws Exception {
         if (key == null) return "";
 
-        Security.addProvider(new BouncyCastleProvider());
+
         Cipher cipher = Cipher.getInstance(transformation);
 
         if (transformation.contains("ECB")) cipher.init(Cipher.DECRYPT_MODE, key);
@@ -121,7 +120,7 @@ public class Cipher_Serpent implements I_Encrypt, I_Decrypt, I_Export, I_Import,
     public String decryptFromBase64(String text) throws Exception {
         if (key == null) return "";
 
-        Security.addProvider(new BouncyCastleProvider());
+
         Cipher cipher = Cipher.getInstance(transformation);
 
         if (transformation.contains("ECB")) cipher.init(Cipher.DECRYPT_MODE, key);
@@ -142,7 +141,7 @@ public class Cipher_Serpent implements I_Encrypt, I_Decrypt, I_Export, I_Import,
             File fileSrc = new File(srcFile);
             if (fileSrc.isFile()) {
 
-                Security.addProvider(new BouncyCastleProvider());
+
                 Cipher cipher = Cipher.getInstance(transformation);
 
                 if (transformation.contains("ECB")) cipher.init(Cipher.DECRYPT_MODE, key);
