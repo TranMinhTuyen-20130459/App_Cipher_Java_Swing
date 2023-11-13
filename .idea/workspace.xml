@@ -9,7 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aea98578-a857-4ebe-8b11-7edaa46407d0" name="Changes" comment="chỉnh sửa lại các message khi xuất hiện cửa sổ thông báo" />
+    <list default="true" id="aea98578-a857-4ebe-8b11-7edaa46407d0" name="Changes" comment="sửa file gitignore">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/App_Ma_Hoa_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/App_Ma_Hoa_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/Controller_MA_HOA_DOI_XUNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller_MA_HOA_DOI_XUNG.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/ma_hoa_doi_xung/Cipher_Vigenere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ma_hoa_doi_xung/Cipher_Vigenere.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -110,9 +116,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Cipher_Vigenere" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="services.ma_hoa_doi_xung.Cipher_Vigenere" />
+      <module name="App_Ma_Hoa" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="services.ma_hoa_doi_xung.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
+        <item itemvalue="Application.Cipher_Vigenere_English" />
         <item itemvalue="Application.Cipher_RSA" />
       </list>
     </recent_temporary>
@@ -139,7 +159,10 @@
       <workItem from="1699776442034" duration="9444000" />
       <workItem from="1699787804595" duration="57000" />
       <workItem from="1699787880292" duration="2292000" />
-      <workItem from="1699798195982" duration="5373000" />
+      <workItem from="1699798195982" duration="6286000" />
+      <workItem from="1699805354544" duration="4562000" />
+      <workItem from="1699846411085" duration="4156000" />
+      <workItem from="1699857955410" duration="8893000" />
     </task>
     <task id="LOCAL-00001" summary="tạo cấu trúc thư mục cho project theo Maven">
       <option name="closed" value="true" />
@@ -229,7 +252,63 @@
       <option name="project" value="LOCAL" />
       <updated>1699804029574</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="comment lại các đoạn code System.out khi khởi tạo View">
+      <option name="closed" value="true" />
+      <created>1699804314345</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1699804314345</updated>
+    </task>
+    <task id="LOCAL-00013" summary="bỏ đi dòng Security.addProvider() trong Cipher_TwoFish.java, Cipher_Serpent.java, thêm vào App.java">
+      <option name="closed" value="true" />
+      <created>1699863528198</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1699863528198</updated>
+    </task>
+    <task id="LOCAL-00014" summary="sửa code trong class Cipher_Vigenere.java">
+      <option name="closed" value="true" />
+      <created>1699863787006</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1699863787006</updated>
+    </task>
+    <task id="LOCAL-00015" summary="xóa class Cipher_Vigenere_Vietnamese.java">
+      <option name="closed" value="true" />
+      <created>1699863818910</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1699863818910</updated>
+    </task>
+    <task id="LOCAL-00016" summary="sửa function createKeyRandomFor_Hill_Vigenere, encryptTextWithKeyText, decryptTextWithKeyText">
+      <option name="closed" value="true" />
+      <created>1699864601723</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1699864601723</updated>
+    </task>
+    <task id="LOCAL-00017" summary="cho phép tạo Key của thuật toán Vigenere mà không cần nhập vào văn bản trước">
+      <option name="closed" value="true" />
+      <created>1699864763849</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1699864763849</updated>
+    </task>
+    <task id="LOCAL-00018" summary="sửa file gitignore">
+      <option name="closed" value="true" />
+      <created>1699864882843</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1699864882843</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,6 +336,13 @@
     <MESSAGE value="hiện thực chức năng mã hóa file của thuật toán RSA trên View" />
     <MESSAGE value="Thêm button Reset trong tất cả các View của App" />
     <MESSAGE value="chỉnh sửa lại các message khi xuất hiện cửa sổ thông báo" />
-    <option name="LAST_COMMIT_MESSAGE" value="chỉnh sửa lại các message khi xuất hiện cửa sổ thông báo" />
+    <MESSAGE value="comment lại các đoạn code System.out khi khởi tạo View" />
+    <MESSAGE value="bỏ đi dòng Security.addProvider() trong Cipher_TwoFish.java, Cipher_Serpent.java, thêm vào App.java" />
+    <MESSAGE value="sửa code trong class Cipher_Vigenere.java" />
+    <MESSAGE value="xóa class Cipher_Vigenere_Vietnamese.java" />
+    <MESSAGE value="sửa function createKeyRandomFor_Hill_Vigenere, encryptTextWithKeyText, decryptTextWithKeyText" />
+    <MESSAGE value="cho phép tạo Key của thuật toán Vigenere mà không cần nhập vào văn bản trước" />
+    <MESSAGE value="sửa file gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="sửa file gitignore" />
   </component>
 </project>

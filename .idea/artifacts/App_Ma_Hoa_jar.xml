@@ -5,7 +5,9 @@
       <element id="archive" name="App_Ma_Hoa.jar">
         <element id="module-output" name="App_Ma_Hoa" />
       </element>
-      <element id="library" level="project" name="Maven: org.bouncycastle:bcprov-jdk15on:1.58" />
+      <element id="directory" name="lib">
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/bouncycastle/bcprov-jdk15on/1.58/bcprov-jdk15on-1.58.jar" />
+      </element>
     </root>
   </artifact>
 </component>

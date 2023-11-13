@@ -30,6 +30,13 @@ public class Controller_MA_HOA_DOI_XUNG {
 
                     if (language.equalsIgnoreCase(Languague.VIETNAM)) {
 
+                        Cipher_Vigenere vigVietNam = new Cipher_Vigenere(Languague.VIETNAM);
+
+                        if (key_size > 0) vigVietNam.createKeyRandom(key_size);
+                        else vigVietNam.createKeyRandom(10);
+
+                        return vigVietNam.exportKey();
+
                     }
 
                     return "";
@@ -387,7 +394,7 @@ public class Controller_MA_HOA_DOI_XUNG {
                     return DecryptFile.SUCCESS;
                 }
 
-                case Algorithm.BLOW_FISH:{
+                case Algorithm.BLOW_FISH: {
 
                     Cipher_BlowFish blowFish = new Cipher_BlowFish();
                     blowFish.importKey(key);
@@ -441,6 +448,11 @@ public class Controller_MA_HOA_DOI_XUNG {
 
                     if (language.equalsIgnoreCase(Languague.VIETNAM)) {
 
+                        Cipher_Vigenere vigVietNam = new Cipher_Vigenere(Languague.VIETNAM);
+                        vigVietNam.importKey(key);
+
+                        return vigVietNam.encrypt(plain_text);
+
                     }
 
                     return "";
@@ -481,6 +493,9 @@ public class Controller_MA_HOA_DOI_XUNG {
 
                     if (language.equalsIgnoreCase(Languague.VIETNAM)) {
 
+                        Cipher_Vigenere vigVietNam = new Cipher_Vigenere(Languague.VIETNAM);
+                        vigVietNam.importKey(key);
+                        return vigVietNam.decrypt(encrypted_text);
                     }
 
                     return "";
