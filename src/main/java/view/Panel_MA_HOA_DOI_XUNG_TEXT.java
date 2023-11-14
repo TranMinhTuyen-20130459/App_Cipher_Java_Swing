@@ -516,8 +516,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                 plain_text = plain_text_area.getText();
                 // System.out.println(plain_text);
 
-                if (plain_text.isEmpty()) bt_encrypt.setEnabled(false);
-                else bt_encrypt.setEnabled(true);
+                bt_encrypt.setEnabled(!plain_text.isEmpty());
 
                 resetEncryptedTextArea();
                 resetDecryptedTextArea();
@@ -528,8 +527,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                 plain_text = plain_text_area.getText();
                 // System.out.println(plain_text);
 
-                if (plain_text.isEmpty()) bt_encrypt.setEnabled(false);
-                else bt_encrypt.setEnabled(true);
+                bt_encrypt.setEnabled(!plain_text.isEmpty());
 
                 resetEncryptedTextArea();
                 resetDecryptedTextArea();
@@ -540,8 +538,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
                 plain_text = plain_text_area.getText();
                 // System.out.println(plain_text);
 
-                if (plain_text.isEmpty()) bt_encrypt.setEnabled(false);
-                else bt_encrypt.setEnabled(true);
+                bt_encrypt.setEnabled(!plain_text.isEmpty());
 
                 resetEncryptedTextArea();
                 resetDecryptedTextArea();
@@ -847,8 +844,8 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     }
 
     public class RoundedButton extends JButton {
-        private int radius;
-        private Color backgroundColor;
+        private final int radius;
+        private final Color backgroundColor;
 
         public RoundedButton(String text, int radius, Color backgroundColor) {
             super(text);
@@ -881,7 +878,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
     }
 
     public class JTextAreaWithPlaceholder extends JTextArea {
-        private String placeholder;
+        private final String placeholder;
 
         public JTextAreaWithPlaceholder(String placeholder) {
             this.placeholder = placeholder;
