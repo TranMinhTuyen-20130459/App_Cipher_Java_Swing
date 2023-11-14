@@ -566,6 +566,57 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
         resetSelectedFile();
     }
 
+    public void changeListKeySizeByAlgorithm(String algorithm) {
+
+        switch (algorithm.toUpperCase()) {
+
+            case Algorithm.AES: {
+
+                combo_box_key_size.setModel(combo_box_model_AES);
+                name_key_size = combo_box_key_size.getSelectedItem().toString();
+                break;
+
+            }
+
+            case Algorithm.BLOW_FISH: {
+
+                combo_box_key_size.setModel(combo_box_model_Blowfish);
+                name_key_size = combo_box_key_size.getSelectedItem().toString();
+                break;
+
+            }
+            case Algorithm.DES: {
+
+                combo_box_key_size.setModel(combo_box_model_DES);
+                name_key_size = combo_box_key_size.getSelectedItem().toString();
+                break;
+
+            }
+
+            case Algorithm.SERPENT: {
+
+                combo_box_key_size.setModel(combo_box_model_Serpent);
+                name_key_size = combo_box_key_size.getSelectedItem().toString();
+                break;
+            }
+
+            case Algorithm.TWO_FISH: {
+
+                combo_box_key_size.setModel(combo_box_model_TwoFish);
+                name_key_size = combo_box_key_size.getSelectedItem().toString();
+                break;
+            }
+
+            default:
+                combo_box_key_size.setModel(combo_box_model_AES);
+                name_key_size = combo_box_key_size.getSelectedItem().toString();
+
+        }
+
+        System.out.println("Key Size: " + name_key_size);
+
+    }
+
     public class RoundedButton extends JButton {
         private int radius;
         private Color backgroundColor;
