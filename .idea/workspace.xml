@@ -1,61 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ArtifactsWorkspaceSettings">
-    <artifacts-to-build>
-      <artifact name="App_Ma_Hoa:jar" />
-    </artifacts-to-build>
-  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aea98578-a857-4ebe-8b11-7edaa46407d0" name="Changes" comment="thêm combo_box cho phép người dùng chọn độ lớn của Key">
+    <list default="true" id="1a73f576-1816-4cd8-a98e-1317c889e764" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Panel_MA_HOA_DOI_XUNG_FILE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/Frame_Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Frame_Home.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="AnnotationType" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="master" />
-      </map>
-    </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="366d6f15-5976-4511-a92a-f888af771eee" />
-        <option name="url" value="https://github.com/TranMinhTuyen-20130459/App_Ma_Hoa_Java_Swing" />
-      </UrlAndAccount>
-    </option>
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="jar://E:/Java_17/lib/src.zip!/java.base/java/security/InvalidKeyException.java" root0="FORCE_HIGHLIGHTING" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 1
 }</component>
-  <component name="ProjectId" id="2Y0OOZr3sakmXq5ckf5FC3i5BWp" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="1" id="Add" />
-  </component>
+  <component name="ProjectId" id="2Y9vkzQLqE3Zck5mQ6huINX1HxS" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -64,35 +29,20 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;F:/Git/App_Ma_Hoa&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;F:/Git/App_Ma_Hoa/src/main/java/org/example/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;proofread&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\Git\App_Ma_Hoa\src\main\resources" />
-      <recent name="F:\Git\App_Ma_Hoa" />
-      <recent name="F:\Git\App_Ma_Hoa\src\main\java" />
-      <recent name="F:\Git\App_Ma_Hoa\src\main\java\org" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\Git\App_Ma_Hoa\src\main\resources\image" />
+      <recent name="F:\Git\App_Ma_Hoa\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App" />
       <module name="App_Ma_Hoa" />
@@ -100,267 +50,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Cipher_Hill" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="services.ma_hoa_doi_xung.Cipher_Hill" />
-      <module name="App_Ma_Hoa" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="services.ma_hoa_doi_xung.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Cipher_Hill" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="services.ma_hoa_doi_xung.Cipher_Hill" />
-      <module name="App_Ma_Hoa" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="services.ma_hoa_doi_xung.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Cipher_RSA" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="services.ma_hoa_bat_doi_xung.Cipher_RSA" />
-      <module name="App_Ma_Hoa" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="services.ma_hoa_bat_doi_xung.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Cipher_Vigenere" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="services.ma_hoa_doi_xung.Cipher_Vigenere" />
-      <module name="App_Ma_Hoa" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="services.ma_hoa_doi_xung.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
-        <item itemvalue="Application.Cipher_Hill" />
-        <item itemvalue="Application.Cipher_Hill" />
-        <item itemvalue="Application.Cipher_RSA" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="aea98578-a857-4ebe-8b11-7edaa46407d0" name="Changes" comment="" />
-      <created>1699658999970</created>
+      <changelist id="1a73f576-1816-4cd8-a98e-1317c889e764" name="Changes" comment="" />
+      <created>1699950775428</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1699658999970</updated>
-      <workItem from="1699659000898" duration="1719000" />
-      <workItem from="1699660758703" duration="282000" />
-      <workItem from="1699661058952" duration="270000" />
-      <workItem from="1699661341120" duration="687000" />
-      <workItem from="1699662048841" duration="635000" />
-      <workItem from="1699662740223" duration="3509000" />
-      <workItem from="1699668959568" duration="16252000" />
-      <workItem from="1699691903490" duration="7962000" />
-      <workItem from="1699703076940" duration="4370000" />
-      <workItem from="1699710705042" duration="5709000" />
-      <workItem from="1699753301179" duration="16249000" />
-      <workItem from="1699776442034" duration="9444000" />
-      <workItem from="1699787804595" duration="57000" />
-      <workItem from="1699787880292" duration="2292000" />
-      <workItem from="1699798195982" duration="6286000" />
-      <workItem from="1699805354544" duration="4562000" />
-      <workItem from="1699846411085" duration="4156000" />
-      <workItem from="1699857955410" duration="12665000" />
-      <workItem from="1699873507007" duration="7837000" />
-      <workItem from="1699885237190" duration="11160000" />
-      <workItem from="1699923581233" duration="3887000" />
-      <workItem from="1699942764594" duration="36000" />
+      <updated>1699950775428</updated>
+      <workItem from="1699950777506" duration="1529000" />
+      <workItem from="1699952381125" duration="143000" />
     </task>
-    <task id="LOCAL-00001" summary="tạo cấu trúc thư mục cho project theo Maven">
-      <option name="closed" value="true" />
-      <created>1699660228692</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1699660228692</updated>
-    </task>
-    <task id="LOCAL-00002" summary="thay đổi cấu trúc thư mục cho project theo Maven">
-      <option name="closed" value="true" />
-      <created>1699660945935</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1699660945935</updated>
-    </task>
-    <task id="LOCAL-00003" summary="nâng cấp giao diện cho Panel_CHU_KY_DIEN_TU, Panel_MA_HOA_BAT_DOI_XUNG_TEXT">
-      <option name="closed" value="true" />
-      <created>1699698863540</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1699698863541</updated>
-    </task>
-    <task id="LOCAL-00004" summary="thêm function mã hóa và giải mã file cho thuật toán RSA">
-      <option name="closed" value="true" />
-      <created>1699698950298</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1699698950298</updated>
-    </task>
-    <task id="LOCAL-00005" summary="thêm giao diện phần giải thuật MÃ HÓA BẤT ĐỐI XỨNG FILE">
-      <option name="closed" value="true" />
-      <created>1699716276699</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1699716276699</updated>
-    </task>
-    <task id="LOCAL-00006" summary="thêm câu if để kiểm tra trường hợp lỗi trong function decryptFile() của RSA">
-      <option name="closed" value="true" />
-      <created>1699754979584</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1699754979584</updated>
-    </task>
-    <task id="LOCAL-00007" summary="nâng cấp giao diện cho thuật toán RSA file">
-      <option name="closed" value="true" />
-      <created>1699767888444</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1699767888444</updated>
-    </task>
-    <task id="LOCAL-00008" summary="hiện thực chức năng mã hóa file của thuật toán RSA trên View">
-      <option name="closed" value="true" />
-      <created>1699785115628</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1699785115629</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Thêm button Reset trong tất cả các View của App">
-      <option name="closed" value="true" />
-      <created>1699800741603</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1699800741603</updated>
-    </task>
-    <task id="LOCAL-00010" summary="chỉnh sửa lại các message khi xuất hiện cửa sổ thông báo">
-      <option name="closed" value="true" />
-      <created>1699803998646</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1699803998646</updated>
-    </task>
-    <task id="LOCAL-00011" summary="chỉnh sửa lại các message khi xuất hiện cửa sổ thông báo">
-      <option name="closed" value="true" />
-      <created>1699804029574</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1699804029574</updated>
-    </task>
-    <task id="LOCAL-00012" summary="comment lại các đoạn code System.out khi khởi tạo View">
-      <option name="closed" value="true" />
-      <created>1699804314345</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1699804314345</updated>
-    </task>
-    <task id="LOCAL-00013" summary="bỏ đi dòng Security.addProvider() trong Cipher_TwoFish.java, Cipher_Serpent.java, thêm vào App.java">
-      <option name="closed" value="true" />
-      <created>1699863528198</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1699863528198</updated>
-    </task>
-    <task id="LOCAL-00014" summary="sửa code trong class Cipher_Vigenere.java">
-      <option name="closed" value="true" />
-      <created>1699863787006</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1699863787006</updated>
-    </task>
-    <task id="LOCAL-00015" summary="xóa class Cipher_Vigenere_Vietnamese.java">
-      <option name="closed" value="true" />
-      <created>1699863818910</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1699863818910</updated>
-    </task>
-    <task id="LOCAL-00016" summary="sửa function createKeyRandomFor_Hill_Vigenere, encryptTextWithKeyText, decryptTextWithKeyText">
-      <option name="closed" value="true" />
-      <created>1699864601723</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1699864601723</updated>
-    </task>
-    <task id="LOCAL-00017" summary="cho phép tạo Key của thuật toán Vigenere mà không cần nhập vào văn bản trước">
-      <option name="closed" value="true" />
-      <created>1699864763849</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1699864763849</updated>
-    </task>
-    <task id="LOCAL-00018" summary="sửa file gitignore">
-      <option name="closed" value="true" />
-      <created>1699864882843</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1699864882843</updated>
-    </task>
-    <task id="LOCAL-00019" summary="sửa class Cipher_Vigenere.java">
-      <option name="closed" value="true" />
-      <created>1699867401599</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1699867401599</updated>
-    </task>
-    <task id="LOCAL-00020" summary="thêm function để giải mã bảng chữ cái tiếng Việt bằng thuật toán Vigenere">
-      <option name="closed" value="true" />
-      <created>1699867602817</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1699867602817</updated>
-    </task>
-    <task id="LOCAL-00021" summary="thêm combo_box cho phép người dùng chọn độ lớn của Key">
-      <option name="closed" value="true" />
-      <created>1699895694257</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1699895694258</updated>
-    </task>
-    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -376,28 +82,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="tạo cấu trúc thư mục cho project theo Maven" />
-    <MESSAGE value="thay đổi cấu trúc thư mục cho project theo Maven" />
-    <MESSAGE value="nâng cấp giao diện cho Panel_CHU_KY_DIEN_TU, Panel_MA_HOA_BAT_DOI_XUNG_TEXT" />
-    <MESSAGE value="thêm function mã hóa và giải mã file cho thuật toán RSA" />
-    <MESSAGE value="thêm giao diện phần giải thuật MÃ HÓA BẤT ĐỐI XỨNG FILE" />
-    <MESSAGE value="thêm câu if để kiểm tra trường hợp lỗi trong function decryptFile() của RSA" />
-    <MESSAGE value="nâng cấp giao diện cho thuật toán RSA file" />
-    <MESSAGE value="hiện thực chức năng mã hóa file của thuật toán RSA trên View" />
-    <MESSAGE value="Thêm button Reset trong tất cả các View của App" />
-    <MESSAGE value="chỉnh sửa lại các message khi xuất hiện cửa sổ thông báo" />
-    <MESSAGE value="comment lại các đoạn code System.out khi khởi tạo View" />
-    <MESSAGE value="bỏ đi dòng Security.addProvider() trong Cipher_TwoFish.java, Cipher_Serpent.java, thêm vào App.java" />
-    <MESSAGE value="sửa code trong class Cipher_Vigenere.java" />
-    <MESSAGE value="xóa class Cipher_Vigenere_Vietnamese.java" />
-    <MESSAGE value="sửa function createKeyRandomFor_Hill_Vigenere, encryptTextWithKeyText, decryptTextWithKeyText" />
-    <MESSAGE value="cho phép tạo Key của thuật toán Vigenere mà không cần nhập vào văn bản trước" />
-    <MESSAGE value="sửa file gitignore" />
-    <MESSAGE value="sửa class Cipher_Vigenere.java" />
-    <MESSAGE value="thêm function để giải mã bảng chữ cái tiếng Việt bằng thuật toán Vigenere" />
-    <MESSAGE value="thêm combo_box cho phép người dùng chọn độ lớn của Key" />
-    <option name="LAST_COMMIT_MESSAGE" value="thêm combo_box cho phép người dùng chọn độ lớn của Key" />
   </component>
 </project>

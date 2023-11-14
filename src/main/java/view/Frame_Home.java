@@ -40,6 +40,8 @@ public class Frame_Home extends JFrame {
         setSize(WIDTH, HEIGHT);
         setLocationRelativeTo(null);
 
+        setIconImage(Image.img_avatar);
+
         panel_root = new JPanel();
         panel_root.setBackground(new Color(136, 196, 230));
         panel_root.setBorder(new EmptyBorder(5, 5, 5, 5));
