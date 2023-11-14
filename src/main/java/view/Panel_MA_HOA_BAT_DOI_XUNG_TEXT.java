@@ -3,6 +3,7 @@ package view;
 import controller.Controller_MA_HOA_BAT_DOI_XUNG;
 import helper.Algorithm;
 import helper.Image;
+import utils.CheckKey;
 
 import javax.swing.*;
 import java.awt.*;
@@ -195,7 +196,15 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
                     if (public_key == null || public_key.isEmpty()) {
                         JOptionPane.showMessageDialog(null, "Bạn cần nhập vào PUBLIC KEY", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
                         return;
+                    } else {
+
+                        if (!CheckKey.isValidPublicKeyAsymmetric(Algorithm.RSA, public_key)) {
+                            JOptionPane.showMessageDialog(null, "PUBLIC KEY không hợp lệ !!!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                            return;
+                        }
+
                     }
+
 
                     text_output = Controller_MA_HOA_BAT_DOI_XUNG.encryptText(Algorithm.RSA, text_input, public_key, name_mode_padding);
                     if (text_output == null) {
