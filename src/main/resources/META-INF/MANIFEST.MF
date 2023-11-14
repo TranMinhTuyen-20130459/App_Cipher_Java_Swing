@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: App
+Class-Path: ./lib/bcprov-jdk15on-1.58.jar
+

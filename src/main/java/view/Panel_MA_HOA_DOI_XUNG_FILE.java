@@ -5,6 +5,7 @@ import helper.Algorithm;
 import helper.DecryptFile;
 import helper.EncryptFile;
 import helper.Image;
+import utils.CheckKey;
 import utils.FileUtil;
 
 import javax.swing.*;
@@ -249,6 +250,11 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
                         // Nếu đã có key MÃ HÓA
                         else {
 
+                            if (!CheckKey.isValidKeySymmetric(name_algorithm, key)) {
+                                JOptionPane.showMessageDialog(null, "KEY không hợp lệ !!!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                                return;
+                            }
+
                             int check_encrypted_file = Controller_MA_HOA_DOI_XUNG.encryptFileWithKeyBase64(name_algorithm, name_language, path_selected_file, dest_file, key, name_mode_padding);
 
                             if (check_encrypted_file == EncryptFile.SUCCESS) {
@@ -301,6 +307,11 @@ public class Panel_MA_HOA_DOI_XUNG_FILE extends JPanel {
 
                         // Nếu đã có key đã GIẢI MÃ
                         else {
+
+                            if (!CheckKey.isValidKeySymmetric(name_algorithm, key)) {
+                                JOptionPane.showMessageDialog(null, "KEY không hợp lệ !!!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                                return;
+                            }
 
                             // Lấy thời gian hiện tại
                             Date currentTime = new Date();

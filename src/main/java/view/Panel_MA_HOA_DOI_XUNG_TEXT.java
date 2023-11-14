@@ -3,6 +3,7 @@ package view;
 import controller.Controller_MA_HOA_DOI_XUNG;
 import helper.Algorithm;
 import helper.Image;
+import utils.CheckKey;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
@@ -179,7 +180,7 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                if (bt_encrypt.isEnabled() == true) {
+                if (bt_encrypt.isEnabled()) {
 
                     key = key_text_field.getText();
 
@@ -260,6 +261,11 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
 
                         if (name_algorithm == null) return;
 
+                        if (!CheckKey.isValidKeySymmetric(name_algorithm, key)) {
+                            JOptionPane.showMessageDialog(null, "KEY không hợp lệ !!!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                            return;
+                        }
+
                         // TH: Nếu là giải thuật Hill, Vigenere
                         if (name_algorithm.equalsIgnoreCase(Algorithm.HILL)
                                 || name_algorithm.equalsIgnoreCase(Algorithm.VIGENERE)) {
@@ -305,13 +311,19 @@ public class Panel_MA_HOA_DOI_XUNG_TEXT extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                if (bt_decrypt.isEnabled() == true) {
+                if (bt_decrypt.isEnabled()) {
 
                     key = key_text_field.getText();
 
                     if (key == null || key.isEmpty()) {
                         JOptionPane.showMessageDialog(null, "BẠN CẦN NHẬP VÀO KEY ĐỂ GIẢI MÃ", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
                     } else {
+
+                        if (!CheckKey.isValidKeySymmetric(name_algorithm, key)) {
+                            JOptionPane.showMessageDialog(null, "KEY không hợp lệ !!!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                            return;
+                        }
+
                         encrypted_text = encrypted_text_area.getText();
 
                         if (name_algorithm == null) return;
