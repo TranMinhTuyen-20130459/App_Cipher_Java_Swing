@@ -198,7 +198,7 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
                         return;
                     } else {
 
-                        if (!CheckKey.isValidPublicKeyAsymmetric(Algorithm.RSA, public_key)) {
+                        if (!CheckKey.isValidPublicKey(Algorithm.RSA, public_key)) {
                             JOptionPane.showMessageDialog(null, "PUBLIC KEY không hợp lệ !!!", "Lỗi", JOptionPane.ERROR_MESSAGE);
                             return;
                         }
@@ -241,6 +241,13 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_TEXT extends JPanel {
                     if (private_key == null || private_key.isEmpty()) {
                         JOptionPane.showMessageDialog(null, "Bạn cần nhập vào PRIVATE KEY", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
                         return;
+                    } else {
+
+                        if (!CheckKey.isValidPrivateKey(Algorithm.RSA, private_key)) {
+                            JOptionPane.showMessageDialog(null, "PRIVATE KEY không hợp lệ !!!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                            return;
+                        }
+
                     }
 
                     text_output = Controller_MA_HOA_BAT_DOI_XUNG.decryptText(Algorithm.RSA, text_input, private_key, name_mode_padding);

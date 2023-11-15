@@ -309,9 +309,8 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_FILE extends JPanel {
                     if (public_key == null || public_key.isEmpty()) {
                         JOptionPane.showMessageDialog(null, "Bạn cần nhập vào PUBLIC KEY", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
                         return;
-                    }
-                    else {
-                        if (!CheckKey.isValidPublicKeyAsymmetric(Algorithm.RSA, public_key)) {
+                    } else {
+                        if (!CheckKey.isValidPublicKey(Algorithm.RSA, public_key)) {
                             JOptionPane.showMessageDialog(null, "PUBLIC KEY không hợp lệ !!!", "Lỗi", JOptionPane.ERROR_MESSAGE);
                             return;
                         }
@@ -373,6 +372,13 @@ public class Panel_MA_HOA_BAT_DOI_XUNG_FILE extends JPanel {
                     if (private_key == null || private_key.isEmpty()) {
                         JOptionPane.showMessageDialog(null, "Bạn cần nhập vào PRIVATE KEY", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
                         return;
+                    } else {
+
+                        if (!CheckKey.isValidPrivateKey(Algorithm.RSA, private_key)) {
+                            JOptionPane.showMessageDialog(null, "PRIVATE KEY không hợp lệ !!!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                            return;
+                        }
+
                     }
 
                     if (name_selected_file == null || path_selected_file == null || path_folder_contain_selected_file == null ||
